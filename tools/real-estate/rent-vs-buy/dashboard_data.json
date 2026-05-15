@@ -1,0 +1,8695 @@
+{
+  "generated_at": "2026-05-10T01:58:23.261174+00:00",
+  "snapshot": [
+    {
+      "market_id": "austin-tx",
+      "price": 433429.0,
+      "rent_mo": 2240.0,
+      "rate_pct": 6.37,
+      "rate_date": "2026-05-07",
+      "price_to_rent_ratio": 16.1,
+      "pi_mo": 2162.0,
+      "tax_mo": 686.0,
+      "maint_mo": 361.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 3440.0,
+      "total_rent_mo": 2255.0,
+      "gap_buy_minus_rent_mo": 1185.0,
+      "five_pct_rule_annual": 21671.0,
+      "five_pct_rule_mo": 1806.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "price": 461208.0,
+      "rent_mo": 2326.0,
+      "rate_pct": 6.37,
+      "rate_date": "2026-05-07",
+      "price_to_rent_ratio": 16.5,
+      "pi_mo": 2301.0,
+      "tax_mo": 307.0,
+      "maint_mo": 384.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 3142.0,
+      "total_rent_mo": 2341.0,
+      "gap_buy_minus_rent_mo": 801.0,
+      "five_pct_rule_annual": 23060.0,
+      "five_pct_rule_mo": 1922.0,
+      "pr_verdict": "borderline"
+    }
+  ],
+  "history": [
+    {
+      "market_id": "austin-tx",
+      "month_start": "2015-01-01",
+      "price": 255652.0,
+      "rent_mo": 1487.0,
+      "rate_pct": 3.67,
+      "price_to_rent_ratio": 14.33,
+      "pi_mo": 938.0,
+      "tax_mo": 405.0,
+      "maint_mo": 213.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 1786.0,
+      "total_rent_mo": 1502.0,
+      "gap_buy_minus_rent_mo": 284.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2015-02-01",
+      "price": 258267.0,
+      "rent_mo": 1504.0,
+      "rate_pct": 3.71,
+      "price_to_rent_ratio": 14.31,
+      "pi_mo": 952.0,
+      "tax_mo": 409.0,
+      "maint_mo": 215.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 1806.0,
+      "total_rent_mo": 1519.0,
+      "gap_buy_minus_rent_mo": 287.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2015-03-01",
+      "price": 260914.0,
+      "rent_mo": 1511.0,
+      "rate_pct": 3.77,
+      "price_to_rent_ratio": 14.39,
+      "pi_mo": 969.0,
+      "tax_mo": 413.0,
+      "maint_mo": 217.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 1830.0,
+      "total_rent_mo": 1526.0,
+      "gap_buy_minus_rent_mo": 303.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2015-04-01",
+      "price": 263020.0,
+      "rent_mo": 1517.0,
+      "rate_pct": 3.67,
+      "price_to_rent_ratio": 14.45,
+      "pi_mo": 965.0,
+      "tax_mo": 416.0,
+      "maint_mo": 219.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 1831.0,
+      "total_rent_mo": 1532.0,
+      "gap_buy_minus_rent_mo": 299.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2015-05-01",
+      "price": 264900.0,
+      "rent_mo": 1525.0,
+      "rate_pct": 3.84,
+      "price_to_rent_ratio": 14.47,
+      "pi_mo": 992.0,
+      "tax_mo": 419.0,
+      "maint_mo": 221.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 1862.0,
+      "total_rent_mo": 1540.0,
+      "gap_buy_minus_rent_mo": 322.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2015-06-01",
+      "price": 266610.0,
+      "rent_mo": 1535.0,
+      "rate_pct": 3.98,
+      "price_to_rent_ratio": 14.47,
+      "pi_mo": 1016.0,
+      "tax_mo": 422.0,
+      "maint_mo": 222.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 1890.0,
+      "total_rent_mo": 1550.0,
+      "gap_buy_minus_rent_mo": 340.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2015-07-01",
+      "price": 268434.0,
+      "rent_mo": 1548.0,
+      "rate_pct": 4.05,
+      "price_to_rent_ratio": 14.45,
+      "pi_mo": 1031.0,
+      "tax_mo": 425.0,
+      "maint_mo": 224.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 1910.0,
+      "total_rent_mo": 1563.0,
+      "gap_buy_minus_rent_mo": 347.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2015-08-01",
+      "price": 270204.0,
+      "rent_mo": 1554.0,
+      "rate_pct": 3.91,
+      "price_to_rent_ratio": 14.49,
+      "pi_mo": 1020.0,
+      "tax_mo": 428.0,
+      "maint_mo": 225.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 1903.0,
+      "total_rent_mo": 1569.0,
+      "gap_buy_minus_rent_mo": 334.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2015-09-01",
+      "price": 271949.0,
+      "rent_mo": 1551.0,
+      "rate_pct": 3.89,
+      "price_to_rent_ratio": 14.61,
+      "pi_mo": 1025.0,
+      "tax_mo": 431.0,
+      "maint_mo": 227.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 1912.0,
+      "total_rent_mo": 1566.0,
+      "gap_buy_minus_rent_mo": 346.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2015-10-01",
+      "price": 273620.0,
+      "rent_mo": 1541.0,
+      "rate_pct": 3.8,
+      "price_to_rent_ratio": 14.8,
+      "pi_mo": 1019.0,
+      "tax_mo": 433.0,
+      "maint_mo": 228.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 1911.0,
+      "total_rent_mo": 1556.0,
+      "gap_buy_minus_rent_mo": 355.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2015-11-01",
+      "price": 275402.0,
+      "rent_mo": 1534.0,
+      "rate_pct": 3.94,
+      "price_to_rent_ratio": 14.96,
+      "pi_mo": 1045.0,
+      "tax_mo": 436.0,
+      "maint_mo": 230.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 1940.0,
+      "total_rent_mo": 1549.0,
+      "gap_buy_minus_rent_mo": 391.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2015-12-01",
+      "price": 277195.0,
+      "rent_mo": 1541.0,
+      "rate_pct": 3.96,
+      "price_to_rent_ratio": 14.99,
+      "pi_mo": 1054.0,
+      "tax_mo": 439.0,
+      "maint_mo": 231.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 1954.0,
+      "total_rent_mo": 1556.0,
+      "gap_buy_minus_rent_mo": 398.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2016-01-01",
+      "price": 279313.0,
+      "rent_mo": 1551.0,
+      "rate_pct": 3.87,
+      "price_to_rent_ratio": 15.01,
+      "pi_mo": 1050.0,
+      "tax_mo": 442.0,
+      "maint_mo": 233.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 1955.0,
+      "total_rent_mo": 1566.0,
+      "gap_buy_minus_rent_mo": 389.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2016-02-01",
+      "price": 281379.0,
+      "rent_mo": 1560.0,
+      "rate_pct": 3.66,
+      "price_to_rent_ratio": 15.03,
+      "pi_mo": 1031.0,
+      "tax_mo": 446.0,
+      "maint_mo": 234.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 1941.0,
+      "total_rent_mo": 1575.0,
+      "gap_buy_minus_rent_mo": 366.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2016-03-01",
+      "price": 283093.0,
+      "rent_mo": 1568.0,
+      "rate_pct": 3.69,
+      "price_to_rent_ratio": 15.05,
+      "pi_mo": 1042.0,
+      "tax_mo": 448.0,
+      "maint_mo": 236.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 1956.0,
+      "total_rent_mo": 1583.0,
+      "gap_buy_minus_rent_mo": 373.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2016-04-01",
+      "price": 284591.0,
+      "rent_mo": 1580.0,
+      "rate_pct": 3.6,
+      "price_to_rent_ratio": 15.01,
+      "pi_mo": 1036.0,
+      "tax_mo": 451.0,
+      "maint_mo": 237.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 1954.0,
+      "total_rent_mo": 1595.0,
+      "gap_buy_minus_rent_mo": 359.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2016-05-01",
+      "price": 286049.0,
+      "rent_mo": 1592.0,
+      "rate_pct": 3.6,
+      "price_to_rent_ratio": 14.98,
+      "pi_mo": 1040.0,
+      "tax_mo": 453.0,
+      "maint_mo": 238.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 1962.0,
+      "total_rent_mo": 1607.0,
+      "gap_buy_minus_rent_mo": 355.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2016-06-01",
+      "price": 287681.0,
+      "rent_mo": 1598.0,
+      "rate_pct": 3.57,
+      "price_to_rent_ratio": 15.0,
+      "pi_mo": 1042.0,
+      "tax_mo": 455.0,
+      "maint_mo": 240.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 1967.0,
+      "total_rent_mo": 1613.0,
+      "gap_buy_minus_rent_mo": 354.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2016-07-01",
+      "price": 288996.0,
+      "rent_mo": 1602.0,
+      "rate_pct": 3.44,
+      "price_to_rent_ratio": 15.03,
+      "pi_mo": 1030.0,
+      "tax_mo": 458.0,
+      "maint_mo": 241.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 1959.0,
+      "total_rent_mo": 1617.0,
+      "gap_buy_minus_rent_mo": 342.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2016-08-01",
+      "price": 289846.0,
+      "rent_mo": 1599.0,
+      "rate_pct": 3.44,
+      "price_to_rent_ratio": 15.11,
+      "pi_mo": 1033.0,
+      "tax_mo": 459.0,
+      "maint_mo": 242.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 1963.0,
+      "total_rent_mo": 1614.0,
+      "gap_buy_minus_rent_mo": 349.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2016-09-01",
+      "price": 290470.0,
+      "rent_mo": 1592.0,
+      "rate_pct": 3.46,
+      "price_to_rent_ratio": 15.2,
+      "pi_mo": 1038.0,
+      "tax_mo": 460.0,
+      "maint_mo": 242.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 1970.0,
+      "total_rent_mo": 1607.0,
+      "gap_buy_minus_rent_mo": 363.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2016-10-01",
+      "price": 291340.0,
+      "rent_mo": 1580.0,
+      "rate_pct": 3.47,
+      "price_to_rent_ratio": 15.36,
+      "pi_mo": 1043.0,
+      "tax_mo": 461.0,
+      "maint_mo": 243.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 1977.0,
+      "total_rent_mo": 1595.0,
+      "gap_buy_minus_rent_mo": 381.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2016-11-01",
+      "price": 292743.0,
+      "rent_mo": 1575.0,
+      "rate_pct": 3.77,
+      "price_to_rent_ratio": 15.49,
+      "pi_mo": 1087.0,
+      "tax_mo": 464.0,
+      "maint_mo": 244.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2025.0,
+      "total_rent_mo": 1590.0,
+      "gap_buy_minus_rent_mo": 435.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2016-12-01",
+      "price": 294560.0,
+      "rent_mo": 1570.0,
+      "rate_pct": 4.2,
+      "price_to_rent_ratio": 15.64,
+      "pi_mo": 1152.0,
+      "tax_mo": 466.0,
+      "maint_mo": 245.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2094.0,
+      "total_rent_mo": 1585.0,
+      "gap_buy_minus_rent_mo": 509.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2017-01-01",
+      "price": 296393.0,
+      "rent_mo": 1578.0,
+      "rate_pct": 4.15,
+      "price_to_rent_ratio": 15.65,
+      "pi_mo": 1153.0,
+      "tax_mo": 469.0,
+      "maint_mo": 247.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2099.0,
+      "total_rent_mo": 1593.0,
+      "gap_buy_minus_rent_mo": 506.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2017-02-01",
+      "price": 298036.0,
+      "rent_mo": 1593.0,
+      "rate_pct": 4.17,
+      "price_to_rent_ratio": 15.59,
+      "pi_mo": 1161.0,
+      "tax_mo": 472.0,
+      "maint_mo": 248.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2112.0,
+      "total_rent_mo": 1608.0,
+      "gap_buy_minus_rent_mo": 504.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2017-03-01",
+      "price": 299477.0,
+      "rent_mo": 1614.0,
+      "rate_pct": 4.2,
+      "price_to_rent_ratio": 15.46,
+      "pi_mo": 1171.0,
+      "tax_mo": 474.0,
+      "maint_mo": 250.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2125.0,
+      "total_rent_mo": 1629.0,
+      "gap_buy_minus_rent_mo": 495.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2017-04-01",
+      "price": 300882.0,
+      "rent_mo": 1629.0,
+      "rate_pct": 4.04,
+      "price_to_rent_ratio": 15.39,
+      "pi_mo": 1155.0,
+      "tax_mo": 476.0,
+      "maint_mo": 251.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2113.0,
+      "total_rent_mo": 1644.0,
+      "gap_buy_minus_rent_mo": 468.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2017-05-01",
+      "price": 301774.0,
+      "rent_mo": 1636.0,
+      "rate_pct": 4.01,
+      "price_to_rent_ratio": 15.37,
+      "pi_mo": 1154.0,
+      "tax_mo": 478.0,
+      "maint_mo": 251.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2113.0,
+      "total_rent_mo": 1651.0,
+      "gap_buy_minus_rent_mo": 462.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2017-06-01",
+      "price": 302293.0,
+      "rent_mo": 1641.0,
+      "rate_pct": 3.9,
+      "price_to_rent_ratio": 15.35,
+      "pi_mo": 1141.0,
+      "tax_mo": 479.0,
+      "maint_mo": 252.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2102.0,
+      "total_rent_mo": 1656.0,
+      "gap_buy_minus_rent_mo": 445.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2017-07-01",
+      "price": 302492.0,
+      "rent_mo": 1638.0,
+      "rate_pct": 3.97,
+      "price_to_rent_ratio": 15.39,
+      "pi_mo": 1151.0,
+      "tax_mo": 479.0,
+      "maint_mo": 252.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2112.0,
+      "total_rent_mo": 1653.0,
+      "gap_buy_minus_rent_mo": 459.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2017-08-01",
+      "price": 302916.0,
+      "rent_mo": 1630.0,
+      "rate_pct": 3.88,
+      "price_to_rent_ratio": 15.49,
+      "pi_mo": 1140.0,
+      "tax_mo": 480.0,
+      "maint_mo": 252.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2102.0,
+      "total_rent_mo": 1645.0,
+      "gap_buy_minus_rent_mo": 457.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2017-09-01",
+      "price": 303559.0,
+      "rent_mo": 1622.0,
+      "rate_pct": 3.81,
+      "price_to_rent_ratio": 15.6,
+      "pi_mo": 1132.0,
+      "tax_mo": 481.0,
+      "maint_mo": 253.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2096.0,
+      "total_rent_mo": 1637.0,
+      "gap_buy_minus_rent_mo": 459.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2017-10-01",
+      "price": 304430.0,
+      "rent_mo": 1613.0,
+      "rate_pct": 3.9,
+      "price_to_rent_ratio": 15.73,
+      "pi_mo": 1148.0,
+      "tax_mo": 482.0,
+      "maint_mo": 254.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2114.0,
+      "total_rent_mo": 1628.0,
+      "gap_buy_minus_rent_mo": 486.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2017-11-01",
+      "price": 305434.0,
+      "rent_mo": 1614.0,
+      "rate_pct": 3.92,
+      "price_to_rent_ratio": 15.77,
+      "pi_mo": 1156.0,
+      "tax_mo": 484.0,
+      "maint_mo": 255.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2124.0,
+      "total_rent_mo": 1629.0,
+      "gap_buy_minus_rent_mo": 494.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2017-12-01",
+      "price": 306675.0,
+      "rent_mo": 1616.0,
+      "rate_pct": 3.95,
+      "price_to_rent_ratio": 15.82,
+      "pi_mo": 1164.0,
+      "tax_mo": 486.0,
+      "maint_mo": 256.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2135.0,
+      "total_rent_mo": 1631.0,
+      "gap_buy_minus_rent_mo": 505.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2018-01-01",
+      "price": 307790.0,
+      "rent_mo": 1621.0,
+      "rate_pct": 4.03,
+      "price_to_rent_ratio": 15.82,
+      "pi_mo": 1180.0,
+      "tax_mo": 487.0,
+      "maint_mo": 256.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2154.0,
+      "total_rent_mo": 1636.0,
+      "gap_buy_minus_rent_mo": 518.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2018-02-01",
+      "price": 308738.0,
+      "rent_mo": 1632.0,
+      "rate_pct": 4.33,
+      "price_to_rent_ratio": 15.77,
+      "pi_mo": 1227.0,
+      "tax_mo": 489.0,
+      "maint_mo": 257.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2203.0,
+      "total_rent_mo": 1647.0,
+      "gap_buy_minus_rent_mo": 556.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2018-03-01",
+      "price": 309758.0,
+      "rent_mo": 1644.0,
+      "rate_pct": 4.44,
+      "price_to_rent_ratio": 15.7,
+      "pi_mo": 1247.0,
+      "tax_mo": 490.0,
+      "maint_mo": 258.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2226.0,
+      "total_rent_mo": 1659.0,
+      "gap_buy_minus_rent_mo": 567.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2018-04-01",
+      "price": 310565.0,
+      "rent_mo": 1662.0,
+      "rate_pct": 4.47,
+      "price_to_rent_ratio": 15.57,
+      "pi_mo": 1254.0,
+      "tax_mo": 492.0,
+      "maint_mo": 259.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2235.0,
+      "total_rent_mo": 1677.0,
+      "gap_buy_minus_rent_mo": 558.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2018-05-01",
+      "price": 311418.0,
+      "rent_mo": 1672.0,
+      "rate_pct": 4.59,
+      "price_to_rent_ratio": 15.52,
+      "pi_mo": 1275.0,
+      "tax_mo": 493.0,
+      "maint_mo": 260.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2258.0,
+      "total_rent_mo": 1687.0,
+      "gap_buy_minus_rent_mo": 571.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2018-06-01",
+      "price": 312051.0,
+      "rent_mo": 1679.0,
+      "rate_pct": 4.57,
+      "price_to_rent_ratio": 15.49,
+      "pi_mo": 1275.0,
+      "tax_mo": 494.0,
+      "maint_mo": 260.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2259.0,
+      "total_rent_mo": 1694.0,
+      "gap_buy_minus_rent_mo": 566.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2018-07-01",
+      "price": 313021.0,
+      "rent_mo": 1681.0,
+      "rate_pct": 4.53,
+      "price_to_rent_ratio": 15.52,
+      "pi_mo": 1273.0,
+      "tax_mo": 496.0,
+      "maint_mo": 261.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2259.0,
+      "total_rent_mo": 1696.0,
+      "gap_buy_minus_rent_mo": 563.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2018-08-01",
+      "price": 313861.0,
+      "rent_mo": 1678.0,
+      "rate_pct": 4.55,
+      "price_to_rent_ratio": 15.59,
+      "pi_mo": 1280.0,
+      "tax_mo": 497.0,
+      "maint_mo": 262.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2268.0,
+      "total_rent_mo": 1693.0,
+      "gap_buy_minus_rent_mo": 575.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2018-09-01",
+      "price": 314625.0,
+      "rent_mo": 1673.0,
+      "rate_pct": 4.63,
+      "price_to_rent_ratio": 15.67,
+      "pi_mo": 1294.0,
+      "tax_mo": 498.0,
+      "maint_mo": 262.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2285.0,
+      "total_rent_mo": 1688.0,
+      "gap_buy_minus_rent_mo": 596.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2018-10-01",
+      "price": 315244.0,
+      "rent_mo": 1669.0,
+      "rate_pct": 4.83,
+      "price_to_rent_ratio": 15.74,
+      "pi_mo": 1328.0,
+      "tax_mo": 499.0,
+      "maint_mo": 263.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2320.0,
+      "total_rent_mo": 1684.0,
+      "gap_buy_minus_rent_mo": 636.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2018-11-01",
+      "price": 316027.0,
+      "rent_mo": 1669.0,
+      "rate_pct": 4.87,
+      "price_to_rent_ratio": 15.78,
+      "pi_mo": 1337.0,
+      "tax_mo": 500.0,
+      "maint_mo": 263.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2330.0,
+      "total_rent_mo": 1684.0,
+      "gap_buy_minus_rent_mo": 646.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2018-12-01",
+      "price": 316941.0,
+      "rent_mo": 1674.0,
+      "rate_pct": 4.64,
+      "price_to_rent_ratio": 15.78,
+      "pi_mo": 1306.0,
+      "tax_mo": 502.0,
+      "maint_mo": 264.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2301.0,
+      "total_rent_mo": 1689.0,
+      "gap_buy_minus_rent_mo": 612.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2019-01-01",
+      "price": 317601.0,
+      "rent_mo": 1683.0,
+      "rate_pct": 4.46,
+      "price_to_rent_ratio": 15.73,
+      "pi_mo": 1282.0,
+      "tax_mo": 503.0,
+      "maint_mo": 265.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2279.0,
+      "total_rent_mo": 1698.0,
+      "gap_buy_minus_rent_mo": 582.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2019-02-01",
+      "price": 318190.0,
+      "rent_mo": 1696.0,
+      "rate_pct": 4.37,
+      "price_to_rent_ratio": 15.64,
+      "pi_mo": 1270.0,
+      "tax_mo": 504.0,
+      "maint_mo": 265.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2269.0,
+      "total_rent_mo": 1711.0,
+      "gap_buy_minus_rent_mo": 558.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2019-03-01",
+      "price": 318690.0,
+      "rent_mo": 1708.0,
+      "rate_pct": 4.27,
+      "price_to_rent_ratio": 15.55,
+      "pi_mo": 1256.0,
+      "tax_mo": 505.0,
+      "maint_mo": 266.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2257.0,
+      "total_rent_mo": 1723.0,
+      "gap_buy_minus_rent_mo": 534.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2019-04-01",
+      "price": 319236.0,
+      "rent_mo": 1721.0,
+      "rate_pct": 4.14,
+      "price_to_rent_ratio": 15.46,
+      "pi_mo": 1240.0,
+      "tax_mo": 505.0,
+      "maint_mo": 266.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2242.0,
+      "total_rent_mo": 1736.0,
+      "gap_buy_minus_rent_mo": 506.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2019-05-01",
+      "price": 319849.0,
+      "rent_mo": 1732.0,
+      "rate_pct": 4.07,
+      "price_to_rent_ratio": 15.39,
+      "pi_mo": 1232.0,
+      "tax_mo": 506.0,
+      "maint_mo": 267.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2235.0,
+      "total_rent_mo": 1747.0,
+      "gap_buy_minus_rent_mo": 489.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2019-06-01",
+      "price": 320535.0,
+      "rent_mo": 1741.0,
+      "rate_pct": 3.8,
+      "price_to_rent_ratio": 15.34,
+      "pi_mo": 1195.0,
+      "tax_mo": 508.0,
+      "maint_mo": 267.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2200.0,
+      "total_rent_mo": 1756.0,
+      "gap_buy_minus_rent_mo": 444.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2019-07-01",
+      "price": 321344.0,
+      "rent_mo": 1748.0,
+      "rate_pct": 3.77,
+      "price_to_rent_ratio": 15.32,
+      "pi_mo": 1193.0,
+      "tax_mo": 509.0,
+      "maint_mo": 268.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2199.0,
+      "total_rent_mo": 1763.0,
+      "gap_buy_minus_rent_mo": 436.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2019-08-01",
+      "price": 322349.0,
+      "rent_mo": 1746.0,
+      "rate_pct": 3.62,
+      "price_to_rent_ratio": 15.39,
+      "pi_mo": 1175.0,
+      "tax_mo": 510.0,
+      "maint_mo": 269.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2184.0,
+      "total_rent_mo": 1761.0,
+      "gap_buy_minus_rent_mo": 423.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2019-09-01",
+      "price": 323579.0,
+      "rent_mo": 1744.0,
+      "rate_pct": 3.61,
+      "price_to_rent_ratio": 15.47,
+      "pi_mo": 1178.0,
+      "tax_mo": 512.0,
+      "maint_mo": 270.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2190.0,
+      "total_rent_mo": 1759.0,
+      "gap_buy_minus_rent_mo": 431.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2019-10-01",
+      "price": 325338.0,
+      "rent_mo": 1735.0,
+      "rate_pct": 3.69,
+      "price_to_rent_ratio": 15.62,
+      "pi_mo": 1196.0,
+      "tax_mo": 515.0,
+      "maint_mo": 271.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2212.0,
+      "total_rent_mo": 1750.0,
+      "gap_buy_minus_rent_mo": 462.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2019-11-01",
+      "price": 327465.0,
+      "rent_mo": 1740.0,
+      "rate_pct": 3.7,
+      "price_to_rent_ratio": 15.69,
+      "pi_mo": 1205.0,
+      "tax_mo": 518.0,
+      "maint_mo": 273.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2226.0,
+      "total_rent_mo": 1755.0,
+      "gap_buy_minus_rent_mo": 472.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2019-12-01",
+      "price": 329891.0,
+      "rent_mo": 1743.0,
+      "rate_pct": 3.72,
+      "price_to_rent_ratio": 15.77,
+      "pi_mo": 1218.0,
+      "tax_mo": 522.0,
+      "maint_mo": 275.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2245.0,
+      "total_rent_mo": 1758.0,
+      "gap_buy_minus_rent_mo": 487.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2020-01-01",
+      "price": 332584.0,
+      "rent_mo": 1756.0,
+      "rate_pct": 3.62,
+      "price_to_rent_ratio": 15.78,
+      "pi_mo": 1213.0,
+      "tax_mo": 527.0,
+      "maint_mo": 277.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2247.0,
+      "total_rent_mo": 1771.0,
+      "gap_buy_minus_rent_mo": 476.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2020-02-01",
+      "price": 335353.0,
+      "rent_mo": 1768.0,
+      "rate_pct": 3.46,
+      "price_to_rent_ratio": 15.8,
+      "pi_mo": 1199.0,
+      "tax_mo": 531.0,
+      "maint_mo": 279.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2240.0,
+      "total_rent_mo": 1783.0,
+      "gap_buy_minus_rent_mo": 457.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2020-03-01",
+      "price": 338198.0,
+      "rent_mo": 1778.0,
+      "rate_pct": 3.45,
+      "price_to_rent_ratio": 15.85,
+      "pi_mo": 1207.0,
+      "tax_mo": 535.0,
+      "maint_mo": 282.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2255.0,
+      "total_rent_mo": 1793.0,
+      "gap_buy_minus_rent_mo": 461.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2020-04-01",
+      "price": 340549.0,
+      "rent_mo": 1779.0,
+      "rate_pct": 3.31,
+      "price_to_rent_ratio": 15.95,
+      "pi_mo": 1194.0,
+      "tax_mo": 539.0,
+      "maint_mo": 284.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2247.0,
+      "total_rent_mo": 1794.0,
+      "gap_buy_minus_rent_mo": 453.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2020-05-01",
+      "price": 341937.0,
+      "rent_mo": 1777.0,
+      "rate_pct": 3.23,
+      "price_to_rent_ratio": 16.03,
+      "pi_mo": 1188.0,
+      "tax_mo": 541.0,
+      "maint_mo": 285.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2244.0,
+      "total_rent_mo": 1792.0,
+      "gap_buy_minus_rent_mo": 452.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2020-06-01",
+      "price": 342806.0,
+      "rent_mo": 1784.0,
+      "rate_pct": 3.16,
+      "price_to_rent_ratio": 16.01,
+      "pi_mo": 1180.0,
+      "tax_mo": 543.0,
+      "maint_mo": 286.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2239.0,
+      "total_rent_mo": 1799.0,
+      "gap_buy_minus_rent_mo": 439.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2020-07-01",
+      "price": 344281.0,
+      "rent_mo": 1795.0,
+      "rate_pct": 3.02,
+      "price_to_rent_ratio": 15.99,
+      "pi_mo": 1164.0,
+      "tax_mo": 545.0,
+      "maint_mo": 287.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2226.0,
+      "total_rent_mo": 1810.0,
+      "gap_buy_minus_rent_mo": 416.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2020-08-01",
+      "price": 347338.0,
+      "rent_mo": 1808.0,
+      "rate_pct": 2.94,
+      "price_to_rent_ratio": 16.01,
+      "pi_mo": 1162.0,
+      "tax_mo": 550.0,
+      "maint_mo": 289.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2231.0,
+      "total_rent_mo": 1823.0,
+      "gap_buy_minus_rent_mo": 409.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2020-09-01",
+      "price": 352264.0,
+      "rent_mo": 1815.0,
+      "rate_pct": 2.89,
+      "price_to_rent_ratio": 16.18,
+      "pi_mo": 1171.0,
+      "tax_mo": 558.0,
+      "maint_mo": 294.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2253.0,
+      "total_rent_mo": 1830.0,
+      "gap_buy_minus_rent_mo": 423.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2020-10-01",
+      "price": 358190.0,
+      "rent_mo": 1820.0,
+      "rate_pct": 2.83,
+      "price_to_rent_ratio": 16.4,
+      "pi_mo": 1183.0,
+      "tax_mo": 567.0,
+      "maint_mo": 298.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2278.0,
+      "total_rent_mo": 1835.0,
+      "gap_buy_minus_rent_mo": 443.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2020-11-01",
+      "price": 364988.0,
+      "rent_mo": 1826.0,
+      "rate_pct": 2.76,
+      "price_to_rent_ratio": 16.66,
+      "pi_mo": 1194.0,
+      "tax_mo": 578.0,
+      "maint_mo": 304.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2306.0,
+      "total_rent_mo": 1841.0,
+      "gap_buy_minus_rent_mo": 466.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2020-12-01",
+      "price": 372054.0,
+      "rent_mo": 1836.0,
+      "rate_pct": 2.68,
+      "price_to_rent_ratio": 16.89,
+      "pi_mo": 1205.0,
+      "tax_mo": 589.0,
+      "maint_mo": 310.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2334.0,
+      "total_rent_mo": 1851.0,
+      "gap_buy_minus_rent_mo": 483.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2021-01-01",
+      "price": 379826.0,
+      "rent_mo": 1856.0,
+      "rate_pct": 2.74,
+      "price_to_rent_ratio": 17.05,
+      "pi_mo": 1238.0,
+      "tax_mo": 601.0,
+      "maint_mo": 317.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2386.0,
+      "total_rent_mo": 1871.0,
+      "gap_buy_minus_rent_mo": 515.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2021-02-01",
+      "price": 389252.0,
+      "rent_mo": 1880.0,
+      "rate_pct": 2.81,
+      "price_to_rent_ratio": 17.26,
+      "pi_mo": 1281.0,
+      "tax_mo": 616.0,
+      "maint_mo": 324.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2452.0,
+      "total_rent_mo": 1895.0,
+      "gap_buy_minus_rent_mo": 557.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2021-03-01",
+      "price": 402382.0,
+      "rent_mo": 1907.0,
+      "rate_pct": 3.08,
+      "price_to_rent_ratio": 17.58,
+      "pi_mo": 1372.0,
+      "tax_mo": 637.0,
+      "maint_mo": 335.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2574.0,
+      "total_rent_mo": 1922.0,
+      "gap_buy_minus_rent_mo": 651.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2021-04-01",
+      "price": 420726.0,
+      "rent_mo": 1939.0,
+      "rate_pct": 3.06,
+      "price_to_rent_ratio": 18.08,
+      "pi_mo": 1430.0,
+      "tax_mo": 666.0,
+      "maint_mo": 351.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2677.0,
+      "total_rent_mo": 1954.0,
+      "gap_buy_minus_rent_mo": 723.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2021-05-01",
+      "price": 443127.0,
+      "rent_mo": 1976.0,
+      "rate_pct": 2.96,
+      "price_to_rent_ratio": 18.69,
+      "pi_mo": 1487.0,
+      "tax_mo": 702.0,
+      "maint_mo": 369.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2788.0,
+      "total_rent_mo": 1991.0,
+      "gap_buy_minus_rent_mo": 797.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2021-06-01",
+      "price": 465174.0,
+      "rent_mo": 2018.0,
+      "rate_pct": 2.97,
+      "price_to_rent_ratio": 19.21,
+      "pi_mo": 1564.0,
+      "tax_mo": 737.0,
+      "maint_mo": 388.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2918.0,
+      "total_rent_mo": 2033.0,
+      "gap_buy_minus_rent_mo": 885.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2021-07-01",
+      "price": 481571.0,
+      "rent_mo": 2057.0,
+      "rate_pct": 2.87,
+      "price_to_rent_ratio": 19.51,
+      "pi_mo": 1597.0,
+      "tax_mo": 762.0,
+      "maint_mo": 401.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 2991.0,
+      "total_rent_mo": 2072.0,
+      "gap_buy_minus_rent_mo": 919.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2021-08-01",
+      "price": 490830.0,
+      "rent_mo": 2084.0,
+      "rate_pct": 2.84,
+      "price_to_rent_ratio": 19.62,
+      "pi_mo": 1622.0,
+      "tax_mo": 777.0,
+      "maint_mo": 409.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 3038.0,
+      "total_rent_mo": 2099.0,
+      "gap_buy_minus_rent_mo": 939.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2021-09-01",
+      "price": 494411.0,
+      "rent_mo": 2092.0,
+      "rate_pct": 2.9,
+      "price_to_rent_ratio": 19.7,
+      "pi_mo": 1646.0,
+      "tax_mo": 783.0,
+      "maint_mo": 412.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 3071.0,
+      "total_rent_mo": 2107.0,
+      "gap_buy_minus_rent_mo": 964.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2021-10-01",
+      "price": 496705.0,
+      "rent_mo": 2096.0,
+      "rate_pct": 3.07,
+      "price_to_rent_ratio": 19.75,
+      "pi_mo": 1690.0,
+      "tax_mo": 786.0,
+      "maint_mo": 414.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 3120.0,
+      "total_rent_mo": 2111.0,
+      "gap_buy_minus_rent_mo": 1009.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2021-11-01",
+      "price": 500006.0,
+      "rent_mo": 2110.0,
+      "rate_pct": 3.07,
+      "price_to_rent_ratio": 19.75,
+      "pi_mo": 1701.0,
+      "tax_mo": 792.0,
+      "maint_mo": 417.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 3139.0,
+      "total_rent_mo": 2125.0,
+      "gap_buy_minus_rent_mo": 1014.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2021-12-01",
+      "price": 505367.0,
+      "rent_mo": 2132.0,
+      "rate_pct": 3.1,
+      "price_to_rent_ratio": 19.75,
+      "pi_mo": 1726.0,
+      "tax_mo": 800.0,
+      "maint_mo": 421.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 3177.0,
+      "total_rent_mo": 2147.0,
+      "gap_buy_minus_rent_mo": 1030.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2022-01-01",
+      "price": 514670.0,
+      "rent_mo": 2148.0,
+      "rate_pct": 3.45,
+      "price_to_rent_ratio": 19.96,
+      "pi_mo": 1836.0,
+      "tax_mo": 815.0,
+      "maint_mo": 429.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 3310.0,
+      "total_rent_mo": 2163.0,
+      "gap_buy_minus_rent_mo": 1147.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2022-02-01",
+      "price": 526954.0,
+      "rent_mo": 2169.0,
+      "rate_pct": 3.76,
+      "price_to_rent_ratio": 20.25,
+      "pi_mo": 1955.0,
+      "tax_mo": 834.0,
+      "maint_mo": 439.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 3459.0,
+      "total_rent_mo": 2184.0,
+      "gap_buy_minus_rent_mo": 1275.0,
+      "pr_verdict": "lean_rent"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2022-03-01",
+      "price": 542423.0,
+      "rent_mo": 2186.0,
+      "rate_pct": 4.17,
+      "price_to_rent_ratio": 20.68,
+      "pi_mo": 2115.0,
+      "tax_mo": 859.0,
+      "maint_mo": 452.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 3656.0,
+      "total_rent_mo": 2201.0,
+      "gap_buy_minus_rent_mo": 1455.0,
+      "pr_verdict": "lean_rent"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2022-04-01",
+      "price": 557677.0,
+      "rent_mo": 2211.0,
+      "rate_pct": 4.98,
+      "price_to_rent_ratio": 21.02,
+      "pi_mo": 2390.0,
+      "tax_mo": 883.0,
+      "maint_mo": 465.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 3968.0,
+      "total_rent_mo": 2226.0,
+      "gap_buy_minus_rent_mo": 1742.0,
+      "pr_verdict": "lean_rent"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2022-05-01",
+      "price": 570534.0,
+      "rent_mo": 2232.0,
+      "rate_pct": 5.23,
+      "price_to_rent_ratio": 21.3,
+      "pi_mo": 2515.0,
+      "tax_mo": 903.0,
+      "maint_mo": 475.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 4124.0,
+      "total_rent_mo": 2247.0,
+      "gap_buy_minus_rent_mo": 1876.0,
+      "pr_verdict": "lean_rent"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2022-06-01",
+      "price": 578075.0,
+      "rent_mo": 2259.0,
+      "rate_pct": 5.52,
+      "price_to_rent_ratio": 21.33,
+      "pi_mo": 2632.0,
+      "tax_mo": 915.0,
+      "maint_mo": 482.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 4259.0,
+      "total_rent_mo": 2274.0,
+      "gap_buy_minus_rent_mo": 1986.0,
+      "pr_verdict": "lean_rent"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2022-07-01",
+      "price": 577021.0,
+      "rent_mo": 2278.0,
+      "rate_pct": 5.41,
+      "price_to_rent_ratio": 21.11,
+      "pi_mo": 2596.0,
+      "tax_mo": 914.0,
+      "maint_mo": 481.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 4220.0,
+      "total_rent_mo": 2293.0,
+      "gap_buy_minus_rent_mo": 1927.0,
+      "pr_verdict": "lean_rent"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2022-08-01",
+      "price": 568944.0,
+      "rent_mo": 2281.0,
+      "rate_pct": 5.22,
+      "price_to_rent_ratio": 20.79,
+      "pi_mo": 2506.0,
+      "tax_mo": 901.0,
+      "maint_mo": 474.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 4111.0,
+      "total_rent_mo": 2296.0,
+      "gap_buy_minus_rent_mo": 1815.0,
+      "pr_verdict": "lean_rent"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2022-09-01",
+      "price": 556593.0,
+      "rent_mo": 2274.0,
+      "rate_pct": 6.11,
+      "price_to_rent_ratio": 20.4,
+      "pi_mo": 2702.0,
+      "tax_mo": 881.0,
+      "maint_mo": 464.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 4277.0,
+      "total_rent_mo": 2289.0,
+      "gap_buy_minus_rent_mo": 1988.0,
+      "pr_verdict": "lean_rent"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2022-10-01",
+      "price": 545170.0,
+      "rent_mo": 2260.0,
+      "rate_pct": 6.9,
+      "price_to_rent_ratio": 20.1,
+      "pi_mo": 2872.0,
+      "tax_mo": 863.0,
+      "maint_mo": 454.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 4420.0,
+      "total_rent_mo": 2275.0,
+      "gap_buy_minus_rent_mo": 2145.0,
+      "pr_verdict": "lean_rent"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2022-11-01",
+      "price": 535229.0,
+      "rent_mo": 2249.0,
+      "rate_pct": 6.8,
+      "price_to_rent_ratio": 19.83,
+      "pi_mo": 2793.0,
+      "tax_mo": 847.0,
+      "maint_mo": 446.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 4316.0,
+      "total_rent_mo": 2264.0,
+      "gap_buy_minus_rent_mo": 2052.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2022-12-01",
+      "price": 526418.0,
+      "rent_mo": 2244.0,
+      "rate_pct": 6.36,
+      "price_to_rent_ratio": 19.55,
+      "pi_mo": 2624.0,
+      "tax_mo": 833.0,
+      "maint_mo": 439.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 4126.0,
+      "total_rent_mo": 2259.0,
+      "gap_buy_minus_rent_mo": 1868.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2023-01-01",
+      "price": 518077.0,
+      "rent_mo": 2245.0,
+      "rate_pct": 6.27,
+      "price_to_rent_ratio": 19.23,
+      "pi_mo": 2558.0,
+      "tax_mo": 820.0,
+      "maint_mo": 432.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 4040.0,
+      "total_rent_mo": 2260.0,
+      "gap_buy_minus_rent_mo": 1780.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2023-02-01",
+      "price": 510572.0,
+      "rent_mo": 2251.0,
+      "rate_pct": 6.26,
+      "price_to_rent_ratio": 18.9,
+      "pi_mo": 2517.0,
+      "tax_mo": 808.0,
+      "maint_mo": 425.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 3981.0,
+      "total_rent_mo": 2266.0,
+      "gap_buy_minus_rent_mo": 1715.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2023-03-01",
+      "price": 504576.0,
+      "rent_mo": 2262.0,
+      "rate_pct": 6.54,
+      "price_to_rent_ratio": 18.59,
+      "pi_mo": 2563.0,
+      "tax_mo": 799.0,
+      "maint_mo": 420.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 4012.0,
+      "total_rent_mo": 2277.0,
+      "gap_buy_minus_rent_mo": 1736.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2023-04-01",
+      "price": 500275.0,
+      "rent_mo": 2270.0,
+      "rate_pct": 6.34,
+      "price_to_rent_ratio": 18.36,
+      "pi_mo": 2488.0,
+      "tax_mo": 792.0,
+      "maint_mo": 417.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 3927.0,
+      "total_rent_mo": 2285.0,
+      "gap_buy_minus_rent_mo": 1642.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2023-05-01",
+      "price": 498048.0,
+      "rent_mo": 2282.0,
+      "rate_pct": 6.42,
+      "price_to_rent_ratio": 18.19,
+      "pi_mo": 2499.0,
+      "tax_mo": 789.0,
+      "maint_mo": 415.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 3932.0,
+      "total_rent_mo": 2297.0,
+      "gap_buy_minus_rent_mo": 1636.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2023-06-01",
+      "price": 497197.0,
+      "rent_mo": 2288.0,
+      "rate_pct": 6.71,
+      "price_to_rent_ratio": 18.11,
+      "pi_mo": 2570.0,
+      "tax_mo": 787.0,
+      "maint_mo": 414.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 4002.0,
+      "total_rent_mo": 2303.0,
+      "gap_buy_minus_rent_mo": 1699.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2023-07-01",
+      "price": 496376.0,
+      "rent_mo": 2289.0,
+      "rate_pct": 6.84,
+      "price_to_rent_ratio": 18.07,
+      "pi_mo": 2599.0,
+      "tax_mo": 786.0,
+      "maint_mo": 414.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 4029.0,
+      "total_rent_mo": 2304.0,
+      "gap_buy_minus_rent_mo": 1725.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2023-08-01",
+      "price": 494958.0,
+      "rent_mo": 2281.0,
+      "rate_pct": 7.07,
+      "price_to_rent_ratio": 18.08,
+      "pi_mo": 2654.0,
+      "tax_mo": 784.0,
+      "maint_mo": 412.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 4080.0,
+      "total_rent_mo": 2296.0,
+      "gap_buy_minus_rent_mo": 1784.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2023-09-01",
+      "price": 492629.0,
+      "rent_mo": 2260.0,
+      "rate_pct": 7.2,
+      "price_to_rent_ratio": 18.16,
+      "pi_mo": 2675.0,
+      "tax_mo": 780.0,
+      "maint_mo": 411.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 4096.0,
+      "total_rent_mo": 2275.0,
+      "gap_buy_minus_rent_mo": 1820.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2023-10-01",
+      "price": 489882.0,
+      "rent_mo": 2245.0,
+      "rate_pct": 7.62,
+      "price_to_rent_ratio": 18.18,
+      "pi_mo": 2773.0,
+      "tax_mo": 776.0,
+      "maint_mo": 408.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 4186.0,
+      "total_rent_mo": 2260.0,
+      "gap_buy_minus_rent_mo": 1926.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2023-11-01",
+      "price": 486836.0,
+      "rent_mo": 2231.0,
+      "rate_pct": 7.44,
+      "price_to_rent_ratio": 18.19,
+      "pi_mo": 2708.0,
+      "tax_mo": 771.0,
+      "maint_mo": 406.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 4114.0,
+      "total_rent_mo": 2246.0,
+      "gap_buy_minus_rent_mo": 1869.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2023-12-01",
+      "price": 483832.0,
+      "rent_mo": 2227.0,
+      "rate_pct": 6.82,
+      "price_to_rent_ratio": 18.1,
+      "pi_mo": 2527.0,
+      "tax_mo": 766.0,
+      "maint_mo": 403.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 3927.0,
+      "total_rent_mo": 2242.0,
+      "gap_buy_minus_rent_mo": 1684.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2024-01-01",
+      "price": 481340.0,
+      "rent_mo": 2231.0,
+      "rate_pct": 6.64,
+      "price_to_rent_ratio": 17.98,
+      "pi_mo": 2470.0,
+      "tax_mo": 762.0,
+      "maint_mo": 401.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 3863.0,
+      "total_rent_mo": 2246.0,
+      "gap_buy_minus_rent_mo": 1618.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2024-02-01",
+      "price": 479582.0,
+      "rent_mo": 2241.0,
+      "rate_pct": 6.78,
+      "price_to_rent_ratio": 17.83,
+      "pi_mo": 2495.0,
+      "tax_mo": 759.0,
+      "maint_mo": 400.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 3884.0,
+      "total_rent_mo": 2256.0,
+      "gap_buy_minus_rent_mo": 1628.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2024-03-01",
+      "price": 479018.0,
+      "rent_mo": 2256.0,
+      "rate_pct": 6.82,
+      "price_to_rent_ratio": 17.7,
+      "pi_mo": 2503.0,
+      "tax_mo": 758.0,
+      "maint_mo": 399.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 3891.0,
+      "total_rent_mo": 2271.0,
+      "gap_buy_minus_rent_mo": 1620.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2024-04-01",
+      "price": 479095.0,
+      "rent_mo": 2264.0,
+      "rate_pct": 6.99,
+      "price_to_rent_ratio": 17.64,
+      "pi_mo": 2548.0,
+      "tax_mo": 759.0,
+      "maint_mo": 399.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 3936.0,
+      "total_rent_mo": 2279.0,
+      "gap_buy_minus_rent_mo": 1657.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2024-05-01",
+      "price": 478536.0,
+      "rent_mo": 2267.0,
+      "rate_pct": 7.06,
+      "price_to_rent_ratio": 17.59,
+      "pi_mo": 2562.0,
+      "tax_mo": 758.0,
+      "maint_mo": 399.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 3949.0,
+      "total_rent_mo": 2282.0,
+      "gap_buy_minus_rent_mo": 1667.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2024-06-01",
+      "price": 476799.0,
+      "rent_mo": 2267.0,
+      "rate_pct": 6.92,
+      "price_to_rent_ratio": 17.53,
+      "pi_mo": 2517.0,
+      "tax_mo": 755.0,
+      "maint_mo": 397.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 3899.0,
+      "total_rent_mo": 2282.0,
+      "gap_buy_minus_rent_mo": 1617.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2024-07-01",
+      "price": 474571.0,
+      "rent_mo": 2266.0,
+      "rate_pct": 6.85,
+      "price_to_rent_ratio": 17.45,
+      "pi_mo": 2487.0,
+      "tax_mo": 751.0,
+      "maint_mo": 395.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 3864.0,
+      "total_rent_mo": 2281.0,
+      "gap_buy_minus_rent_mo": 1583.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2024-08-01",
+      "price": 472672.0,
+      "rent_mo": 2255.0,
+      "rate_pct": 6.5,
+      "price_to_rent_ratio": 17.47,
+      "pi_mo": 2390.0,
+      "tax_mo": 748.0,
+      "maint_mo": 394.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 3762.0,
+      "total_rent_mo": 2270.0,
+      "gap_buy_minus_rent_mo": 1493.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2024-09-01",
+      "price": 471718.0,
+      "rent_mo": 2240.0,
+      "rate_pct": 6.18,
+      "price_to_rent_ratio": 17.55,
+      "pi_mo": 2306.0,
+      "tax_mo": 747.0,
+      "maint_mo": 393.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 3676.0,
+      "total_rent_mo": 2255.0,
+      "gap_buy_minus_rent_mo": 1421.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2024-10-01",
+      "price": 470956.0,
+      "rent_mo": 2220.0,
+      "rate_pct": 6.43,
+      "price_to_rent_ratio": 17.68,
+      "pi_mo": 2364.0,
+      "tax_mo": 746.0,
+      "maint_mo": 392.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 3732.0,
+      "total_rent_mo": 2235.0,
+      "gap_buy_minus_rent_mo": 1497.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2024-11-01",
+      "price": 470122.0,
+      "rent_mo": 2213.0,
+      "rate_pct": 6.8,
+      "price_to_rent_ratio": 17.71,
+      "pi_mo": 2453.0,
+      "tax_mo": 744.0,
+      "maint_mo": 392.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 3819.0,
+      "total_rent_mo": 2228.0,
+      "gap_buy_minus_rent_mo": 1592.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2024-12-01",
+      "price": 468574.0,
+      "rent_mo": 2219.0,
+      "rate_pct": 6.71,
+      "price_to_rent_ratio": 17.6,
+      "pi_mo": 2423.0,
+      "tax_mo": 742.0,
+      "maint_mo": 390.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 3785.0,
+      "total_rent_mo": 2234.0,
+      "gap_buy_minus_rent_mo": 1551.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2025-01-01",
+      "price": 466406.0,
+      "rent_mo": 2225.0,
+      "rate_pct": 6.96,
+      "price_to_rent_ratio": 17.47,
+      "pi_mo": 2472.0,
+      "tax_mo": 738.0,
+      "maint_mo": 389.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 3829.0,
+      "total_rent_mo": 2240.0,
+      "gap_buy_minus_rent_mo": 1589.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2025-02-01",
+      "price": 464003.0,
+      "rent_mo": 2234.0,
+      "rate_pct": 6.84,
+      "price_to_rent_ratio": 17.31,
+      "pi_mo": 2430.0,
+      "tax_mo": 735.0,
+      "maint_mo": 387.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 3782.0,
+      "total_rent_mo": 2249.0,
+      "gap_buy_minus_rent_mo": 1533.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2025-03-01",
+      "price": 461116.0,
+      "rent_mo": 2238.0,
+      "rate_pct": 6.65,
+      "price_to_rent_ratio": 17.17,
+      "pi_mo": 2368.0,
+      "tax_mo": 730.0,
+      "maint_mo": 384.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 3713.0,
+      "total_rent_mo": 2253.0,
+      "gap_buy_minus_rent_mo": 1460.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2025-04-01",
+      "price": 458135.0,
+      "rent_mo": 2249.0,
+      "rate_pct": 6.72,
+      "price_to_rent_ratio": 16.97,
+      "pi_mo": 2371.0,
+      "tax_mo": 725.0,
+      "maint_mo": 382.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 3708.0,
+      "total_rent_mo": 2264.0,
+      "gap_buy_minus_rent_mo": 1444.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2025-05-01",
+      "price": 454640.0,
+      "rent_mo": 2260.0,
+      "rate_pct": 6.82,
+      "price_to_rent_ratio": 16.77,
+      "pi_mo": 2375.0,
+      "tax_mo": 720.0,
+      "maint_mo": 379.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 3704.0,
+      "total_rent_mo": 2275.0,
+      "gap_buy_minus_rent_mo": 1429.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2025-06-01",
+      "price": 450907.0,
+      "rent_mo": 2265.0,
+      "rate_pct": 6.82,
+      "price_to_rent_ratio": 16.59,
+      "pi_mo": 2356.0,
+      "tax_mo": 714.0,
+      "maint_mo": 376.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 3676.0,
+      "total_rent_mo": 2280.0,
+      "gap_buy_minus_rent_mo": 1395.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2025-07-01",
+      "price": 447376.0,
+      "rent_mo": 2264.0,
+      "rate_pct": 6.72,
+      "price_to_rent_ratio": 16.47,
+      "pi_mo": 2314.0,
+      "tax_mo": 708.0,
+      "maint_mo": 373.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 3625.0,
+      "total_rent_mo": 2279.0,
+      "gap_buy_minus_rent_mo": 1346.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2025-08-01",
+      "price": 444943.0,
+      "rent_mo": 2253.0,
+      "rate_pct": 6.59,
+      "price_to_rent_ratio": 16.46,
+      "pi_mo": 2270.0,
+      "tax_mo": 704.0,
+      "maint_mo": 371.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 3576.0,
+      "total_rent_mo": 2268.0,
+      "gap_buy_minus_rent_mo": 1307.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2025-09-01",
+      "price": 443592.0,
+      "rent_mo": 2242.0,
+      "rate_pct": 6.35,
+      "price_to_rent_ratio": 16.49,
+      "pi_mo": 2209.0,
+      "tax_mo": 702.0,
+      "maint_mo": 370.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 3511.0,
+      "total_rent_mo": 2257.0,
+      "gap_buy_minus_rent_mo": 1254.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2025-10-01",
+      "price": 442606.0,
+      "rent_mo": 2235.0,
+      "rate_pct": 6.25,
+      "price_to_rent_ratio": 16.5,
+      "pi_mo": 2181.0,
+      "tax_mo": 701.0,
+      "maint_mo": 369.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 3481.0,
+      "total_rent_mo": 2250.0,
+      "gap_buy_minus_rent_mo": 1230.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2025-11-01",
+      "price": 441425.0,
+      "rent_mo": 2228.0,
+      "rate_pct": 6.24,
+      "price_to_rent_ratio": 16.51,
+      "pi_mo": 2171.0,
+      "tax_mo": 699.0,
+      "maint_mo": 368.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 3468.0,
+      "total_rent_mo": 2243.0,
+      "gap_buy_minus_rent_mo": 1225.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2025-12-01",
+      "price": 440007.0,
+      "rent_mo": 2226.0,
+      "rate_pct": 6.19,
+      "price_to_rent_ratio": 16.48,
+      "pi_mo": 2154.0,
+      "tax_mo": 697.0,
+      "maint_mo": 367.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 3447.0,
+      "total_rent_mo": 2241.0,
+      "gap_buy_minus_rent_mo": 1206.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2026-01-01",
+      "price": 438251.0,
+      "rent_mo": 2221.0,
+      "rate_pct": 6.1,
+      "price_to_rent_ratio": 16.45,
+      "pi_mo": 2125.0,
+      "tax_mo": 694.0,
+      "maint_mo": 365.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 3414.0,
+      "total_rent_mo": 2236.0,
+      "gap_buy_minus_rent_mo": 1179.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2026-02-01",
+      "price": 436181.0,
+      "rent_mo": 2228.0,
+      "rate_pct": 6.05,
+      "price_to_rent_ratio": 16.31,
+      "pi_mo": 2103.0,
+      "tax_mo": 691.0,
+      "maint_mo": 363.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 3387.0,
+      "total_rent_mo": 2243.0,
+      "gap_buy_minus_rent_mo": 1144.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "austin-tx",
+      "month_start": "2026-03-01",
+      "price": 433429.0,
+      "rent_mo": 2240.0,
+      "rate_pct": 6.18,
+      "price_to_rent_ratio": 16.13,
+      "pi_mo": 2119.0,
+      "tax_mo": 686.0,
+      "maint_mo": 361.0,
+      "insurance_mo": 230.0,
+      "total_buy_mo": 3396.0,
+      "total_rent_mo": 2255.0,
+      "gap_buy_minus_rent_mo": 1141.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2015-01-01",
+      "price": 201995.0,
+      "rent_mo": 1335.0,
+      "rate_pct": 3.67,
+      "price_to_rent_ratio": 12.61,
+      "pi_mo": 741.0,
+      "tax_mo": 135.0,
+      "maint_mo": 168.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1194.0,
+      "total_rent_mo": 1350.0,
+      "gap_buy_minus_rent_mo": -156.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2015-02-01",
+      "price": 203883.0,
+      "rent_mo": 1337.0,
+      "rate_pct": 3.71,
+      "price_to_rent_ratio": 12.7,
+      "pi_mo": 752.0,
+      "tax_mo": 136.0,
+      "maint_mo": 170.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1208.0,
+      "total_rent_mo": 1352.0,
+      "gap_buy_minus_rent_mo": -145.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2015-03-01",
+      "price": 205726.0,
+      "rent_mo": 1354.0,
+      "rate_pct": 3.77,
+      "price_to_rent_ratio": 12.66,
+      "pi_mo": 764.0,
+      "tax_mo": 137.0,
+      "maint_mo": 171.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1223.0,
+      "total_rent_mo": 1369.0,
+      "gap_buy_minus_rent_mo": -147.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2015-04-01",
+      "price": 207287.0,
+      "rent_mo": 1359.0,
+      "rate_pct": 3.67,
+      "price_to_rent_ratio": 12.71,
+      "pi_mo": 761.0,
+      "tax_mo": 138.0,
+      "maint_mo": 173.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1222.0,
+      "total_rent_mo": 1374.0,
+      "gap_buy_minus_rent_mo": -152.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2015-05-01",
+      "price": 208805.0,
+      "rent_mo": 1379.0,
+      "rate_pct": 3.84,
+      "price_to_rent_ratio": 12.61,
+      "pi_mo": 782.0,
+      "tax_mo": 139.0,
+      "maint_mo": 174.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1245.0,
+      "total_rent_mo": 1394.0,
+      "gap_buy_minus_rent_mo": -149.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2015-06-01",
+      "price": 210444.0,
+      "rent_mo": 1393.0,
+      "rate_pct": 3.98,
+      "price_to_rent_ratio": 12.59,
+      "pi_mo": 802.0,
+      "tax_mo": 140.0,
+      "maint_mo": 175.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1268.0,
+      "total_rent_mo": 1408.0,
+      "gap_buy_minus_rent_mo": -141.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2015-07-01",
+      "price": 212456.0,
+      "rent_mo": 1406.0,
+      "rate_pct": 4.05,
+      "price_to_rent_ratio": 12.59,
+      "pi_mo": 816.0,
+      "tax_mo": 142.0,
+      "maint_mo": 177.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1285.0,
+      "total_rent_mo": 1421.0,
+      "gap_buy_minus_rent_mo": -136.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2015-08-01",
+      "price": 214620.0,
+      "rent_mo": 1411.0,
+      "rate_pct": 3.91,
+      "price_to_rent_ratio": 12.68,
+      "pi_mo": 810.0,
+      "tax_mo": 143.0,
+      "maint_mo": 179.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1282.0,
+      "total_rent_mo": 1426.0,
+      "gap_buy_minus_rent_mo": -143.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2015-09-01",
+      "price": 216957.0,
+      "rent_mo": 1405.0,
+      "rate_pct": 3.89,
+      "price_to_rent_ratio": 12.86,
+      "pi_mo": 818.0,
+      "tax_mo": 145.0,
+      "maint_mo": 181.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1293.0,
+      "total_rent_mo": 1420.0,
+      "gap_buy_minus_rent_mo": -127.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2015-10-01",
+      "price": 219406.0,
+      "rent_mo": 1404.0,
+      "rate_pct": 3.8,
+      "price_to_rent_ratio": 13.03,
+      "pi_mo": 817.0,
+      "tax_mo": 146.0,
+      "maint_mo": 183.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1297.0,
+      "total_rent_mo": 1419.0,
+      "gap_buy_minus_rent_mo": -122.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2015-11-01",
+      "price": 221872.0,
+      "rent_mo": 1398.0,
+      "rate_pct": 3.94,
+      "price_to_rent_ratio": 13.23,
+      "pi_mo": 842.0,
+      "tax_mo": 148.0,
+      "maint_mo": 185.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1324.0,
+      "total_rent_mo": 1413.0,
+      "gap_buy_minus_rent_mo": -88.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2015-12-01",
+      "price": 224310.0,
+      "rent_mo": 1404.0,
+      "rate_pct": 3.96,
+      "price_to_rent_ratio": 13.31,
+      "pi_mo": 853.0,
+      "tax_mo": 150.0,
+      "maint_mo": 187.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1339.0,
+      "total_rent_mo": 1419.0,
+      "gap_buy_minus_rent_mo": -80.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2016-01-01",
+      "price": 226486.0,
+      "rent_mo": 1415.0,
+      "rate_pct": 3.87,
+      "price_to_rent_ratio": 13.34,
+      "pi_mo": 852.0,
+      "tax_mo": 151.0,
+      "maint_mo": 189.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1341.0,
+      "total_rent_mo": 1430.0,
+      "gap_buy_minus_rent_mo": -89.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2016-02-01",
+      "price": 228439.0,
+      "rent_mo": 1426.0,
+      "rate_pct": 3.66,
+      "price_to_rent_ratio": 13.35,
+      "pi_mo": 837.0,
+      "tax_mo": 152.0,
+      "maint_mo": 190.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1330.0,
+      "total_rent_mo": 1441.0,
+      "gap_buy_minus_rent_mo": -112.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2016-03-01",
+      "price": 230126.0,
+      "rent_mo": 1434.0,
+      "rate_pct": 3.69,
+      "price_to_rent_ratio": 13.38,
+      "pi_mo": 847.0,
+      "tax_mo": 153.0,
+      "maint_mo": 192.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1342.0,
+      "total_rent_mo": 1449.0,
+      "gap_buy_minus_rent_mo": -107.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2016-04-01",
+      "price": 231926.0,
+      "rent_mo": 1437.0,
+      "rate_pct": 3.6,
+      "price_to_rent_ratio": 13.45,
+      "pi_mo": 844.0,
+      "tax_mo": 155.0,
+      "maint_mo": 193.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1342.0,
+      "total_rent_mo": 1452.0,
+      "gap_buy_minus_rent_mo": -110.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2016-05-01",
+      "price": 233774.0,
+      "rent_mo": 1452.0,
+      "rate_pct": 3.6,
+      "price_to_rent_ratio": 13.42,
+      "pi_mo": 850.0,
+      "tax_mo": 156.0,
+      "maint_mo": 195.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1351.0,
+      "total_rent_mo": 1467.0,
+      "gap_buy_minus_rent_mo": -116.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2016-06-01",
+      "price": 235806.0,
+      "rent_mo": 1468.0,
+      "rate_pct": 3.57,
+      "price_to_rent_ratio": 13.39,
+      "pi_mo": 854.0,
+      "tax_mo": 157.0,
+      "maint_mo": 197.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1358.0,
+      "total_rent_mo": 1483.0,
+      "gap_buy_minus_rent_mo": -125.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2016-07-01",
+      "price": 237828.0,
+      "rent_mo": 1478.0,
+      "rate_pct": 3.44,
+      "price_to_rent_ratio": 13.41,
+      "pi_mo": 848.0,
+      "tax_mo": 159.0,
+      "maint_mo": 198.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1355.0,
+      "total_rent_mo": 1493.0,
+      "gap_buy_minus_rent_mo": -138.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2016-08-01",
+      "price": 239911.0,
+      "rent_mo": 1486.0,
+      "rate_pct": 3.44,
+      "price_to_rent_ratio": 13.46,
+      "pi_mo": 855.0,
+      "tax_mo": 160.0,
+      "maint_mo": 200.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1365.0,
+      "total_rent_mo": 1501.0,
+      "gap_buy_minus_rent_mo": -136.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2016-09-01",
+      "price": 242193.0,
+      "rent_mo": 1481.0,
+      "rate_pct": 3.46,
+      "price_to_rent_ratio": 13.62,
+      "pi_mo": 866.0,
+      "tax_mo": 161.0,
+      "maint_mo": 202.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1379.0,
+      "total_rent_mo": 1496.0,
+      "gap_buy_minus_rent_mo": -117.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2016-10-01",
+      "price": 244818.0,
+      "rent_mo": 1480.0,
+      "rate_pct": 3.47,
+      "price_to_rent_ratio": 13.78,
+      "pi_mo": 876.0,
+      "tax_mo": 163.0,
+      "maint_mo": 204.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1393.0,
+      "total_rent_mo": 1495.0,
+      "gap_buy_minus_rent_mo": -102.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2016-11-01",
+      "price": 247684.0,
+      "rent_mo": 1468.0,
+      "rate_pct": 3.77,
+      "price_to_rent_ratio": 14.06,
+      "pi_mo": 920.0,
+      "tax_mo": 165.0,
+      "maint_mo": 206.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1441.0,
+      "total_rent_mo": 1483.0,
+      "gap_buy_minus_rent_mo": -41.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2016-12-01",
+      "price": 250532.0,
+      "rent_mo": 1467.0,
+      "rate_pct": 4.2,
+      "price_to_rent_ratio": 14.23,
+      "pi_mo": 980.0,
+      "tax_mo": 167.0,
+      "maint_mo": 209.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1506.0,
+      "total_rent_mo": 1482.0,
+      "gap_buy_minus_rent_mo": 23.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2017-01-01",
+      "price": 252978.0,
+      "rent_mo": 1472.0,
+      "rate_pct": 4.15,
+      "price_to_rent_ratio": 14.33,
+      "pi_mo": 984.0,
+      "tax_mo": 169.0,
+      "maint_mo": 211.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1513.0,
+      "total_rent_mo": 1487.0,
+      "gap_buy_minus_rent_mo": 27.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2017-02-01",
+      "price": 255036.0,
+      "rent_mo": 1485.0,
+      "rate_pct": 4.17,
+      "price_to_rent_ratio": 14.31,
+      "pi_mo": 994.0,
+      "tax_mo": 170.0,
+      "maint_mo": 213.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1526.0,
+      "total_rent_mo": 1500.0,
+      "gap_buy_minus_rent_mo": 26.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2017-03-01",
+      "price": 257148.0,
+      "rent_mo": 1501.0,
+      "rate_pct": 4.2,
+      "price_to_rent_ratio": 14.27,
+      "pi_mo": 1006.0,
+      "tax_mo": 171.0,
+      "maint_mo": 214.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1541.0,
+      "total_rent_mo": 1516.0,
+      "gap_buy_minus_rent_mo": 25.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2017-04-01",
+      "price": 259369.0,
+      "rent_mo": 1516.0,
+      "rate_pct": 4.04,
+      "price_to_rent_ratio": 14.26,
+      "pi_mo": 996.0,
+      "tax_mo": 173.0,
+      "maint_mo": 216.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1535.0,
+      "total_rent_mo": 1531.0,
+      "gap_buy_minus_rent_mo": 4.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2017-05-01",
+      "price": 261457.0,
+      "rent_mo": 1530.0,
+      "rate_pct": 4.01,
+      "price_to_rent_ratio": 14.24,
+      "pi_mo": 1000.0,
+      "tax_mo": 174.0,
+      "maint_mo": 218.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1542.0,
+      "total_rent_mo": 1545.0,
+      "gap_buy_minus_rent_mo": -3.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2017-06-01",
+      "price": 263102.0,
+      "rent_mo": 1535.0,
+      "rate_pct": 3.9,
+      "price_to_rent_ratio": 14.29,
+      "pi_mo": 993.0,
+      "tax_mo": 175.0,
+      "maint_mo": 219.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1538.0,
+      "total_rent_mo": 1550.0,
+      "gap_buy_minus_rent_mo": -12.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2017-07-01",
+      "price": 264613.0,
+      "rent_mo": 1539.0,
+      "rate_pct": 3.97,
+      "price_to_rent_ratio": 14.33,
+      "pi_mo": 1007.0,
+      "tax_mo": 176.0,
+      "maint_mo": 221.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1554.0,
+      "total_rent_mo": 1554.0,
+      "gap_buy_minus_rent_mo": -0.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2017-08-01",
+      "price": 266324.0,
+      "rent_mo": 1541.0,
+      "rate_pct": 3.88,
+      "price_to_rent_ratio": 14.4,
+      "pi_mo": 1002.0,
+      "tax_mo": 178.0,
+      "maint_mo": 222.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1552.0,
+      "total_rent_mo": 1556.0,
+      "gap_buy_minus_rent_mo": -4.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2017-09-01",
+      "price": 268280.0,
+      "rent_mo": 1541.0,
+      "rate_pct": 3.81,
+      "price_to_rent_ratio": 14.51,
+      "pi_mo": 1001.0,
+      "tax_mo": 179.0,
+      "maint_mo": 224.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1553.0,
+      "total_rent_mo": 1556.0,
+      "gap_buy_minus_rent_mo": -2.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2017-10-01",
+      "price": 270433.0,
+      "rent_mo": 1534.0,
+      "rate_pct": 3.9,
+      "price_to_rent_ratio": 14.69,
+      "pi_mo": 1020.0,
+      "tax_mo": 180.0,
+      "maint_mo": 225.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1575.0,
+      "total_rent_mo": 1549.0,
+      "gap_buy_minus_rent_mo": 26.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2017-11-01",
+      "price": 272585.0,
+      "rent_mo": 1525.0,
+      "rate_pct": 3.92,
+      "price_to_rent_ratio": 14.9,
+      "pi_mo": 1031.0,
+      "tax_mo": 182.0,
+      "maint_mo": 227.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1590.0,
+      "total_rent_mo": 1540.0,
+      "gap_buy_minus_rent_mo": 50.0,
+      "pr_verdict": "lean_buy"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2017-12-01",
+      "price": 274830.0,
+      "rent_mo": 1524.0,
+      "rate_pct": 3.95,
+      "price_to_rent_ratio": 15.03,
+      "pi_mo": 1043.0,
+      "tax_mo": 183.0,
+      "maint_mo": 229.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1606.0,
+      "total_rent_mo": 1539.0,
+      "gap_buy_minus_rent_mo": 67.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2018-01-01",
+      "price": 277131.0,
+      "rent_mo": 1529.0,
+      "rate_pct": 4.03,
+      "price_to_rent_ratio": 15.1,
+      "pi_mo": 1063.0,
+      "tax_mo": 185.0,
+      "maint_mo": 231.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1628.0,
+      "total_rent_mo": 1544.0,
+      "gap_buy_minus_rent_mo": 84.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2018-02-01",
+      "price": 279475.0,
+      "rent_mo": 1544.0,
+      "rate_pct": 4.33,
+      "price_to_rent_ratio": 15.09,
+      "pi_mo": 1110.0,
+      "tax_mo": 186.0,
+      "maint_mo": 233.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1680.0,
+      "total_rent_mo": 1559.0,
+      "gap_buy_minus_rent_mo": 121.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2018-03-01",
+      "price": 281853.0,
+      "rent_mo": 1560.0,
+      "rate_pct": 4.44,
+      "price_to_rent_ratio": 15.06,
+      "pi_mo": 1135.0,
+      "tax_mo": 188.0,
+      "maint_mo": 235.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1708.0,
+      "total_rent_mo": 1575.0,
+      "gap_buy_minus_rent_mo": 133.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2018-04-01",
+      "price": 283850.0,
+      "rent_mo": 1574.0,
+      "rate_pct": 4.47,
+      "price_to_rent_ratio": 15.03,
+      "pi_mo": 1146.0,
+      "tax_mo": 189.0,
+      "maint_mo": 237.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1722.0,
+      "total_rent_mo": 1589.0,
+      "gap_buy_minus_rent_mo": 133.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2018-05-01",
+      "price": 285667.0,
+      "rent_mo": 1582.0,
+      "rate_pct": 4.59,
+      "price_to_rent_ratio": 15.04,
+      "pi_mo": 1170.0,
+      "tax_mo": 190.0,
+      "maint_mo": 238.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1748.0,
+      "total_rent_mo": 1597.0,
+      "gap_buy_minus_rent_mo": 151.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2018-06-01",
+      "price": 286985.0,
+      "rent_mo": 1584.0,
+      "rate_pct": 4.57,
+      "price_to_rent_ratio": 15.1,
+      "pi_mo": 1173.0,
+      "tax_mo": 191.0,
+      "maint_mo": 239.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1753.0,
+      "total_rent_mo": 1599.0,
+      "gap_buy_minus_rent_mo": 154.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2018-07-01",
+      "price": 288423.0,
+      "rent_mo": 1585.0,
+      "rate_pct": 4.53,
+      "price_to_rent_ratio": 15.16,
+      "pi_mo": 1173.0,
+      "tax_mo": 192.0,
+      "maint_mo": 240.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1756.0,
+      "total_rent_mo": 1600.0,
+      "gap_buy_minus_rent_mo": 155.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2018-08-01",
+      "price": 289636.0,
+      "rent_mo": 1586.0,
+      "rate_pct": 4.55,
+      "price_to_rent_ratio": 15.22,
+      "pi_mo": 1181.0,
+      "tax_mo": 193.0,
+      "maint_mo": 241.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1765.0,
+      "total_rent_mo": 1601.0,
+      "gap_buy_minus_rent_mo": 164.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2018-09-01",
+      "price": 290639.0,
+      "rent_mo": 1583.0,
+      "rate_pct": 4.63,
+      "price_to_rent_ratio": 15.3,
+      "pi_mo": 1196.0,
+      "tax_mo": 194.0,
+      "maint_mo": 242.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1782.0,
+      "total_rent_mo": 1598.0,
+      "gap_buy_minus_rent_mo": 184.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2018-10-01",
+      "price": 291336.0,
+      "rent_mo": 1582.0,
+      "rate_pct": 4.83,
+      "price_to_rent_ratio": 15.35,
+      "pi_mo": 1227.0,
+      "tax_mo": 194.0,
+      "maint_mo": 243.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1814.0,
+      "total_rent_mo": 1597.0,
+      "gap_buy_minus_rent_mo": 217.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2018-11-01",
+      "price": 291900.0,
+      "rent_mo": 1577.0,
+      "rate_pct": 4.87,
+      "price_to_rent_ratio": 15.42,
+      "pi_mo": 1235.0,
+      "tax_mo": 195.0,
+      "maint_mo": 243.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1822.0,
+      "total_rent_mo": 1592.0,
+      "gap_buy_minus_rent_mo": 230.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2018-12-01",
+      "price": 292684.0,
+      "rent_mo": 1580.0,
+      "rate_pct": 4.64,
+      "price_to_rent_ratio": 15.44,
+      "pi_mo": 1206.0,
+      "tax_mo": 195.0,
+      "maint_mo": 244.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1795.0,
+      "total_rent_mo": 1595.0,
+      "gap_buy_minus_rent_mo": 199.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2019-01-01",
+      "price": 293594.0,
+      "rent_mo": 1585.0,
+      "rate_pct": 4.46,
+      "price_to_rent_ratio": 15.44,
+      "pi_mo": 1185.0,
+      "tax_mo": 196.0,
+      "maint_mo": 245.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1775.0,
+      "total_rent_mo": 1600.0,
+      "gap_buy_minus_rent_mo": 175.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2019-02-01",
+      "price": 294856.0,
+      "rent_mo": 1593.0,
+      "rate_pct": 4.37,
+      "price_to_rent_ratio": 15.42,
+      "pi_mo": 1177.0,
+      "tax_mo": 197.0,
+      "maint_mo": 246.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1769.0,
+      "total_rent_mo": 1608.0,
+      "gap_buy_minus_rent_mo": 161.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2019-03-01",
+      "price": 296212.0,
+      "rent_mo": 1608.0,
+      "rate_pct": 4.27,
+      "price_to_rent_ratio": 15.35,
+      "pi_mo": 1168.0,
+      "tax_mo": 197.0,
+      "maint_mo": 247.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1762.0,
+      "total_rent_mo": 1623.0,
+      "gap_buy_minus_rent_mo": 139.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2019-04-01",
+      "price": 297307.0,
+      "rent_mo": 1619.0,
+      "rate_pct": 4.14,
+      "price_to_rent_ratio": 15.3,
+      "pi_mo": 1155.0,
+      "tax_mo": 198.0,
+      "maint_mo": 248.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1751.0,
+      "total_rent_mo": 1634.0,
+      "gap_buy_minus_rent_mo": 117.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2019-05-01",
+      "price": 298090.0,
+      "rent_mo": 1632.0,
+      "rate_pct": 4.07,
+      "price_to_rent_ratio": 15.22,
+      "pi_mo": 1148.0,
+      "tax_mo": 199.0,
+      "maint_mo": 248.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1746.0,
+      "total_rent_mo": 1647.0,
+      "gap_buy_minus_rent_mo": 98.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2019-06-01",
+      "price": 298715.0,
+      "rent_mo": 1640.0,
+      "rate_pct": 3.8,
+      "price_to_rent_ratio": 15.18,
+      "pi_mo": 1114.0,
+      "tax_mo": 199.0,
+      "maint_mo": 249.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1712.0,
+      "total_rent_mo": 1655.0,
+      "gap_buy_minus_rent_mo": 57.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2019-07-01",
+      "price": 299534.0,
+      "rent_mo": 1647.0,
+      "rate_pct": 3.77,
+      "price_to_rent_ratio": 15.16,
+      "pi_mo": 1112.0,
+      "tax_mo": 200.0,
+      "maint_mo": 250.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1711.0,
+      "total_rent_mo": 1662.0,
+      "gap_buy_minus_rent_mo": 49.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2019-08-01",
+      "price": 300569.0,
+      "rent_mo": 1649.0,
+      "rate_pct": 3.62,
+      "price_to_rent_ratio": 15.19,
+      "pi_mo": 1095.0,
+      "tax_mo": 200.0,
+      "maint_mo": 250.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1696.0,
+      "total_rent_mo": 1664.0,
+      "gap_buy_minus_rent_mo": 33.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2019-09-01",
+      "price": 301800.0,
+      "rent_mo": 1644.0,
+      "rate_pct": 3.61,
+      "price_to_rent_ratio": 15.29,
+      "pi_mo": 1098.0,
+      "tax_mo": 201.0,
+      "maint_mo": 251.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1701.0,
+      "total_rent_mo": 1659.0,
+      "gap_buy_minus_rent_mo": 42.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2019-10-01",
+      "price": 303162.0,
+      "rent_mo": 1637.0,
+      "rate_pct": 3.69,
+      "price_to_rent_ratio": 15.43,
+      "pi_mo": 1115.0,
+      "tax_mo": 202.0,
+      "maint_mo": 253.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1719.0,
+      "total_rent_mo": 1652.0,
+      "gap_buy_minus_rent_mo": 67.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2019-11-01",
+      "price": 304638.0,
+      "rent_mo": 1636.0,
+      "rate_pct": 3.7,
+      "price_to_rent_ratio": 15.52,
+      "pi_mo": 1121.0,
+      "tax_mo": 203.0,
+      "maint_mo": 254.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1728.0,
+      "total_rent_mo": 1651.0,
+      "gap_buy_minus_rent_mo": 77.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2019-12-01",
+      "price": 306169.0,
+      "rent_mo": 1641.0,
+      "rate_pct": 3.72,
+      "price_to_rent_ratio": 15.55,
+      "pi_mo": 1130.0,
+      "tax_mo": 204.0,
+      "maint_mo": 255.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1739.0,
+      "total_rent_mo": 1656.0,
+      "gap_buy_minus_rent_mo": 83.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2020-01-01",
+      "price": 308202.0,
+      "rent_mo": 1648.0,
+      "rate_pct": 3.62,
+      "price_to_rent_ratio": 15.58,
+      "pi_mo": 1124.0,
+      "tax_mo": 205.0,
+      "maint_mo": 257.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1737.0,
+      "total_rent_mo": 1663.0,
+      "gap_buy_minus_rent_mo": 74.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2020-02-01",
+      "price": 310384.0,
+      "rent_mo": 1658.0,
+      "rate_pct": 3.46,
+      "price_to_rent_ratio": 15.6,
+      "pi_mo": 1110.0,
+      "tax_mo": 207.0,
+      "maint_mo": 259.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1726.0,
+      "total_rent_mo": 1673.0,
+      "gap_buy_minus_rent_mo": 53.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2020-03-01",
+      "price": 312596.0,
+      "rent_mo": 1671.0,
+      "rate_pct": 3.45,
+      "price_to_rent_ratio": 15.59,
+      "pi_mo": 1116.0,
+      "tax_mo": 208.0,
+      "maint_mo": 260.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1735.0,
+      "total_rent_mo": 1686.0,
+      "gap_buy_minus_rent_mo": 49.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2020-04-01",
+      "price": 314254.0,
+      "rent_mo": 1680.0,
+      "rate_pct": 3.31,
+      "price_to_rent_ratio": 15.58,
+      "pi_mo": 1102.0,
+      "tax_mo": 210.0,
+      "maint_mo": 262.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1723.0,
+      "total_rent_mo": 1695.0,
+      "gap_buy_minus_rent_mo": 28.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2020-05-01",
+      "price": 315031.0,
+      "rent_mo": 1688.0,
+      "rate_pct": 3.23,
+      "price_to_rent_ratio": 15.55,
+      "pi_mo": 1094.0,
+      "tax_mo": 210.0,
+      "maint_mo": 263.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1717.0,
+      "total_rent_mo": 1703.0,
+      "gap_buy_minus_rent_mo": 14.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2020-06-01",
+      "price": 315547.0,
+      "rent_mo": 1694.0,
+      "rate_pct": 3.16,
+      "price_to_rent_ratio": 15.52,
+      "pi_mo": 1087.0,
+      "tax_mo": 210.0,
+      "maint_mo": 263.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1710.0,
+      "total_rent_mo": 1709.0,
+      "gap_buy_minus_rent_mo": 1.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2020-07-01",
+      "price": 316315.0,
+      "rent_mo": 1709.0,
+      "rate_pct": 3.02,
+      "price_to_rent_ratio": 15.42,
+      "pi_mo": 1069.0,
+      "tax_mo": 211.0,
+      "maint_mo": 264.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1694.0,
+      "total_rent_mo": 1724.0,
+      "gap_buy_minus_rent_mo": -31.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2020-08-01",
+      "price": 318121.0,
+      "rent_mo": 1723.0,
+      "rate_pct": 2.94,
+      "price_to_rent_ratio": 15.39,
+      "pi_mo": 1064.0,
+      "tax_mo": 212.0,
+      "maint_mo": 265.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1691.0,
+      "total_rent_mo": 1738.0,
+      "gap_buy_minus_rent_mo": -47.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2020-09-01",
+      "price": 321166.0,
+      "rent_mo": 1724.0,
+      "rate_pct": 2.89,
+      "price_to_rent_ratio": 15.52,
+      "pi_mo": 1068.0,
+      "tax_mo": 214.0,
+      "maint_mo": 268.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1700.0,
+      "total_rent_mo": 1739.0,
+      "gap_buy_minus_rent_mo": -40.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2020-10-01",
+      "price": 324886.0,
+      "rent_mo": 1729.0,
+      "rate_pct": 2.83,
+      "price_to_rent_ratio": 15.66,
+      "pi_mo": 1073.0,
+      "tax_mo": 217.0,
+      "maint_mo": 271.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1710.0,
+      "total_rent_mo": 1744.0,
+      "gap_buy_minus_rent_mo": -34.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2020-11-01",
+      "price": 329021.0,
+      "rent_mo": 1721.0,
+      "rate_pct": 2.76,
+      "price_to_rent_ratio": 15.93,
+      "pi_mo": 1077.0,
+      "tax_mo": 219.0,
+      "maint_mo": 274.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1720.0,
+      "total_rent_mo": 1736.0,
+      "gap_buy_minus_rent_mo": -16.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2020-12-01",
+      "price": 332966.0,
+      "rent_mo": 1728.0,
+      "rate_pct": 2.68,
+      "price_to_rent_ratio": 16.05,
+      "pi_mo": 1078.0,
+      "tax_mo": 222.0,
+      "maint_mo": 277.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1728.0,
+      "total_rent_mo": 1743.0,
+      "gap_buy_minus_rent_mo": -16.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2021-01-01",
+      "price": 336870.0,
+      "rent_mo": 1732.0,
+      "rate_pct": 2.74,
+      "price_to_rent_ratio": 16.21,
+      "pi_mo": 1098.0,
+      "tax_mo": 225.0,
+      "maint_mo": 281.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1753.0,
+      "total_rent_mo": 1747.0,
+      "gap_buy_minus_rent_mo": 6.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2021-02-01",
+      "price": 341307.0,
+      "rent_mo": 1752.0,
+      "rate_pct": 2.81,
+      "price_to_rent_ratio": 16.24,
+      "pi_mo": 1123.0,
+      "tax_mo": 228.0,
+      "maint_mo": 284.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1785.0,
+      "total_rent_mo": 1767.0,
+      "gap_buy_minus_rent_mo": 19.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2021-03-01",
+      "price": 346187.0,
+      "rent_mo": 1771.0,
+      "rate_pct": 3.08,
+      "price_to_rent_ratio": 16.29,
+      "pi_mo": 1180.0,
+      "tax_mo": 231.0,
+      "maint_mo": 288.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1849.0,
+      "total_rent_mo": 1786.0,
+      "gap_buy_minus_rent_mo": 64.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2021-04-01",
+      "price": 351542.0,
+      "rent_mo": 1797.0,
+      "rate_pct": 3.06,
+      "price_to_rent_ratio": 16.31,
+      "pi_mo": 1195.0,
+      "tax_mo": 234.0,
+      "maint_mo": 293.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1872.0,
+      "total_rent_mo": 1812.0,
+      "gap_buy_minus_rent_mo": 61.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2021-05-01",
+      "price": 357634.0,
+      "rent_mo": 1823.0,
+      "rate_pct": 2.96,
+      "price_to_rent_ratio": 16.35,
+      "pi_mo": 1200.0,
+      "tax_mo": 238.0,
+      "maint_mo": 298.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1887.0,
+      "total_rent_mo": 1838.0,
+      "gap_buy_minus_rent_mo": 49.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2021-06-01",
+      "price": 364980.0,
+      "rent_mo": 1855.0,
+      "rate_pct": 2.97,
+      "price_to_rent_ratio": 16.39,
+      "pi_mo": 1227.0,
+      "tax_mo": 243.0,
+      "maint_mo": 304.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1925.0,
+      "total_rent_mo": 1870.0,
+      "gap_buy_minus_rent_mo": 54.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2021-07-01",
+      "price": 372817.0,
+      "rent_mo": 1884.0,
+      "rate_pct": 2.87,
+      "price_to_rent_ratio": 16.49,
+      "pi_mo": 1236.0,
+      "tax_mo": 249.0,
+      "maint_mo": 311.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1946.0,
+      "total_rent_mo": 1899.0,
+      "gap_buy_minus_rent_mo": 47.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2021-08-01",
+      "price": 379496.0,
+      "rent_mo": 1909.0,
+      "rate_pct": 2.84,
+      "price_to_rent_ratio": 16.57,
+      "pi_mo": 1254.0,
+      "tax_mo": 253.0,
+      "maint_mo": 316.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 1974.0,
+      "total_rent_mo": 1924.0,
+      "gap_buy_minus_rent_mo": 50.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2021-09-01",
+      "price": 384829.0,
+      "rent_mo": 1926.0,
+      "rate_pct": 2.9,
+      "price_to_rent_ratio": 16.65,
+      "pi_mo": 1281.0,
+      "tax_mo": 257.0,
+      "maint_mo": 321.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 2009.0,
+      "total_rent_mo": 1941.0,
+      "gap_buy_minus_rent_mo": 68.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2021-10-01",
+      "price": 390088.0,
+      "rent_mo": 1940.0,
+      "rate_pct": 3.07,
+      "price_to_rent_ratio": 16.75,
+      "pi_mo": 1327.0,
+      "tax_mo": 260.0,
+      "maint_mo": 325.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 2062.0,
+      "total_rent_mo": 1955.0,
+      "gap_buy_minus_rent_mo": 107.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2021-11-01",
+      "price": 396653.0,
+      "rent_mo": 1953.0,
+      "rate_pct": 3.07,
+      "price_to_rent_ratio": 16.92,
+      "pi_mo": 1349.0,
+      "tax_mo": 264.0,
+      "maint_mo": 331.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 2094.0,
+      "total_rent_mo": 1968.0,
+      "gap_buy_minus_rent_mo": 126.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2021-12-01",
+      "price": 404223.0,
+      "rent_mo": 1966.0,
+      "rate_pct": 3.1,
+      "price_to_rent_ratio": 17.13,
+      "pi_mo": 1381.0,
+      "tax_mo": 269.0,
+      "maint_mo": 337.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 2137.0,
+      "total_rent_mo": 1981.0,
+      "gap_buy_minus_rent_mo": 155.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2022-01-01",
+      "price": 413205.0,
+      "rent_mo": 1981.0,
+      "rate_pct": 3.45,
+      "price_to_rent_ratio": 17.39,
+      "pi_mo": 1474.0,
+      "tax_mo": 275.0,
+      "maint_mo": 344.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 2244.0,
+      "total_rent_mo": 1996.0,
+      "gap_buy_minus_rent_mo": 248.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2022-02-01",
+      "price": 423469.0,
+      "rent_mo": 2002.0,
+      "rate_pct": 3.76,
+      "price_to_rent_ratio": 17.63,
+      "pi_mo": 1571.0,
+      "tax_mo": 282.0,
+      "maint_mo": 353.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 2357.0,
+      "total_rent_mo": 2017.0,
+      "gap_buy_minus_rent_mo": 340.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2022-03-01",
+      "price": 434491.0,
+      "rent_mo": 2026.0,
+      "rate_pct": 4.17,
+      "price_to_rent_ratio": 17.87,
+      "pi_mo": 1694.0,
+      "tax_mo": 290.0,
+      "maint_mo": 362.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 2496.0,
+      "total_rent_mo": 2041.0,
+      "gap_buy_minus_rent_mo": 455.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2022-04-01",
+      "price": 445677.0,
+      "rent_mo": 2050.0,
+      "rate_pct": 4.98,
+      "price_to_rent_ratio": 18.12,
+      "pi_mo": 1910.0,
+      "tax_mo": 297.0,
+      "maint_mo": 371.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 2729.0,
+      "total_rent_mo": 2065.0,
+      "gap_buy_minus_rent_mo": 664.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2022-05-01",
+      "price": 455427.0,
+      "rent_mo": 2076.0,
+      "rate_pct": 5.23,
+      "price_to_rent_ratio": 18.28,
+      "pi_mo": 2007.0,
+      "tax_mo": 304.0,
+      "maint_mo": 380.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 2841.0,
+      "total_rent_mo": 2091.0,
+      "gap_buy_minus_rent_mo": 749.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2022-06-01",
+      "price": 463477.0,
+      "rent_mo": 2099.0,
+      "rate_pct": 5.52,
+      "price_to_rent_ratio": 18.4,
+      "pi_mo": 2110.0,
+      "tax_mo": 309.0,
+      "maint_mo": 386.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 2956.0,
+      "total_rent_mo": 2114.0,
+      "gap_buy_minus_rent_mo": 841.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2022-07-01",
+      "price": 467729.0,
+      "rent_mo": 2122.0,
+      "rate_pct": 5.41,
+      "price_to_rent_ratio": 18.37,
+      "pi_mo": 2104.0,
+      "tax_mo": 312.0,
+      "maint_mo": 390.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 2956.0,
+      "total_rent_mo": 2137.0,
+      "gap_buy_minus_rent_mo": 819.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2022-08-01",
+      "price": 468464.0,
+      "rent_mo": 2133.0,
+      "rate_pct": 5.22,
+      "price_to_rent_ratio": 18.31,
+      "pi_mo": 2063.0,
+      "tax_mo": 312.0,
+      "maint_mo": 390.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 2916.0,
+      "total_rent_mo": 2148.0,
+      "gap_buy_minus_rent_mo": 768.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2022-09-01",
+      "price": 466154.0,
+      "rent_mo": 2135.0,
+      "rate_pct": 6.11,
+      "price_to_rent_ratio": 18.19,
+      "pi_mo": 2263.0,
+      "tax_mo": 311.0,
+      "maint_mo": 388.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 3112.0,
+      "total_rent_mo": 2150.0,
+      "gap_buy_minus_rent_mo": 962.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2022-10-01",
+      "price": 463040.0,
+      "rent_mo": 2135.0,
+      "rate_pct": 6.9,
+      "price_to_rent_ratio": 18.08,
+      "pi_mo": 2440.0,
+      "tax_mo": 309.0,
+      "maint_mo": 386.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 3284.0,
+      "total_rent_mo": 2150.0,
+      "gap_buy_minus_rent_mo": 1135.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2022-11-01",
+      "price": 459648.0,
+      "rent_mo": 2139.0,
+      "rate_pct": 6.8,
+      "price_to_rent_ratio": 17.91,
+      "pi_mo": 2398.0,
+      "tax_mo": 306.0,
+      "maint_mo": 383.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 3238.0,
+      "total_rent_mo": 2154.0,
+      "gap_buy_minus_rent_mo": 1084.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2022-12-01",
+      "price": 456532.0,
+      "rent_mo": 2139.0,
+      "rate_pct": 6.36,
+      "price_to_rent_ratio": 17.79,
+      "pi_mo": 2276.0,
+      "tax_mo": 304.0,
+      "maint_mo": 380.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 3111.0,
+      "total_rent_mo": 2154.0,
+      "gap_buy_minus_rent_mo": 957.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2023-01-01",
+      "price": 453398.0,
+      "rent_mo": 2140.0,
+      "rate_pct": 6.27,
+      "price_to_rent_ratio": 17.66,
+      "pi_mo": 2239.0,
+      "tax_mo": 302.0,
+      "maint_mo": 378.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 3069.0,
+      "total_rent_mo": 2155.0,
+      "gap_buy_minus_rent_mo": 914.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2023-02-01",
+      "price": 451201.0,
+      "rent_mo": 2140.0,
+      "rate_pct": 6.26,
+      "price_to_rent_ratio": 17.57,
+      "pi_mo": 2224.0,
+      "tax_mo": 301.0,
+      "maint_mo": 376.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 3051.0,
+      "total_rent_mo": 2155.0,
+      "gap_buy_minus_rent_mo": 896.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2023-03-01",
+      "price": 450021.0,
+      "rent_mo": 2153.0,
+      "rate_pct": 6.54,
+      "price_to_rent_ratio": 17.42,
+      "pi_mo": 2286.0,
+      "tax_mo": 300.0,
+      "maint_mo": 375.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 3111.0,
+      "total_rent_mo": 2168.0,
+      "gap_buy_minus_rent_mo": 943.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2023-04-01",
+      "price": 450252.0,
+      "rent_mo": 2167.0,
+      "rate_pct": 6.34,
+      "price_to_rent_ratio": 17.31,
+      "pi_mo": 2240.0,
+      "tax_mo": 300.0,
+      "maint_mo": 375.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 3065.0,
+      "total_rent_mo": 2182.0,
+      "gap_buy_minus_rent_mo": 883.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2023-05-01",
+      "price": 451005.0,
+      "rent_mo": 2187.0,
+      "rate_pct": 6.42,
+      "price_to_rent_ratio": 17.19,
+      "pi_mo": 2263.0,
+      "tax_mo": 301.0,
+      "maint_mo": 376.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 3089.0,
+      "total_rent_mo": 2202.0,
+      "gap_buy_minus_rent_mo": 887.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2023-06-01",
+      "price": 452372.0,
+      "rent_mo": 2200.0,
+      "rate_pct": 6.71,
+      "price_to_rent_ratio": 17.14,
+      "pi_mo": 2339.0,
+      "tax_mo": 302.0,
+      "maint_mo": 377.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 3167.0,
+      "total_rent_mo": 2215.0,
+      "gap_buy_minus_rent_mo": 952.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2023-07-01",
+      "price": 453138.0,
+      "rent_mo": 2212.0,
+      "rate_pct": 6.84,
+      "price_to_rent_ratio": 17.07,
+      "pi_mo": 2373.0,
+      "tax_mo": 302.0,
+      "maint_mo": 378.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 3203.0,
+      "total_rent_mo": 2227.0,
+      "gap_buy_minus_rent_mo": 976.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2023-08-01",
+      "price": 453861.0,
+      "rent_mo": 2210.0,
+      "rate_pct": 7.07,
+      "price_to_rent_ratio": 17.11,
+      "pi_mo": 2433.0,
+      "tax_mo": 303.0,
+      "maint_mo": 378.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 3264.0,
+      "total_rent_mo": 2225.0,
+      "gap_buy_minus_rent_mo": 1039.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2023-09-01",
+      "price": 454205.0,
+      "rent_mo": 2210.0,
+      "rate_pct": 7.2,
+      "price_to_rent_ratio": 17.13,
+      "pi_mo": 2466.0,
+      "tax_mo": 303.0,
+      "maint_mo": 379.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 3298.0,
+      "total_rent_mo": 2225.0,
+      "gap_buy_minus_rent_mo": 1073.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2023-10-01",
+      "price": 454667.0,
+      "rent_mo": 2201.0,
+      "rate_pct": 7.62,
+      "price_to_rent_ratio": 17.21,
+      "pi_mo": 2573.0,
+      "tax_mo": 303.0,
+      "maint_mo": 379.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 3405.0,
+      "total_rent_mo": 2216.0,
+      "gap_buy_minus_rent_mo": 1189.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2023-11-01",
+      "price": 454956.0,
+      "rent_mo": 2196.0,
+      "rate_pct": 7.44,
+      "price_to_rent_ratio": 17.26,
+      "pi_mo": 2530.0,
+      "tax_mo": 303.0,
+      "maint_mo": 379.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 3363.0,
+      "total_rent_mo": 2211.0,
+      "gap_buy_minus_rent_mo": 1152.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2023-12-01",
+      "price": 454970.0,
+      "rent_mo": 2196.0,
+      "rate_pct": 6.82,
+      "price_to_rent_ratio": 17.27,
+      "pi_mo": 2376.0,
+      "tax_mo": 303.0,
+      "maint_mo": 379.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 3209.0,
+      "total_rent_mo": 2211.0,
+      "gap_buy_minus_rent_mo": 998.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2024-01-01",
+      "price": 455102.0,
+      "rent_mo": 2201.0,
+      "rate_pct": 6.64,
+      "price_to_rent_ratio": 17.23,
+      "pi_mo": 2335.0,
+      "tax_mo": 303.0,
+      "maint_mo": 379.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 3168.0,
+      "total_rent_mo": 2216.0,
+      "gap_buy_minus_rent_mo": 952.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2024-02-01",
+      "price": 456097.0,
+      "rent_mo": 2214.0,
+      "rate_pct": 6.78,
+      "price_to_rent_ratio": 17.17,
+      "pi_mo": 2373.0,
+      "tax_mo": 304.0,
+      "maint_mo": 380.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 3207.0,
+      "total_rent_mo": 2229.0,
+      "gap_buy_minus_rent_mo": 978.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2024-03-01",
+      "price": 458172.0,
+      "rent_mo": 2230.0,
+      "rate_pct": 6.82,
+      "price_to_rent_ratio": 17.12,
+      "pi_mo": 2394.0,
+      "tax_mo": 305.0,
+      "maint_mo": 382.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 3232.0,
+      "total_rent_mo": 2245.0,
+      "gap_buy_minus_rent_mo": 986.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2024-04-01",
+      "price": 460288.0,
+      "rent_mo": 2249.0,
+      "rate_pct": 6.99,
+      "price_to_rent_ratio": 17.06,
+      "pi_mo": 2448.0,
+      "tax_mo": 307.0,
+      "maint_mo": 384.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 3288.0,
+      "total_rent_mo": 2264.0,
+      "gap_buy_minus_rent_mo": 1025.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2024-05-01",
+      "price": 461699.0,
+      "rent_mo": 2252.0,
+      "rate_pct": 7.06,
+      "price_to_rent_ratio": 17.08,
+      "pi_mo": 2472.0,
+      "tax_mo": 308.0,
+      "maint_mo": 385.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 3315.0,
+      "total_rent_mo": 2267.0,
+      "gap_buy_minus_rent_mo": 1048.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2024-06-01",
+      "price": 461927.0,
+      "rent_mo": 2257.0,
+      "rate_pct": 6.92,
+      "price_to_rent_ratio": 17.06,
+      "pi_mo": 2438.0,
+      "tax_mo": 308.0,
+      "maint_mo": 385.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 3281.0,
+      "total_rent_mo": 2272.0,
+      "gap_buy_minus_rent_mo": 1009.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2024-07-01",
+      "price": 461793.0,
+      "rent_mo": 2262.0,
+      "rate_pct": 6.85,
+      "price_to_rent_ratio": 17.01,
+      "pi_mo": 2420.0,
+      "tax_mo": 308.0,
+      "maint_mo": 385.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 3263.0,
+      "total_rent_mo": 2277.0,
+      "gap_buy_minus_rent_mo": 986.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2024-08-01",
+      "price": 461496.0,
+      "rent_mo": 2273.0,
+      "rate_pct": 6.5,
+      "price_to_rent_ratio": 16.92,
+      "pi_mo": 2334.0,
+      "tax_mo": 308.0,
+      "maint_mo": 385.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 3176.0,
+      "total_rent_mo": 2288.0,
+      "gap_buy_minus_rent_mo": 887.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2024-09-01",
+      "price": 461427.0,
+      "rent_mo": 2270.0,
+      "rate_pct": 6.18,
+      "price_to_rent_ratio": 16.94,
+      "pi_mo": 2256.0,
+      "tax_mo": 308.0,
+      "maint_mo": 385.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 3098.0,
+      "total_rent_mo": 2285.0,
+      "gap_buy_minus_rent_mo": 813.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2024-10-01",
+      "price": 461611.0,
+      "rent_mo": 2269.0,
+      "rate_pct": 6.43,
+      "price_to_rent_ratio": 16.95,
+      "pi_mo": 2317.0,
+      "tax_mo": 308.0,
+      "maint_mo": 385.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 3159.0,
+      "total_rent_mo": 2284.0,
+      "gap_buy_minus_rent_mo": 875.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2024-11-01",
+      "price": 462054.0,
+      "rent_mo": 2261.0,
+      "rate_pct": 6.8,
+      "price_to_rent_ratio": 17.03,
+      "pi_mo": 2411.0,
+      "tax_mo": 308.0,
+      "maint_mo": 385.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 3254.0,
+      "total_rent_mo": 2276.0,
+      "gap_buy_minus_rent_mo": 979.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2024-12-01",
+      "price": 462876.0,
+      "rent_mo": 2262.0,
+      "rate_pct": 6.71,
+      "price_to_rent_ratio": 17.05,
+      "pi_mo": 2393.0,
+      "tax_mo": 309.0,
+      "maint_mo": 386.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 3237.0,
+      "total_rent_mo": 2277.0,
+      "gap_buy_minus_rent_mo": 961.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2025-01-01",
+      "price": 463981.0,
+      "rent_mo": 2257.0,
+      "rate_pct": 6.96,
+      "price_to_rent_ratio": 17.13,
+      "pi_mo": 2459.0,
+      "tax_mo": 309.0,
+      "maint_mo": 387.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 3305.0,
+      "total_rent_mo": 2272.0,
+      "gap_buy_minus_rent_mo": 1033.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2025-02-01",
+      "price": 464747.0,
+      "rent_mo": 2265.0,
+      "rate_pct": 6.84,
+      "price_to_rent_ratio": 17.1,
+      "pi_mo": 2434.0,
+      "tax_mo": 310.0,
+      "maint_mo": 387.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 3281.0,
+      "total_rent_mo": 2280.0,
+      "gap_buy_minus_rent_mo": 1001.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2025-03-01",
+      "price": 464812.0,
+      "rent_mo": 2277.0,
+      "rate_pct": 6.65,
+      "price_to_rent_ratio": 17.01,
+      "pi_mo": 2387.0,
+      "tax_mo": 310.0,
+      "maint_mo": 387.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 3234.0,
+      "total_rent_mo": 2292.0,
+      "gap_buy_minus_rent_mo": 943.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2025-04-01",
+      "price": 464443.0,
+      "rent_mo": 2291.0,
+      "rate_pct": 6.72,
+      "price_to_rent_ratio": 16.89,
+      "pi_mo": 2404.0,
+      "tax_mo": 310.0,
+      "maint_mo": 387.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 3250.0,
+      "total_rent_mo": 2306.0,
+      "gap_buy_minus_rent_mo": 944.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2025-05-01",
+      "price": 463838.0,
+      "rent_mo": 2304.0,
+      "rate_pct": 6.82,
+      "price_to_rent_ratio": 16.78,
+      "pi_mo": 2423.0,
+      "tax_mo": 309.0,
+      "maint_mo": 387.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 3269.0,
+      "total_rent_mo": 2319.0,
+      "gap_buy_minus_rent_mo": 950.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2025-06-01",
+      "price": 462952.0,
+      "rent_mo": 2320.0,
+      "rate_pct": 6.82,
+      "price_to_rent_ratio": 16.63,
+      "pi_mo": 2419.0,
+      "tax_mo": 309.0,
+      "maint_mo": 386.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 3263.0,
+      "total_rent_mo": 2335.0,
+      "gap_buy_minus_rent_mo": 928.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2025-07-01",
+      "price": 461926.0,
+      "rent_mo": 2328.0,
+      "rate_pct": 6.72,
+      "price_to_rent_ratio": 16.53,
+      "pi_mo": 2389.0,
+      "tax_mo": 308.0,
+      "maint_mo": 385.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 3232.0,
+      "total_rent_mo": 2343.0,
+      "gap_buy_minus_rent_mo": 889.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2025-08-01",
+      "price": 461172.0,
+      "rent_mo": 2339.0,
+      "rate_pct": 6.59,
+      "price_to_rent_ratio": 16.43,
+      "pi_mo": 2353.0,
+      "tax_mo": 307.0,
+      "maint_mo": 384.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 3195.0,
+      "total_rent_mo": 2354.0,
+      "gap_buy_minus_rent_mo": 841.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2025-09-01",
+      "price": 461165.0,
+      "rent_mo": 2332.0,
+      "rate_pct": 6.35,
+      "price_to_rent_ratio": 16.48,
+      "pi_mo": 2296.0,
+      "tax_mo": 307.0,
+      "maint_mo": 384.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 3138.0,
+      "total_rent_mo": 2347.0,
+      "gap_buy_minus_rent_mo": 790.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2025-10-01",
+      "price": 461308.0,
+      "rent_mo": 2328.0,
+      "rate_pct": 6.25,
+      "price_to_rent_ratio": 16.51,
+      "pi_mo": 2273.0,
+      "tax_mo": 308.0,
+      "maint_mo": 384.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 3115.0,
+      "total_rent_mo": 2343.0,
+      "gap_buy_minus_rent_mo": 772.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2025-11-01",
+      "price": 461589.0,
+      "rent_mo": 2307.0,
+      "rate_pct": 6.24,
+      "price_to_rent_ratio": 16.68,
+      "pi_mo": 2271.0,
+      "tax_mo": 308.0,
+      "maint_mo": 385.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 3113.0,
+      "total_rent_mo": 2322.0,
+      "gap_buy_minus_rent_mo": 791.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2025-12-01",
+      "price": 461686.0,
+      "rent_mo": 2306.0,
+      "rate_pct": 6.19,
+      "price_to_rent_ratio": 16.69,
+      "pi_mo": 2260.0,
+      "tax_mo": 308.0,
+      "maint_mo": 385.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 3102.0,
+      "total_rent_mo": 2321.0,
+      "gap_buy_minus_rent_mo": 782.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2026-01-01",
+      "price": 461777.0,
+      "rent_mo": 2309.0,
+      "rate_pct": 6.1,
+      "price_to_rent_ratio": 16.67,
+      "pi_mo": 2239.0,
+      "tax_mo": 308.0,
+      "maint_mo": 385.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 3082.0,
+      "total_rent_mo": 2324.0,
+      "gap_buy_minus_rent_mo": 758.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2026-02-01",
+      "price": 461540.0,
+      "rent_mo": 2321.0,
+      "rate_pct": 6.05,
+      "price_to_rent_ratio": 16.57,
+      "pi_mo": 2225.0,
+      "tax_mo": 308.0,
+      "maint_mo": 385.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 3067.0,
+      "total_rent_mo": 2336.0,
+      "gap_buy_minus_rent_mo": 731.0,
+      "pr_verdict": "borderline"
+    },
+    {
+      "market_id": "nashville-tn",
+      "month_start": "2026-03-01",
+      "price": 461208.0,
+      "rent_mo": 2326.0,
+      "rate_pct": 6.18,
+      "price_to_rent_ratio": 16.52,
+      "pi_mo": 2254.0,
+      "tax_mo": 307.0,
+      "maint_mo": 384.0,
+      "insurance_mo": 150.0,
+      "total_buy_mo": 3096.0,
+      "total_rent_mo": 2341.0,
+      "gap_buy_minus_rent_mo": 755.0,
+      "pr_verdict": "borderline"
+    }
+  ],
+  "breakeven_summary": [
+    {
+      "market_id": "austin-tx",
+      "price": 433429.0,
+      "rent_mo": 2240.0,
+      "rate_pct": 6.37,
+      "appreciation_pct": 6.63,
+      "rent_inflation_pct": 5.07,
+      "investment_return_pct": 5.0,
+      "down_pct": 20.0,
+      "marg_tax_pct": 22.0,
+      "breakeven_year": 2
+    },
+    {
+      "market_id": "nashville-tn",
+      "price": 461208.0,
+      "rent_mo": 2326.0,
+      "rate_pct": 6.37,
+      "appreciation_pct": 8.68,
+      "rent_inflation_pct": 5.07,
+      "investment_return_pct": 5.0,
+      "down_pct": 20.0,
+      "marg_tax_pct": 22.0,
+      "breakeven_year": 2
+    }
+  ],
+  "breakeven_curves": [
+    {
+      "market_id": "austin-tx",
+      "year": 1,
+      "buy_cum_net": 40119.0,
+      "rent_cum_net": 22725.0,
+      "home_value": 462177.0,
+      "equity": 119406.0,
+      "buy_better": false
+    },
+    {
+      "market_id": "austin-tx",
+      "year": 2,
+      "buy_cum_net": 44402.0,
+      "rent_cum_net": 46597.0,
+      "home_value": 492832.0,
+      "equity": 154294.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "austin-tx",
+      "year": 3,
+      "buy_cum_net": 47446.0,
+      "rent_cum_net": 71674.0,
+      "home_value": 525521.0,
+      "equity": 191493.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "austin-tx",
+      "year": 4,
+      "buy_cum_net": 49169.0,
+      "rent_cum_net": 98019.0,
+      "home_value": 560378.0,
+      "equity": 231156.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "austin-tx",
+      "year": 5,
+      "buy_cum_net": 49484.0,
+      "rent_cum_net": 125695.0,
+      "home_value": 597546.0,
+      "equity": 273446.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "austin-tx",
+      "year": 6,
+      "buy_cum_net": 48297.0,
+      "rent_cum_net": 154770.0,
+      "home_value": 637180.0,
+      "equity": 318538.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "austin-tx",
+      "year": 7,
+      "buy_cum_net": 45509.0,
+      "rent_cum_net": 185315.0,
+      "home_value": 679443.0,
+      "equity": 366616.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "austin-tx",
+      "year": 8,
+      "buy_cum_net": 41015.0,
+      "rent_cum_net": 217406.0,
+      "home_value": 724509.0,
+      "equity": 417879.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "austin-tx",
+      "year": 9,
+      "buy_cum_net": 34700.0,
+      "rent_cum_net": 251120.0,
+      "home_value": 772564.0,
+      "equity": 472538.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "austin-tx",
+      "year": 10,
+      "buy_cum_net": 26445.0,
+      "rent_cum_net": 286541.0,
+      "home_value": 823807.0,
+      "equity": 530817.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "austin-tx",
+      "year": 11,
+      "buy_cum_net": 16121.0,
+      "rent_cum_net": 323755.0,
+      "home_value": 878448.0,
+      "equity": 592956.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "austin-tx",
+      "year": 12,
+      "buy_cum_net": 3592.0,
+      "rent_cum_net": 362853.0,
+      "home_value": 936714.0,
+      "equity": 659212.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "austin-tx",
+      "year": 13,
+      "buy_cum_net": -11290.0,
+      "rent_cum_net": 403932.0,
+      "home_value": 998844.0,
+      "equity": 729856.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "austin-tx",
+      "year": 14,
+      "buy_cum_net": -28679.0,
+      "rent_cum_net": 447091.0,
+      "home_value": 1065096.0,
+      "equity": 805179.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "austin-tx",
+      "year": 15,
+      "buy_cum_net": -48741.0,
+      "rent_cum_net": 492438.0,
+      "home_value": 1135741.0,
+      "equity": 885493.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "austin-tx",
+      "year": 16,
+      "buy_cum_net": -71654.0,
+      "rent_cum_net": 540083.0,
+      "home_value": 1211073.0,
+      "equity": 971125.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "austin-tx",
+      "year": 17,
+      "buy_cum_net": -97606.0,
+      "rent_cum_net": 590144.0,
+      "home_value": 1291401.0,
+      "equity": 1062431.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "austin-tx",
+      "year": 18,
+      "buy_cum_net": -126799.0,
+      "rent_cum_net": 642742.0,
+      "home_value": 1377057.0,
+      "equity": 1159784.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "austin-tx",
+      "year": 19,
+      "buy_cum_net": -159447.0,
+      "rent_cum_net": 698008.0,
+      "home_value": 1468394.0,
+      "equity": 1263586.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "austin-tx",
+      "year": 20,
+      "buy_cum_net": -195778.0,
+      "rent_cum_net": 756076.0,
+      "home_value": 1565789.0,
+      "equity": 1374263.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "austin-tx",
+      "year": 21,
+      "buy_cum_net": -236037.0,
+      "rent_cum_net": 817090.0,
+      "home_value": 1669645.0,
+      "equity": 1492272.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "austin-tx",
+      "year": 22,
+      "buy_cum_net": -280483.0,
+      "rent_cum_net": 881200.0,
+      "home_value": 1780389.0,
+      "equity": 1618098.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "austin-tx",
+      "year": 23,
+      "buy_cum_net": -329394.0,
+      "rent_cum_net": 948563.0,
+      "home_value": 1898478.0,
+      "equity": 1752259.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "austin-tx",
+      "year": 24,
+      "buy_cum_net": -383066.0,
+      "rent_cum_net": 1019344.0,
+      "home_value": 2024401.0,
+      "equity": 1895306.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "austin-tx",
+      "year": 25,
+      "buy_cum_net": -441812.0,
+      "rent_cum_net": 1093717.0,
+      "home_value": 2158675.0,
+      "equity": 2047829.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "austin-tx",
+      "year": 26,
+      "buy_cum_net": -505971.0,
+      "rent_cum_net": 1171866.0,
+      "home_value": 2301855.0,
+      "equity": 2210454.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "austin-tx",
+      "year": 27,
+      "buy_cum_net": -575899.0,
+      "rent_cum_net": 1253982.0,
+      "home_value": 2454533.0,
+      "equity": 2383853.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "austin-tx",
+      "year": 28,
+      "buy_cum_net": -651978.0,
+      "rent_cum_net": 1340267.0,
+      "home_value": 2617337.0,
+      "equity": 2568737.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "austin-tx",
+      "year": 29,
+      "buy_cum_net": -734617.0,
+      "rent_cum_net": 1430933.0,
+      "home_value": 2790939.0,
+      "equity": 2765868.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "austin-tx",
+      "year": 30,
+      "buy_cum_net": -824248.0,
+      "rent_cum_net": 1526203.0,
+      "home_value": 2976056.0,
+      "equity": 2976056.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "nashville-tn",
+      "year": 1,
+      "buy_cum_net": 27614.0,
+      "rent_cum_net": 23485.0,
+      "home_value": 501231.0,
+      "equity": 136491.0,
+      "buy_better": false
+    },
+    {
+      "market_id": "nashville-tn",
+      "year": 2,
+      "buy_cum_net": 15572.0,
+      "rent_cum_net": 48156.0,
+      "home_value": 544727.0,
+      "equity": 184491.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "nashville-tn",
+      "year": 3,
+      "buy_cum_net": 533.0,
+      "rent_cum_net": 74073.0,
+      "home_value": 591997.0,
+      "equity": 236561.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "nashville-tn",
+      "year": 4,
+      "buy_cum_net": -17756.0,
+      "rent_cum_net": 101300.0,
+      "home_value": 643369.0,
+      "equity": 293047.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "nashville-tn",
+      "year": 5,
+      "buy_cum_net": -39572.0,
+      "rent_cum_net": 129904.0,
+      "home_value": 699199.0,
+      "equity": 354327.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "nashville-tn",
+      "year": 6,
+      "buy_cum_net": -65217.0,
+      "rent_cum_net": 159954.0,
+      "home_value": 759875.0,
+      "equity": 420810.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "nashville-tn",
+      "year": 7,
+      "buy_cum_net": -95015.0,
+      "rent_cum_net": 191524.0,
+      "home_value": 825815.0,
+      "equity": 492938.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "nashville-tn",
+      "year": 8,
+      "buy_cum_net": -129323.0,
+      "rent_cum_net": 224691.0,
+      "home_value": 897478.0,
+      "equity": 571195.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "nashville-tn",
+      "year": 9,
+      "buy_cum_net": -168523.0,
+      "rent_cum_net": 259538.0,
+      "home_value": 975359.0,
+      "equity": 656103.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "nashville-tn",
+      "year": 10,
+      "buy_cum_net": -213034.0,
+      "rent_cum_net": 296148.0,
+      "home_value": 1059998.0,
+      "equity": 748230.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "nashville-tn",
+      "year": 11,
+      "buy_cum_net": -263308.0,
+      "rent_cum_net": 334612.0,
+      "home_value": 1151983.0,
+      "equity": 848193.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "nashville-tn",
+      "year": 12,
+      "buy_cum_net": -319839.0,
+      "rent_cum_net": 375025.0,
+      "home_value": 1251950.0,
+      "equity": 956661.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "nashville-tn",
+      "year": 13,
+      "buy_cum_net": -383159.0,
+      "rent_cum_net": 417484.0,
+      "home_value": 1360591.0,
+      "equity": 1074363.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "nashville-tn",
+      "year": 14,
+      "buy_cum_net": -453849.0,
+      "rent_cum_net": 462096.0,
+      "home_value": 1478661.0,
+      "equity": 1202086.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "nashville-tn",
+      "year": 15,
+      "buy_cum_net": -532539.0,
+      "rent_cum_net": 508968.0,
+      "home_value": 1606976.0,
+      "equity": 1340688.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "nashville-tn",
+      "year": 16,
+      "buy_cum_net": -619913.0,
+      "rent_cum_net": 558217.0,
+      "home_value": 1746426.0,
+      "equity": 1491100.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "nashville-tn",
+      "year": 17,
+      "buy_cum_net": -716712.0,
+      "rent_cum_net": 609962.0,
+      "home_value": 1897977.0,
+      "equity": 1654332.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "nashville-tn",
+      "year": 18,
+      "buy_cum_net": -823743.0,
+      "rent_cum_net": 664332.0,
+      "home_value": 2062680.0,
+      "equity": 1831482.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "nashville-tn",
+      "year": 19,
+      "buy_cum_net": -941882.0,
+      "rent_cum_net": 721459.0,
+      "home_value": 2241675.0,
+      "equity": 2023740.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "nashville-tn",
+      "year": 20,
+      "buy_cum_net": -1072078.0,
+      "rent_cum_net": 781484.0,
+      "home_value": 2436203.0,
+      "equity": 2232402.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "nashville-tn",
+      "year": 21,
+      "buy_cum_net": -1215364.0,
+      "rent_cum_net": 844555.0,
+      "home_value": 2647612.0,
+      "equity": 2458871.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "nashville-tn",
+      "year": 22,
+      "buy_cum_net": -1372859.0,
+      "rent_cum_net": 910825.0,
+      "home_value": 2877366.0,
+      "equity": 2704674.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "nashville-tn",
+      "year": 23,
+      "buy_cum_net": -1545782.0,
+      "rent_cum_net": 980459.0,
+      "home_value": 3127058.0,
+      "equity": 2971467.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "nashville-tn",
+      "year": 24,
+      "buy_cum_net": -1735452.0,
+      "rent_cum_net": 1053628.0,
+      "home_value": 3398418.0,
+      "equity": 3261050.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "nashville-tn",
+      "year": 25,
+      "buy_cum_net": -1943306.0,
+      "rent_cum_net": 1130510.0,
+      "home_value": 3693326.0,
+      "equity": 3575375.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "nashville-tn",
+      "year": 26,
+      "buy_cum_net": -2170901.0,
+      "rent_cum_net": 1211296.0,
+      "home_value": 4013825.0,
+      "equity": 3916566.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "nashville-tn",
+      "year": 27,
+      "buy_cum_net": -2419929.0,
+      "rent_cum_net": 1296183.0,
+      "home_value": 4362137.0,
+      "equity": 4286927.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "nashville-tn",
+      "year": 28,
+      "buy_cum_net": -2692228.0,
+      "rent_cum_net": 1385381.0,
+      "home_value": 4740674.0,
+      "equity": 4688960.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "nashville-tn",
+      "year": 29,
+      "buy_cum_net": -2989793.0,
+      "rent_cum_net": 1479109.0,
+      "home_value": 5152061.0,
+      "equity": 5125382.0,
+      "buy_better": true
+    },
+    {
+      "market_id": "nashville-tn",
+      "year": 30,
+      "buy_cum_net": -3314791.0,
+      "rent_cum_net": 1577597.0,
+      "home_value": 5599146.0,
+      "equity": 5599146.0,
+      "buy_better": true
+    }
+  ],
+  "market_defaults": [
+    {
+      "market_id": "nashville-tn",
+      "market_name": "Nashville-Davidson-Murfreesboro-Franklin, TN",
+      "default_insurance_mo": 150,
+      "effective_property_tax_rate": 0.008,
+      "appreciation_pct_by_window": {
+        "5": 9.6184,
+        "10": 8.6778,
+        "20": 5.5143,
+        "30": 5.1904
+      }
+    },
+    {
+      "market_id": "austin-tx",
+      "market_name": "Austin-Round Rock-Georgetown, TX",
+      "default_insurance_mo": 230,
+      "effective_property_tax_rate": 0.019,
+      "appreciation_pct_by_window": {
+        "5": 6.0328,
+        "10": 6.6328,
+        "20": 5.7393,
+        "30": 5.3771
+      }
+    }
+  ],
+  "rent_inflation_pct_by_window": {
+    "5": 5.0743,
+    "10": 4.1975,
+    "20": 3.5067,
+    "30": 3.4379
+  },
+  "appreciation_history": {
+    "austin-tx": [
+      {
+        "date": "1977-04-01",
+        "value": 39.29
+      },
+      {
+        "date": "1977-07-01",
+        "value": 40.85
+      },
+      {
+        "date": "1977-10-01",
+        "value": 43.4
+      },
+      {
+        "date": "1978-01-01",
+        "value": 44.64
+      },
+      {
+        "date": "1978-04-01",
+        "value": 46.5
+      },
+      {
+        "date": "1978-07-01",
+        "value": 48.22
+      },
+      {
+        "date": "1978-10-01",
+        "value": 49.27
+      },
+      {
+        "date": "1979-01-01",
+        "value": 52.33
+      },
+      {
+        "date": "1979-04-01",
+        "value": 52.71
+      },
+      {
+        "date": "1979-07-01",
+        "value": 56.07
+      },
+      {
+        "date": "1979-10-01",
+        "value": 59.07
+      },
+      {
+        "date": "1980-01-01",
+        "value": 58.42
+      },
+      {
+        "date": "1980-04-01",
+        "value": 63.75
+      },
+      {
+        "date": "1980-07-01",
+        "value": 60.64
+      },
+      {
+        "date": "1980-10-01",
+        "value": 61.59
+      },
+      {
+        "date": "1981-01-01",
+        "value": 63.49
+      },
+      {
+        "date": "1981-04-01",
+        "value": 66.48
+      },
+      {
+        "date": "1981-07-01",
+        "value": 68.55
+      },
+      {
+        "date": "1981-10-01",
+        "value": 57.03
+      },
+      {
+        "date": "1982-01-01",
+        "value": 69.13
+      },
+      {
+        "date": "1982-04-01",
+        "value": 64.16
+      },
+      {
+        "date": "1982-07-01",
+        "value": 62.3
+      },
+      {
+        "date": "1982-10-01",
+        "value": 72.55
+      },
+      {
+        "date": "1983-01-01",
+        "value": 74.55
+      },
+      {
+        "date": "1983-04-01",
+        "value": 77.21
+      },
+      {
+        "date": "1983-07-01",
+        "value": 78.13
+      },
+      {
+        "date": "1983-10-01",
+        "value": 81.31
+      },
+      {
+        "date": "1984-01-01",
+        "value": 82.46
+      },
+      {
+        "date": "1984-04-01",
+        "value": 86.65
+      },
+      {
+        "date": "1984-07-01",
+        "value": 89.79
+      },
+      {
+        "date": "1984-10-01",
+        "value": 91.46
+      },
+      {
+        "date": "1985-01-01",
+        "value": 93.55
+      },
+      {
+        "date": "1985-04-01",
+        "value": 96.85
+      },
+      {
+        "date": "1985-07-01",
+        "value": 96.27
+      },
+      {
+        "date": "1985-10-01",
+        "value": 96.57
+      },
+      {
+        "date": "1986-01-01",
+        "value": 96.75
+      },
+      {
+        "date": "1986-04-01",
+        "value": 98.62
+      },
+      {
+        "date": "1986-07-01",
+        "value": 97.79
+      },
+      {
+        "date": "1986-10-01",
+        "value": 95.75
+      },
+      {
+        "date": "1987-01-01",
+        "value": 93.32
+      },
+      {
+        "date": "1987-04-01",
+        "value": 91.74
+      },
+      {
+        "date": "1987-07-01",
+        "value": 85.12
+      },
+      {
+        "date": "1987-10-01",
+        "value": 81.49
+      },
+      {
+        "date": "1988-01-01",
+        "value": 79.35
+      },
+      {
+        "date": "1988-04-01",
+        "value": 91.28
+      },
+      {
+        "date": "1988-07-01",
+        "value": 75.29
+      },
+      {
+        "date": "1988-10-01",
+        "value": 73.8
+      },
+      {
+        "date": "1989-01-01",
+        "value": 73.26
+      },
+      {
+        "date": "1989-04-01",
+        "value": 73.0
+      },
+      {
+        "date": "1989-07-01",
+        "value": 74.02
+      },
+      {
+        "date": "1989-10-01",
+        "value": 72.94
+      },
+      {
+        "date": "1990-01-01",
+        "value": 72.85
+      },
+      {
+        "date": "1990-04-01",
+        "value": 73.14
+      },
+      {
+        "date": "1990-07-01",
+        "value": 72.83
+      },
+      {
+        "date": "1990-10-01",
+        "value": 73.0
+      },
+      {
+        "date": "1991-01-01",
+        "value": 75.1
+      },
+      {
+        "date": "1991-04-01",
+        "value": 76.76
+      },
+      {
+        "date": "1991-07-01",
+        "value": 77.95
+      },
+      {
+        "date": "1991-10-01",
+        "value": 78.33
+      },
+      {
+        "date": "1992-01-01",
+        "value": 80.3
+      },
+      {
+        "date": "1992-04-01",
+        "value": 82.2
+      },
+      {
+        "date": "1992-07-01",
+        "value": 84.46
+      },
+      {
+        "date": "1992-10-01",
+        "value": 85.75
+      },
+      {
+        "date": "1993-01-01",
+        "value": 87.83
+      },
+      {
+        "date": "1993-04-01",
+        "value": 89.81
+      },
+      {
+        "date": "1993-07-01",
+        "value": 93.08
+      },
+      {
+        "date": "1993-10-01",
+        "value": 94.98
+      },
+      {
+        "date": "1994-01-01",
+        "value": 97.23
+      },
+      {
+        "date": "1994-04-01",
+        "value": 99.87
+      },
+      {
+        "date": "1994-07-01",
+        "value": 100.34
+      },
+      {
+        "date": "1994-10-01",
+        "value": 100.34
+      },
+      {
+        "date": "1995-01-01",
+        "value": 100.0
+      },
+      {
+        "date": "1995-04-01",
+        "value": 102.27
+      },
+      {
+        "date": "1995-07-01",
+        "value": 104.17
+      },
+      {
+        "date": "1995-10-01",
+        "value": 105.07
+      },
+      {
+        "date": "1996-01-01",
+        "value": 105.92
+      },
+      {
+        "date": "1996-04-01",
+        "value": 106.24
+      },
+      {
+        "date": "1996-07-01",
+        "value": 106.18
+      },
+      {
+        "date": "1996-10-01",
+        "value": 107.24
+      },
+      {
+        "date": "1997-01-01",
+        "value": 106.88
+      },
+      {
+        "date": "1997-04-01",
+        "value": 107.26
+      },
+      {
+        "date": "1997-07-01",
+        "value": 107.36
+      },
+      {
+        "date": "1997-10-01",
+        "value": 109.1
+      },
+      {
+        "date": "1998-01-01",
+        "value": 110.57
+      },
+      {
+        "date": "1998-04-01",
+        "value": 111.52
+      },
+      {
+        "date": "1998-07-01",
+        "value": 113.19
+      },
+      {
+        "date": "1998-10-01",
+        "value": 114.72
+      },
+      {
+        "date": "1999-01-01",
+        "value": 116.21
+      },
+      {
+        "date": "1999-04-01",
+        "value": 119.71
+      },
+      {
+        "date": "1999-07-01",
+        "value": 123.21
+      },
+      {
+        "date": "1999-10-01",
+        "value": 126.39
+      },
+      {
+        "date": "2000-01-01",
+        "value": 130.12
+      },
+      {
+        "date": "2000-04-01",
+        "value": 135.33
+      },
+      {
+        "date": "2000-07-01",
+        "value": 139.97
+      },
+      {
+        "date": "2000-10-01",
+        "value": 142.09
+      },
+      {
+        "date": "2001-01-01",
+        "value": 147.84
+      },
+      {
+        "date": "2001-04-01",
+        "value": 149.98
+      },
+      {
+        "date": "2001-07-01",
+        "value": 149.57
+      },
+      {
+        "date": "2001-10-01",
+        "value": 150.39
+      },
+      {
+        "date": "2002-01-01",
+        "value": 149.98
+      },
+      {
+        "date": "2002-04-01",
+        "value": 150.4
+      },
+      {
+        "date": "2002-07-01",
+        "value": 152.76
+      },
+      {
+        "date": "2002-10-01",
+        "value": 153.35
+      },
+      {
+        "date": "2003-01-01",
+        "value": 153.37
+      },
+      {
+        "date": "2003-04-01",
+        "value": 153.32
+      },
+      {
+        "date": "2003-07-01",
+        "value": 152.17
+      },
+      {
+        "date": "2003-10-01",
+        "value": 153.0
+      },
+      {
+        "date": "2004-01-01",
+        "value": 153.13
+      },
+      {
+        "date": "2004-04-01",
+        "value": 153.72
+      },
+      {
+        "date": "2004-07-01",
+        "value": 153.89
+      },
+      {
+        "date": "2004-10-01",
+        "value": 156.29
+      },
+      {
+        "date": "2005-01-01",
+        "value": 157.1
+      },
+      {
+        "date": "2005-04-01",
+        "value": 160.55
+      },
+      {
+        "date": "2005-07-01",
+        "value": 163.57
+      },
+      {
+        "date": "2005-10-01",
+        "value": 165.64
+      },
+      {
+        "date": "2006-01-01",
+        "value": 167.73
+      },
+      {
+        "date": "2006-04-01",
+        "value": 173.19
+      },
+      {
+        "date": "2006-07-01",
+        "value": 176.76
+      },
+      {
+        "date": "2006-10-01",
+        "value": 180.33
+      },
+      {
+        "date": "2007-01-01",
+        "value": 184.47
+      },
+      {
+        "date": "2007-04-01",
+        "value": 189.94
+      },
+      {
+        "date": "2007-07-01",
+        "value": 191.72
+      },
+      {
+        "date": "2007-10-01",
+        "value": 193.37
+      },
+      {
+        "date": "2008-01-01",
+        "value": 196.62
+      },
+      {
+        "date": "2008-04-01",
+        "value": 197.7
+      },
+      {
+        "date": "2008-07-01",
+        "value": 197.16
+      },
+      {
+        "date": "2008-10-01",
+        "value": 197.54
+      },
+      {
+        "date": "2009-01-01",
+        "value": 198.11
+      },
+      {
+        "date": "2009-04-01",
+        "value": 196.06
+      },
+      {
+        "date": "2009-07-01",
+        "value": 194.42
+      },
+      {
+        "date": "2009-10-01",
+        "value": 193.92
+      },
+      {
+        "date": "2010-01-01",
+        "value": 193.09
+      },
+      {
+        "date": "2010-04-01",
+        "value": 193.01
+      },
+      {
+        "date": "2010-07-01",
+        "value": 194.54
+      },
+      {
+        "date": "2010-10-01",
+        "value": 193.09
+      },
+      {
+        "date": "2011-01-01",
+        "value": 189.24
+      },
+      {
+        "date": "2011-04-01",
+        "value": 189.62
+      },
+      {
+        "date": "2011-07-01",
+        "value": 191.45
+      },
+      {
+        "date": "2011-10-01",
+        "value": 193.54
+      },
+      {
+        "date": "2012-01-01",
+        "value": 193.13
+      },
+      {
+        "date": "2012-04-01",
+        "value": 194.85
+      },
+      {
+        "date": "2012-07-01",
+        "value": 198.05
+      },
+      {
+        "date": "2012-10-01",
+        "value": 200.58
+      },
+      {
+        "date": "2013-01-01",
+        "value": 203.88
+      },
+      {
+        "date": "2013-04-01",
+        "value": 209.7
+      },
+      {
+        "date": "2013-07-01",
+        "value": 216.14
+      },
+      {
+        "date": "2013-10-01",
+        "value": 220.1
+      },
+      {
+        "date": "2014-01-01",
+        "value": 225.47
+      },
+      {
+        "date": "2014-04-01",
+        "value": 236.15
+      },
+      {
+        "date": "2014-07-01",
+        "value": 241.49
+      },
+      {
+        "date": "2014-10-01",
+        "value": 243.98
+      },
+      {
+        "date": "2015-01-01",
+        "value": 247.88
+      },
+      {
+        "date": "2015-04-01",
+        "value": 257.65
+      },
+      {
+        "date": "2015-07-01",
+        "value": 265.29
+      },
+      {
+        "date": "2015-10-01",
+        "value": 266.04
+      },
+      {
+        "date": "2016-01-01",
+        "value": 272.32
+      },
+      {
+        "date": "2016-04-01",
+        "value": 280.2
+      },
+      {
+        "date": "2016-07-01",
+        "value": 286.53
+      },
+      {
+        "date": "2016-10-01",
+        "value": 288.06
+      },
+      {
+        "date": "2017-01-01",
+        "value": 292.46
+      },
+      {
+        "date": "2017-04-01",
+        "value": 302.08
+      },
+      {
+        "date": "2017-07-01",
+        "value": 304.88
+      },
+      {
+        "date": "2017-10-01",
+        "value": 306.1
+      },
+      {
+        "date": "2018-01-01",
+        "value": 310.49
+      },
+      {
+        "date": "2018-04-01",
+        "value": 318.7
+      },
+      {
+        "date": "2018-07-01",
+        "value": 322.76
+      },
+      {
+        "date": "2018-10-01",
+        "value": 322.66
+      },
+      {
+        "date": "2019-01-01",
+        "value": 330.63
+      },
+      {
+        "date": "2019-04-01",
+        "value": 337.92
+      },
+      {
+        "date": "2019-07-01",
+        "value": 342.78
+      },
+      {
+        "date": "2019-10-01",
+        "value": 345.92
+      },
+      {
+        "date": "2020-01-01",
+        "value": 351.83
+      },
+      {
+        "date": "2020-04-01",
+        "value": 357.38
+      },
+      {
+        "date": "2020-07-01",
+        "value": 364.32
+      },
+      {
+        "date": "2020-10-01",
+        "value": 377.32
+      },
+      {
+        "date": "2021-01-01",
+        "value": 393.79
+      },
+      {
+        "date": "2021-04-01",
+        "value": 439.55
+      },
+      {
+        "date": "2021-07-01",
+        "value": 484.46
+      },
+      {
+        "date": "2021-10-01",
+        "value": 500.84
+      },
+      {
+        "date": "2022-01-01",
+        "value": 525.47
+      },
+      {
+        "date": "2022-04-01",
+        "value": 571.4
+      },
+      {
+        "date": "2022-07-01",
+        "value": 567.9
+      },
+      {
+        "date": "2022-10-01",
+        "value": 535.72
+      },
+      {
+        "date": "2023-01-01",
+        "value": 526.77
+      },
+      {
+        "date": "2023-04-01",
+        "value": 519.99
+      },
+      {
+        "date": "2023-07-01",
+        "value": 516.53
+      },
+      {
+        "date": "2023-10-01",
+        "value": 505.19
+      },
+      {
+        "date": "2024-01-01",
+        "value": 511.75
+      },
+      {
+        "date": "2024-04-01",
+        "value": 512.07
+      },
+      {
+        "date": "2024-07-01",
+        "value": 509.23
+      },
+      {
+        "date": "2024-10-01",
+        "value": 503.8
+      },
+      {
+        "date": "2025-01-01",
+        "value": 508.31
+      },
+      {
+        "date": "2025-04-01",
+        "value": 508.63
+      },
+      {
+        "date": "2025-07-01",
+        "value": 506.86
+      },
+      {
+        "date": "2025-10-01",
+        "value": 505.7
+      }
+    ],
+    "nashville-tn": [
+      {
+        "date": "1979-04-01",
+        "value": 50.14
+      },
+      {
+        "date": "1979-07-01",
+        "value": 50.72
+      },
+      {
+        "date": "1979-10-01",
+        "value": 50.83
+      },
+      {
+        "date": "1980-01-01",
+        "value": 51.72
+      },
+      {
+        "date": "1980-04-01",
+        "value": 50.16
+      },
+      {
+        "date": "1980-07-01",
+        "value": 53.71
+      },
+      {
+        "date": "1980-10-01",
+        "value": 52.23
+      },
+      {
+        "date": "1981-01-01",
+        "value": 50.35
+      },
+      {
+        "date": "1981-04-01",
+        "value": 55.62
+      },
+      {
+        "date": "1981-07-01",
+        "value": 60.36
+      },
+      {
+        "date": "1981-10-01",
+        "value": 49.37
+      },
+      {
+        "date": "1982-01-01",
+        "value": 58.11
+      },
+      {
+        "date": "1982-04-01",
+        "value": 57.78
+      },
+      {
+        "date": "1982-07-01",
+        "value": 59.24
+      },
+      {
+        "date": "1982-10-01",
+        "value": 55.32
+      },
+      {
+        "date": "1983-01-01",
+        "value": 60.2
+      },
+      {
+        "date": "1983-04-01",
+        "value": 61.14
+      },
+      {
+        "date": "1983-07-01",
+        "value": 60.93
+      },
+      {
+        "date": "1983-10-01",
+        "value": 62.51
+      },
+      {
+        "date": "1984-01-01",
+        "value": 62.99
+      },
+      {
+        "date": "1984-04-01",
+        "value": 65.33
+      },
+      {
+        "date": "1984-07-01",
+        "value": 66.0
+      },
+      {
+        "date": "1984-10-01",
+        "value": 67.39
+      },
+      {
+        "date": "1985-01-01",
+        "value": 68.7
+      },
+      {
+        "date": "1985-04-01",
+        "value": 69.54
+      },
+      {
+        "date": "1985-07-01",
+        "value": 70.17
+      },
+      {
+        "date": "1985-10-01",
+        "value": 71.82
+      },
+      {
+        "date": "1986-01-01",
+        "value": 73.77
+      },
+      {
+        "date": "1986-04-01",
+        "value": 74.64
+      },
+      {
+        "date": "1986-07-01",
+        "value": 76.39
+      },
+      {
+        "date": "1986-10-01",
+        "value": 78.24
+      },
+      {
+        "date": "1987-01-01",
+        "value": 80.38
+      },
+      {
+        "date": "1987-04-01",
+        "value": 81.63
+      },
+      {
+        "date": "1987-07-01",
+        "value": 81.32
+      },
+      {
+        "date": "1987-10-01",
+        "value": 82.56
+      },
+      {
+        "date": "1988-01-01",
+        "value": 82.85
+      },
+      {
+        "date": "1988-04-01",
+        "value": 83.82
+      },
+      {
+        "date": "1988-07-01",
+        "value": 83.75
+      },
+      {
+        "date": "1988-10-01",
+        "value": 83.38
+      },
+      {
+        "date": "1989-01-01",
+        "value": 83.05
+      },
+      {
+        "date": "1989-04-01",
+        "value": 83.8
+      },
+      {
+        "date": "1989-07-01",
+        "value": 83.59
+      },
+      {
+        "date": "1989-10-01",
+        "value": 83.37
+      },
+      {
+        "date": "1990-01-01",
+        "value": 83.88
+      },
+      {
+        "date": "1990-04-01",
+        "value": 83.39
+      },
+      {
+        "date": "1990-07-01",
+        "value": 82.97
+      },
+      {
+        "date": "1990-10-01",
+        "value": 83.34
+      },
+      {
+        "date": "1991-01-01",
+        "value": 83.49
+      },
+      {
+        "date": "1991-04-01",
+        "value": 83.62
+      },
+      {
+        "date": "1991-07-01",
+        "value": 83.91
+      },
+      {
+        "date": "1991-10-01",
+        "value": 84.42
+      },
+      {
+        "date": "1992-01-01",
+        "value": 85.35
+      },
+      {
+        "date": "1992-04-01",
+        "value": 85.37
+      },
+      {
+        "date": "1992-07-01",
+        "value": 86.89
+      },
+      {
+        "date": "1992-10-01",
+        "value": 86.82
+      },
+      {
+        "date": "1993-01-01",
+        "value": 86.99
+      },
+      {
+        "date": "1993-04-01",
+        "value": 88.5
+      },
+      {
+        "date": "1993-07-01",
+        "value": 89.79
+      },
+      {
+        "date": "1993-10-01",
+        "value": 91.12
+      },
+      {
+        "date": "1994-01-01",
+        "value": 92.56
+      },
+      {
+        "date": "1994-04-01",
+        "value": 95.35
+      },
+      {
+        "date": "1994-07-01",
+        "value": 97.29
+      },
+      {
+        "date": "1994-10-01",
+        "value": 98.18
+      },
+      {
+        "date": "1995-01-01",
+        "value": 100.0
+      },
+      {
+        "date": "1995-04-01",
+        "value": 102.1
+      },
+      {
+        "date": "1995-07-01",
+        "value": 103.8
+      },
+      {
+        "date": "1995-10-01",
+        "value": 105.67
+      },
+      {
+        "date": "1996-01-01",
+        "value": 107.65
+      },
+      {
+        "date": "1996-04-01",
+        "value": 108.93
+      },
+      {
+        "date": "1996-07-01",
+        "value": 110.18
+      },
+      {
+        "date": "1996-10-01",
+        "value": 111.44
+      },
+      {
+        "date": "1997-01-01",
+        "value": 113.41
+      },
+      {
+        "date": "1997-04-01",
+        "value": 114.83
+      },
+      {
+        "date": "1997-07-01",
+        "value": 116.19
+      },
+      {
+        "date": "1997-10-01",
+        "value": 117.65
+      },
+      {
+        "date": "1998-01-01",
+        "value": 119.59
+      },
+      {
+        "date": "1998-04-01",
+        "value": 120.74
+      },
+      {
+        "date": "1998-07-01",
+        "value": 122.4
+      },
+      {
+        "date": "1998-10-01",
+        "value": 124.01
+      },
+      {
+        "date": "1999-01-01",
+        "value": 124.74
+      },
+      {
+        "date": "1999-04-01",
+        "value": 125.32
+      },
+      {
+        "date": "1999-07-01",
+        "value": 125.86
+      },
+      {
+        "date": "1999-10-01",
+        "value": 126.48
+      },
+      {
+        "date": "2000-01-01",
+        "value": 127.64
+      },
+      {
+        "date": "2000-04-01",
+        "value": 128.25
+      },
+      {
+        "date": "2000-07-01",
+        "value": 130.07
+      },
+      {
+        "date": "2000-10-01",
+        "value": 131.17
+      },
+      {
+        "date": "2001-01-01",
+        "value": 134.08
+      },
+      {
+        "date": "2001-04-01",
+        "value": 134.65
+      },
+      {
+        "date": "2001-07-01",
+        "value": 135.51
+      },
+      {
+        "date": "2001-10-01",
+        "value": 136.84
+      },
+      {
+        "date": "2002-01-01",
+        "value": 137.64
+      },
+      {
+        "date": "2002-04-01",
+        "value": 137.97
+      },
+      {
+        "date": "2002-07-01",
+        "value": 139.73
+      },
+      {
+        "date": "2002-10-01",
+        "value": 140.8
+      },
+      {
+        "date": "2003-01-01",
+        "value": 141.36
+      },
+      {
+        "date": "2003-04-01",
+        "value": 142.49
+      },
+      {
+        "date": "2003-07-01",
+        "value": 143.55
+      },
+      {
+        "date": "2003-10-01",
+        "value": 145.07
+      },
+      {
+        "date": "2004-01-01",
+        "value": 146.19
+      },
+      {
+        "date": "2004-04-01",
+        "value": 147.89
+      },
+      {
+        "date": "2004-07-01",
+        "value": 150.55
+      },
+      {
+        "date": "2004-10-01",
+        "value": 152.72
+      },
+      {
+        "date": "2005-01-01",
+        "value": 154.55
+      },
+      {
+        "date": "2005-04-01",
+        "value": 158.18
+      },
+      {
+        "date": "2005-07-01",
+        "value": 161.33
+      },
+      {
+        "date": "2005-10-01",
+        "value": 164.83
+      },
+      {
+        "date": "2006-01-01",
+        "value": 167.77
+      },
+      {
+        "date": "2006-04-01",
+        "value": 172.49
+      },
+      {
+        "date": "2006-07-01",
+        "value": 175.35
+      },
+      {
+        "date": "2006-10-01",
+        "value": 178.96
+      },
+      {
+        "date": "2007-01-01",
+        "value": 180.66
+      },
+      {
+        "date": "2007-04-01",
+        "value": 182.69
+      },
+      {
+        "date": "2007-07-01",
+        "value": 183.74
+      },
+      {
+        "date": "2007-10-01",
+        "value": 184.63
+      },
+      {
+        "date": "2008-01-01",
+        "value": 185.43
+      },
+      {
+        "date": "2008-04-01",
+        "value": 185.3
+      },
+      {
+        "date": "2008-07-01",
+        "value": 182.28
+      },
+      {
+        "date": "2008-10-01",
+        "value": 183.6
+      },
+      {
+        "date": "2009-01-01",
+        "value": 183.72
+      },
+      {
+        "date": "2009-04-01",
+        "value": 181.4
+      },
+      {
+        "date": "2009-07-01",
+        "value": 176.12
+      },
+      {
+        "date": "2009-10-01",
+        "value": 175.1
+      },
+      {
+        "date": "2010-01-01",
+        "value": 173.63
+      },
+      {
+        "date": "2010-04-01",
+        "value": 173.08
+      },
+      {
+        "date": "2010-07-01",
+        "value": 174.91
+      },
+      {
+        "date": "2010-10-01",
+        "value": 174.21
+      },
+      {
+        "date": "2011-01-01",
+        "value": 169.69
+      },
+      {
+        "date": "2011-04-01",
+        "value": 168.82
+      },
+      {
+        "date": "2011-07-01",
+        "value": 169.91
+      },
+      {
+        "date": "2011-10-01",
+        "value": 170.45
+      },
+      {
+        "date": "2012-01-01",
+        "value": 169.24
+      },
+      {
+        "date": "2012-04-01",
+        "value": 169.07
+      },
+      {
+        "date": "2012-07-01",
+        "value": 171.46
+      },
+      {
+        "date": "2012-10-01",
+        "value": 171.87
+      },
+      {
+        "date": "2013-01-01",
+        "value": 172.86
+      },
+      {
+        "date": "2013-04-01",
+        "value": 175.8
+      },
+      {
+        "date": "2013-07-01",
+        "value": 177.75
+      },
+      {
+        "date": "2013-10-01",
+        "value": 180.45
+      },
+      {
+        "date": "2014-01-01",
+        "value": 182.91
+      },
+      {
+        "date": "2014-04-01",
+        "value": 187.91
+      },
+      {
+        "date": "2014-07-01",
+        "value": 190.97
+      },
+      {
+        "date": "2014-10-01",
+        "value": 193.78
+      },
+      {
+        "date": "2015-01-01",
+        "value": 197.32
+      },
+      {
+        "date": "2015-04-01",
+        "value": 202.03
+      },
+      {
+        "date": "2015-07-01",
+        "value": 207.45
+      },
+      {
+        "date": "2015-10-01",
+        "value": 209.8
+      },
+      {
+        "date": "2016-01-01",
+        "value": 214.75
+      },
+      {
+        "date": "2016-04-01",
+        "value": 221.18
+      },
+      {
+        "date": "2016-07-01",
+        "value": 225.91
+      },
+      {
+        "date": "2016-10-01",
+        "value": 230.69
+      },
+      {
+        "date": "2017-01-01",
+        "value": 235.56
+      },
+      {
+        "date": "2017-04-01",
+        "value": 242.03
+      },
+      {
+        "date": "2017-07-01",
+        "value": 247.63
+      },
+      {
+        "date": "2017-10-01",
+        "value": 251.55
+      },
+      {
+        "date": "2018-01-01",
+        "value": 256.91
+      },
+      {
+        "date": "2018-04-01",
+        "value": 263.04
+      },
+      {
+        "date": "2018-07-01",
+        "value": 267.59
+      },
+      {
+        "date": "2018-10-01",
+        "value": 270.51
+      },
+      {
+        "date": "2019-01-01",
+        "value": 273.62
+      },
+      {
+        "date": "2019-04-01",
+        "value": 278.04
+      },
+      {
+        "date": "2019-07-01",
+        "value": 281.96
+      },
+      {
+        "date": "2019-10-01",
+        "value": 284.95
+      },
+      {
+        "date": "2020-01-01",
+        "value": 289.52
+      },
+      {
+        "date": "2020-04-01",
+        "value": 292.25
+      },
+      {
+        "date": "2020-07-01",
+        "value": 298.31
+      },
+      {
+        "date": "2020-10-01",
+        "value": 304.7
+      },
+      {
+        "date": "2021-01-01",
+        "value": 312.99
+      },
+      {
+        "date": "2021-04-01",
+        "value": 332.85
+      },
+      {
+        "date": "2021-07-01",
+        "value": 356.58
+      },
+      {
+        "date": "2021-10-01",
+        "value": 377.3
+      },
+      {
+        "date": "2022-01-01",
+        "value": 397.53
+      },
+      {
+        "date": "2022-04-01",
+        "value": 433.01
+      },
+      {
+        "date": "2022-07-01",
+        "value": 443.74
+      },
+      {
+        "date": "2022-10-01",
+        "value": 434.94
+      },
+      {
+        "date": "2023-01-01",
+        "value": 438.6
+      },
+      {
+        "date": "2023-04-01",
+        "value": 446.16
+      },
+      {
+        "date": "2023-07-01",
+        "value": 447.77
+      },
+      {
+        "date": "2023-10-01",
+        "value": 449.65
+      },
+      {
+        "date": "2024-01-01",
+        "value": 454.82
+      },
+      {
+        "date": "2024-04-01",
+        "value": 463.02
+      },
+      {
+        "date": "2024-07-01",
+        "value": 469.67
+      },
+      {
+        "date": "2024-10-01",
+        "value": 471.59
+      },
+      {
+        "date": "2025-01-01",
+        "value": 471.8
+      },
+      {
+        "date": "2025-04-01",
+        "value": 478.97
+      },
+      {
+        "date": "2025-07-01",
+        "value": 478.66
+      },
+      {
+        "date": "2025-10-01",
+        "value": 482.24
+      }
+    ]
+  },
+  "rent_inflation_history": [
+    {
+      "date": "1981-01-01",
+      "value": 84.7
+    },
+    {
+      "date": "1981-02-01",
+      "value": 85.2
+    },
+    {
+      "date": "1981-03-01",
+      "value": 85.9
+    },
+    {
+      "date": "1981-04-01",
+      "value": 86.5
+    },
+    {
+      "date": "1981-05-01",
+      "value": 87.1
+    },
+    {
+      "date": "1981-06-01",
+      "value": 87.6
+    },
+    {
+      "date": "1981-07-01",
+      "value": 87.9
+    },
+    {
+      "date": "1981-08-01",
+      "value": 88.8
+    },
+    {
+      "date": "1981-09-01",
+      "value": 89.5
+    },
+    {
+      "date": "1981-10-01",
+      "value": 90.0
+    },
+    {
+      "date": "1981-11-01",
+      "value": 90.6
+    },
+    {
+      "date": "1981-12-01",
+      "value": 91.3
+    },
+    {
+      "date": "1982-01-01",
+      "value": 91.9
+    },
+    {
+      "date": "1982-02-01",
+      "value": 92.3
+    },
+    {
+      "date": "1982-03-01",
+      "value": 92.9
+    },
+    {
+      "date": "1982-04-01",
+      "value": 93.2
+    },
+    {
+      "date": "1982-05-01",
+      "value": 93.8
+    },
+    {
+      "date": "1982-06-01",
+      "value": 94.3
+    },
+    {
+      "date": "1982-07-01",
+      "value": 95.0
+    },
+    {
+      "date": "1982-08-01",
+      "value": 95.5
+    },
+    {
+      "date": "1982-09-01",
+      "value": 95.7
+    },
+    {
+      "date": "1982-10-01",
+      "value": 96.5
+    },
+    {
+      "date": "1982-11-01",
+      "value": 97.0
+    },
+    {
+      "date": "1982-12-01",
+      "value": 97.4
+    },
+    {
+      "date": "1983-01-01",
+      "value": 98.0
+    },
+    {
+      "date": "1983-02-01",
+      "value": 98.5
+    },
+    {
+      "date": "1983-03-01",
+      "value": 98.8
+    },
+    {
+      "date": "1983-04-01",
+      "value": 99.3
+    },
+    {
+      "date": "1983-05-01",
+      "value": 99.5
+    },
+    {
+      "date": "1983-06-01",
+      "value": 99.9
+    },
+    {
+      "date": "1983-07-01",
+      "value": 100.2
+    },
+    {
+      "date": "1983-08-01",
+      "value": 100.6
+    },
+    {
+      "date": "1983-09-01",
+      "value": 101.1
+    },
+    {
+      "date": "1983-10-01",
+      "value": 101.3
+    },
+    {
+      "date": "1983-11-01",
+      "value": 101.7
+    },
+    {
+      "date": "1983-12-01",
+      "value": 102.1
+    },
+    {
+      "date": "1984-01-01",
+      "value": 102.5
+    },
+    {
+      "date": "1984-02-01",
+      "value": 102.9
+    },
+    {
+      "date": "1984-03-01",
+      "value": 103.5
+    },
+    {
+      "date": "1984-04-01",
+      "value": 104.3
+    },
+    {
+      "date": "1984-05-01",
+      "value": 104.6
+    },
+    {
+      "date": "1984-06-01",
+      "value": 105.1
+    },
+    {
+      "date": "1984-07-01",
+      "value": 105.6
+    },
+    {
+      "date": "1984-08-01",
+      "value": 106.1
+    },
+    {
+      "date": "1984-09-01",
+      "value": 106.5
+    },
+    {
+      "date": "1984-10-01",
+      "value": 107.0
+    },
+    {
+      "date": "1984-11-01",
+      "value": 107.4
+    },
+    {
+      "date": "1984-12-01",
+      "value": 108.1
+    },
+    {
+      "date": "1985-01-01",
+      "value": 108.5
+    },
+    {
+      "date": "1985-02-01",
+      "value": 109.2
+    },
+    {
+      "date": "1985-03-01",
+      "value": 109.7
+    },
+    {
+      "date": "1985-04-01",
+      "value": 110.2
+    },
+    {
+      "date": "1985-05-01",
+      "value": 111.0
+    },
+    {
+      "date": "1985-06-01",
+      "value": 111.6
+    },
+    {
+      "date": "1985-07-01",
+      "value": 112.0
+    },
+    {
+      "date": "1985-08-01",
+      "value": 112.6
+    },
+    {
+      "date": "1985-09-01",
+      "value": 113.0
+    },
+    {
+      "date": "1985-10-01",
+      "value": 113.8
+    },
+    {
+      "date": "1985-11-01",
+      "value": 114.6
+    },
+    {
+      "date": "1985-12-01",
+      "value": 115.0
+    },
+    {
+      "date": "1986-01-01",
+      "value": 115.4
+    },
+    {
+      "date": "1986-02-01",
+      "value": 115.6
+    },
+    {
+      "date": "1986-03-01",
+      "value": 116.4
+    },
+    {
+      "date": "1986-04-01",
+      "value": 117.6
+    },
+    {
+      "date": "1986-05-01",
+      "value": 117.8
+    },
+    {
+      "date": "1986-06-01",
+      "value": 118.2
+    },
+    {
+      "date": "1986-07-01",
+      "value": 118.9
+    },
+    {
+      "date": "1986-08-01",
+      "value": 119.0
+    },
+    {
+      "date": "1986-09-01",
+      "value": 119.4
+    },
+    {
+      "date": "1986-10-01",
+      "value": 120.0
+    },
+    {
+      "date": "1986-11-01",
+      "value": 120.4
+    },
+    {
+      "date": "1986-12-01",
+      "value": 120.7
+    },
+    {
+      "date": "1987-01-01",
+      "value": 121.2
+    },
+    {
+      "date": "1987-02-01",
+      "value": 121.6
+    },
+    {
+      "date": "1987-03-01",
+      "value": 122.0
+    },
+    {
+      "date": "1987-04-01",
+      "value": 122.2
+    },
+    {
+      "date": "1987-05-01",
+      "value": 122.5
+    },
+    {
+      "date": "1987-06-01",
+      "value": 122.5
+    },
+    {
+      "date": "1987-07-01",
+      "value": 123.0
+    },
+    {
+      "date": "1987-08-01",
+      "value": 123.8
+    },
+    {
+      "date": "1987-09-01",
+      "value": 124.2
+    },
+    {
+      "date": "1987-10-01",
+      "value": 124.6
+    },
+    {
+      "date": "1987-11-01",
+      "value": 124.6
+    },
+    {
+      "date": "1987-12-01",
+      "value": 125.5
+    },
+    {
+      "date": "1988-01-01",
+      "value": 125.9
+    },
+    {
+      "date": "1988-02-01",
+      "value": 126.2
+    },
+    {
+      "date": "1988-03-01",
+      "value": 126.6
+    },
+    {
+      "date": "1988-04-01",
+      "value": 126.9
+    },
+    {
+      "date": "1988-05-01",
+      "value": 127.2
+    },
+    {
+      "date": "1988-06-01",
+      "value": 127.6
+    },
+    {
+      "date": "1988-07-01",
+      "value": 127.9
+    },
+    {
+      "date": "1988-08-01",
+      "value": 128.4
+    },
+    {
+      "date": "1988-09-01",
+      "value": 128.9
+    },
+    {
+      "date": "1988-10-01",
+      "value": 129.1
+    },
+    {
+      "date": "1988-11-01",
+      "value": 129.5
+    },
+    {
+      "date": "1988-12-01",
+      "value": 129.9
+    },
+    {
+      "date": "1989-01-01",
+      "value": 130.4
+    },
+    {
+      "date": "1989-02-01",
+      "value": 130.9
+    },
+    {
+      "date": "1989-03-01",
+      "value": 131.2
+    },
+    {
+      "date": "1989-04-01",
+      "value": 131.6
+    },
+    {
+      "date": "1989-05-01",
+      "value": 132.0
+    },
+    {
+      "date": "1989-06-01",
+      "value": 132.6
+    },
+    {
+      "date": "1989-07-01",
+      "value": 133.0
+    },
+    {
+      "date": "1989-08-01",
+      "value": 133.5
+    },
+    {
+      "date": "1989-09-01",
+      "value": 133.7
+    },
+    {
+      "date": "1989-10-01",
+      "value": 134.4
+    },
+    {
+      "date": "1989-11-01",
+      "value": 135.0
+    },
+    {
+      "date": "1989-12-01",
+      "value": 135.3
+    },
+    {
+      "date": "1990-01-01",
+      "value": 135.8
+    },
+    {
+      "date": "1990-02-01",
+      "value": 136.1
+    },
+    {
+      "date": "1990-03-01",
+      "value": 136.7
+    },
+    {
+      "date": "1990-04-01",
+      "value": 137.2
+    },
+    {
+      "date": "1990-05-01",
+      "value": 137.6
+    },
+    {
+      "date": "1990-06-01",
+      "value": 138.2
+    },
+    {
+      "date": "1990-07-01",
+      "value": 138.7
+    },
+    {
+      "date": "1990-08-01",
+      "value": 139.3
+    },
+    {
+      "date": "1990-09-01",
+      "value": 139.7
+    },
+    {
+      "date": "1990-10-01",
+      "value": 140.2
+    },
+    {
+      "date": "1990-11-01",
+      "value": 140.5
+    },
+    {
+      "date": "1990-12-01",
+      "value": 141.0
+    },
+    {
+      "date": "1991-01-01",
+      "value": 141.2
+    },
+    {
+      "date": "1991-02-01",
+      "value": 141.6
+    },
+    {
+      "date": "1991-03-01",
+      "value": 142.1
+    },
+    {
+      "date": "1991-04-01",
+      "value": 142.6
+    },
+    {
+      "date": "1991-05-01",
+      "value": 143.0
+    },
+    {
+      "date": "1991-06-01",
+      "value": 143.2
+    },
+    {
+      "date": "1991-07-01",
+      "value": 143.7
+    },
+    {
+      "date": "1991-08-01",
+      "value": 143.7
+    },
+    {
+      "date": "1991-09-01",
+      "value": 144.4
+    },
+    {
+      "date": "1991-10-01",
+      "value": 144.4
+    },
+    {
+      "date": "1991-11-01",
+      "value": 144.8
+    },
+    {
+      "date": "1991-12-01",
+      "value": 145.1
+    },
+    {
+      "date": "1992-01-01",
+      "value": 145.4
+    },
+    {
+      "date": "1992-02-01",
+      "value": 145.7
+    },
+    {
+      "date": "1992-03-01",
+      "value": 146.5
+    },
+    {
+      "date": "1992-04-01",
+      "value": 146.2
+    },
+    {
+      "date": "1992-05-01",
+      "value": 146.5
+    },
+    {
+      "date": "1992-06-01",
+      "value": 146.7
+    },
+    {
+      "date": "1992-07-01",
+      "value": 147.0
+    },
+    {
+      "date": "1992-08-01",
+      "value": 147.0
+    },
+    {
+      "date": "1992-09-01",
+      "value": 147.1
+    },
+    {
+      "date": "1992-10-01",
+      "value": 147.9
+    },
+    {
+      "date": "1992-11-01",
+      "value": 148.4
+    },
+    {
+      "date": "1992-12-01",
+      "value": 148.5
+    },
+    {
+      "date": "1993-01-01",
+      "value": 148.9
+    },
+    {
+      "date": "1993-02-01",
+      "value": 149.1
+    },
+    {
+      "date": "1993-03-01",
+      "value": 149.1
+    },
+    {
+      "date": "1993-04-01",
+      "value": 149.7
+    },
+    {
+      "date": "1993-05-01",
+      "value": 150.0
+    },
+    {
+      "date": "1993-06-01",
+      "value": 150.4
+    },
+    {
+      "date": "1993-07-01",
+      "value": 150.4
+    },
+    {
+      "date": "1993-08-01",
+      "value": 150.8
+    },
+    {
+      "date": "1993-09-01",
+      "value": 151.0
+    },
+    {
+      "date": "1993-10-01",
+      "value": 151.3
+    },
+    {
+      "date": "1993-11-01",
+      "value": 151.5
+    },
+    {
+      "date": "1993-12-01",
+      "value": 151.9
+    },
+    {
+      "date": "1994-01-01",
+      "value": 152.2
+    },
+    {
+      "date": "1994-02-01",
+      "value": 152.7
+    },
+    {
+      "date": "1994-03-01",
+      "value": 153.2
+    },
+    {
+      "date": "1994-04-01",
+      "value": 153.3
+    },
+    {
+      "date": "1994-05-01",
+      "value": 153.4
+    },
+    {
+      "date": "1994-06-01",
+      "value": 153.5
+    },
+    {
+      "date": "1994-07-01",
+      "value": 154.0
+    },
+    {
+      "date": "1994-08-01",
+      "value": 154.5
+    },
+    {
+      "date": "1994-09-01",
+      "value": 155.0
+    },
+    {
+      "date": "1994-10-01",
+      "value": 155.1
+    },
+    {
+      "date": "1994-11-01",
+      "value": 155.5
+    },
+    {
+      "date": "1994-12-01",
+      "value": 155.7
+    },
+    {
+      "date": "1995-01-01",
+      "value": 156.1
+    },
+    {
+      "date": "1995-02-01",
+      "value": 156.3
+    },
+    {
+      "date": "1995-03-01",
+      "value": 156.6
+    },
+    {
+      "date": "1995-04-01",
+      "value": 157.0
+    },
+    {
+      "date": "1995-05-01",
+      "value": 157.3
+    },
+    {
+      "date": "1995-06-01",
+      "value": 157.6
+    },
+    {
+      "date": "1995-07-01",
+      "value": 158.0
+    },
+    {
+      "date": "1995-08-01",
+      "value": 158.2
+    },
+    {
+      "date": "1995-09-01",
+      "value": 158.5
+    },
+    {
+      "date": "1995-10-01",
+      "value": 158.8
+    },
+    {
+      "date": "1995-11-01",
+      "value": 159.2
+    },
+    {
+      "date": "1995-12-01",
+      "value": 159.6
+    },
+    {
+      "date": "1996-01-01",
+      "value": 159.9
+    },
+    {
+      "date": "1996-02-01",
+      "value": 160.3
+    },
+    {
+      "date": "1996-03-01",
+      "value": 160.6
+    },
+    {
+      "date": "1996-04-01",
+      "value": 160.9
+    },
+    {
+      "date": "1996-05-01",
+      "value": 161.3
+    },
+    {
+      "date": "1996-06-01",
+      "value": 161.8
+    },
+    {
+      "date": "1996-07-01",
+      "value": 162.3
+    },
+    {
+      "date": "1996-08-01",
+      "value": 162.5
+    },
+    {
+      "date": "1996-09-01",
+      "value": 162.9
+    },
+    {
+      "date": "1996-10-01",
+      "value": 163.2
+    },
+    {
+      "date": "1996-11-01",
+      "value": 163.6
+    },
+    {
+      "date": "1996-12-01",
+      "value": 163.9
+    },
+    {
+      "date": "1997-01-01",
+      "value": 164.3
+    },
+    {
+      "date": "1997-02-01",
+      "value": 164.7
+    },
+    {
+      "date": "1997-03-01",
+      "value": 165.1
+    },
+    {
+      "date": "1997-04-01",
+      "value": 165.6
+    },
+    {
+      "date": "1997-05-01",
+      "value": 166.0
+    },
+    {
+      "date": "1997-06-01",
+      "value": 166.5
+    },
+    {
+      "date": "1997-07-01",
+      "value": 166.9
+    },
+    {
+      "date": "1997-08-01",
+      "value": 167.3
+    },
+    {
+      "date": "1997-09-01",
+      "value": 167.8
+    },
+    {
+      "date": "1997-10-01",
+      "value": 168.2
+    },
+    {
+      "date": "1997-11-01",
+      "value": 168.6
+    },
+    {
+      "date": "1997-12-01",
+      "value": 169.0
+    },
+    {
+      "date": "1998-01-01",
+      "value": 169.4
+    },
+    {
+      "date": "1998-02-01",
+      "value": 169.8
+    },
+    {
+      "date": "1998-03-01",
+      "value": 170.3
+    },
+    {
+      "date": "1998-04-01",
+      "value": 170.8
+    },
+    {
+      "date": "1998-05-01",
+      "value": 171.3
+    },
+    {
+      "date": "1998-06-01",
+      "value": 171.8
+    },
+    {
+      "date": "1998-07-01",
+      "value": 172.3
+    },
+    {
+      "date": "1998-08-01",
+      "value": 172.9
+    },
+    {
+      "date": "1998-09-01",
+      "value": 173.4
+    },
+    {
+      "date": "1998-10-01",
+      "value": 173.9
+    },
+    {
+      "date": "1998-11-01",
+      "value": 174.4
+    },
+    {
+      "date": "1998-12-01",
+      "value": 174.8
+    },
+    {
+      "date": "1999-01-01",
+      "value": 175.2
+    },
+    {
+      "date": "1999-02-01",
+      "value": 175.5
+    },
+    {
+      "date": "1999-03-01",
+      "value": 175.9
+    },
+    {
+      "date": "1999-04-01",
+      "value": 176.4
+    },
+    {
+      "date": "1999-05-01",
+      "value": 176.8
+    },
+    {
+      "date": "1999-06-01",
+      "value": 177.2
+    },
+    {
+      "date": "1999-07-01",
+      "value": 177.6
+    },
+    {
+      "date": "1999-08-01",
+      "value": 178.0
+    },
+    {
+      "date": "1999-09-01",
+      "value": 178.5
+    },
+    {
+      "date": "1999-10-01",
+      "value": 178.8
+    },
+    {
+      "date": "1999-11-01",
+      "value": 179.7
+    },
+    {
+      "date": "1999-12-01",
+      "value": 180.1
+    },
+    {
+      "date": "2000-01-01",
+      "value": 180.9
+    },
+    {
+      "date": "2000-02-01",
+      "value": 181.3
+    },
+    {
+      "date": "2000-03-01",
+      "value": 181.9
+    },
+    {
+      "date": "2000-04-01",
+      "value": 182.3
+    },
+    {
+      "date": "2000-05-01",
+      "value": 182.8
+    },
+    {
+      "date": "2000-06-01",
+      "value": 183.4
+    },
+    {
+      "date": "2000-07-01",
+      "value": 184.1
+    },
+    {
+      "date": "2000-08-01",
+      "value": 184.8
+    },
+    {
+      "date": "2000-09-01",
+      "value": 185.4
+    },
+    {
+      "date": "2000-10-01",
+      "value": 186.1
+    },
+    {
+      "date": "2000-11-01",
+      "value": 186.7
+    },
+    {
+      "date": "2000-12-01",
+      "value": 187.4
+    },
+    {
+      "date": "2001-01-01",
+      "value": 188.0
+    },
+    {
+      "date": "2001-02-01",
+      "value": 188.7
+    },
+    {
+      "date": "2001-03-01",
+      "value": 189.5
+    },
+    {
+      "date": "2001-04-01",
+      "value": 190.2
+    },
+    {
+      "date": "2001-05-01",
+      "value": 191.1
+    },
+    {
+      "date": "2001-06-01",
+      "value": 191.8
+    },
+    {
+      "date": "2001-07-01",
+      "value": 192.5
+    },
+    {
+      "date": "2001-08-01",
+      "value": 193.2
+    },
+    {
+      "date": "2001-09-01",
+      "value": 194.0
+    },
+    {
+      "date": "2001-10-01",
+      "value": 194.7
+    },
+    {
+      "date": "2001-11-01",
+      "value": 195.4
+    },
+    {
+      "date": "2001-12-01",
+      "value": 196.2
+    },
+    {
+      "date": "2002-01-01",
+      "value": 196.8
+    },
+    {
+      "date": "2002-02-01",
+      "value": 197.5
+    },
+    {
+      "date": "2002-03-01",
+      "value": 198.1
+    },
+    {
+      "date": "2002-04-01",
+      "value": 198.5
+    },
+    {
+      "date": "2002-05-01",
+      "value": 198.9
+    },
+    {
+      "date": "2002-06-01",
+      "value": 199.5
+    },
+    {
+      "date": "2002-07-01",
+      "value": 200.0
+    },
+    {
+      "date": "2002-08-01",
+      "value": 200.3
+    },
+    {
+      "date": "2002-09-01",
+      "value": 200.8
+    },
+    {
+      "date": "2002-10-01",
+      "value": 201.3
+    },
+    {
+      "date": "2002-11-01",
+      "value": 201.9
+    },
+    {
+      "date": "2002-12-01",
+      "value": 202.4
+    },
+    {
+      "date": "2003-01-01",
+      "value": 203.2
+    },
+    {
+      "date": "2003-02-01",
+      "value": 203.5
+    },
+    {
+      "date": "2003-03-01",
+      "value": 204.0
+    },
+    {
+      "date": "2003-04-01",
+      "value": 204.5
+    },
+    {
+      "date": "2003-05-01",
+      "value": 205.0
+    },
+    {
+      "date": "2003-06-01",
+      "value": 205.3
+    },
+    {
+      "date": "2003-07-01",
+      "value": 205.8
+    },
+    {
+      "date": "2003-08-01",
+      "value": 206.2
+    },
+    {
+      "date": "2003-09-01",
+      "value": 206.7
+    },
+    {
+      "date": "2003-10-01",
+      "value": 206.9
+    },
+    {
+      "date": "2003-11-01",
+      "value": 207.4
+    },
+    {
+      "date": "2003-12-01",
+      "value": 207.7
+    },
+    {
+      "date": "2004-01-01",
+      "value": 208.1
+    },
+    {
+      "date": "2004-02-01",
+      "value": 208.6
+    },
+    {
+      "date": "2004-03-01",
+      "value": 209.1
+    },
+    {
+      "date": "2004-04-01",
+      "value": 209.7
+    },
+    {
+      "date": "2004-05-01",
+      "value": 210.3
+    },
+    {
+      "date": "2004-06-01",
+      "value": 210.9
+    },
+    {
+      "date": "2004-07-01",
+      "value": 211.4
+    },
+    {
+      "date": "2004-08-01",
+      "value": 212.0
+    },
+    {
+      "date": "2004-09-01",
+      "value": 212.5
+    },
+    {
+      "date": "2004-10-01",
+      "value": 212.8
+    },
+    {
+      "date": "2004-11-01",
+      "value": 213.1
+    },
+    {
+      "date": "2004-12-01",
+      "value": 213.7
+    },
+    {
+      "date": "2005-01-01",
+      "value": 214.3
+    },
+    {
+      "date": "2005-02-01",
+      "value": 214.9
+    },
+    {
+      "date": "2005-03-01",
+      "value": 215.4
+    },
+    {
+      "date": "2005-04-01",
+      "value": 216.0
+    },
+    {
+      "date": "2005-05-01",
+      "value": 216.5
+    },
+    {
+      "date": "2005-06-01",
+      "value": 217.0
+    },
+    {
+      "date": "2005-07-01",
+      "value": 217.7
+    },
+    {
+      "date": "2005-08-01",
+      "value": 218.1
+    },
+    {
+      "date": "2005-09-01",
+      "value": 218.7
+    },
+    {
+      "date": "2005-10-01",
+      "value": 219.3
+    },
+    {
+      "date": "2005-11-01",
+      "value": 219.9
+    },
+    {
+      "date": "2005-12-01",
+      "value": 220.3
+    },
+    {
+      "date": "2006-01-01",
+      "value": 220.8
+    },
+    {
+      "date": "2006-02-01",
+      "value": 221.5
+    },
+    {
+      "date": "2006-03-01",
+      "value": 222.2
+    },
+    {
+      "date": "2006-04-01",
+      "value": 222.9
+    },
+    {
+      "date": "2006-05-01",
+      "value": 223.7
+    },
+    {
+      "date": "2006-06-01",
+      "value": 224.6
+    },
+    {
+      "date": "2006-07-01",
+      "value": 225.4
+    },
+    {
+      "date": "2006-08-01",
+      "value": 226.3
+    },
+    {
+      "date": "2006-09-01",
+      "value": 227.2
+    },
+    {
+      "date": "2006-10-01",
+      "value": 228.0
+    },
+    {
+      "date": "2006-11-01",
+      "value": 228.8
+    },
+    {
+      "date": "2006-12-01",
+      "value": 229.8
+    },
+    {
+      "date": "2007-01-01",
+      "value": 230.547
+    },
+    {
+      "date": "2007-02-01",
+      "value": 231.546
+    },
+    {
+      "date": "2007-03-01",
+      "value": 232.349
+    },
+    {
+      "date": "2007-04-01",
+      "value": 232.96
+    },
+    {
+      "date": "2007-05-01",
+      "value": 233.656
+    },
+    {
+      "date": "2007-06-01",
+      "value": 234.283
+    },
+    {
+      "date": "2007-07-01",
+      "value": 234.996
+    },
+    {
+      "date": "2007-08-01",
+      "value": 235.524
+    },
+    {
+      "date": "2007-09-01",
+      "value": 236.239
+    },
+    {
+      "date": "2007-10-01",
+      "value": 237.18
+    },
+    {
+      "date": "2007-11-01",
+      "value": 238.063
+    },
+    {
+      "date": "2007-12-01",
+      "value": 238.873
+    },
+    {
+      "date": "2008-01-01",
+      "value": 239.517
+    },
+    {
+      "date": "2008-02-01",
+      "value": 240.08
+    },
+    {
+      "date": "2008-03-01",
+      "value": 240.68
+    },
+    {
+      "date": "2008-04-01",
+      "value": 241.437
+    },
+    {
+      "date": "2008-05-01",
+      "value": 241.927
+    },
+    {
+      "date": "2008-06-01",
+      "value": 242.882
+    },
+    {
+      "date": "2008-07-01",
+      "value": 243.675
+    },
+    {
+      "date": "2008-08-01",
+      "value": 244.475
+    },
+    {
+      "date": "2008-09-01",
+      "value": 245.175
+    },
+    {
+      "date": "2008-10-01",
+      "value": 245.914
+    },
+    {
+      "date": "2008-11-01",
+      "value": 246.556
+    },
+    {
+      "date": "2008-12-01",
+      "value": 246.992
+    },
+    {
+      "date": "2009-01-01",
+      "value": 247.563
+    },
+    {
+      "date": "2009-02-01",
+      "value": 247.994
+    },
+    {
+      "date": "2009-03-01",
+      "value": 248.396
+    },
+    {
+      "date": "2009-04-01",
+      "value": 248.837
+    },
+    {
+      "date": "2009-05-01",
+      "value": 249.204
+    },
+    {
+      "date": "2009-06-01",
+      "value": 249.381
+    },
+    {
+      "date": "2009-07-01",
+      "value": 249.343
+    },
+    {
+      "date": "2009-08-01",
+      "value": 249.359
+    },
+    {
+      "date": "2009-09-01",
+      "value": 249.261
+    },
+    {
+      "date": "2009-10-01",
+      "value": 248.959
+    },
+    {
+      "date": "2009-11-01",
+      "value": 248.778
+    },
+    {
+      "date": "2009-12-01",
+      "value": 248.667
+    },
+    {
+      "date": "2010-01-01",
+      "value": 248.721
+    },
+    {
+      "date": "2010-02-01",
+      "value": 248.717
+    },
+    {
+      "date": "2010-03-01",
+      "value": 248.854
+    },
+    {
+      "date": "2010-04-01",
+      "value": 248.962
+    },
+    {
+      "date": "2010-05-01",
+      "value": 249.066
+    },
+    {
+      "date": "2010-06-01",
+      "value": 249.327
+    },
+    {
+      "date": "2010-07-01",
+      "value": 249.458
+    },
+    {
+      "date": "2010-08-01",
+      "value": 249.346
+    },
+    {
+      "date": "2010-09-01",
+      "value": 249.663
+    },
+    {
+      "date": "2010-10-01",
+      "value": 249.66
+    },
+    {
+      "date": "2010-11-01",
+      "value": 250.182
+    },
+    {
+      "date": "2010-12-01",
+      "value": 250.641
+    },
+    {
+      "date": "2011-01-01",
+      "value": 251.142
+    },
+    {
+      "date": "2011-02-01",
+      "value": 251.516
+    },
+    {
+      "date": "2011-03-01",
+      "value": 251.905
+    },
+    {
+      "date": "2011-04-01",
+      "value": 252.203
+    },
+    {
+      "date": "2011-05-01",
+      "value": 252.584
+    },
+    {
+      "date": "2011-06-01",
+      "value": 252.986
+    },
+    {
+      "date": "2011-07-01",
+      "value": 253.423
+    },
+    {
+      "date": "2011-08-01",
+      "value": 254.295
+    },
+    {
+      "date": "2011-09-01",
+      "value": 254.895
+    },
+    {
+      "date": "2011-10-01",
+      "value": 255.651
+    },
+    {
+      "date": "2011-11-01",
+      "value": 256.207
+    },
+    {
+      "date": "2011-12-01",
+      "value": 256.8
+    },
+    {
+      "date": "2012-01-01",
+      "value": 257.267
+    },
+    {
+      "date": "2012-02-01",
+      "value": 257.842
+    },
+    {
+      "date": "2012-03-01",
+      "value": 258.335
+    },
+    {
+      "date": "2012-04-01",
+      "value": 258.977
+    },
+    {
+      "date": "2012-05-01",
+      "value": 259.481
+    },
+    {
+      "date": "2012-06-01",
+      "value": 259.893
+    },
+    {
+      "date": "2012-07-01",
+      "value": 260.476
+    },
+    {
+      "date": "2012-08-01",
+      "value": 260.999
+    },
+    {
+      "date": "2012-09-01",
+      "value": 261.62
+    },
+    {
+      "date": "2012-10-01",
+      "value": 262.631
+    },
+    {
+      "date": "2012-11-01",
+      "value": 263.137
+    },
+    {
+      "date": "2012-12-01",
+      "value": 263.669
+    },
+    {
+      "date": "2013-01-01",
+      "value": 264.245
+    },
+    {
+      "date": "2013-02-01",
+      "value": 264.904
+    },
+    {
+      "date": "2013-03-01",
+      "value": 265.603
+    },
+    {
+      "date": "2013-04-01",
+      "value": 266.094
+    },
+    {
+      "date": "2013-05-01",
+      "value": 266.841
+    },
+    {
+      "date": "2013-06-01",
+      "value": 267.451
+    },
+    {
+      "date": "2013-07-01",
+      "value": 267.87
+    },
+    {
+      "date": "2013-08-01",
+      "value": 268.837
+    },
+    {
+      "date": "2013-09-01",
+      "value": 269.315
+    },
+    {
+      "date": "2013-10-01",
+      "value": 269.822
+    },
+    {
+      "date": "2013-11-01",
+      "value": 270.387
+    },
+    {
+      "date": "2013-12-01",
+      "value": 271.22
+    },
+    {
+      "date": "2014-01-01",
+      "value": 271.918
+    },
+    {
+      "date": "2014-02-01",
+      "value": 272.461
+    },
+    {
+      "date": "2014-03-01",
+      "value": 273.341
+    },
+    {
+      "date": "2014-04-01",
+      "value": 274.255
+    },
+    {
+      "date": "2014-05-01",
+      "value": 275.013
+    },
+    {
+      "date": "2014-06-01",
+      "value": 275.819
+    },
+    {
+      "date": "2014-07-01",
+      "value": 276.663
+    },
+    {
+      "date": "2014-08-01",
+      "value": 277.319
+    },
+    {
+      "date": "2014-09-01",
+      "value": 278.149
+    },
+    {
+      "date": "2014-10-01",
+      "value": 278.797
+    },
+    {
+      "date": "2014-11-01",
+      "value": 279.758
+    },
+    {
+      "date": "2014-12-01",
+      "value": 280.383
+    },
+    {
+      "date": "2015-01-01",
+      "value": 281.223
+    },
+    {
+      "date": "2015-02-01",
+      "value": 282.171
+    },
+    {
+      "date": "2015-03-01",
+      "value": 283.056
+    },
+    {
+      "date": "2015-04-01",
+      "value": 283.786
+    },
+    {
+      "date": "2015-05-01",
+      "value": 284.559
+    },
+    {
+      "date": "2015-06-01",
+      "value": 285.477
+    },
+    {
+      "date": "2015-07-01",
+      "value": 286.435
+    },
+    {
+      "date": "2015-08-01",
+      "value": 287.32
+    },
+    {
+      "date": "2015-09-01",
+      "value": 288.385
+    },
+    {
+      "date": "2015-10-01",
+      "value": 289.236
+    },
+    {
+      "date": "2015-11-01",
+      "value": 289.953
+    },
+    {
+      "date": "2015-12-01",
+      "value": 290.723
+    },
+    {
+      "date": "2016-01-01",
+      "value": 291.7
+    },
+    {
+      "date": "2016-02-01",
+      "value": 292.617
+    },
+    {
+      "date": "2016-03-01",
+      "value": 293.471
+    },
+    {
+      "date": "2016-04-01",
+      "value": 294.397
+    },
+    {
+      "date": "2016-05-01",
+      "value": 295.371
+    },
+    {
+      "date": "2016-06-01",
+      "value": 296.306
+    },
+    {
+      "date": "2016-07-01",
+      "value": 297.192
+    },
+    {
+      "date": "2016-08-01",
+      "value": 298.029
+    },
+    {
+      "date": "2016-09-01",
+      "value": 299.035
+    },
+    {
+      "date": "2016-10-01",
+      "value": 300.215
+    },
+    {
+      "date": "2016-11-01",
+      "value": 301.223
+    },
+    {
+      "date": "2016-12-01",
+      "value": 302.271
+    },
+    {
+      "date": "2017-01-01",
+      "value": 303.156
+    },
+    {
+      "date": "2017-02-01",
+      "value": 304.06
+    },
+    {
+      "date": "2017-03-01",
+      "value": 304.888
+    },
+    {
+      "date": "2017-04-01",
+      "value": 305.692
+    },
+    {
+      "date": "2017-05-01",
+      "value": 306.72
+    },
+    {
+      "date": "2017-06-01",
+      "value": 307.681
+    },
+    {
+      "date": "2017-07-01",
+      "value": 308.49
+    },
+    {
+      "date": "2017-08-01",
+      "value": 309.608
+    },
+    {
+      "date": "2017-09-01",
+      "value": 310.346
+    },
+    {
+      "date": "2017-10-01",
+      "value": 311.33
+    },
+    {
+      "date": "2017-11-01",
+      "value": 312.295
+    },
+    {
+      "date": "2017-12-01",
+      "value": 313.462
+    },
+    {
+      "date": "2018-01-01",
+      "value": 314.531
+    },
+    {
+      "date": "2018-02-01",
+      "value": 315.162
+    },
+    {
+      "date": "2018-03-01",
+      "value": 315.885
+    },
+    {
+      "date": "2018-04-01",
+      "value": 316.96
+    },
+    {
+      "date": "2018-05-01",
+      "value": 317.766
+    },
+    {
+      "date": "2018-06-01",
+      "value": 318.607
+    },
+    {
+      "date": "2018-07-01",
+      "value": 319.642
+    },
+    {
+      "date": "2018-08-01",
+      "value": 320.86
+    },
+    {
+      "date": "2018-09-01",
+      "value": 321.563
+    },
+    {
+      "date": "2018-10-01",
+      "value": 322.447
+    },
+    {
+      "date": "2018-11-01",
+      "value": 323.633
+    },
+    {
+      "date": "2018-12-01",
+      "value": 324.408
+    },
+    {
+      "date": "2019-01-01",
+      "value": 325.314
+    },
+    {
+      "date": "2019-02-01",
+      "value": 326.22
+    },
+    {
+      "date": "2019-03-01",
+      "value": 327.539
+    },
+    {
+      "date": "2019-04-01",
+      "value": 328.816
+    },
+    {
+      "date": "2019-05-01",
+      "value": 329.617
+    },
+    {
+      "date": "2019-06-01",
+      "value": 330.919
+    },
+    {
+      "date": "2019-07-01",
+      "value": 331.935
+    },
+    {
+      "date": "2019-08-01",
+      "value": 332.781
+    },
+    {
+      "date": "2019-09-01",
+      "value": 333.92
+    },
+    {
+      "date": "2019-10-01",
+      "value": 334.558
+    },
+    {
+      "date": "2019-11-01",
+      "value": 335.484
+    },
+    {
+      "date": "2019-12-01",
+      "value": 336.418
+    },
+    {
+      "date": "2020-01-01",
+      "value": 337.591
+    },
+    {
+      "date": "2020-02-01",
+      "value": 338.489
+    },
+    {
+      "date": "2020-03-01",
+      "value": 339.502
+    },
+    {
+      "date": "2020-04-01",
+      "value": 340.225
+    },
+    {
+      "date": "2020-05-01",
+      "value": 341.007
+    },
+    {
+      "date": "2020-06-01",
+      "value": 341.524
+    },
+    {
+      "date": "2020-07-01",
+      "value": 342.312
+    },
+    {
+      "date": "2020-08-01",
+      "value": 342.65
+    },
+    {
+      "date": "2020-09-01",
+      "value": 342.986
+    },
+    {
+      "date": "2020-10-01",
+      "value": 343.502
+    },
+    {
+      "date": "2020-11-01",
+      "value": 343.731
+    },
+    {
+      "date": "2020-12-01",
+      "value": 344.125
+    },
+    {
+      "date": "2021-01-01",
+      "value": 344.489
+    },
+    {
+      "date": "2021-02-01",
+      "value": 345.099
+    },
+    {
+      "date": "2021-03-01",
+      "value": 345.658
+    },
+    {
+      "date": "2021-04-01",
+      "value": 346.357
+    },
+    {
+      "date": "2021-05-01",
+      "value": 347.242
+    },
+    {
+      "date": "2021-06-01",
+      "value": 348.07
+    },
+    {
+      "date": "2021-07-01",
+      "value": 348.853
+    },
+    {
+      "date": "2021-08-01",
+      "value": 349.983
+    },
+    {
+      "date": "2021-09-01",
+      "value": 351.306
+    },
+    {
+      "date": "2021-10-01",
+      "value": 352.771
+    },
+    {
+      "date": "2021-11-01",
+      "value": 354.215
+    },
+    {
+      "date": "2021-12-01",
+      "value": 355.588
+    },
+    {
+      "date": "2022-01-01",
+      "value": 357.411
+    },
+    {
+      "date": "2022-02-01",
+      "value": 359.438
+    },
+    {
+      "date": "2022-03-01",
+      "value": 360.989
+    },
+    {
+      "date": "2022-04-01",
+      "value": 363.062
+    },
+    {
+      "date": "2022-05-01",
+      "value": 365.376
+    },
+    {
+      "date": "2022-06-01",
+      "value": 368.216
+    },
+    {
+      "date": "2022-07-01",
+      "value": 370.916
+    },
+    {
+      "date": "2022-08-01",
+      "value": 373.597
+    },
+    {
+      "date": "2022-09-01",
+      "value": 376.628
+    },
+    {
+      "date": "2022-10-01",
+      "value": 379.291
+    },
+    {
+      "date": "2022-11-01",
+      "value": 382.228
+    },
+    {
+      "date": "2022-12-01",
+      "value": 385.247
+    },
+    {
+      "date": "2023-01-01",
+      "value": 387.984
+    },
+    {
+      "date": "2023-02-01",
+      "value": 390.904
+    },
+    {
+      "date": "2023-03-01",
+      "value": 392.787
+    },
+    {
+      "date": "2023-04-01",
+      "value": 395.024
+    },
+    {
+      "date": "2023-05-01",
+      "value": 397.025
+    },
+    {
+      "date": "2023-06-01",
+      "value": 398.949
+    },
+    {
+      "date": "2023-07-01",
+      "value": 400.741
+    },
+    {
+      "date": "2023-08-01",
+      "value": 402.58
+    },
+    {
+      "date": "2023-09-01",
+      "value": 404.538
+    },
+    {
+      "date": "2023-10-01",
+      "value": 406.532
+    },
+    {
+      "date": "2023-11-01",
+      "value": 408.511
+    },
+    {
+      "date": "2023-12-01",
+      "value": 410.156
+    },
+    {
+      "date": "2024-01-01",
+      "value": 411.6
+    },
+    {
+      "date": "2024-02-01",
+      "value": 413.427
+    },
+    {
+      "date": "2024-03-01",
+      "value": 415.08
+    },
+    {
+      "date": "2024-04-01",
+      "value": 416.49
+    },
+    {
+      "date": "2024-05-01",
+      "value": 418.1
+    },
+    {
+      "date": "2024-06-01",
+      "value": 419.223
+    },
+    {
+      "date": "2024-07-01",
+      "value": 421.138
+    },
+    {
+      "date": "2024-08-01",
+      "value": 422.556
+    },
+    {
+      "date": "2024-09-01",
+      "value": 423.858
+    },
+    {
+      "date": "2024-10-01",
+      "value": 425.235
+    },
+    {
+      "date": "2024-11-01",
+      "value": 426.342
+    },
+    {
+      "date": "2024-12-01",
+      "value": 427.68
+    },
+    {
+      "date": "2025-01-01",
+      "value": 429.087
+    },
+    {
+      "date": "2025-02-01",
+      "value": 430.318
+    },
+    {
+      "date": "2025-03-01",
+      "value": 431.645
+    },
+    {
+      "date": "2025-04-01",
+      "value": 433.043
+    },
+    {
+      "date": "2025-05-01",
+      "value": 434.038
+    },
+    {
+      "date": "2025-06-01",
+      "value": 435.033
+    },
+    {
+      "date": "2025-07-01",
+      "value": 436.05
+    },
+    {
+      "date": "2025-08-01",
+      "value": 437.294
+    },
+    {
+      "date": "2025-09-01",
+      "value": 438.237
+    },
+    {
+      "date": "2025-11-01",
+      "value": 439.002
+    },
+    {
+      "date": "2025-12-01",
+      "value": 440.189
+    },
+    {
+      "date": "2026-01-01",
+      "value": 441.285
+    },
+    {
+      "date": "2026-02-01",
+      "value": 441.865
+    },
+    {
+      "date": "2026-03-01",
+      "value": 442.705
+    }
+  ],
+  "properties": [
+    {
+      "address": "1009B Delmas Ave, Nashville, TN 37216",
+      "label": "Delmas Ave (current home)",
+      "market_id": "nashville-tn",
+      "rentcast_id": "1009B-Delmas-Ave,-Nashville,-TN-37216",
+      "formatted_address": "1009B Delmas Ave, Nashville, TN 37216",
+      "city": "Nashville",
+      "state": "TN",
+      "zip": "37216",
+      "county": "Davidson",
+      "latitude": 36.200239,
+      "longitude": -86.742865,
+      "property_type": "Single Family",
+      "bedrooms": 3,
+      "bathrooms": 2.5,
+      "square_footage": 1822,
+      "lot_size": null,
+      "year_built": 2014,
+      "avm_value": 629000.0,
+      "avm_value_low": 554000.0,
+      "avm_value_high": 703000.0,
+      "avm_rent": 3040.0,
+      "avm_rent_low": 2820.0,
+      "avm_rent_high": 3270.0,
+      "fetched_at": "2026-05-03T16:52:00.230381+00:00"
+    }
+  ]
+}

@@ -1,0 +1,2440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Rent vs. Buy — SkyClear Analytics</title>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<style>
+  :root {
+    --sky-primary:   #1565C0;
+    --sky-mid:       #1976D2;
+    --sky-dark:      #0D47A1;
+    --sky-light:     #E3F2FD;
+    --sky-pale:      #F0F7FF;
+    --sky-accent:    #42A5F5;
+    --charcoal:      #0D1B2A;
+    --text:          #1A2A3A;
+    --muted:         #546E7A;
+    --border:        #BBDEFB;
+    --border-soft:   #E1EEF9;
+    --bg:            #F0F7FF;
+    --card:          #FFFFFF;
+    --nashville:     #1976D2;
+    --austin:        #E07A5F;
+    --buy-green:     #2E7D32;
+    --rent-red:      #C62828;
+    --grid:          #E8EDF2;
+    --shadow:        0 2px 12px rgba(21,101,192,0.10);
+    --shadow-sm:     0 1px 4px rgba(21,101,192,0.07);
+    --radius:        14px;
+    --radius-sm:     8px;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* ─── Site Header ─────────────────────────────────────── */
+  .site-header {
+    background: linear-gradient(135deg, var(--sky-dark) 0%, var(--sky-mid) 100%);
+    padding: 0;
+    box-shadow: 0 2px 16px rgba(13,71,161,0.25);
+  }
+  .site-header-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+  }
+  .brand-logo {
+    width: 42px;
+    height: 62px;
+    flex-shrink: 0;
+  }
+  /* Invert logo to white for dark header */
+  .brand-logo .skc-letter    { fill: #ffffff; }
+  .brand-logo .skc-circle-white { fill: rgba(255,255,255,0.15); stroke: rgba(255,255,255,0.9); stroke-width: 5px; }
+  .brand-logo .skc-circle-black { fill: rgba(255,255,255,0.85); stroke: rgba(255,255,255,0.9); stroke-width: 5px; }
+  .brand-logo .skc-arc       { fill: rgba(255,255,255,0.85); stroke: rgba(255,255,255,0.9); stroke-width: 0.13px; }
+  .brand-logo .skc-dot       { fill: rgba(255,255,255,0.85); }
+  .brand-text { display: flex; flex-direction: column; line-height: 1.1; }
+  .brand-name {
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+  }
+  .brand-tagline {
+    font-size: 11px;
+    color: rgba(255,255,255,0.65);
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .header-tool-info { text-align: right; }
+  .header-tool-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.95);
+    letter-spacing: -0.01em;
+    margin: 0;
+    line-height: 1.2;
+  }
+  .header-tool-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.60);
+    margin: 2px 0 0;
+  }
+
+  /* ─── Page Wrap ───────────────────────────────────────── */
+  .wrap {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 28px 24px 64px;
+  }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 28px;
+    align-items: start;
+  }
+  .sidebar {
+    position: sticky;
+    top: 16px;
+    align-self: start;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-width: 0;
+  }
+  .sidebar .controls { margin-bottom: 0; }
+  .content { min-width: 0; }
+
+  @media (max-width: 900px) {
+    .layout { grid-template-columns: 1fr; gap: 16px; }
+    .sidebar { position: static; top: auto; }
+    .site-header-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .header-tool-info { text-align: left; }
+  }
+
+  /* ─── Page Header (data refresh line) ─────────────────── */
+  .page-header { margin-bottom: 24px; }
+  .page-header .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .page-header .meta::before {
+    content: '';
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #43A047;
+    flex-shrink: 0;
+  }
+
+  /* ─── About / Explainer ───────────────────────────────── */
+  .explainer {
+    background: var(--card);
+    border: 1px solid var(--border-soft);
+    border-left: 4px solid var(--sky-primary);
+    border-radius: var(--radius-sm);
+    padding: 14px 20px;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 24px;
+  }
+  .explainer summary {
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--muted);
+    list-style: none;
+    user-select: none;
+    padding: 4px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .explainer summary::-webkit-details-marker { display: none; }
+  .explainer summary .toggle-icon { font-size: 10px; color: var(--sky-primary); }
+  details.explainer[open] .toggle-icon::before { content: "▼"; }
+  .explainer summary .toggle-icon::before { content: "▶"; }
+  .explainer summary strong { color: var(--text); }
+  .explainer-body {
+    padding-top: 14px;
+    border-top: 1px solid var(--border-soft);
+    margin-top: 10px;
+  }
+  .explainer-body h3 {
+    font-size: 14px; font-weight: 700;
+    margin: 18px 0 6px;
+    color: var(--sky-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .explainer-body h3:first-child { margin-top: 4px; }
+  .explainer-body p { margin: 0 0 10px; font-size: 14px; line-height: 1.65; color: var(--text); }
+  .explainer-body ul { margin: 0 0 12px; padding-left: 20px; font-size: 14px; line-height: 1.7; }
+  .explainer-body li { margin-bottom: 4px; }
+  .explainer-body em { color: var(--muted); }
+  .explainer-body a { color: var(--sky-primary); }
+
+  /* ─── Tabs ────────────────────────────────────────────── */
+  .tabs {
+    display: flex;
+    gap: 2px;
+    border-bottom: 2px solid var(--border-soft);
+    margin-bottom: 24px;
+  }
+  .tab-button {
+    background: none;
+    border: none;
+    padding: 11px 20px;
+    font-size: 14px;
+    color: var(--muted);
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    font-family: inherit;
+    font-weight: 600;
+    transition: color 0.15s;
+    letter-spacing: 0.01em;
+  }
+  .tab-button:hover { color: var(--sky-primary); }
+  .tab-button.active {
+    color: var(--sky-primary);
+    border-bottom-color: var(--sky-primary);
+  }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+  .tab-button .tab-count {
+    margin-left: 6px;
+    font-size: 11px;
+    color: var(--muted);
+    background: var(--sky-light);
+    padding: 1px 7px;
+    border-radius: 10px;
+    font-weight: 600;
+  }
+  .tab-button.active .tab-count {
+    background: var(--sky-primary);
+    color: white;
+  }
+
+  /* ─── Market Filter ───────────────────────────────────── */
+  .market-filter {
+    position: relative;
+    display: block;
+    width: 100%;
+  }
+  .market-filter.is-hidden { display: none; }
+  .market-filter summary {
+    cursor: pointer;
+    list-style: none;
+    background: var(--card);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--text);
+    user-select: none;
+    width: 100%;
+    box-shadow: var(--shadow-sm);
+  }
+  .market-filter summary::-webkit-details-marker { display: none; }
+  .market-filter summary:hover { background: var(--sky-pale); }
+  .market-filter-label { color: var(--muted); font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .market-filter-summary { font-weight: 700; flex: 1; color: var(--sky-primary); }
+  .market-filter-chevron { color: var(--muted); font-size: 10px; transition: transform 0.15s; }
+  .market-filter[open] .market-filter-chevron { transform: rotate(180deg); }
+  .market-filter-options {
+    position: absolute;
+    top: 100%;
+    left: 0; right: 0;
+    margin-top: 4px;
+    background: var(--card);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-sm);
+    padding: 8px 0;
+    box-shadow: 0 6px 24px rgba(21,101,192,0.12);
+    z-index: 10;
+  }
+  .market-filter-options label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--text);
+  }
+  .market-filter-options label:hover { background: var(--sky-pale); }
+  .market-filter-options input[type="checkbox"] { margin: 0; accent-color: var(--sky-primary); }
+  .market-filter-options .separator { height: 1px; background: var(--border-soft); margin: 6px 0; }
+
+  /* ─── Controls / Sidebar ──────────────────────────────── */
+  .controls {
+    background: var(--card);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius);
+    padding: 20px 22px;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 0;
+  }
+  .controls-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  .controls-header h2 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .controls-header button {
+    background: var(--sky-light);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 4px 11px;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--sky-primary);
+    cursor: pointer;
+    font-family: inherit;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: background 0.15s;
+  }
+  .controls-header button:hover { background: var(--border); color: var(--sky-dark); }
+
+  .controls-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .control {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .control .control-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 6px;
+  }
+  .control .control-label {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  .control .control-value {
+    font-size: 14px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    color: var(--sky-primary);
+    white-space: nowrap;
+  }
+  .control input[type="range"] {
+    width: 100%;
+    accent-color: var(--sky-primary);
+    margin: 0;
+    height: 4px;
+  }
+  .control-hint {
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+  .control-hint strong { color: var(--text); font-weight: 600; }
+
+  details.advanced {
+    margin-top: 18px;
+    border-top: 1px dashed var(--border-soft);
+    padding-top: 14px;
+  }
+  details.advanced summary {
+    cursor: pointer;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    list-style: none;
+    user-select: none;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  details.advanced summary::-webkit-details-marker { display: none; }
+  details.advanced summary::before { content: "▶"; font-size: 9px; color: var(--sky-accent); }
+  details.advanced[open] summary::before { content: "▼"; }
+
+  /* ─── Window Toggle ───────────────────────────────────── */
+  .window-toggle {
+    display: flex;
+    gap: 3px;
+    margin: 2px 0 4px;
+  }
+  .window-toggle button {
+    flex: 1;
+    background: var(--sky-pale);
+    border: 1px solid var(--border-soft);
+    border-radius: 5px;
+    padding: 3px 0;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--muted);
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.12s;
+  }
+  .window-toggle button:hover { background: var(--sky-light); color: var(--sky-primary); }
+  .window-toggle button.active {
+    background: var(--sky-primary);
+    border-color: var(--sky-primary);
+    color: white;
+  }
+  .window-toggle button.disabled { opacity: 0.35; cursor: not-allowed; }
+
+  /* ─── Appreciation mini-chart ─────────────────────────── */
+  .period-chart {
+    margin: 4px 0 2px;
+    background: var(--sky-pale);
+    border: 1px solid var(--border-soft);
+    border-radius: 6px;
+    padding: 4px 6px 2px;
+  }
+  .period-chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .period-chart .axis path, .period-chart .axis line { stroke: var(--border); }
+  .period-chart .axis text { fill: var(--muted); font-size: 9px; }
+  .period-chart .grid line { stroke: var(--grid); stroke-dasharray: 2 3; }
+  .period-chart .grid path { stroke: none; }
+  .period-chart .yoy-line { fill: none; stroke: var(--sky-primary); stroke-width: 1.5; stroke-linejoin: round; }
+  .period-chart .zero-line { stroke: #aaa; stroke-dasharray: 2 3; stroke-width: 1; }
+  .period-chart .selection { fill: var(--sky-primary); fill-opacity: 0.15; stroke: var(--sky-primary); stroke-opacity: 0.6; stroke-width: 1; shape-rendering: crispEdges; }
+  .period-chart .handle { fill: var(--sky-primary); fill-opacity: 0.8; }
+  .period-chart .overlay { cursor: crosshair; }
+
+  /* ─── Summary Cards ───────────────────────────────────── */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 18px;
+    margin-bottom: 32px;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius);
+    padding: 22px 24px;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .card:hover { box-shadow: 0 6px 24px rgba(21,101,192,0.14); transform: translateY(-1px); }
+  .card .accent { position: absolute; left: 0; top: 0; width: 5px; height: 100%; border-radius: var(--radius) 0 0 var(--radius); }
+  .card.austin .accent    { background: linear-gradient(180deg, #E07A5F, #c4593f); }
+  .card.nashville .accent { background: linear-gradient(180deg, #1976D2, #1565C0); }
+  .card h3 { margin: 0 0 16px; font-size: 17px; font-weight: 700; color: var(--text); }
+  .card .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+    font-size: 14px;
+    border-bottom: 1px solid var(--bg);
+  }
+  .card .row:last-of-type { border-bottom: none; }
+  .card .row .label { color: var(--muted); }
+  .card .row .value { font-variant-numeric: tabular-nums; font-weight: 600; color: var(--text); }
+  .card .row.headline {
+    font-size: 18px;
+    font-weight: 700;
+    padding: 14px 0 0;
+    margin-top: 10px;
+    border-top: 2px solid var(--border-soft);
+    border-bottom: none;
+  }
+  .card .row.headline .label { color: var(--text); }
+
+  .verdict {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 13px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    margin-bottom: 16px;
+  }
+  .verdict::before { content: ''; display: inline-block; width: 7px; height: 7px; border-radius: 50%; }
+  .verdict.lean_rent    { background: #FFEBEE; color: #B71C1C; border: 1px solid #FFCDD2; }
+  .verdict.lean_rent::before { background: #E53935; }
+  .verdict.lean_buy     { background: #E8F5E9; color: #1B5E20; border: 1px solid #C8E6C9; }
+  .verdict.lean_buy::before { background: #43A047; }
+  .verdict.borderline   { background: #FFF8E1; color: #E65100; border: 1px solid #FFE0B2; }
+  .verdict.borderline::before { background: #FB8C00; }
+  .verdict.needs_review { background: #F3E5F5; color: #4A148C; border: 1px solid #E1BEE7; }
+  .verdict.needs_review::before { background: #8E24AA; }
+  .verdict[data-tip]    { cursor: help; }
+
+  /* ─── Chart Sections ──────────────────────────────────── */
+  .chart-section {
+    background: var(--card);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius);
+    padding: 26px 28px;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 22px;
+  }
+  .chart-section h2 {
+    font-size: 17px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    color: var(--text);
+  }
+  .chart-section .caption {
+    color: var(--muted);
+    font-size: 13px;
+    margin: 0 0 20px;
+    line-height: 1.6;
+  }
+  .chart-section svg { display: block; width: 100%; height: auto; overflow: visible; }
+
+  /* ─── Facets ──────────────────────────────────────────── */
+  .facets { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 24px; }
+  .facet h3 {
+    margin: 0 0 4px;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text);
+  }
+  .facet h3 .dot { width: 11px; height: 11px; border-radius: 50%; }
+  .facet .meta { color: var(--muted); font-size: 13px; margin: 0 0 12px; }
+  .facet .meta strong { color: var(--text); }
+
+  /* ─── Legend ──────────────────────────────────────────── */
+  .legend { display: flex; gap: 18px; margin-bottom: 10px; flex-wrap: wrap; }
+  .legend .item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); }
+  .legend .swatch { width: 20px; height: 3px; border-radius: 2px; }
+
+  /* ─── D3 Chart Axes / Grid ────────────────────────────── */
+  .axis path, .axis line { stroke: var(--border-soft); }
+  .axis text { fill: var(--muted); font-size: 11px; }
+  .grid line { stroke: var(--grid); stroke-dasharray: 2 3; }
+  .grid path { stroke: none; }
+  .threshold { stroke: #90A4AE; stroke-dasharray: 4 4; stroke-width: 1.5; }
+  .threshold-label { fill: #78909C; font-size: 11px; }
+  .zero-line { stroke: #90A4AE; stroke-width: 1; }
+
+  /* ─── Tooltip ─────────────────────────────────────────── */
+  .tooltip {
+    position: fixed;
+    pointer-events: none;
+    background: rgba(13,27,42,0.95);
+    color: white;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 12.5px;
+    line-height: 1.6;
+    opacity: 0;
+    transition: opacity 0.1s;
+    white-space: nowrap;
+    z-index: 1000;
+    font-variant-numeric: tabular-nums;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+  .tooltip.show { opacity: 1; }
+
+  /* ─── Sensitivity Table ───────────────────────────────── */
+  .sensitivity {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-soft);
+  }
+  .sensitivity-title {
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .sensitivity-title .hint-note {
+    text-transform: none;
+    letter-spacing: 0;
+    font-weight: 500;
+    font-size: 11px;
+  }
+  .sensitivity table { width: 100%; border-collapse: collapse; font-size: 12.5px; font-variant-numeric: tabular-nums; }
+  .sensitivity th, .sensitivity td { padding: 3px 4px; text-align: right; }
+  .sensitivity th:first-child, .sensitivity td:first-child { text-align: left; color: var(--muted); font-weight: 500; }
+  .sensitivity th { color: var(--muted); font-weight: 500; font-size: 11px; }
+  .sensitivity td.base { font-weight: 700; color: var(--text); background: var(--sky-pale); border-radius: 3px; }
+  .sensitivity td.shorter { color: var(--buy-green); font-weight: 600; }
+  .sensitivity td.longer  { color: var(--rent-red); font-weight: 600; }
+  .sens-current { color: var(--muted); font-weight: 400; font-size: 11px; margin-left: 4px; font-variant-numeric: tabular-nums; }
+
+  /* ─── Affordability ───────────────────────────────────── */
+  .affordability {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-soft);
+  }
+  .affordability-title {
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .affordability-title .hint-note { text-transform: none; letter-spacing: 0; font-weight: 500; font-size: 11px; }
+  .afford-ok  { color: var(--buy-green); font-weight: 700; margin-left: 5px; }
+  .afford-no  { color: var(--rent-red);  font-weight: 700; margin-left: 5px; }
+  .afford-ok-val { color: var(--buy-green); }
+  .afford-no-val { color: var(--rent-red); }
+  .afford-pct { color: var(--muted); font-size: 11px; font-weight: 500; margin-left: 4px; }
+
+  /* ─── Inline Input ────────────────────────────────────── */
+  .inline-input {
+    width: 96px;
+    border: 1px solid transparent;
+    background: transparent;
+    font: inherit;
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+    padding: 1px 4px;
+    border-radius: 4px;
+    color: inherit;
+    -moz-appearance: textfield;
+  }
+  .inline-input::-webkit-outer-spin-button,
+  .inline-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  .inline-input:hover { border-color: var(--border); background: var(--sky-pale); }
+  .inline-input:focus { border-color: var(--sky-primary); background: white; outline: none; }
+  .row .hint { color: var(--muted); font-size: 10px; margin-left: 4px; font-weight: 600; letter-spacing: 0.4px; text-transform: uppercase; }
+  .row .reset-override { color: var(--muted); text-decoration: none; cursor: pointer; margin-left: 4px; font-size: 13px; }
+  .row .reset-override:hover { color: var(--sky-primary); }
+
+  /* ─── Properties ──────────────────────────────────────── */
+  .properties-heading { font-size: 22px; font-weight: 700; margin: 8px 0 4px; color: var(--text); }
+  .properties-caption { color: var(--muted); font-size: 14px; margin: 0 0 18px; }
+  .properties-caption code {
+    font-family: SFMono-Regular, Menlo, monospace;
+    background: var(--sky-light);
+    color: var(--sky-dark);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+  }
+  .property-meta { color: var(--muted); font-size: 12px; margin: -6px 0 10px; font-weight: 500; }
+  .market-tag { color: var(--muted); font-size: 12px; font-weight: 500; margin-left: 6px; }
+  #properties-section { margin-bottom: 24px; }
+
+  /* ─── Empty State ─────────────────────────────────────── */
+  .empty-state {
+    background: var(--card);
+    border: 1px dashed var(--border);
+    border-radius: var(--radius);
+    padding: 36px 28px;
+    text-align: center;
+    color: var(--muted);
+  }
+  .empty-state p { margin: 0 0 8px; font-size: 14px; line-height: 1.6; }
+  .empty-state pre {
+    background: var(--sky-pale);
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-family: SFMono-Regular, Menlo, monospace;
+    font-size: 12px;
+    margin: 12px auto 0;
+    text-align: left;
+    max-width: 380px;
+    color: var(--text);
+    border: 1px solid var(--border-soft);
+  }
+  .empty { color: var(--muted); font-style: italic; padding: 20px 0; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <div class="brand">
+      <svg class="brand-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 75.45 110.72">
+        <defs><style>
+          .skc-letter       { fill: #ffffff; }
+          .skc-circle-white { fill: rgba(255,255,255,0.12); stroke: rgba(255,255,255,0.88); stroke-width: 5px; }
+          .skc-circle-black { fill: rgba(255,255,255,0.80); stroke: rgba(255,255,255,0.88); stroke-width: 5px; }
+          .skc-arc          { fill: rgba(255,255,255,0.80); stroke: rgba(255,255,255,0.88); stroke-width: 0.13px; }
+          .skc-dot          { fill: rgba(255,255,255,0.80); }
+        </style></defs>
+        <path class="skc-letter" d="M369.66,291.9l.55.43a11,11,0,0,0,6.72,2.71c1.1,0,2.75-.39,2.75-1.77s-1.42-1.45-4.56-2c-4.24-.79-7.74-3.26-7.74-7.86,0-7,6.4-11,12.85-11a17.77,17.77,0,0,1,9.39,2.59l-2.91,7.58a11.15,11.15,0,0,0-6.25-2.24c-.94,0-2.32.36-2.32,1.58s1.34,1.25,4.6,2c4.56,1.06,7.86,3.46,7.86,8.49,0,7.07-6.4,10.57-12.85,10.57a26.54,26.54,0,0,1-11.39-2.72Z" transform="translate(-366.16 -192.26)"/>
+        <path class="skc-letter" d="M391,271.59h10.94L401.69,285h.24a13.7,13.7,0,0,1,1.56-3.49l5.41-9.92h12.26l-9.67,15.05,10.7,15.86h-13l-5.33-9.34a15.23,15.23,0,0,1-1.89-3.61h-.24l.24,12.95H391Z" transform="translate(-366.16 -192.26)"/>
+        <path class="skc-letter" d="M439.86,284.94c-2.12-2-4.2-3-6.32-3a5.81,5.81,0,0,0-5.86,5.77,5.92,5.92,0,0,0,6,5.78,8.5,8.5,0,0,0,6.16-2.75l-.31,11.08c-1.77.82-5.66,1.18-7.66,1.18a14.85,14.85,0,0,1-15.05-15,15.4,15.4,0,0,1,15.48-15.56,22.12,22.12,0,0,1,7.23,1.21Z" transform="translate(-366.16 -192.26)"/>
+        <path class="skc-circle-white" d="M400.88,248.94a16.11,16.11,0,1,1-16.11-16.11A16.12,16.12,0,0,1,400.88,248.94Z" transform="translate(-366.16 -192.26)"/>
+        <circle class="skc-circle-black" cx="56.84" cy="56.74" r="16.11"/>
+        <path class="skc-arc" d="M384.77,232.94a16.12,16.12,0,1,1-16.11,16.12h16.11Z" transform="translate(-366.16 -192.26)"/>
+        <circle class="skc-circle-white" cx="56.84" cy="18.61" r="16.11"/>
+        <path class="skc-arc" d="M423,211V194.87A16.11,16.11,0,0,1,439.11,211" transform="translate(-366.16 -192.26)"/>
+        <path class="skc-dot" d="M408.35,210.73" transform="translate(-366.16 -192.26)"/>
+        <circle class="skc-circle-white" cx="384.77" cy="210.87" r="16.11" transform="translate(-202.31 397.7) rotate(-88.49)"/>
+      </svg>
+      <div class="brand-text">
+        <span class="brand-name">SkyClear</span>
+        <span class="brand-tagline">Analytics</span>
+      </div>
+    </div>
+    <div class="header-tool-info">
+      <h1 class="header-tool-title">Rent vs. Buy Calculator</h1>
+      <p class="header-tool-sub">Austin, TX &middot; Nashville, TN</p>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="page-header">
+    <p class="meta" id="generated-at"></p>
+  </div>
+
+  <details class="explainer">
+    <summary>
+      <span class="toggle-icon"></span>
+      <strong>How this tool works</strong> &mdash; how to read the results, how the math works, and where the numbers come from
+    </summary>
+    <div class="explainer-body">
+
+      <h3>What you&rsquo;re looking at</h3>
+      <p>A decision-support tool for the rent-vs-buy question, grounded in live public data. Most rules of thumb are misleading on their own &mdash; this tool shows three different views of the same decision side by side, so you can see when they agree (the answer is robust) and when they disagree (you&rsquo;ve found a real nuance worth thinking about).</p>
+
+      <h3>Reading each card</h3>
+      <ul>
+        <li><strong>Home value &amp; Rent</strong> &mdash; start at the metro median (Zillow ZHVI / ZORI). Click into either field to enter your actual numbers for a specific home you&rsquo;re considering.</li>
+        <li><strong>Price-to-rent ratio</strong> &mdash; a quick scan. Above 20 historically favors renting; below 15 favors buying. Useful but blind to mortgage rates and carrying costs.</li>
+        <li><strong>Total monthly cost (buy / rent)</strong> &mdash; what you actually write checks for each month: mortgage P&amp;I + property tax + maintenance + insurance vs. just rent.</li>
+        <li><strong>NPV breakeven</strong> &mdash; the smallest number of years you&rsquo;d need to stay before buying becomes cheaper than renting on a net-present-value basis.</li>
+        <li><strong>At year N</strong> (the headline at the bottom) &mdash; the bottom-line answer for your specific planned stay duration.</li>
+      </ul>
+
+      <h3>Using the controls</h3>
+      <ul>
+        <li><strong>How long you plan to stay</strong> &mdash; sets the year used for the bottom-line answer in each card and a vertical guide on the cumulative-cost chart.</li>
+        <li><strong>Home value growth windows</strong> (5y / 10y / 20y / 30y) &mdash; pick a historical window for long-run defaults. <strong>20y is the recommended default.</strong></li>
+        <li><strong>Mortgage rate, down payment, investment return</strong> and the Advanced settings &mdash; manual overrides. Set them to match your own situation.</li>
+        <li><strong>Reset to defaults</strong> &mdash; restores everything to the data-driven defaults.</li>
+      </ul>
+
+      <h3>How the breakeven math works</h3>
+      <p>The model simulates each year from 1 to 30, tracking what each scenario costs cumulatively if you exited at the end of that year. The <strong>breakeven year</strong> is the smallest year where buying becomes cheaper than renting on a net basis. Before that year, renting is cheaper. After it, buying is cheaper, and the gap typically widens dramatically.</p>
+
+      <h3>Where the numbers come from</h3>
+      <ul>
+        <li><strong>Home values:</strong> <a href="https://www.zillow.com/research/data/" target="_blank" rel="noopener">Zillow ZHVI</a> metro index, refreshed monthly</li>
+        <li><strong>Rents:</strong> <a href="https://www.zillow.com/research/data/" target="_blank" rel="noopener">Zillow ZORI</a> metro index, refreshed monthly</li>
+        <li><strong>Mortgage rate:</strong> <a href="https://fred.stlouisfed.org/series/MORTGAGE30US" target="_blank" rel="noopener">FRED MORTGAGE30US</a> (Freddie Mac PMMS), weekly</li>
+        <li><strong>Appreciation defaults:</strong> <a href="https://www.fhfa.gov/DataTools/Downloads" target="_blank" rel="noopener">FHFA House Price Index</a> by metro, quarterly</li>
+        <li><strong>Rent inflation defaults:</strong> <a href="https://fred.stlouisfed.org/series/CUSR0000SEHA" target="_blank" rel="noopener">BLS CPI Rent of Primary Residence</a>, monthly</li>
+        <li><strong>Property tax rates:</strong> US Census ACS effective rates by county</li>
+        <li><strong>Insurance:</strong> state-level averages</li>
+      </ul>
+
+    </div>
+  </details>
+
+  <nav class="tabs" role="tablist">
+    <button class="tab-button active" data-tab="markets" role="tab">
+      Markets <span class="tab-count" id="tab-count-markets"></span>
+    </button>
+    <button class="tab-button" data-tab="properties" role="tab">
+      My Properties <span class="tab-count" id="tab-count-properties"></span>
+    </button>
+  </nav>
+
+  <div class="layout">
+  <aside class="sidebar">
+  <details class="market-filter" id="market-filter">
+    <summary>
+      <span class="market-filter-label">Viewing</span>
+      <span class="market-filter-summary" id="market-filter-summary">Nashville</span>
+      <span class="market-filter-chevron">▼</span>
+    </summary>
+    <div class="market-filter-options">
+      <label><input type="checkbox" id="market-filter-all"> <span><strong>All markets</strong></span></label>
+      <div class="separator"></div>
+      <div id="market-filter-list"></div>
+    </div>
+  </details>
+
+  <section class="controls">
+    <div class="controls-header">
+      <h2>Your Situation</h2>
+      <button id="reset-controls" type="button" title="Reset to data defaults">Reset</button>
+    </div>
+    <div class="controls-grid">
+      <div class="control">
+        <div class="control-row">
+          <span class="control-label">Current mortgage rate</span>
+          <span class="control-value" id="rate-value"></span>
+        </div>
+        <input type="range" id="rate-slider" min="3" max="10" step="0.05" />
+      </div>
+      <div class="control">
+        <div class="control-row">
+          <span class="control-label">Home value growth</span>
+          <span class="control-value" id="appr-value"></span>
+        </div>
+        <div class="window-toggle" id="appr-window-toggle"></div>
+        <div class="period-chart" id="appr-chart"></div>
+        <div class="control-hint" id="appr-defaults-hint"></div>
+      </div>
+      <div class="control">
+        <div class="control-row">
+          <span class="control-label">Down payment</span>
+          <span class="control-value" id="down-value"></span>
+        </div>
+        <input type="range" id="down-slider" min="0" max="50" step="1" />
+      </div>
+      <div class="control">
+        <div class="control-row">
+          <span class="control-label">Investment return if renting</span>
+          <span class="control-value" id="inv-value"></span>
+        </div>
+        <input type="range" id="inv-slider" min="0" max="15" step="0.25" />
+      </div>
+      <div class="control">
+        <div class="control-row">
+          <span class="control-label">How long you plan to stay</span>
+          <span class="control-value" id="stay-value"></span>
+        </div>
+        <input type="range" id="stay-slider" min="1" max="30" step="1" />
+      </div>
+      <div class="control">
+        <div class="control-row">
+          <span class="control-label">Your annual income</span>
+          <span class="control-value" id="income-value"></span>
+        </div>
+        <input type="range" id="income-slider" min="40000" max="500000" step="5000" />
+      </div>
+      <div class="control">
+        <div class="control-row">
+          <span class="control-label">Max housing spend</span>
+          <span class="control-value" id="afford-pct-value"></span>
+        </div>
+        <input type="range" id="afford-pct-slider" min="20" max="50" step="1" />
+        <div class="control-hint">Max % of gross income for housing</div>
+      </div>
+    </div>
+    <details class="advanced">
+      <summary>Advanced Settings</summary>
+      <div class="controls-grid">
+        <div class="control">
+          <div class="control-row">
+            <span class="control-label">Annual rent increases</span>
+            <span class="control-value" id="rentinfl-value"></span>
+          </div>
+          <div class="window-toggle" id="rentinfl-window-toggle"></div>
+          <input type="range" id="rentinfl-slider" min="0" max="8" step="0.1" />
+          <div class="control-hint" id="rentinfl-defaults-hint"></div>
+        </div>
+        <div class="control">
+          <div class="control-row">
+            <span class="control-label">Your tax bracket</span>
+            <span class="control-value" id="margtax-value"></span>
+          </div>
+          <input type="range" id="margtax-slider" min="0" max="37" step="1" />
+        </div>
+        <div class="control">
+          <div class="control-row">
+            <span class="control-label">Annual maintenance</span>
+            <span class="control-value" id="maint-value"></span>
+          </div>
+          <input type="range" id="maint-slider" min="0" max="3" step="0.1" />
+        </div>
+        <div class="control">
+          <div class="control-row">
+            <span class="control-label">Affordability buffer</span>
+            <span class="control-value" id="afford-buf-value"></span>
+          </div>
+          <input type="range" id="afford-buf-slider" min="1" max="15" step="1" />
+          <div class="control-hint">pp over threshold before hard flip to Lean Rent</div>
+        </div>
+        <div class="control">
+          <div class="control-row">
+            <span class="control-label">Strong NPV floor (absolute)</span>
+            <span class="control-value" id="npv-abs-value"></span>
+          </div>
+          <input type="range" id="npv-abs-slider" min="10" max="200" step="5" />
+          <div class="control-hint">Min NPV edge for Lean Buy to survive a soft-zone affordability flag</div>
+        </div>
+        <div class="control">
+          <div class="control-row">
+            <span class="control-label">Strong NPV floor (income %)</span>
+            <span class="control-value" id="npv-ratio-value"></span>
+          </div>
+          <input type="range" id="npv-ratio-slider" min="10" max="75" step="5" />
+          <div class="control-hint">Same floor as a % of gross income &mdash; whichever is larger wins</div>
+        </div>
+      </div>
+    </details>
+  </section>
+  </aside>
+
+  <main class="content">
+  <div class="tab-content active" id="tab-markets" role="tabpanel">
+    <section id="snapshot" class="cards"></section>
+
+    <section class="chart-section">
+      <h2>Cumulative cost over time: buy vs. rent</h2>
+      <p class="caption">
+        For each market, cumulative net cost of buying (solid) vs. renting (dashed)
+        if you sold or moved at the end of year N. Buy line subtracts equity and adds sale costs.
+        Rent line subtracts the alt-investment growth on the down payment.
+        The crossover point is the breakeven year.
+      </p>
+      <div id="breakeven-charts" class="facets"></div>
+    </section>
+
+    <section class="chart-section">
+      <h2>Price-to-rent ratio over time</h2>
+      <p class="caption">
+        Above 20 historically favors renting; below 15 historically favors buying.
+        Each market&rsquo;s full available history.
+      </p>
+      <div class="legend" id="pr-legend"></div>
+      <div id="pr-chart"></div>
+    </section>
+
+    <section class="chart-section">
+      <h2>Monthly cost gap (buy &minus; rent)</h2>
+      <p class="caption">
+        Positive = buying costs more per month than renting at the prevailing 30-yr rate.
+        Includes P&amp;I, property tax, maintenance, and insurance.
+      </p>
+      <div class="legend" id="gap-legend"></div>
+      <div id="gap-chart"></div>
+    </section>
+  </div>
+
+  <div class="tab-content" id="tab-properties" role="tabpanel">
+    <section id="properties-section">
+      <h2 class="properties-heading">My Properties</h2>
+      <p class="properties-caption">Specific homes you&rsquo;re tracking from RentCast. Edit <code>properties.py</code> to add more.</p>
+      <div id="properties-cards" class="cards"></div>
+    </section>
+  </div>
+  </main>
+  </div>
+</div>
+
+<div id="tooltip" class="tooltip"></div>
+
+<script>
+const COLORS = { "nashville-tn": "#2E75B6", "austin-tx": "#E07A5F" };
+const NAMES  = { "nashville-tn": "Nashville, TN", "austin-tx": "Austin, TX" };
+const MARKETS = ["nashville-tn", "austin-tx"];
+
+const fmt$ = d3.format(",.0f");
+const fmt1 = d3.format(".1f");
+const fmt2 = d3.format(".2f");
+const fmtMonth = d3.timeFormat("%b %Y");
+
+// Application state. DATA holds the raw payload; STATE holds slider values.
+const DATA = {
+  snapshot: [], history: [], breakeven_summary: [], market_defaults: [],
+  rent_inflation_by_window: {}, properties: [],
+  appreciation_history: {},        // market_id -> [{date, value}]
+  rent_inflation_history: [],      // [{date, value}]
+};
+const STATE = {
+  rate: null,                       // fraction, e.g. 0.0623
+  appreciation: null,               // fraction; null = use per-market window default
+  appreciation_window: "20",        // "5" | "10" | "20" | "30" | "custom"
+  appreciation_brush: null,         // { start: "YYYY-MM-DD", end: "YYYY-MM-DD" } when user has dragged a range
+  down_pct: 0.20,
+  investment_return: 0.05,
+  rent_inflation: null,             // fraction; null = use windowed default
+  rent_inflation_window: "20",      // "5" | "10" | "20" | "30"
+  marg_tax_rate: 0.22,
+  maint_rate: 0.01,
+  renters_insurance_mo: 15,
+  closing_cost_buy_pct: 0.02,
+  closing_cost_sell_pct: 0.06,
+  stay_years: 7,
+  gross_income_annual: 120000,          // used for the affordability rule
+  affordability_pct: 0.30,             // user-set threshold (e.g. 0.30 = 30% of gross income)
+  affordability_buffer: 0.05,          // pp buffer before soft zone becomes hard gate (default 5pp)
+  npv_strong_absolute: 50000,          // min absolute NPV gap for soft zone to keep Lean Buy
+  npv_strong_income_ratio: 0.25,       // min NPV gap as fraction of annual income (whichever is larger)
+  // Per-market user overrides for the "specific home" they're considering.
+  // Shape: { "nashville-tn": { price: 500000, rent: 2200 } }
+  overrides: {},
+  // Which markets to show in the Markets tab. Defaults to Nashville-only.
+  visible_markets: ["nashville-tn"],
+};
+let DEFAULTS = {};                  // captured from data on first load, used by Reset
+const PER_MARKET = {};              // market_id -> { appr_by_window, default_insurance_mo }
+const APPR_WINDOWS = ["5", "10", "20", "30"];
+
+const tooltip = d3.select("#tooltip");
+function showTip(html, ev) {
+  tooltip.html(html).classed("show", true)
+    .style("left", (ev.clientX + 14) + "px")
+    .style("top", (ev.clientY + 14) + "px");
+}
+function hideTip() { tooltip.classed("show", false); }
+
+async function main() {
+  let data;
+  try {
+    data = await d3.json("dashboard_data.json");
+  } catch (e) {
+    d3.select(".wrap").append("p").attr("class", "empty")
+      .text("Could not load dashboard_data.json. Run `python export/build_dashboard_data.py` first.");
+    return;
+  }
+
+  d3.select("#generated-at").text(
+    "Data refreshed " + new Date(data.generated_at).toLocaleString()
+  );
+
+  const parseDate = d3.timeParse("%Y-%m-%d");
+  data.history.forEach(d => {
+    d.date = parseDate(d.month_start);
+    d.price_to_rent_ratio = +d.price_to_rent_ratio;
+    d.gap_buy_minus_rent_mo = +d.gap_buy_minus_rent_mo;
+  });
+
+  DATA.snapshot = data.snapshot;
+  DATA.history = data.history;
+  DATA.breakeven_summary = data.breakeven_summary || [];
+  DATA.market_defaults = data.market_defaults || [];
+  DATA.rent_inflation_by_window = data.rent_inflation_pct_by_window || {};
+  DATA.properties = data.properties || [];
+  DATA.appreciation_history = data.appreciation_history || {};
+  DATA.rent_inflation_history = data.rent_inflation_history || [];
+
+  // Capture data-driven defaults so the Reset button can restore them.
+  const firstSnap = data.snapshot[0];
+  DEFAULTS = {
+    rate: firstSnap ? firstSnap.rate_pct / 100 : 0.07,
+    down_pct: 0.20,
+    investment_return: 0.05,
+    marg_tax_rate: 0.22,
+    maint_rate: 0.01,
+    gross_income_annual: 120000,
+    affordability_pct: 0.30,
+    affordability_buffer: 0.05,
+    npv_strong_absolute: 50000,
+    npv_strong_income_ratio: 0.25,
+  };
+  // Per-market defaults: appreciation by window + insurance.
+  DATA.market_defaults.forEach(md => {
+    PER_MARKET[md.market_id] = {
+      appr_by_window: md.appreciation_pct_by_window || {},   // { "5": 4.5, "10": 4.99, ... }
+      default_insurance_mo: md.default_insurance_mo || 150,
+    };
+  });
+
+  // Initialize state to data defaults (sliders will visually reflect these).
+  resetStateToDefaults();
+
+  wireControls();
+  wireTabs();
+  renderMarketFilter();
+  refreshSlidersFromState();
+  renderAll();
+  updateTabCounts();
+}
+
+function wireTabs() {
+  const buttons = document.querySelectorAll(".tab-button");
+  const contents = document.querySelectorAll(".tab-content");
+  const marketFilter = document.getElementById("market-filter");
+  const syncFilterVisibility = (tabName) => {
+    if (!marketFilter) return;
+    marketFilter.classList.toggle("is-hidden", tabName !== "markets");
+  };
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      buttons.forEach(b => b.classList.remove("active"));
+      contents.forEach(c => c.classList.remove("active"));
+      btn.classList.add("active");
+      const targetId = "tab-" + btn.dataset.tab;
+      document.getElementById(targetId).classList.add("active");
+      syncFilterVisibility(btn.dataset.tab);
+    });
+  });
+  // Initial sync based on whichever tab starts active.
+  const activeBtn = document.querySelector(".tab-button.active");
+  syncFilterVisibility(activeBtn ? activeBtn.dataset.tab : "markets");
+}
+
+function renderMarketFilter() {
+  const list = d3.select("#market-filter-list").html("");
+  for (const mid of MARKETS) {
+    const label = list.append("label");
+    label.append("input")
+      .attr("type", "checkbox")
+      .attr("data-market-filter", mid)
+      .property("checked", STATE.visible_markets.includes(mid));
+    label.append("span").text(NAMES[mid]);
+  }
+
+  // Per-market checkboxes
+  d3.selectAll("[data-market-filter]").on("change", function() {
+    const mid = this.getAttribute("data-market-filter");
+    if (this.checked) {
+      if (!STATE.visible_markets.includes(mid)) STATE.visible_markets.push(mid);
+    } else {
+      STATE.visible_markets = STATE.visible_markets.filter(m => m !== mid);
+    }
+    updateMarketFilterUI();
+    renderAll();
+  });
+
+  // "All markets" master checkbox
+  const allCb = document.getElementById("market-filter-all");
+  allCb.addEventListener("change", () => {
+    STATE.visible_markets = allCb.checked ? [...MARKETS] : [];
+    updateMarketFilterUI();
+    renderAll();
+  });
+
+  updateMarketFilterUI();
+}
+
+function updateMarketFilterUI() {
+  const count = STATE.visible_markets.length;
+  let summary;
+  if (count === 0) summary = "(none)";
+  else if (count === MARKETS.length) summary = "All markets";
+  else summary = STATE.visible_markets.map(m => (NAMES[m] || m).split(",")[0]).join(", ");
+  d3.select("#market-filter-summary").text(summary);
+
+  const allCb = document.getElementById("market-filter-all");
+  if (allCb) allCb.checked = (count === MARKETS.length);
+
+  d3.selectAll("[data-market-filter]").each(function() {
+    this.checked = STATE.visible_markets.includes(this.getAttribute("data-market-filter"));
+  });
+}
+
+function updateTabCounts() {
+  const marketCount = (DATA.snapshot || []).length;
+  const propCount = (DATA.properties || []).length;
+  d3.select("#tab-count-markets").text(marketCount > 0 ? marketCount : "");
+  d3.select("#tab-count-properties").text(propCount > 0 ? propCount : "");
+}
+
+// ---------------------------------------------------------------------------
+// State + slider plumbing
+// ---------------------------------------------------------------------------
+
+function resetStateToDefaults() {
+  STATE.rate = DEFAULTS.rate;
+  STATE.appreciation = null;            // null = use per-market window default
+  STATE.appreciation_window = "20";
+  STATE.appreciation_brush = null;
+  STATE.rent_inflation = null;          // null = use windowed default
+  STATE.rent_inflation_window = "20";
+  STATE.down_pct = DEFAULTS.down_pct;
+  STATE.investment_return = DEFAULTS.investment_return;
+  STATE.marg_tax_rate = DEFAULTS.marg_tax_rate;
+  STATE.maint_rate = DEFAULTS.maint_rate;
+  STATE.stay_years = 7;
+  STATE.gross_income_annual = DEFAULTS.gross_income_annual || 120000;
+  STATE.affordability_pct = DEFAULTS.affordability_pct || 0.30;
+  STATE.affordability_buffer = DEFAULTS.affordability_buffer || 0.05;
+  STATE.npv_strong_absolute = DEFAULTS.npv_strong_absolute || 50000;
+  STATE.npv_strong_income_ratio = DEFAULTS.npv_strong_income_ratio || 0.25;
+  STATE.overrides = {};                 // clear any per-market price/rent overrides
+  STATE.visible_markets = ["nashville-tn"];
+}
+
+function setOverride(mid, field, value) {
+  if (!STATE.overrides[mid]) STATE.overrides[mid] = {};
+  STATE.overrides[mid][field] = value;
+}
+
+function clearOverride(mid, field) {
+  if (STATE.overrides[mid]) {
+    delete STATE.overrides[mid][field];
+    if (Object.keys(STATE.overrides[mid]).length === 0) {
+      delete STATE.overrides[mid];
+    }
+  }
+}
+
+function refreshSlidersFromState() {
+  const rentInflForSlider = STATE.rent_inflation != null
+    ? STATE.rent_inflation
+    : (rentInflDefault() || 0.03);
+  setSlider("rate", STATE.rate * 100, fmt2, "%");
+  // Appreciation has no slider — chart handles it. Just refresh the bold value.
+  refreshApprValueDisplay();
+  setSlider("down", STATE.down_pct * 100, v => v.toFixed(0), "%");
+  setSlider("inv", STATE.investment_return * 100, fmt2, "%");
+  setSlider("stay", STATE.stay_years, v => v.toFixed(0), " yrs");
+  setSlider("income", STATE.gross_income_annual, v => "$" + Math.round(v / 1000) + "k", "/yr");
+  setSlider("afford-pct", STATE.affordability_pct * 100, v => v.toFixed(0), "%");
+  setSlider("afford-buf", STATE.affordability_buffer * 100, v => v.toFixed(0), "pp");
+  setSlider("npv-abs", STATE.npv_strong_absolute / 1000, v => "$" + v.toFixed(0) + "k", "");
+  setSlider("npv-ratio", STATE.npv_strong_income_ratio * 100, v => v.toFixed(0), "% of income");
+  setSlider("rentinfl", rentInflForSlider * 100, fmt2, "%");
+  setSlider("margtax", STATE.marg_tax_rate * 100, v => v.toFixed(0), "%");
+  setSlider("maint", STATE.maint_rate * 100, v => v.toFixed(1), "%");
+  refreshApprWindowToggle();
+  refreshApprDefaultsHint();
+  renderApprChart();
+  refreshRentinflWindowToggle();
+  refreshRentinflDefaultsHint();
+}
+
+function rentInflDefault() {
+  const v = DATA.rent_inflation_by_window[STATE.rent_inflation_window];
+  return v != null ? v / 100 : 0.03;
+}
+
+function refreshRentinflWindowToggle() {
+  const toggle = d3.select("#rentinfl-window-toggle").html("");
+  for (const w of APPR_WINDOWS) {
+    const has = DATA.rent_inflation_by_window[w] != null;
+    const active = w === STATE.rent_inflation_window;
+    const btn = toggle.append("button")
+      .attr("type", "button")
+      .attr("class", active ? "active" : (has ? "" : "disabled"))
+      .text(`${w}y`);
+    if (!has) btn.attr("disabled", true);
+    btn.on("click", () => {
+      STATE.rent_inflation_window = w;
+      STATE.rent_inflation = null;     // reset override on window change
+      refreshSlidersFromState();
+      rerender();
+    });
+  }
+}
+
+function refreshRentinflDefaultsHint() {
+  const v = DATA.rent_inflation_by_window[STATE.rent_inflation_window];
+  const valStr = v != null ? `<strong>${v.toFixed(2)}%</strong>` : "—";
+  const overrideNote = STATE.rent_inflation != null
+    ? ` &middot; <strong>override active</strong>`
+    : "";
+  d3.select("#rentinfl-defaults-hint")
+    .html(`Default @ ${STATE.rent_inflation_window}y: ${valStr}${overrideNote}`);
+}
+
+function apprDefaultForMarket(mid) {
+  // If a brushed time range is active, compute that market's CAGR over it.
+  if (STATE.appreciation_brush) {
+    return cagrFromBrush(mid) ?? 0.04;
+  }
+  const pm = PER_MARKET[mid];
+  if (!pm) return null;
+  const v = pm.appr_by_window[STATE.appreciation_window];
+  return v != null ? v / 100 : null;
+}
+
+function cagrFromBrush(mid) {
+  const range = STATE.appreciation_brush;
+  if (!range) return null;
+  const series = (DATA.appreciation_history || {})[mid] || [];
+  if (series.length < 2) return null;
+  const start = nearestPoint(series, range.start);
+  const end   = nearestPoint(series, range.end);
+  if (!start || !end || start.value <= 0) return null;
+  const years = (new Date(end.date) - new Date(start.date)) / (365.25 * 86400 * 1000);
+  if (years <= 0) return null;
+  return Math.pow(end.value / start.value, 1 / years) - 1;
+}
+
+function nearestPoint(series, dateStr) {
+  // series is sorted ascending by date. Return entry whose date is closest to target.
+  const t = new Date(dateStr).getTime();
+  let best = null;
+  let bestDiff = Infinity;
+  for (const p of series) {
+    const diff = Math.abs(new Date(p.date).getTime() - t);
+    if (diff < bestDiff) { bestDiff = diff; best = p; }
+  }
+  return best;
+}
+
+function refreshApprWindowToggle() {
+  const toggle = d3.select("#appr-window-toggle").html("");
+  for (const w of APPR_WINDOWS) {
+    const anyHasData = MARKETS.some(mid => {
+      const pm = PER_MARKET[mid];
+      return pm && pm.appr_by_window[w] != null;
+    });
+    const active = w === STATE.appreciation_window;
+    const btn = toggle.append("button")
+      .attr("type", "button")
+      .attr("class", active ? "active" : (anyHasData ? "" : "disabled"))
+      .text(`${w}y`);
+    if (!anyHasData) btn.attr("disabled", true);
+    btn.on("click", () => {
+      STATE.appreciation_window = w;
+      STATE.appreciation = null;
+      STATE.appreciation_brush = null;    // window preset → clear the custom brush
+      refreshApprWindowToggle();
+      refreshApprDefaultsHint();
+      refreshApprValueDisplay();
+      setApprBrushFromState();            // move the brush UI to match the new window
+      rerender();
+    });
+  }
+}
+
+function refreshApprValueDisplay() {
+  // Sync the bolded percent next to the "Home appreciation" label with whatever
+  // value is currently driving the calc (per-market default or brushed CAGR).
+  const mid = (STATE.visible_markets[0]) || MARKETS[0];
+  const v = apprDefaultForMarket(mid);
+  const el = document.getElementById("appr-value");
+  if (!el) return;
+  el.textContent = (v != null ? fmt2(v * 100) : "—") + "%";
+}
+
+function refreshApprDefaultsHint() {
+  const parts = MARKETS.map(mid => {
+    const v = apprDefaultForMarket(mid);
+    if (v == null) return `${NAMES[mid].split(",")[0]}: —`;
+    return `${NAMES[mid].split(",")[0]}: <strong>${(v * 100).toFixed(2)}%</strong>`;
+  });
+  let prefix;
+  if (STATE.appreciation_brush) {
+    const s = STATE.appreciation_brush.start.slice(0, 7);
+    const e = STATE.appreciation_brush.end.slice(0, 7);
+    prefix = `Custom: <strong>${s} → ${e}</strong>`;
+  } else {
+    prefix = `Defaults @ ${STATE.appreciation_window}y`;
+  }
+  d3.select("#appr-defaults-hint")
+    .html(`${prefix}: ${parts.join("  &middot;  ")}`);
+}
+
+// State for the appreciation chart so window-button clicks can move the brush.
+let _apprChartState = null;
+
+function renderApprChart() {
+  const container = d3.select("#appr-chart").html("");
+
+  // Use the first visible market's HPI series as the chart subject (the brush
+  // selection still applies to BOTH markets — each gets its own CAGR over the
+  // brushed time range).
+  const mid = (STATE.visible_markets[0]) || MARKETS[0];
+  const series = (DATA.appreciation_history || {})[mid] || [];
+  if (series.length < 5) {
+    container.append("div").attr("class", "control-hint")
+      .text("(no HPI history available for this market)");
+    _apprChartState = null;
+    return;
+  }
+
+  // Compute year-over-year appreciation. HPI is quarterly, so YoY = value/value_4qago - 1.
+  const parsed = series
+    .map(d => ({ date: new Date(d.date), value: d.value }))
+    .sort((a, b) => a.date - b.date);
+  const yoy = [];
+  for (let i = 4; i < parsed.length; i++) {
+    yoy.push({
+      date: parsed[i].date,
+      pct: (parsed[i].value / parsed[i - 4].value - 1) * 100,
+      raw: parsed[i].value,
+    });
+  }
+  if (yoy.length === 0) return;
+
+  const margin = { top: 6, right: 6, bottom: 16, left: 24 };
+  const width = 248;
+  const height = 110;
+  const innerW = width - margin.left - margin.right;
+  const innerH = height - margin.top - margin.bottom;
+
+  const x = d3.scaleTime()
+    .domain(d3.extent(yoy, d => d.date))
+    .range([0, innerW]);
+  const yDomain = d3.extent(yoy, d => d.pct);
+  yDomain[0] = Math.min(0, yDomain[0]);
+  yDomain[1] = Math.max(yDomain[1], 1);
+  const y = d3.scaleLinear()
+    .domain(yDomain).nice(4)
+    .range([innerH, 0]);
+
+  const svg = container.append("svg")
+    .attr("viewBox", `0 0 ${width} ${height}`);
+  const g = svg.append("g")
+    .attr("transform", `translate(${margin.left},${margin.top})`);
+
+  // Zero line
+  if (yDomain[0] < 0) {
+    g.append("line").attr("class", "zero-line")
+      .attr("x1", 0).attr("x2", innerW)
+      .attr("y1", y(0)).attr("y2", y(0));
+  }
+
+  // Axes
+  g.append("g").attr("class", "axis")
+    .attr("transform", `translate(0,${innerH})`)
+    .call(d3.axisBottom(x).ticks(4).tickFormat(d3.timeFormat("'%y")));
+  g.append("g").attr("class", "axis")
+    .call(d3.axisLeft(y).ticks(3).tickFormat(d => d + "%"));
+
+  // YoY line
+  const line = d3.line()
+    .x(d => x(d.date))
+    .y(d => y(d.pct));
+  g.append("path")
+    .datum(yoy)
+    .attr("class", "yoy-line")
+    .attr("d", line);
+
+  // Brush
+  const brush = d3.brushX()
+    .extent([[0, 0], [innerW, innerH]])
+    .on("end", function(event) {
+      // Only react to user-driven changes, not programmatic brush.move calls.
+      if (!event.sourceEvent) return;
+      if (!event.selection) {
+        STATE.appreciation_brush = null;
+      } else {
+        const [px0, px1] = event.selection;
+        const d0 = x.invert(px0), d1 = x.invert(px1);
+        STATE.appreciation_brush = {
+          start: d0.toISOString().slice(0, 10),
+          end:   d1.toISOString().slice(0, 10),
+        };
+        // The brush implicitly defines the window — flag it as custom.
+        STATE.appreciation_window = "custom";
+      }
+      refreshApprWindowToggle();
+      refreshApprDefaultsHint();
+      refreshApprValueDisplay();
+      rerender();
+    });
+
+  const brushG = g.append("g").attr("class", "brush").call(brush);
+
+  _apprChartState = { brush, brushG, x, yoyExtent: x.domain() };
+
+  // Set initial brush position from current state.
+  setApprBrushFromState();
+}
+
+function setApprBrushFromState() {
+  if (!_apprChartState) return;
+  const { brush, brushG, x } = _apprChartState;
+
+  let startDate, endDate;
+  if (STATE.appreciation_brush) {
+    startDate = new Date(STATE.appreciation_brush.start);
+    endDate   = new Date(STATE.appreciation_brush.end);
+  } else {
+    // Window preset: most recent N years.
+    const [d0, d1] = x.domain();
+    const years = parseInt(STATE.appreciation_window, 10) || 20;
+    endDate = d1;
+    startDate = new Date(d1.getTime() - years * 365.25 * 86400 * 1000);
+    if (startDate < d0) startDate = d0;
+  }
+  brushG.call(brush.move, [x(startDate), x(endDate)]);
+}
+
+function setSlider(key, value, fmt, suffix) {
+  const slider = document.getElementById(`${key}-slider`);
+  const valEl = document.getElementById(`${key}-value`);
+  if (slider) slider.value = value;
+  if (valEl) valEl.textContent = fmt(value) + suffix;
+}
+
+function wireControls() {
+  const bind = (key, sliderId, fmt, suffix, scale, stateKey) => {
+    const slider = document.getElementById(sliderId);
+    const valEl = document.getElementById(`${key}-value`);
+    slider.addEventListener("input", () => {
+      const v = +slider.value;
+      valEl.textContent = fmt(v) + suffix;
+      STATE[stateKey] = v / scale;
+      rerender();
+    });
+  };
+  bind("rate", "rate-slider", fmt2, "%", 100, "rate");
+  bind("down", "down-slider", v => v.toFixed(0), "%", 100, "down_pct");
+  bind("inv", "inv-slider", fmt2, "%", 100, "investment_return");
+  bind("margtax", "margtax-slider", v => v.toFixed(0), "%", 100, "marg_tax_rate");
+  bind("maint", "maint-slider", v => v.toFixed(1), "%", 100, "maint_rate");
+
+  // Rent inflation: like appreciation, the slider sets a global override.
+  // The window toggle and Reset button restore the windowed default.
+  document.getElementById("rentinfl-slider").addEventListener("input", (ev) => {
+    const v = +ev.target.value;
+    document.getElementById("rentinfl-value").textContent = fmt2(v) + "%";
+    STATE.rent_inflation = v / 100;
+    refreshRentinflDefaultsHint();
+    rerender();
+  });
+
+  // Appreciation: chart-with-brush replaces the old slider. The chart's brush
+  // event is wired in renderApprChart(); nothing to bind here.
+
+  // Stay-years is a viewing parameter — doesn't change the math.
+  document.getElementById("stay-slider").addEventListener("input", (ev) => {
+    const v = +ev.target.value;
+    document.getElementById("stay-value").textContent = v + " yrs";
+    STATE.stay_years = v;
+    rerender();
+  });
+
+  // Gross income — drives the affordability rule display.
+  document.getElementById("income-slider").addEventListener("input", (ev) => {
+    const v = +ev.target.value;
+    document.getElementById("income-value").textContent = "$" + Math.round(v / 1000) + "k/yr";
+    STATE.gross_income_annual = v;
+    rerender();
+  });
+
+  // Affordability threshold — what % of gross the user is comfortable spending.
+  document.getElementById("afford-pct-slider").addEventListener("input", (ev) => {
+    const v = +ev.target.value;
+    document.getElementById("afford-pct-value").textContent = v.toFixed(0) + "%";
+    STATE.affordability_pct = v / 100;
+    rerender();
+  });
+
+  // Affordability buffer — how many pp over threshold before the hard gate kicks in.
+  document.getElementById("afford-buf-slider").addEventListener("input", (ev) => {
+    const v = +ev.target.value;
+    document.getElementById("afford-buf-value").textContent = v.toFixed(0) + "pp";
+    STATE.affordability_buffer = v / 100;
+    rerender();
+  });
+
+  // Strong-NPV thresholds — below both of these in the soft zone → Borderline.
+  document.getElementById("npv-abs-slider").addEventListener("input", (ev) => {
+    const v = +ev.target.value;
+    document.getElementById("npv-abs-value").textContent = "$" + v.toFixed(0) + "k";
+    STATE.npv_strong_absolute = v * 1000;
+    rerender();
+  });
+  document.getElementById("npv-ratio-slider").addEventListener("input", (ev) => {
+    const v = +ev.target.value;
+    document.getElementById("npv-ratio-value").textContent = v.toFixed(0) + "% of income";
+    STATE.npv_strong_income_ratio = v / 100;
+    rerender();
+  });
+
+  document.getElementById("reset-controls").addEventListener("click", () => {
+    resetStateToDefaults();
+    refreshSlidersFromState();
+    rerender();
+  });
+}
+
+function renderAll() {
+  // Wider re-render that includes the history charts (which depend on
+  // STATE.visible_markets). Called from main() and from market-filter changes.
+  const visible = STATE.visible_markets;
+  const filteredHistory = DATA.history.filter(d => visible.includes(d.market_id));
+  renderLegend("#pr-legend", visible);
+  renderLegend("#gap-legend", visible);
+  renderLineChart({
+    container: "#pr-chart",
+    history: filteredHistory,
+    yField: "price_to_rent_ratio",
+    yFormat: v => fmt1(v),
+    thresholds: [
+      { value: 15, label: "Buy threshold (15)" },
+      { value: 20, label: "Rent threshold (20)" },
+    ],
+    yAxisLabel: "Price-to-rent ratio",
+  });
+  renderLineChart({
+    container: "#gap-chart",
+    history: filteredHistory,
+    yField: "gap_buy_minus_rent_mo",
+    yFormat: v => "$" + fmt$(v),
+    thresholds: [{ value: 0, label: "Break-even", isZero: true }],
+    yAxisLabel: "Buy − rent ($/mo)",
+  });
+  rerender();
+}
+
+function rerender() {
+  const rentInfl = STATE.rent_inflation != null
+    ? STATE.rent_inflation
+    : (rentInflDefault() || 0.03);
+
+  // Only compute / display markets the user has selected.
+  const visible = STATE.visible_markets;
+
+  // For each visible market, build the inputs and run the breakeven calc.
+  const computed = visible.map(mid => {
+    const snap = DATA.snapshot.find(s => s.market_id === mid);
+    if (!snap) return null;
+    const appr = STATE.appreciation != null
+      ? STATE.appreciation
+      : (apprDefaultForMarket(mid) || 0.04);
+    const pm = PER_MARKET[mid] || {};
+    const ov = STATE.overrides[mid] || {};
+    const price = ov.price != null ? ov.price : +snap.price;
+    const rent_mo = ov.rent != null ? ov.rent : +snap.rent_mo;
+    const inputs = {
+      price: price,
+      rent_mo: rent_mo,
+      rate: STATE.rate,
+      tax_rate: snap.tax_mo / snap.price * 12,   // recover tax_rate from the metro snapshot
+      appreciation: appr,
+      rent_inflation: rentInfl,
+      down_pct: STATE.down_pct,
+      maint_rate: STATE.maint_rate,
+      insurance_mo: pm.default_insurance_mo || 150,
+      renters_insurance_mo: STATE.renters_insurance_mo,
+      investment_return: STATE.investment_return,
+      marg_tax_rate: STATE.marg_tax_rate,
+      closing_cost_buy_pct: STATE.closing_cost_buy_pct,
+      closing_cost_sell_pct: STATE.closing_cost_sell_pct,
+      horizon_years: 30,
+      loan_term_years: 30,
+    };
+    const bk = computeBreakeven(inputs);
+    const monthly = computeMonthly(inputs);
+    return { market_id: mid, snap, inputs, ...bk, monthly };
+  }).filter(Boolean);
+
+  renderSnapshot(computed);
+  renderBreakevenComputed(computed);
+  refreshApprDefaultsHint();
+
+  // Properties — compute breakeven for each tracked property using its market's
+  // tax/insurance/appreciation defaults, with the same global slider state.
+  const computedProperties = (DATA.properties || []).map(prop => {
+    const mid = prop.market_id;
+    const md = DATA.market_defaults.find(m => m.market_id === mid) || {};
+    const taxRate = md.effective_property_tax_rate || 0.01;
+    const insurance = md.default_insurance_mo || 150;
+    const appr = STATE.appreciation != null
+      ? STATE.appreciation
+      : (apprDefaultForMarket(mid) || 0.04);
+    const ov = STATE.overrides[prop.address] || {};
+    const price = ov.price != null ? ov.price : (prop.avm_value || 0);
+    const rent_mo = ov.rent != null ? ov.rent : (prop.avm_rent || 0);
+    const inputs = {
+      price, rent_mo,
+      rate: STATE.rate,
+      tax_rate: taxRate,
+      appreciation: appr,
+      rent_inflation: rentInfl,
+      down_pct: STATE.down_pct,
+      maint_rate: STATE.maint_rate,
+      insurance_mo: insurance,
+      renters_insurance_mo: STATE.renters_insurance_mo,
+      investment_return: STATE.investment_return,
+      marg_tax_rate: STATE.marg_tax_rate,
+      closing_cost_buy_pct: STATE.closing_cost_buy_pct,
+      closing_cost_sell_pct: STATE.closing_cost_sell_pct,
+      horizon_years: 30,
+      loan_term_years: 30,
+    };
+    const bk = computeBreakeven(inputs);
+    const monthly = computeMonthly(inputs);
+    return { property: prop, inputs, ...bk, monthly };
+  });
+  renderProperties(computedProperties);
+}
+
+// ---------------------------------------------------------------------------
+// Breakeven + monthly cost math (port of breakeven_calc.py)
+// ---------------------------------------------------------------------------
+
+function computeBreakeven(inp) {
+  const dp = inp.price * inp.down_pct;
+  const loan0 = inp.price - dp;
+  const nMonths = inp.loan_term_years * 12;
+  const r = inp.rate / 12;
+  const piMo = r > 0 ? loan0 * r / (1 - Math.pow(1 + r, -nMonths)) : loan0 / nMonths;
+
+  let bal = loan0;
+  let val = inp.price;
+  let rentNow = inp.rent_mo;
+  let invest = dp;
+  let buyCumCash = dp + inp.price * inp.closing_cost_buy_pct;
+  let rentCumCash = 0;
+
+  const rows = [];
+  let breakevenYear = null;
+
+  for (let year = 1; year <= inp.horizon_years; year++) {
+    let interestYr = 0;
+    for (let m = 0; m < 12; m++) {
+      const interest = bal * r;
+      const principal = piMo - interest;
+      bal -= principal;
+      interestYr += interest;
+    }
+    if (bal < 0) bal = 0;
+
+    const taxYr = val * inp.tax_rate;
+    const maintYr = val * inp.maint_rate;
+    const insYr = inp.insurance_mo * 12;
+    const annualBuyCash = piMo * 12 + taxYr + maintYr + insYr;
+    const taxSavings = interestYr * inp.marg_tax_rate;
+    buyCumCash += annualBuyCash - taxSavings;
+
+    val *= (1 + inp.appreciation);
+    const equity = val - bal;
+    const saleCosts = val * inp.closing_cost_sell_pct;
+    const buyCumNet = buyCumCash - equity + saleCosts;
+
+    const annualRentCash = rentNow * 12 + inp.renters_insurance_mo * 12;
+    rentCumCash += annualRentCash;
+    rentNow *= (1 + inp.rent_inflation);
+
+    invest *= (1 + inp.investment_return);
+    const rentCumNet = rentCumCash - (invest - dp);
+
+    const better = buyCumNet < rentCumNet;
+    rows.push({
+      year, home_value: val, mortgage_balance: bal, equity,
+      buy_cum_net: buyCumNet, rent_cum_net: rentCumNet, buy_better: better,
+    });
+    if (breakevenYear === null && better) breakevenYear = year;
+  }
+  return { rows, breakeven_year: breakevenYear };
+}
+
+function breakevenYear(inputs) {
+  return computeBreakeven(inputs).breakeven_year;
+}
+
+function computeVerdict(d) {
+  // ── Step 1: pure NPV verdict ──────────────────────────────────────────────
+  // Compare cumulative net cost at the user's planned stay year. Uses absolute
+  // and relative thresholds to avoid flipping on trivial dollar differences.
+  const stay = STATE.stay_years;
+  const row = (d.rows || []).find(r => r.year === stay);
+  let npvVerdict = "borderline";
+  let npvGap = 0;                                           // rent_cum_net − buy_cum_net (positive ⇒ buy cheaper)
+  if (row) {
+    const buy   = row.buy_cum_net;
+    const rent  = row.rent_cum_net;
+    npvGap      = rent - buy;
+    const scale = Math.max(Math.abs(buy), Math.abs(rent), 50000);
+    const ratio = Math.abs(npvGap) / scale;
+    const minGap = 10000;
+    if (Math.abs(npvGap) >= minGap && ratio >= 0.15) {
+      npvVerdict = npvGap > 0 ? "lean_buy" : "lean_rent";
+    }
+  }
+
+  // ── Step 2: affordability overlay ────────────────────────────────────────
+  // Skip if no income is set (treat 0 as "not configured").
+  const income = STATE.gross_income_annual;
+  if (!income || !d.monthly) return { verdict: npvVerdict, tooltip: null };
+
+  const grossMonthly = income / 12;
+  const threshold    = STATE.affordability_pct;             // e.g. 0.30
+  const buffer       = STATE.affordability_buffer;          // e.g. 0.05 (5pp)
+  const hardGate     = threshold + buffer;
+
+  const buyPct  = d.monthly.total_buy_mo  / grossMonthly;
+  const rentPct = d.monthly.total_rent_mo / grossMonthly;
+
+  const fmtPct = v => (v * 100).toFixed(0) + "%";
+  const threshStr  = fmtPct(threshold);
+  const bufferStr  = (buffer * 100).toFixed(0) + "pp";
+
+  // Priority 1 — Needs Review: both scenarios exceed the hard gate.
+  if (buyPct > hardGate && rentPct > hardGate) {
+    const tip = `Both buying (${fmtPct(buyPct)} of income) and renting (${fmtPct(rentPct)} of income) ` +
+                `exceed your ${threshStr} threshold plus the ${bufferStr} buffer. ` +
+                `Neither option fits comfortably within your affordability target — review your income, ` +
+                `target price range, or threshold before deciding.`;
+    return { verdict: "needs_review", tooltip: tip };
+  }
+
+  // Priority 2 — Hard gate: buying alone exceeds the hard gate.
+  if (buyPct > hardGate) {
+    const tip = `Buying would consume ${fmtPct(buyPct)} of your gross income — more than ${bufferStr} above ` +
+                `your ${threshStr} threshold. Regardless of the NPV math, this exceeds your ` +
+                `affordability limit.`;
+    return { verdict: "lean_rent", tooltip: tip };
+  }
+
+  // Priority 3 — Soft zone: buying is over threshold but within the buffer,
+  // and the NPV verdict was lean_buy. Whether to keep Lean Buy or flip to
+  // Borderline depends on whether the NPV advantage clears the "strong" bar
+  // (the larger of the absolute floor and the income-ratio floor).
+  if (buyPct > threshold && npvVerdict === "lean_buy") {
+    const strongFloor = Math.max(
+      STATE.npv_strong_absolute,
+      STATE.gross_income_annual * STATE.npv_strong_income_ratio
+    );
+    const overBy   = fmtPct(buyPct - threshold);
+    const gapStr   = "$" + Math.round(npvGap / 1000) + "k";
+    const floorStr = "$" + Math.round(strongFloor / 1000) + "k";
+
+    if (npvGap >= strongFloor) {
+      // NPV advantage is strong — keep Lean Buy, surface affordability as a note.
+      const tip = `Buying would use ${fmtPct(buyPct)} of your gross income — ${overBy} above your ` +
+                  `${threshStr} threshold (within the ${bufferStr} buffer). However, the ${gapStr} NPV ` +
+                  `advantage at year ${stay} clears the ${floorStr} strong-NPV floor, so the verdict ` +
+                  `stays Lean Buy. Worth knowing the monthly cost is a slight stretch.`;
+      return { verdict: "lean_buy", tooltip: tip };
+    } else {
+      // NPV advantage is modest — flip to Borderline.
+      const tip = `The NPV math favors buying at year ${stay} by ${gapStr}, but buying would use ` +
+                  `${fmtPct(buyPct)} of your gross income — ${overBy} above your ${threshStr} threshold. ` +
+                  `Because the NPV edge doesn't clear the ${floorStr} strong-NPV floor, the budget ` +
+                  `stretch is enough to call this Borderline.`;
+      return { verdict: "borderline", tooltip: tip };
+    }
+  }
+
+  // Priority 4 — No affordability concern: return pure NPV verdict.
+  return { verdict: npvVerdict, tooltip: null };
+}
+
+function buildSensitivityHTML(inputs, base) {
+  // Each row: tweak one input by ±1% (in absolute terms) and recompute breakeven.
+  const rows = [
+    { label: "Mortgage rate",     key: "rate" },
+    { label: "Appreciation",      key: "appreciation" },
+    { label: "Rent inflation",    key: "rent_inflation" },
+    { label: "Investment return", key: "investment_return" },
+  ];
+  const delta = 0.01;
+  const fmtYr = y => (y == null ? "&mdash;" : `${y}y`);
+  const cellClass = (yr) => {
+    if (yr == null || base == null) return "";
+    if (yr < base) return "shorter";
+    if (yr > base) return "longer";
+    return "";
+  };
+  const baseStr = fmtYr(base);
+
+  const tr = rows.map(r => {
+    const lower = breakevenYear({ ...inputs, [r.key]: inputs[r.key] - delta });
+    const upper = breakevenYear({ ...inputs, [r.key]: inputs[r.key] + delta });
+    const currentStr = (inputs[r.key] * 100).toFixed(2) + "%";
+    return `
+      <tr>
+        <td>${r.label} <span class="sens-current">(${currentStr})</span></td>
+        <td class="${cellClass(lower)}">${fmtYr(lower)}</td>
+        <td class="base">${baseStr}</td>
+        <td class="${cellClass(upper)}">${fmtYr(upper)}</td>
+      </tr>`;
+  }).join("");
+
+  return `
+    <div class="sensitivity">
+      <div class="sensitivity-title">
+        <span>Sensitivity</span>
+        <span class="hint-note">breakeven year at &plusmn;1%</span>
+      </div>
+      <table>
+        <thead><tr><th></th><th>&minus;1%</th><th>now</th><th>+1%</th></tr></thead>
+        <tbody>${tr}</tbody>
+      </table>
+    </div>
+  `;
+}
+
+function computeMonthly(inp) {
+  const loan = inp.price * (1 - inp.down_pct);
+  const r = inp.rate / 12;
+  const piMo = r > 0 ? loan * r / (1 - Math.pow(1 + r, -360)) : loan / 360;
+  const taxMo = inp.price * inp.tax_rate / 12;
+  const maintMo = inp.price * inp.maint_rate / 12;
+  const totalBuyMo = piMo + taxMo + maintMo + inp.insurance_mo;
+  const totalRentMo = inp.rent_mo + inp.renters_insurance_mo;
+  return {
+    pi_mo: piMo,
+    tax_mo: taxMo,
+    maint_mo: maintMo,
+    total_buy_mo: totalBuyMo,
+    total_rent_mo: totalRentMo,
+    gap_mo: totalBuyMo - totalRentMo,
+    pr_ratio: inp.price / (inp.rent_mo * 12),
+  };
+}
+
+// ---------------------------------------------------------------------------
+// Affordability: 30% of gross income rule
+// ---------------------------------------------------------------------------
+
+function buildAffordabilityHTML(monthly) {
+  const income = STATE.gross_income_annual;
+  const pct    = STATE.affordability_pct;
+  const grossMonthly = income / 12;
+  const cap = grossMonthly * pct;
+
+  // Income required for each scenario to hit the user's threshold.
+  const buyNeeded  = (monthly.total_buy_mo  / pct) * 12;
+  const rentNeeded = (monthly.total_rent_mo / pct) * 12;
+
+  const fmtIncome = v => {
+    if (v >= 1000000) return "$" + (v / 1000000).toFixed(2) + "M";
+    if (v >= 1000)    return "$" + Math.round(v / 1000) + "k";
+    return "$" + Math.round(v);
+  };
+
+  const incomeLabel = fmtIncome(income) + "/yr";
+
+  function rowHtml(label, cost, needed) {
+    const affordable  = cost <= cap;
+    const pct         = grossMonthly > 0 ? (cost / grossMonthly * 100) : null;
+    const pctStr      = pct != null ? `<span class="afford-pct">(${pct.toFixed(0)}% of gross)</span>` : "";
+    const valClass    = affordable ? "afford-ok-val" : "afford-no-val";
+    const badge       = affordable
+      ? `<span class="afford-ok">✓</span>`
+      : `<span class="afford-no">✗</span>`;
+    return `
+      <div class="row">
+        <span class="label">${label} needed</span>
+        <span class="value ${valClass}">${fmtIncome(needed)}/yr${badge}${pctStr}</span>
+      </div>`;
+  }
+
+  return `
+    <div class="affordability">
+      <div class="affordability-title">
+        <span>Affordability (${Math.round(pct * 100)}% rule)</span>
+        <span class="hint-note">at ${incomeLabel}</span>
+      </div>
+      ${rowHtml("To buy", monthly.total_buy_mo, buyNeeded)}
+      ${rowHtml("To rent", monthly.total_rent_mo, rentNeeded)}
+    </div>
+  `;
+}
+
+function renderSnapshot(computed) {
+  const cards = d3.select("#snapshot").selectAll(".card")
+    .data(computed, d => d.market_id)
+    .join("div")
+    .attr("class", d => "card " + d.market_id.split("-")[0]);
+
+  cards.html(d => {
+    const m = d.monthly;
+    const beStr = d.breakeven_year != null
+      ? `${d.breakeven_year} year${d.breakeven_year === 1 ? "" : "s"}`
+      : "renting wins over 30 yrs";
+    const stayRow = d.rows.find(r => r.year === STATE.stay_years);
+    let stayHtml = "&mdash;";
+    if (stayRow) {
+      const diff = stayRow.rent_cum_net - stayRow.buy_cum_net;
+      const winner = diff > 0 ? "Buy" : "Rent";
+      stayHtml = `<strong>${winner}</strong> cheaper by $${fmt$(Math.abs(diff))}`;
+    }
+    const { verdict: prVerdict, tooltip: prTip } = computeVerdict(d);
+    const tipAttr = prTip ? ` data-tip="${prTip.replace(/"/g, '&quot;')}"` : "";
+    const apprPct = (d.inputs.appreciation * 100).toFixed(2);
+    const ratePct = (d.inputs.rate * 100).toFixed(2);
+    const ov = STATE.overrides[d.market_id] || {};
+    const priceMarker = ov.price != null
+      ? `<a href="#" class="reset-override" data-market="${d.market_id}" data-field="price" title="Reset to ZHVI">↺</a>`
+      : `<span class="hint">ZHVI</span>`;
+    const rentMarker = ov.rent != null
+      ? `<a href="#" class="reset-override" data-market="${d.market_id}" data-field="rent" title="Reset to ZORI">↺</a>`
+      : `<span class="hint">ZORI</span>`;
+    return `
+    <div class="accent"></div>
+    <h3>${NAMES[d.market_id]}</h3>
+    <span class="verdict ${prVerdict}"${tipAttr}>${prVerdict.replace("_", " ")}</span>
+    <div class="row"><span class="label">Home value</span><span class="value">$<input class="inline-input" type="text" inputmode="numeric" data-market="${d.market_id}" data-field="price" value="${Math.round(d.inputs.price).toLocaleString()}">${priceMarker}</span></div>
+    <div class="row"><span class="label">Rent</span><span class="value">$<input class="inline-input" type="text" inputmode="numeric" data-market="${d.market_id}" data-field="rent" value="${Math.round(d.inputs.rent_mo).toLocaleString()}">/mo${rentMarker}</span></div>
+    <div class="row"><span class="label">Mortgage rate</span><span class="value">${ratePct}%</span></div>
+    <div class="row"><span class="label">Price-to-rent ratio</span><span class="value">${fmt1(m.pr_ratio)}</span></div>
+    <div class="row"><span class="label">Insurance (default)</span><span class="value">$${fmt$(d.inputs.insurance_mo)}/mo</span></div>
+    <div class="row"><span class="label">Total monthly cost (buy)</span><span class="value">$${fmt$(m.total_buy_mo)}</span></div>
+    <div class="row"><span class="label">Total monthly cost (rent)</span><span class="value">$${fmt$(m.total_rent_mo)}</span></div>
+    <div class="row"><span class="label">Monthly gap (buy − rent)</span><span class="value">${m.gap_mo > 0 ? "+" : ""}$${fmt$(m.gap_mo)}</span></div>
+    <div class="row"><span class="label">Appreciation used${STATE.appreciation == null ? ` (${STATE.appreciation_window}y)` : " (override)"}</span><span class="value">${apprPct}%/yr</span></div>
+    <div class="row"><span class="label">NPV breakeven</span><span class="value">${beStr}</span></div>
+    ${buildSensitivityHTML(d.inputs, d.breakeven_year)}
+    ${buildAffordabilityHTML(m)}
+    <div class="row headline">
+      <span class="label">At year ${STATE.stay_years}</span>
+      <span class="value">${stayHtml}</span>
+    </div>
+  `;
+  });
+
+  // Wire up the editable price/rent inputs and the per-row reset links.
+  cards.selectAll(".inline-input").on("change", function() {
+    const mid = this.dataset.market;
+    const field = this.dataset.field;
+    // Strip commas before parsing so users can type "500,000" or "500000".
+    const v = parseFloat(String(this.value).replace(/[,\s]/g, ""));
+    if (Number.isNaN(v) || v <= 0) {
+      clearOverride(mid, field);
+    } else {
+      setOverride(mid, field, v);
+    }
+    rerender();
+  });
+  cards.selectAll(".reset-override").on("click", function(ev) {
+    ev.preventDefault();
+    clearOverride(this.dataset.market, this.dataset.field);
+    rerender();
+  });
+
+  // Verdict tooltip — shown on hover when affordability has adjusted the verdict.
+  cards.selectAll(".verdict[data-tip]")
+    .on("mouseover mousemove", function(ev) { showTip(this.dataset.tip, ev); })
+    .on("mouseleave", hideTip);
+}
+
+function renderProperties(computed) {
+  const container = d3.select("#properties-cards");
+  if (!computed.length) {
+    container.html(`
+      <div class="empty-state">
+        <p><strong>No properties tracked yet.</strong></p>
+        <p>Edit <code>properties.py</code> to add an address, then run:</p>
+        <pre>python ingest/lookup_properties.py
+python export/build_dashboard_data.py --upload</pre>
+      </div>
+    `);
+    return;
+  }
+
+  // Clear any prior empty-state so the cards aren't rendered alongside it.
+  container.select(".empty-state").remove();
+
+  const cards = container.selectAll(".card")
+    .data(computed, d => d.property.address)
+    .join("div")
+    .attr("class", d => "card property " + (d.property.market_id || "unk").split("-")[0]);
+
+  cards.html(d => {
+    const prop = d.property;
+    const m = d.monthly;
+    const beStr = d.breakeven_year != null
+      ? `${d.breakeven_year} year${d.breakeven_year === 1 ? "" : "s"}`
+      : "renting wins over 30 yrs";
+    const stayRow = d.rows.find(r => r.year === STATE.stay_years);
+    let stayHtml = "&mdash;";
+    if (stayRow) {
+      const diff = stayRow.rent_cum_net - stayRow.buy_cum_net;
+      const winner = diff > 0 ? "Buy" : "Rent";
+      stayHtml = `<strong>${winner}</strong> cheaper by $${fmt$(Math.abs(diff))}`;
+    }
+    const { verdict: prVerdict, tooltip: prTip } = computeVerdict(d);
+    const tipAttr = prTip ? ` data-tip="${prTip.replace(/"/g, '&quot;')}"` : "";
+    const apprPct = (d.inputs.appreciation * 100).toFixed(2);
+    const ratePct = (d.inputs.rate * 100).toFixed(2);
+    const ov = STATE.overrides[prop.address] || {};
+    const priceMarker = ov.price != null
+      ? `<a href="#" class="reset-override" data-market="${prop.address}" data-field="price" title="Reset to AVM">↺</a>`
+      : `<span class="hint">AVM</span>`;
+    const rentMarker = ov.rent != null
+      ? `<a href="#" class="reset-override" data-market="${prop.address}" data-field="rent" title="Reset to AVM">↺</a>`
+      : `<span class="hint">AVM</span>`;
+    const beds = prop.bedrooms != null ? prop.bedrooms : "?";
+    const baths = prop.bathrooms != null ? prop.bathrooms : "?";
+    const sqft = prop.square_footage != null ? prop.square_footage.toLocaleString() : "?";
+    const ptype = prop.property_type || "Property";
+    const marketName = prop.market_id
+      ? (NAMES[prop.market_id] || prop.market_id)
+      : "(no market)";
+    return `
+    <div class="accent"></div>
+    <h3>${prop.label || prop.formatted_address || prop.address}<span class="market-tag">${marketName}</span></h3>
+    <span class="verdict ${prVerdict}"${tipAttr}>${prVerdict.replace("_", " ")}</span>
+    <p class="property-meta">${ptype} &middot; ${beds}BR / ${baths}BA &middot; ${sqft} sqft</p>
+    <div class="row"><span class="label">Home value</span><span class="value">$<input class="inline-input" type="text" inputmode="numeric" data-market="${prop.address}" data-field="price" value="${Math.round(d.inputs.price).toLocaleString()}">${priceMarker}</span></div>
+    <div class="row"><span class="label">Rent</span><span class="value">$<input class="inline-input" type="text" inputmode="numeric" data-market="${prop.address}" data-field="rent" value="${Math.round(d.inputs.rent_mo).toLocaleString()}">/mo${rentMarker}</span></div>
+    <div class="row"><span class="label">Mortgage rate</span><span class="value">${ratePct}%</span></div>
+    <div class="row"><span class="label">Price-to-rent ratio</span><span class="value">${fmt1(m.pr_ratio)}</span></div>
+    <div class="row"><span class="label">Insurance (default)</span><span class="value">$${fmt$(d.inputs.insurance_mo)}/mo</span></div>
+    <div class="row"><span class="label">Total monthly cost (buy)</span><span class="value">$${fmt$(m.total_buy_mo)}</span></div>
+    <div class="row"><span class="label">Total monthly cost (rent)</span><span class="value">$${fmt$(m.total_rent_mo)}</span></div>
+    <div class="row"><span class="label">Monthly gap (buy − rent)</span><span class="value">${m.gap_mo > 0 ? "+" : ""}$${fmt$(m.gap_mo)}</span></div>
+    <div class="row"><span class="label">Appreciation used${STATE.appreciation == null ? ` (${STATE.appreciation_window}y)` : " (override)"}</span><span class="value">${apprPct}%/yr</span></div>
+    <div class="row"><span class="label">NPV breakeven</span><span class="value">${beStr}</span></div>
+    ${buildSensitivityHTML(d.inputs, d.breakeven_year)}
+    ${buildAffordabilityHTML(m)}
+    <div class="row headline">
+      <span class="label">At year ${STATE.stay_years}</span>
+      <span class="value">${stayHtml}</span>
+    </div>
+  `;
+  });
+
+  // Verdict tooltip for affordability-adjusted verdicts.
+  cards.selectAll(".verdict[data-tip]")
+    .on("mouseover mousemove", function(ev) { showTip(this.dataset.tip, ev); })
+    .on("mouseleave", hideTip);
+
+  // Reuse the same input/reset wiring as the market cards.
+  cards.selectAll(".inline-input").on("change", function() {
+    const mid = this.dataset.market;
+    const field = this.dataset.field;
+    const v = parseFloat(String(this.value).replace(/[,\s]/g, ""));
+    if (Number.isNaN(v) || v <= 0) {
+      clearOverride(mid, field);
+    } else {
+      setOverride(mid, field, v);
+    }
+    rerender();
+  });
+  cards.selectAll(".reset-override").on("click", function(ev) {
+    ev.preventDefault();
+    clearOverride(this.dataset.market, this.dataset.field);
+    rerender();
+  });
+}
+
+function renderLegend(container, markets) {
+  const ids = markets || MARKETS;
+  const sel = d3.select(container).selectAll(".item")
+    .data(ids, d => d).join("div").attr("class", "item");
+  sel.html(m => `
+    <span class="swatch" style="background:${COLORS[m]}"></span>${NAMES[m]}
+  `);
+}
+
+function renderLineChart(opts) {
+  const { container, history, yField, yFormat, thresholds, yAxisLabel } = opts;
+  const margin = { top: 16, right: 24, bottom: 36, left: 64 };
+  const width = 1024;
+  const height = 380;
+  const innerW = width - margin.left - margin.right;
+  const innerH = height - margin.top - margin.bottom;
+
+  const grouped = d3.group(history, d => d.market_id);
+
+  const xExtent = d3.extent(history, d => d.date);
+  const yExtent = d3.extent(history, d => d[yField]);
+  const yPad = (yExtent[1] - yExtent[0]) * 0.1 || 1;
+  const yMin = Math.min(yExtent[0] - yPad, ...thresholds.map(t => t.value));
+  const yMax = Math.max(yExtent[1] + yPad, ...thresholds.map(t => t.value));
+
+  const x = d3.scaleTime().domain(xExtent).range([0, innerW]);
+  const y = d3.scaleLinear().domain([yMin, yMax]).nice().range([innerH, 0]);
+
+  const svg = d3.select(container).selectAll("svg").data([null]).join("svg")
+    .attr("viewBox", `0 0 ${width} ${height}`);
+  svg.selectAll("*").remove();
+
+  const g = svg.append("g")
+    .attr("transform", `translate(${margin.left},${margin.top})`);
+
+  // grid
+  g.append("g").attr("class", "grid")
+    .call(d3.axisLeft(y).tickSize(-innerW).tickFormat("").ticks(6));
+
+  // axes
+  g.append("g").attr("class", "axis")
+    .attr("transform", `translate(0,${innerH})`)
+    .call(d3.axisBottom(x).ticks(8));
+  g.append("g").attr("class", "axis")
+    .call(d3.axisLeft(y).ticks(6).tickFormat(yFormat));
+
+  // y-axis label
+  g.append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("x", -innerH / 2)
+    .attr("y", -48)
+    .attr("text-anchor", "middle")
+    .attr("fill", "var(--muted)")
+    .attr("font-size", 12)
+    .text(yAxisLabel);
+
+  // thresholds
+  thresholds.forEach(t => {
+    g.append("line")
+      .attr("class", t.isZero ? "zero-line" : "threshold")
+      .attr("x1", 0).attr("x2", innerW)
+      .attr("y1", y(t.value)).attr("y2", y(t.value));
+    g.append("text")
+      .attr("class", "threshold-label")
+      .attr("x", innerW - 4)
+      .attr("y", y(t.value) - 4)
+      .attr("text-anchor", "end")
+      .text(t.label);
+  });
+
+  const lineGen = d3.line()
+    .defined(d => d[yField] != null && !isNaN(d[yField]))
+    .x(d => x(d.date))
+    .y(d => y(d[yField]));
+
+  // lines
+  for (const [mid, rows] of grouped) {
+    const sorted = rows.slice().sort((a, b) => a.date - b.date);
+    g.append("path")
+      .datum(sorted)
+      .attr("fill", "none")
+      .attr("stroke", COLORS[mid])
+      .attr("stroke-width", 2)
+      .attr("stroke-linejoin", "round")
+      .attr("d", lineGen);
+  }
+
+  // hover overlay
+  const bisect = d3.bisector(d => d.date).left;
+  const focus = g.append("g").style("display", "none");
+  focus.append("line")
+    .attr("y1", 0).attr("y2", innerH)
+    .attr("stroke", "#999").attr("stroke-width", 1).attr("stroke-dasharray", "3 3");
+  const focusDots = MARKETS.map(m =>
+    focus.append("circle").attr("r", 4).attr("fill", COLORS[m]).attr("stroke", "white").attr("stroke-width", 2)
+  );
+
+  g.append("rect")
+    .attr("width", innerW).attr("height", innerH)
+    .attr("fill", "transparent")
+    .on("mouseover", () => focus.style("display", null))
+    .on("mouseout", () => { focus.style("display", "none"); hideTip(); })
+    .on("mousemove", function(ev) {
+      const [mx] = d3.pointer(ev, this);
+      const date = x.invert(mx);
+      const lines = [`<strong>${fmtMonth(date)}</strong>`];
+      focus.attr("transform", `translate(${x(date)},0)`);
+      MARKETS.forEach((mid, i) => {
+        const rows = (grouped.get(mid) || []).slice().sort((a, b) => a.date - b.date);
+        if (rows.length === 0) {
+          focusDots[i].attr("display", "none");
+          return;
+        }
+        const idx = bisect(rows, date, 1);
+        const d0 = rows[idx - 1], d1 = rows[idx];
+        const d = !d1 ? d0 : (!d0 ? d1 : (date - d0.date > d1.date - date ? d1 : d0));
+        if (!d) { focusDots[i].attr("display", "none"); return; }
+        focusDots[i]
+          .attr("display", null)
+          .attr("cx", x(d.date) - x(date))
+          .attr("cy", y(d[yField]));
+        lines.push(
+          `<span style="color:${COLORS[mid]}">●</span> ${NAMES[mid]}: ${yFormat(d[yField])}`
+        );
+      });
+      showTip(lines.join("<br/>"), ev);
+    });
+}
+
+function renderBreakevenComputed(computed) {
+  const container = d3.select("#breakeven-charts").html("");
+  for (const c of computed) {
+    const facet = container.append("div").attr("class", "facet");
+    facet.append("h3").html(`
+      <span class="dot" style="background:${COLORS[c.market_id]}"></span>
+      ${NAMES[c.market_id]}
+    `);
+    const beStr = c.breakeven_year != null
+      ? `Breakeven: <strong>${c.breakeven_year} year${c.breakeven_year === 1 ? "" : "s"}</strong>`
+      : `Breakeven: <strong>renting dominates over 30 yrs</strong>`;
+    const apprStr = `Appreciation: <strong>${(c.inputs.appreciation * 100).toFixed(2)}%/yr</strong>`;
+    facet.append("p").attr("class", "meta").html(`${beStr} &middot; ${apprStr}`);
+
+    const summary = {
+      breakeven_year: c.breakeven_year,
+      appreciation_pct: c.inputs.appreciation * 100,
+    };
+    drawBreakevenChart(facet, c.rows, summary, c.market_id);
+  }
+}
+
+function drawBreakevenChart(parent, rows, summary, mid) {
+  const margin = { top: 16, right: 24, bottom: 36, left: 70 };
+  const width = 520;
+  const height = 320;
+  const innerW = width - margin.left - margin.right;
+  const innerH = height - margin.top - margin.bottom;
+
+  const x = d3.scaleLinear()
+    .domain([0, d3.max(rows, d => d.year)])
+    .range([0, innerW]);
+
+  const yMax = d3.max(rows, d => Math.max(d.buy_cum_net, d.rent_cum_net));
+  const yMin = Math.min(0, d3.min(rows, d => Math.min(d.buy_cum_net, d.rent_cum_net)));
+  const y = d3.scaleLinear()
+    .domain([yMin, yMax]).nice()
+    .range([innerH, 0]);
+
+  const svg = parent.append("svg").attr("viewBox", `0 0 ${width} ${height}`);
+  const g = svg.append("g").attr("transform", `translate(${margin.left},${margin.top})`);
+
+  // grid
+  g.append("g").attr("class", "grid")
+    .call(d3.axisLeft(y).tickSize(-innerW).tickFormat("").ticks(6));
+
+  // axes
+  g.append("g").attr("class", "axis")
+    .attr("transform", `translate(0,${innerH})`)
+    .call(d3.axisBottom(x).ticks(6).tickFormat(v => v + "y"));
+  g.append("g").attr("class", "axis")
+    .call(d3.axisLeft(y).ticks(6).tickFormat(v => "$" + d3.format(",.0s")(v).replace("G", "B")));
+
+  g.append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("x", -innerH / 2)
+    .attr("y", -52)
+    .attr("text-anchor", "middle")
+    .attr("fill", "var(--muted)")
+    .attr("font-size", 12)
+    .text("Cumulative net cost");
+
+  // zero line
+  if (yMin < 0) {
+    g.append("line")
+      .attr("class", "zero-line")
+      .attr("x1", 0).attr("x2", innerW)
+      .attr("y1", y(0)).attr("y2", y(0));
+  }
+
+  // breakeven year guide (dashed gray)
+  if (summary && summary.breakeven_year != null) {
+    const bx = x(summary.breakeven_year);
+    g.append("line")
+      .attr("class", "threshold")
+      .attr("x1", bx).attr("x2", bx)
+      .attr("y1", 0).attr("y2", innerH);
+    g.append("text")
+      .attr("class", "threshold-label")
+      .attr("x", bx + 4).attr("y", 12)
+      .attr("text-anchor", "start")
+      .text(`Breakeven (yr ${summary.breakeven_year})`);
+  }
+
+  // "Plan to stay" guide (solid market-color, semi-transparent)
+  if (STATE.stay_years && STATE.stay_years <= rows[rows.length - 1].year) {
+    const sx = x(STATE.stay_years);
+    g.append("line")
+      .attr("x1", sx).attr("x2", sx)
+      .attr("y1", 0).attr("y2", innerH)
+      .attr("stroke", COLORS[mid])
+      .attr("stroke-width", 1.5)
+      .attr("opacity", 0.45);
+    g.append("text")
+      .attr("x", sx - 4).attr("y", innerH - 6)
+      .attr("text-anchor", "end")
+      .attr("font-size", 11)
+      .attr("fill", COLORS[mid])
+      .attr("opacity", 0.85)
+      .text(`Your stay: yr ${STATE.stay_years}`);
+  }
+
+  // lines
+  const buyLine = d3.line()
+    .x(d => x(d.year))
+    .y(d => y(d.buy_cum_net));
+  const rentLine = d3.line()
+    .x(d => x(d.year))
+    .y(d => y(d.rent_cum_net));
+
+  g.append("path")
+    .datum(rows)
+    .attr("fill", "none")
+    .attr("stroke", COLORS[mid])
+    .attr("stroke-width", 2.5)
+    .attr("stroke-linejoin", "round")
+    .attr("d", buyLine);
+
+  g.append("path")
+    .datum(rows)
+    .attr("fill", "none")
+    .attr("stroke", COLORS[mid])
+    .attr("stroke-width", 2)
+    .attr("stroke-dasharray", "5 4")
+    .attr("opacity", 0.85)
+    .attr("d", rentLine);
+
+  // mini-legend (lower right)
+  const legend = g.append("g")
+    .attr("transform", `translate(${innerW - 110}, ${innerH - 36})`);
+  legend.append("line").attr("x1", 0).attr("x2", 18)
+    .attr("y1", 4).attr("y2", 4)
+    .attr("stroke", COLORS[mid]).attr("stroke-width", 2.5);
+  legend.append("text").attr("x", 24).attr("y", 8)
+    .attr("font-size", 11).attr("fill", "var(--muted)").text("Buy");
+  legend.append("line").attr("x1", 0).attr("x2", 18)
+    .attr("y1", 22).attr("y2", 22)
+    .attr("stroke", COLORS[mid]).attr("stroke-width", 2)
+    .attr("stroke-dasharray", "5 4");
+  legend.append("text").attr("x", 24).attr("y", 26)
+    .attr("font-size", 11).attr("fill", "var(--muted)").text("Rent");
+
+  // hover tooltip
+  const focus = g.append("g").style("display", "none");
+  focus.append("line")
+    .attr("y1", 0).attr("y2", innerH)
+    .attr("stroke", "#999").attr("stroke-width", 1).attr("stroke-dasharray", "3 3");
+  const dotBuy = focus.append("circle").attr("r", 4)
+    .attr("fill", COLORS[mid]).attr("stroke", "white").attr("stroke-width", 2);
+  const dotRent = focus.append("circle").attr("r", 4)
+    .attr("fill", "white").attr("stroke", COLORS[mid]).attr("stroke-width", 2);
+
+  g.append("rect")
+    .attr("width", innerW).attr("height", innerH)
+    .attr("fill", "transparent")
+    .on("mouseover", () => focus.style("display", null))
+    .on("mouseout", () => { focus.style("display", "none"); hideTip(); })
+    .on("mousemove", function(ev) {
+      const [mx] = d3.pointer(ev, this);
+      const yr = Math.round(x.invert(mx));
+      const row = rows.find(r => r.year === yr) || rows[rows.length - 1];
+      focus.attr("transform", `translate(${x(row.year)},0)`);
+      dotBuy.attr("cy", y(row.buy_cum_net));
+      dotRent.attr("cy", y(row.rent_cum_net));
+      const winner = row.buy_cum_net < row.rent_cum_net ? "Buy" : "Rent";
+      const html = `
+        <strong>${NAMES[mid]} &middot; year ${row.year}</strong><br/>
+        Buy net: $${fmt$(row.buy_cum_net)}<br/>
+        Rent net: $${fmt$(row.rent_cum_net)}<br/>
+        Cheaper: <strong>${winner}</strong>
+      `;
+      showTip(html, ev);
+    });
+}
+
+main();
+</script>
+</body>
+</html>

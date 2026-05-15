@@ -1,0 +1,22 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*~
+
+# Node / build artifacts (not used yet, but reserving space)
+node_modules/
+dist/
+.cache/
+
+# Environment & secrets
+.env
+.env.local
+
+# Cloudflare Wrangler
+.wrangler/
