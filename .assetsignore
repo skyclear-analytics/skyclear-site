@@ -1,0 +1,22 @@
+# Files in this list are excluded from Cloudflare static asset uploads.
+# Same syntax as .gitignore. See:
+# https://developers.cloudflare.com/workers/static-assets/binding/#ignoring-assets
+
+# Git internals — never serve these on the public site
+.git/
+.gitignore
+.gitattributes
+
+# Wrangler internals
+.wrangler/
+wrangler.jsonc
+wrangler.toml
+
+# Editor / OS detritus
+.DS_Store
+.vscode/
+.idea/
+
+# Project docs that don't belong on the public site
+README.md
+.assetsignore
