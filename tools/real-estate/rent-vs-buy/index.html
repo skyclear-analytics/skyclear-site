@@ -463,9 +463,13 @@
     transition: box-shadow 0.2s, transform 0.2s;
   }
   .card:hover { box-shadow: 0 6px 24px rgba(21,101,192,0.14); transform: translateY(-1px); }
-  .card .accent { position: absolute; left: 0; top: 0; width: 5px; height: 100%; border-radius: var(--radius) 0 0 var(--radius); }
-  .card.austin .accent    { background: linear-gradient(180deg, #E07A5F, #c4593f); }
-  .card.nashville .accent { background: linear-gradient(180deg, #1976D2, #1565C0); }
+  .card .accent {
+    position: absolute; left: 0; top: 0; width: 5px; height: 100%;
+    border-radius: var(--radius) 0 0 var(--radius);
+    /* Accent color is set per-card via the --accent-color CSS custom property,
+       populated from each market's display_color in markets.py (see dashboard_data.json). */
+    background: var(--accent-color, var(--sky-primary));
+  }
   .card h3 { margin: 0 0 16px; font-size: 17px; font-weight: 700; color: var(--text); }
   .card .row {
     display: flex;
@@ -730,7 +734,7 @@
     </div>
     <div class="header-tool-info">
       <h1 class="header-tool-title">Rent vs. Buy Calculator</h1>
-      <p class="header-tool-sub">Austin, TX &middot; Nashville, TN</p>
+      <p class="header-tool-sub" id="header-markets-list"></p>
     </div>
   </div>
 </header>
@@ -973,9 +977,13 @@
 <div id="tooltip" class="tooltip"></div>
 
 <script>
-const COLORS = { "nashville-tn": "#2E75B6", "austin-tx": "#E07A5F" };
-const NAMES  = { "nashville-tn": "Nashville, TN", "austin-tx": "Austin, TX" };
-const MARKETS = ["nashville-tn", "austin-tx"];
+// Market metadata is data-driven. These get populated from dashboard_data.json's
+// `market_defaults` array on load — which itself comes from enabled_markets()
+// in markets.py. To add/remove/recolor a market, edit markets.py and re-run
+// build_dashboard_data.py. Nothing in this file needs to change.
+let COLORS = {};         // market_id -> hex color
+let NAMES  = {};         // market_id -> display name
+let MARKETS = [];        // ordered list of enabled market_ids
 
 const fmt$ = d3.format(",.0f");
 const fmt1 = d3.format(".1f");
@@ -1071,13 +1079,25 @@ async function main() {
     npv_strong_absolute: 50000,
     npv_strong_income_ratio: 0.25,
   };
-  // Per-market defaults: appreciation by window + insurance.
+  // Populate the market lists from data. Order is preserved (markets.py
+  // controls the order). This is the only place these structures are filled in;
+  // every chart, card, and tooltip reads from them.
+  MARKETS = DATA.market_defaults.map(md => md.market_id);
   DATA.market_defaults.forEach(md => {
+    NAMES[md.market_id]  = md.market_name || md.market_id;
+    COLORS[md.market_id] = md.display_color || "#1976D2";
     PER_MARKET[md.market_id] = {
       appr_by_window: md.appreciation_pct_by_window || {},   // { "5": 4.5, "10": 4.99, ... }
       default_insurance_mo: md.default_insurance_mo || 150,
     };
   });
+
+  // Populate the header subtitle with the currently-enabled markets as a
+  // middle-dot separated list, e.g. "Nashville · Memphis · Knoxville · ...".
+  // Uses just the city name (everything before the first comma in market_name).
+  d3.select("#header-markets-list").text(
+    MARKETS.map(mid => (NAMES[mid] || mid).split(",")[0]).join(" · ")
+  );
 
   // Initialize state to data defaults (sliders will visually reflect these).
   resetStateToDefaults();
@@ -1956,7 +1976,8 @@ function renderSnapshot(computed) {
   const cards = d3.select("#snapshot").selectAll(".card")
     .data(computed, d => d.market_id)
     .join("div")
-    .attr("class", d => "card " + d.market_id.split("-")[0]);
+    .attr("class", d => "card " + d.market_id.split("-")[0])
+    .style("--accent-color", d => COLORS[d.market_id] || null);
 
   cards.html(d => {
     const m = d.monthly;
@@ -2049,7 +2070,8 @@ python export/build_dashboard_data.py --upload</pre>
   const cards = container.selectAll(".card")
     .data(computed, d => d.property.address)
     .join("div")
-    .attr("class", d => "card property " + (d.property.market_id || "unk").split("-")[0]);
+    .attr("class", d => "card property " + (d.property.market_id || "unk").split("-")[0])
+    .style("--accent-color", d => COLORS[d.property.market_id] || null);
 
   cards.html(d => {
     const prop = d.property;
