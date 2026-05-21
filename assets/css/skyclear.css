@@ -68,11 +68,20 @@ h1, h2, h3, h4 { color: var(--charcoal); margin: 0; }
   gap: 12px;
   text-decoration: none;
 }
-.brand-mark {
-  width: 32px;
-  height: 32px;
+.brand-logo {
+  /* SVG natural aspect ratio is 75.45 x 110.72 (W:H). At 28px wide the
+     logo is ~41px tall — fits the 56px header inner padding comfortably. */
+  width: 28px;
+  height: 41px;
   flex-shrink: 0;
 }
+/* Recolor the SkyClear logo elements to white for the dark gradient header.
+   The SVG has no inline <style>, so these are the only color rules in effect. */
+.brand-logo .skc-letter       { fill: #ffffff; }
+.brand-logo .skc-circle-white { fill: rgba(255,255,255,0.15); stroke: rgba(255,255,255,0.9); stroke-width: 5px; }
+.brand-logo .skc-circle-black { fill: rgba(255,255,255,0.85); stroke: rgba(255,255,255,0.9); stroke-width: 5px; }
+.brand-logo .skc-arc          { fill: rgba(255,255,255,0.85); stroke: rgba(255,255,255,0.9); stroke-width: 0.13px; }
+.brand-logo .skc-dot          { fill: rgba(255,255,255,0.85); }
 .brand-name {
   font-size: 20px;
   font-weight: 700;
