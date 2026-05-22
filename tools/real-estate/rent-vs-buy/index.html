@@ -2611,72 +2611,86 @@ function computeVerdict(d) {
     }
   }
 
+  // Plain-language helpers used by every reasoning string below.
+  const yearWord = stay === 1 ? "year" : "years";
+  const dollarsK = v => "$" + Math.round(Math.abs(v) / 1000) + "k";
+  const pct      = v => Math.round(v * 100) + "%";
+  const gapStr   = dollarsK(npvGap);
+
+  // Pure-NPV reasoning — used when no income is set OR when affordability
+  // raises no concerns. Goal: explain the verdict in one or two friendly
+  // sentences that a non-data-person can act on.
+  function npvOnlyReasoning() {
+    if (npvVerdict === "lean_buy") {
+      return `Looks like buying makes sense! If you stay ${stay} ${yearWord}, ` +
+             `you'd come out about ${gapStr} ahead compared to renting that whole time.`;
+    }
+    if (npvVerdict === "lean_rent") {
+      return `Renting still wins here. If you stay ${stay} ${yearWord}, you'd come out about ` +
+             `${gapStr} ahead by renting instead of buying — the breakeven point is too far ` +
+             `out to make buying worth it for your timeline.`;
+    }
+    return `This one's pretty much a coin flip. Over ${stay} ${yearWord}, buying and renting ` +
+           `come out within ${gapStr} of each other — close enough that the decision should ` +
+           `come down to lifestyle more than the numbers.`;
+  }
+
   // ── Step 2: affordability overlay ────────────────────────────────────────
-  // Skip if no income is set (treat 0 as "not configured").
   const income = STATE.gross_income_annual;
-  if (!income || !d.monthly) return { verdict: npvVerdict, tooltip: null };
+  if (!income || !d.monthly) return { verdict: npvVerdict, tooltip: npvOnlyReasoning() };
 
   const grossMonthly = income / 12;
-  const threshold    = STATE.affordability_pct;             // e.g. 0.30
+  const threshold    = STATE.affordability_pct;             // e.g. 0.18 (set from quiz rent/income, or by slider)
   const buffer       = STATE.affordability_buffer;          // e.g. 0.05 (5pp)
   const hardGate     = threshold + buffer;
 
   const buyPct  = d.monthly.total_buy_mo  / grossMonthly;
   const rentPct = d.monthly.total_rent_mo / grossMonthly;
 
-  const fmtPct = v => (v * 100).toFixed(0) + "%";
-  const threshStr  = fmtPct(threshold);
-  const bufferStr  = (buffer * 100).toFixed(0) + "pp";
-
   // Priority 1 — Needs Review: both scenarios exceed the hard gate.
   if (buyPct > hardGate && rentPct > hardGate) {
-    const tip = `Both buying (${fmtPct(buyPct)} of income) and renting (${fmtPct(rentPct)} of income) ` +
-                `exceed your ${threshStr} threshold plus the ${bufferStr} buffer. ` +
-                `Neither option fits comfortably within your affordability target — review your income, ` +
-                `target price range, or threshold before deciding.`;
+    const tip = `Heads up — both buying and renting in this market would stretch your budget. ` +
+                `Buying would take ${pct(buyPct)} of your gross income, and renting ${pct(rentPct)} ` +
+                `— both well over what's typically comfortable. Before making a move, consider a ` +
+                `lower price range, a higher income target, or whether this market is the right fit.`;
     return { verdict: "needs_review", tooltip: tip };
   }
 
-  // Priority 2 — Hard gate: buying alone exceeds the hard gate.
+  // Priority 2 — Hard gate: buying alone is too expensive.
   if (buyPct > hardGate) {
-    const tip = `Buying would consume ${fmtPct(buyPct)} of your gross income — more than ${bufferStr} above ` +
-                `your ${threshStr} threshold. Regardless of the NPV math, this exceeds your ` +
-                `affordability limit.`;
+    const tip = `Even though buying might come out ahead long-term, the monthly cost would eat up ` +
+                `${pct(buyPct)} of your gross income — well above what most budgets can absorb ` +
+                `comfortably. For your situation right now, renting is the safer choice.`;
     return { verdict: "lean_rent", tooltip: tip };
   }
 
-  // Priority 3 — Soft zone: buying is over threshold but within the buffer,
-  // and the NPV verdict was lean_buy. Whether to keep Lean Buy or flip to
-  // Borderline depends on whether the NPV advantage clears the "strong" bar
-  // (the larger of the absolute floor and the income-ratio floor).
+  // Priority 3 — Soft zone: buying nudges over the threshold but stays inside
+  // the buffer, and NPV says buy. Strong NPV advantage keeps it Lean Buy;
+  // weaker advantage demotes to Borderline.
   if (buyPct > threshold && npvVerdict === "lean_buy") {
     const strongFloor = Math.max(
       STATE.npv_strong_absolute,
       STATE.gross_income_annual * STATE.npv_strong_income_ratio
     );
-    const overBy   = fmtPct(buyPct - threshold);
-    const gapStr   = "$" + Math.round(npvGap / 1000) + "k";
-    const floorStr = "$" + Math.round(strongFloor / 1000) + "k";
 
     if (npvGap >= strongFloor) {
-      // NPV advantage is strong — keep Lean Buy, surface affordability as a note.
-      const tip = `Buying would use ${fmtPct(buyPct)} of your gross income — ${overBy} above your ` +
-                  `${threshStr} threshold (within the ${bufferStr} buffer). However, the ${gapStr} NPV ` +
-                  `advantage at year ${stay} clears the ${floorStr} strong-NPV floor, so the verdict ` +
-                  `stays Lean Buy. Worth knowing the monthly cost is a slight stretch.`;
+      const tip = `Looks like it's time to consider buying! If you stay ${stay} ${yearWord}, you'll ` +
+                  `have spent about ${gapStr} less than if you'd rented that whole time. Worth ` +
+                  `knowing the monthly cost is a slight stretch from what you pay now — about ` +
+                  `${pct(threshold)} of your income on housing today vs. ${pct(buyPct)} once you buy. ` +
+                  `That small difference is more than made up for by the money you keep at the end of your stay.`;
       return { verdict: "lean_buy", tooltip: tip };
     } else {
-      // NPV advantage is modest — flip to Borderline.
-      const tip = `The NPV math favors buying at year ${stay} by ${gapStr}, but buying would use ` +
-                  `${fmtPct(buyPct)} of your gross income — ${overBy} above your ${threshStr} threshold. ` +
-                  `Because the NPV edge doesn't clear the ${floorStr} strong-NPV floor, the budget ` +
-                  `stretch is enough to call this Borderline.`;
+      const tip = `This is more borderline than it first looks. Buying would come out about ${gapStr} ` +
+                  `ahead over ${stay} ${yearWord}, but it would also cost ${pct(buyPct)} of your ` +
+                  `monthly income — more than the ${pct(threshold)} you spend on housing now. The ` +
+                  `savings aren't quite big enough to justify the monthly squeeze, so renting is the safer call.`;
       return { verdict: "borderline", tooltip: tip };
     }
   }
 
-  // Priority 4 — No affordability concern: return pure NPV verdict.
-  return { verdict: npvVerdict, tooltip: null };
+  // Priority 4 — No affordability concern: pure NPV verdict + plain reasoning.
+  return { verdict: npvVerdict, tooltip: npvOnlyReasoning() };
 }
 
 function buildSensitivityHTML(inputs, base) {
