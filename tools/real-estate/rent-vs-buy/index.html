@@ -356,6 +356,53 @@
     color: var(--muted);
     font-weight: 500;
   }
+  /* Inline "i" icon with a CSS-only hover tooltip. Used next to control labels
+     that benefit from a one-line explanation (e.g., Down Payment's Investment
+     Return). Add via <i class="info-icon" data-tooltip="..."></i>. */
+  .info-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    height: 14px;
+    margin-left: 5px;
+    font-size: 10px;
+    font-weight: 700;
+    font-style: normal;
+    color: var(--muted);
+    background: var(--border-soft);
+    border-radius: 50%;
+    cursor: help;
+    position: relative;
+    vertical-align: middle;
+    line-height: 1;
+  }
+  .info-icon::before { content: "i"; }
+  .info-icon:hover, .info-icon:focus { background: var(--sky-light); color: var(--sky-primary); outline: none; }
+  .info-icon::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--charcoal);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.45;
+    white-space: normal;
+    width: 220px;
+    text-align: left;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s;
+    z-index: 100;
+    box-shadow: 0 4px 14px rgba(13,27,42,0.25);
+  }
+  .info-icon:hover::after, .info-icon:focus::after { opacity: 1; }
   .control .control-value {
     font-size: 14px;
     font-weight: 700;
@@ -701,6 +748,537 @@
     border: 1px solid var(--border-soft);
   }
   .empty { color: var(--muted); font-style: italic; padding: 20px 0; }
+
+  /* ─── How It Works Button ─────────────────────────────── */
+  .how-it-works-wrap {
+    margin-bottom: 20px;
+  }
+  .how-it-works-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--sky-primary);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.15s, color 0.15s;
+  }
+  .how-it-works-btn::before {
+    content: '▶';
+    font-size: 9px;
+    color: var(--sky-accent);
+    transition: color 0.15s;
+  }
+  .how-it-works-btn:hover {
+    color: var(--sky-dark);
+    text-decoration-color: var(--sky-primary);
+  }
+  .how-it-works-btn:hover::before { color: var(--sky-primary); }
+
+  /* ─── Spotlight Tour ──────────────────────────────────── */
+  #tour-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    cursor: pointer;
+  }
+  #tour-spotlight {
+    position: fixed;
+    z-index: 1001;
+    border-radius: 10px;
+    box-shadow: 0 0 0 9999px rgba(13, 27, 42, 0.62);
+    pointer-events: none;
+    border: 2px solid rgba(66, 165, 245, 0.55);
+    transition: top 0.38s cubic-bezier(.4,0,.2,1),
+                left 0.38s cubic-bezier(.4,0,.2,1),
+                width 0.38s cubic-bezier(.4,0,.2,1),
+                height 0.38s cubic-bezier(.4,0,.2,1);
+  }
+  #tour-callout {
+    position: fixed;
+    z-index: 1002;
+    background: var(--card);
+    border-radius: 14px;
+    padding: 20px 22px;
+    width: 300px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.22);
+    pointer-events: auto;
+    transition: top 0.38s cubic-bezier(.4,0,.2,1),
+                left 0.38s cubic-bezier(.4,0,.2,1);
+  }
+  .tour-step-ind {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  #tour-callout h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 8px;
+  }
+  #tour-callout p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin: 0 0 16px;
+  }
+  .tour-nav {
+    display: flex;
+    gap: 8px;
+  }
+  .tour-back-btn {
+    background: var(--sky-pale);
+    border: 1px solid var(--border-soft);
+    border-radius: 8px;
+    padding: 8px 13px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.15s;
+  }
+  .tour-back-btn:hover { background: var(--sky-light); color: var(--text); }
+  .tour-next-btn {
+    flex: 1;
+    background: var(--sky-primary);
+    border: none;
+    border-radius: 8px;
+    padding: 8px 13px;
+    font-size: 13px;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.15s;
+  }
+  .tour-next-btn:hover { background: var(--sky-dark); }
+
+  /* ─── Wizard Intro Step ───────────────────────────────── */
+  .wizard-intro-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--sky-accent);
+    margin: 0 0 10px;
+  }
+  .wizard-intro-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1.2;
+    margin: 0 0 16px;
+    letter-spacing: -0.02em;
+  }
+  .wizard-intro-body {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.65;
+    margin: 0 0 12px;
+  }
+  .wizard-intro-body:last-of-type { margin-bottom: 24px; }
+
+  /* ─── Personalize Card ────────────────────────────────── */
+  .personalize-card {
+    background: linear-gradient(135deg, var(--sky-pale) 0%, #fff 100%);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--sky-accent);
+    border-radius: var(--radius-sm);
+    padding: 16px 20px;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 20px;
+  }
+  .personalize-card-inner {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .personalize-card-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+  }
+  .personalize-card-body {
+    flex: 1;
+    min-width: 180px;
+  }
+  .personalize-card-body strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 3px;
+  }
+  .personalize-card-body p {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0;
+    line-height: 1.5;
+  }
+  .personalize-card-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
+  }
+  .personalize-start-btn {
+    background: var(--sky-primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 9px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    white-space: nowrap;
+    transition: background 0.15s;
+  }
+  .personalize-start-btn:hover { background: var(--sky-dark); }
+  .personalize-skip-link {
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .personalize-skip-link:hover { color: var(--sky-primary); }
+
+  .personalize-done {
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    padding: 8px 14px;
+    background: #E8F5E9;
+    border: 1px solid #C8E6C9;
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+  .personalize-done-label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 600;
+    color: #2E7D32;
+  }
+  .personalize-done a {
+    color: var(--sky-primary);
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .personalize-done a:hover { text-decoration: underline; }
+
+  /* ─── Full-Screen Quiz Overlay ──────────────────────────── */
+  #quiz-overlay {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(160deg, #0D47A1 0%, #1565C0 40%, #1976D2 100%);
+    z-index: 1000;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    overflow-y: auto;
+    padding: 40px 20px;
+  }
+  .quiz-container {
+    background: #fff;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 580px;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.35);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin: auto 0;
+  }
+  .quiz-topbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--border-soft);
+  }
+  .quiz-brand-sm {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--sky-primary);
+    letter-spacing: -0.02em;
+    flex-shrink: 0;
+  }
+  .quiz-progress-wrap {
+    flex: 1;
+    height: 6px;
+    background: var(--sky-light);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .quiz-progress-fill {
+    height: 100%;
+    background: var(--sky-primary);
+    border-radius: 3px;
+    transition: width 0.35s ease;
+    width: 0%;
+  }
+  .quiz-step-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    flex-shrink: 0;
+    min-width: 55px;
+    text-align: right;
+  }
+  .quiz-body {
+    padding: 36px 36px 24px;
+    flex: 1;
+  }
+  .quiz-q-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--sky-accent);
+    margin: 0 0 8px;
+  }
+  .quiz-q-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1.25;
+    margin: 0 0 8px;
+  }
+  .quiz-q-hint {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 24px;
+    line-height: 1.55;
+  }
+  .quiz-tiles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .quiz-tile {
+    background: var(--sky-pale);
+    border: 2px solid var(--border-soft);
+    border-radius: 12px;
+    padding: 14px 12px;
+    cursor: pointer;
+    font-family: inherit;
+    text-align: center;
+    transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+  }
+  .quiz-tile:hover { border-color: var(--sky-accent); background: var(--sky-light); }
+  .quiz-tile.selected {
+    border-color: var(--sky-primary);
+    background: var(--sky-light);
+    box-shadow: 0 0 0 1px var(--sky-primary);
+  }
+  .quiz-tile-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.3;
+  }
+  .quiz-tile.selected .quiz-tile-label { color: var(--sky-primary); }
+  .quiz-tile-sub {
+    display: block;
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+  .quiz-tiles-2col .quiz-tile { padding: 18px 16px; }
+
+  .quiz-slider-wrap { margin-bottom: 8px; }
+  .quiz-slider-display {
+    font-size: 38px;
+    font-weight: 800;
+    color: var(--sky-primary);
+    text-align: center;
+    margin-bottom: 16px;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+  }
+  .quiz-slider-wrap input[type="range"] {
+    width: 100%;
+    accent-color: var(--sky-primary);
+    margin-bottom: 4px;
+  }
+  .quiz-slider-bounds {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  .quiz-text-input-wrap { margin-bottom: 8px; }
+  .quiz-text-input {
+    width: 100%;
+    font-size: 22px;
+    font-weight: 700;
+    font-family: inherit;
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 18px;
+    text-align: center;
+    color: var(--text);
+    background: var(--sky-pale);
+    transition: border-color 0.15s;
+    outline: none;
+  }
+  .quiz-text-input:focus { border-color: var(--sky-primary); background: var(--sky-light); }
+  .quiz-rule-hint {
+    margin-top: 10px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    line-height: 1.5;
+    font-weight: 500;
+  }
+  .quiz-rule-ok   { background: #E8F5E9; color: #2E7D32; border: 1px solid #C8E6C9; }
+  .quiz-rule-warn { background: #FFF8E1; color: #F57F17; border: 1px solid #FFE082; }
+  .quiz-rule-over { background: #FFEBEE; color: #C62828; border: 1px solid #FFCDD2; }
+
+  .quiz-results-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--text);
+    margin: 0 0 20px;
+    line-height: 1.3;
+  }
+  .quiz-verdict-card {
+    background: var(--sky-pale);
+    border: 1px solid var(--border-soft);
+    border-radius: 12px;
+    padding: 16px 18px;
+    margin-bottom: 12px;
+  }
+  .quiz-verdict-market {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .quiz-verdict-badge {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 8px;
+  }
+  .quiz-verdict-badge.buy        { background: #E8F5E9; color: #2E7D32; }
+  .quiz-verdict-badge.rent       { background: #FFEBEE; color: #C62828; }
+  .quiz-verdict-badge.borderline { background: #FFF8E1; color: #E65100; }
+  .quiz-verdict-body { font-size: 13px; color: var(--text); line-height: 1.55; margin: 0; }
+  .quiz-results-note {
+    font-size: 12px;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 16px;
+    line-height: 1.5;
+  }
+
+  .quiz-market-wrap { margin-bottom: 8px; }
+  .quiz-market-select {
+    width: 100%;
+    font-size: 17px;
+    font-weight: 600;
+    font-family: inherit;
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    color: var(--text);
+    background: var(--sky-pale);
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23546E7A' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  .quiz-market-select:focus { border-color: var(--sky-primary); background-color: var(--sky-light); }
+  .quiz-market-hint {
+    margin-top: 10px;
+    font-size: 12px;
+    color: var(--muted);
+    text-align: center;
+    min-height: 18px;
+  }
+
+  .quiz-intro-wrap { text-align: center; padding: 8px 0 8px; }
+  .quiz-intro-icon { font-size: 52px; margin-bottom: 18px; }
+  .quiz-intro-title {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--text);
+    margin: 0 0 14px;
+    line-height: 1.2;
+  }
+  .quiz-intro-body {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.65;
+    margin: 0 auto 12px;
+    max-width: 420px;
+  }
+
+  .quiz-footer {
+    display: flex;
+    gap: 8px;
+    padding: 16px 36px 24px;
+    border-top: 1px solid var(--border-soft);
+  }
+  .quiz-back-btn {
+    background: var(--sky-pale);
+    border: 1px solid var(--border-soft);
+    border-radius: 10px;
+    padding: 12px 18px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--muted);
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.15s;
+  }
+  .quiz-back-btn:hover:not(:disabled) { background: var(--sky-light); color: var(--text); }
+  .quiz-back-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+  .quiz-next-btn {
+    flex: 1;
+    background: var(--sky-primary);
+    border: none;
+    border-radius: 10px;
+    padding: 12px 18px;
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.15s;
+  }
+  .quiz-next-btn:hover:not(:disabled) { background: var(--sky-dark); }
+  .quiz-next-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 </style>
 </head>
 <body>
@@ -745,49 +1323,11 @@
     <p class="meta" id="generated-at"></p>
   </div>
 
-  <details class="explainer">
-    <summary>
-      <span class="toggle-icon"></span>
-      <strong>How this tool works</strong> &mdash; how to read the results, how the math works, and where the numbers come from
-    </summary>
-    <div class="explainer-body">
-
-      <h3>What you&rsquo;re looking at</h3>
-      <p>A decision-support tool for the rent-vs-buy question, grounded in live public data. Most rules of thumb are misleading on their own &mdash; this tool shows three different views of the same decision side by side, so you can see when they agree (the answer is robust) and when they disagree (you&rsquo;ve found a real nuance worth thinking about).</p>
-
-      <h3>Reading each card</h3>
-      <ul>
-        <li><strong>Home value &amp; Rent</strong> &mdash; start at the metro median (Zillow ZHVI / ZORI). Click into either field to enter your actual numbers for a specific home you&rsquo;re considering.</li>
-        <li><strong>Price-to-rent ratio</strong> &mdash; a quick scan. Above 20 historically favors renting; below 15 favors buying. Useful but blind to mortgage rates and carrying costs.</li>
-        <li><strong>Total monthly cost (buy / rent)</strong> &mdash; what you actually write checks for each month: mortgage P&amp;I + property tax + maintenance + insurance vs. just rent.</li>
-        <li><strong>NPV breakeven</strong> &mdash; the smallest number of years you&rsquo;d need to stay before buying becomes cheaper than renting on a net-present-value basis.</li>
-        <li><strong>At year N</strong> (the headline at the bottom) &mdash; the bottom-line answer for your specific planned stay duration.</li>
-      </ul>
-
-      <h3>Using the controls</h3>
-      <ul>
-        <li><strong>How long you plan to stay</strong> &mdash; sets the year used for the bottom-line answer in each card and a vertical guide on the cumulative-cost chart.</li>
-        <li><strong>Home value growth windows</strong> (5y / 10y / 20y / 30y) &mdash; pick a historical window for long-run defaults. <strong>20y is the recommended default.</strong></li>
-        <li><strong>Mortgage rate, down payment, investment return</strong> and the Advanced settings &mdash; manual overrides. Set them to match your own situation.</li>
-        <li><strong>Reset to defaults</strong> &mdash; restores everything to the data-driven defaults.</li>
-      </ul>
-
-      <h3>How the breakeven math works</h3>
-      <p>The model simulates each year from 1 to 30, tracking what each scenario costs cumulatively if you exited at the end of that year. The <strong>breakeven year</strong> is the smallest year where buying becomes cheaper than renting on a net basis. Before that year, renting is cheaper. After it, buying is cheaper, and the gap typically widens dramatically.</p>
-
-      <h3>Where the numbers come from</h3>
-      <ul>
-        <li><strong>Home values:</strong> <a href="https://www.zillow.com/research/data/" target="_blank" rel="noopener">Zillow ZHVI</a> metro index, refreshed monthly</li>
-        <li><strong>Rents:</strong> <a href="https://www.zillow.com/research/data/" target="_blank" rel="noopener">Zillow ZORI</a> metro index, refreshed monthly</li>
-        <li><strong>Mortgage rate:</strong> <a href="https://fred.stlouisfed.org/series/MORTGAGE30US" target="_blank" rel="noopener">FRED MORTGAGE30US</a> (Freddie Mac PMMS), weekly</li>
-        <li><strong>Appreciation defaults:</strong> <a href="https://www.fhfa.gov/DataTools/Downloads" target="_blank" rel="noopener">FHFA House Price Index</a> by metro, quarterly</li>
-        <li><strong>Rent inflation defaults:</strong> <a href="https://fred.stlouisfed.org/series/CUSR0000SEHA" target="_blank" rel="noopener">BLS CPI Rent of Primary Residence</a>, monthly</li>
-        <li><strong>Property tax rates:</strong> US Census ACS effective rates by county</li>
-        <li><strong>Insurance:</strong> state-level averages</li>
-      </ul>
-
-    </div>
-  </details>
+  <!-- ─── Set Up Badge (shown on return visits) ──────────── -->
+  <div id="personalize-done" class="personalize-done" style="display:none">
+    <span class="personalize-done-label">✓ Personalized</span>
+    <a href="#" id="personalize-redo">Redo quiz</a>
+  </div>
 
   <nav class="tabs" role="tablist">
     <button class="tab-button active" data-tab="markets" role="tab">
@@ -820,13 +1360,63 @@
       <button id="reset-controls" type="button" title="Reset to data defaults">Reset</button>
     </div>
     <div class="controls-grid">
+      <!-- 1. Household income -->
       <div class="control">
         <div class="control-row">
-          <span class="control-label">Current mortgage rate</span>
-          <span class="control-value" id="rate-value"></span>
+          <span class="control-label">Household income</span>
+          <span class="control-value" id="income-value"></span>
         </div>
-        <input type="range" id="rate-slider" min="3" max="10" step="0.05" />
+        <input type="range" id="income-slider" min="40000" max="500000" step="5000" />
       </div>
+
+      <!-- 2. Down payment (% ↔ $ toggle landing here in a later pass) -->
+      <div class="control">
+        <div class="control-row">
+          <span class="control-label">Down payment</span>
+          <span class="control-value" id="down-value"></span>
+        </div>
+        <input type="range" id="down-slider" min="0" max="50" step="1" />
+      </div>
+
+      <!-- 3. Down Payment's Investment Return (renamed from "Investment return if renting") -->
+      <div class="control">
+        <div class="control-row">
+          <span class="control-label">Down Payment's Investment Return <i class="info-icon" tabindex="0" role="button" aria-label="What this means" data-tooltip="What your down payment money could earn invested elsewhere (e.g., a broad index fund) instead of being locked up as home equity. This is the opportunity cost of buying."></i></span>
+          <span class="control-value" id="inv-value"></span>
+        </div>
+        <input type="range" id="inv-slider" min="0" max="15" step="0.25" />
+      </div>
+
+      <!-- 4. Monthly rent — what the user is currently paying (or would pay) for rent.
+           Default = first market's ZORI on load. Feeds Max Housing Spend default. -->
+      <div class="control">
+        <div class="control-row">
+          <span class="control-label">Monthly rent <i class="info-icon" tabindex="0" role="button" aria-label="What this means" data-tooltip="What you're paying now (or expect to pay) for rent. We use this to estimate what % of your income housing currently takes up, which seeds the Max Housing Spend slider below."></i></span>
+          <span class="control-value" id="rent-mo-value"></span>
+        </div>
+        <input type="range" id="rent-mo-slider" min="500" max="6000" step="25" />
+      </div>
+
+      <!-- 5. Max housing spend -->
+      <div class="control">
+        <div class="control-row">
+          <span class="control-label">Max housing spend</span>
+          <span class="control-value" id="afford-pct-value"></span>
+        </div>
+        <input type="range" id="afford-pct-slider" min="20" max="50" step="1" />
+        <div class="control-hint">Max % of gross income for housing</div>
+      </div>
+
+      <!-- 6. How long you plan to stay -->
+      <div class="control">
+        <div class="control-row">
+          <span class="control-label">How long you plan to stay</span>
+          <span class="control-value" id="stay-value"></span>
+        </div>
+        <input type="range" id="stay-slider" min="1" max="30" step="1" />
+      </div>
+
+      <!-- 7. Home value growth (will be wrapped in an explanation drawer in a later pass) -->
       <div class="control">
         <div class="control-row">
           <span class="control-label">Home value growth</span>
@@ -836,41 +1426,14 @@
         <div class="period-chart" id="appr-chart"></div>
         <div class="control-hint" id="appr-defaults-hint"></div>
       </div>
+
+      <!-- 8. Current mortgage rate (moved to bottom — most users will accept the market default) -->
       <div class="control">
         <div class="control-row">
-          <span class="control-label">Down payment</span>
-          <span class="control-value" id="down-value"></span>
+          <span class="control-label">Current mortgage rate</span>
+          <span class="control-value" id="rate-value"></span>
         </div>
-        <input type="range" id="down-slider" min="0" max="50" step="1" />
-      </div>
-      <div class="control">
-        <div class="control-row">
-          <span class="control-label">Investment return if renting</span>
-          <span class="control-value" id="inv-value"></span>
-        </div>
-        <input type="range" id="inv-slider" min="0" max="15" step="0.25" />
-      </div>
-      <div class="control">
-        <div class="control-row">
-          <span class="control-label">How long you plan to stay</span>
-          <span class="control-value" id="stay-value"></span>
-        </div>
-        <input type="range" id="stay-slider" min="1" max="30" step="1" />
-      </div>
-      <div class="control">
-        <div class="control-row">
-          <span class="control-label">Your annual income</span>
-          <span class="control-value" id="income-value"></span>
-        </div>
-        <input type="range" id="income-slider" min="40000" max="500000" step="5000" />
-      </div>
-      <div class="control">
-        <div class="control-row">
-          <span class="control-label">Max housing spend</span>
-          <span class="control-value" id="afford-pct-value"></span>
-        </div>
-        <input type="range" id="afford-pct-slider" min="20" max="50" step="1" />
-        <div class="control-hint">Max % of gross income for housing</div>
+        <input type="range" id="rate-slider" min="3" max="10" step="0.05" />
       </div>
     </div>
     <details class="advanced">
@@ -1010,7 +1573,8 @@ const STATE = {
   closing_cost_sell_pct: 0.06,
   stay_years: 7,
   gross_income_annual: 120000,          // used for the affordability rule
-  affordability_pct: 0.30,             // user-set threshold (e.g. 0.30 = 30% of gross income)
+  monthly_rent: null,                   // user's current monthly rent — seeds Max Housing Spend default. Initialized from first market's ZORI on data load.
+  affordability_pct: 0.30,             // user-set threshold (e.g. 0.30 = 30% of gross income). Default is computed from monthly_rent/income at load time; user can drag freely afterward.
   affordability_buffer: 0.05,          // pp buffer before soft zone becomes hard gate (default 5pp)
   npv_strong_absolute: 50000,          // min absolute NPV gap for soft zone to keep Lean Buy
   npv_strong_income_ratio: 0.25,       // min NPV gap as fraction of annual income (whichever is larger)
@@ -1063,15 +1627,22 @@ async function main() {
   DATA.rent_inflation_history = data.rent_inflation_history || [];
 
   // Capture data-driven defaults so the Reset button can restore them.
+  // Monthly rent defaults to the first market's ZORI value. Affordability %
+  // then derives from (rent × 12) / income — so the slider opens at a number
+  // matching what the user actually spends on housing, instead of a generic 30%.
   const firstSnap = data.snapshot[0];
+  const incomeDefault = 120000;
+  const rentDefault = firstSnap && firstSnap.rent_mo ? firstSnap.rent_mo : 2000;
+  const affordPctDefault = (rentDefault * 12) / incomeDefault;
   DEFAULTS = {
     rate: firstSnap ? firstSnap.rate_pct / 100 : 0.07,
     down_pct: 0.20,
     investment_return: 0.05,
     marg_tax_rate: 0.22,
     maint_rate: 0.01,
-    gross_income_annual: 120000,
-    affordability_pct: 0.30,
+    gross_income_annual: incomeDefault,
+    monthly_rent: rentDefault,
+    affordability_pct: affordPctDefault,
     affordability_buffer: 0.05,
     npv_strong_absolute: 50000,
     npv_strong_income_ratio: 0.25,
@@ -1105,6 +1676,7 @@ async function main() {
   refreshSlidersFromState();
   renderAll();
   updateTabCounts();
+  initQuiz();
 }
 
 function wireTabs() {
@@ -1204,6 +1776,7 @@ function resetStateToDefaults() {
   STATE.maint_rate = DEFAULTS.maint_rate;
   STATE.stay_years = 7;
   STATE.gross_income_annual = DEFAULTS.gross_income_annual || 120000;
+  STATE.monthly_rent = DEFAULTS.monthly_rent || 2000;
   STATE.affordability_pct = DEFAULTS.affordability_pct || 0.30;
   STATE.affordability_buffer = DEFAULTS.affordability_buffer || 0.05;
   STATE.npv_strong_absolute = DEFAULTS.npv_strong_absolute || 50000;
@@ -1237,6 +1810,7 @@ function refreshSlidersFromState() {
   setSlider("inv", STATE.investment_return * 100, fmt2, "%");
   setSlider("stay", STATE.stay_years, v => v.toFixed(0), " yrs");
   setSlider("income", STATE.gross_income_annual, v => "$" + Math.round(v / 1000) + "k", "/yr");
+  setSlider("rent-mo", STATE.monthly_rent, v => "$" + Math.round(v).toLocaleString(), "/mo");
   setSlider("afford-pct", STATE.affordability_pct * 100, v => v.toFixed(0), "%");
   setSlider("afford-buf", STATE.affordability_buffer * 100, v => v.toFixed(0), "pp");
   setSlider("npv-abs", STATE.npv_strong_absolute / 1000, v => "$" + v.toFixed(0) + "k", "");
@@ -1552,6 +2126,17 @@ function wireControls() {
     const v = +ev.target.value;
     document.getElementById("income-value").textContent = "$" + Math.round(v / 1000) + "k/yr";
     STATE.gross_income_annual = v;
+    rerender();
+  });
+
+  // Monthly rent — what the user currently pays for rent. Seeds the Max Housing
+  // Spend default at load time. Changing it later just updates STATE (so future
+  // logic can read it); does NOT live-recalc Max Housing Spend, per the
+  // "initialize only" UX decision.
+  document.getElementById("rent-mo-slider").addEventListener("input", (ev) => {
+    const v = +ev.target.value;
+    document.getElementById("rent-mo-value").textContent = "$" + Math.round(v).toLocaleString() + "/mo";
+    STATE.monthly_rent = v;
     rerender();
   });
 
@@ -2453,7 +3038,769 @@ function drawBreakevenChart(parent, rows, summary, mid) {
     });
 }
 
+// ---------------------------------------------------------------------------
+// Full-Screen Quiz
+// ---------------------------------------------------------------------------
+
+let quizAnswers = {};
+let quizStepIndex = 0;
+
+function getQuizFlow() {
+  const steps = ['intro', 'market', 'income', 'downpayment', 'invested'];
+  if (quizAnswers.invested === 'yes') steps.push('investtype');
+  steps.push('renting');
+  if (quizAnswers.renting === 'yes') steps.push('rentamount');
+  steps.push('stayyears', 'results');
+  return steps;
+}
+
+function estimateTaxBracket(income) {
+  if (income <= 11600)  return 0.10;
+  if (income <= 47150)  return 0.12;
+  if (income <= 100525) return 0.22;
+  if (income <= 191950) return 0.24;
+  if (income <= 243725) return 0.32;
+  if (income <= 609350) return 0.35;
+  return 0.37;
+}
+
+function quizMarketSnap() {
+  // Returns the snapshot row for the market chosen in the quiz, falling back to first.
+  if (quizAnswers.market) {
+    const s = DATA.snapshot.find(s => s.market_id === quizAnswers.market);
+    if (s) return s;
+  }
+  return DATA.snapshot[0] || null;
+}
+
+function applyQuizToState() {
+  // Market — must come first so down-payment % uses the right home price
+  if (quizAnswers.market) {
+    STATE.visible_markets = [quizAnswers.market];
+    updateMarketFilterUI();
+  }
+  if (quizAnswers.income != null) {
+    STATE.gross_income_annual = quizAnswers.income;
+    STATE.marg_tax_rate = estimateTaxBracket(quizAnswers.income);
+  }
+  if (quizAnswers.downDollars != null) {
+    const snap = quizMarketSnap();
+    const price = snap ? +snap.price : 400000;
+    STATE.down_pct = Math.min(Math.max(quizAnswers.downDollars / price, 0), 0.50);
+  }
+  if (quizAnswers.invested === 'no') {
+    STATE.investment_return = 0.025;
+  } else if (quizAnswers.investReturn != null) {
+    STATE.investment_return = quizAnswers.investReturn;
+  }
+  if (quizAnswers.stayYears != null) {
+    STATE.stay_years = quizAnswers.stayYears;
+  }
+  refreshSlidersFromState();
+  rerender();
+}
+
+function generateResultsSummary() {
+  const visible = STATE.visible_markets;
+  const cards = [];
+
+  visible.forEach(mid => {
+    const snap = DATA.snapshot.find(s => s.market_id === mid);
+    if (!snap) return;
+    const appr = apprDefaultForMarket(mid) || 0.04;
+    const pm = PER_MARKET[mid] || {};
+    const price = +snap.price;
+    const rent_mo = +snap.rent_mo;
+    const inputs = {
+      price, rent_mo,
+      rate: STATE.rate,
+      tax_rate: snap.tax_mo / snap.price * 12,
+      appreciation: appr,
+      rent_inflation: rentInflDefault() || 0.03,
+      down_pct: STATE.down_pct,
+      maint_rate: STATE.maint_rate,
+      insurance_mo: pm.default_insurance_mo || 150,
+      renters_insurance_mo: STATE.renters_insurance_mo,
+      investment_return: STATE.investment_return,
+      marg_tax_rate: STATE.marg_tax_rate,
+      closing_cost_buy_pct: STATE.closing_cost_buy_pct,
+      closing_cost_sell_pct: STATE.closing_cost_sell_pct,
+      horizon_years: 30,
+      loan_term_years: 30,
+    };
+    const bk = computeBreakeven(inputs);
+    const monthly = computeMonthly(inputs);
+    const verdictObj = computeVerdict({ ...bk, monthly });
+    const v = verdictObj.verdict;
+
+    const stay = STATE.stay_years;
+    const beYear = bk.breakeven_year;
+    const income = STATE.gross_income_annual;
+    const buyMo = monthly.total_buy_mo;
+    const buyPct = Math.round(buyMo / (income / 12) * 100);
+    const mktName = NAMES[mid] || mid;
+    const downAmt = '$' + Math.round(price * STATE.down_pct / 1000) + 'k';
+    const downPctStr = Math.round(STATE.down_pct * 100) + '%';
+
+    let verdictLabel, verdictClass, explanation;
+
+    if (v === 'lean_buy') {
+      verdictLabel = '📈 Lean Buy';
+      verdictClass = 'buy';
+      if (beYear && stay >= beYear) {
+        explanation = `With your ${stay}-year plan, buying starts making financial sense around year ${beYear} in ${mktName} — you'd stay past that point. A ${downPctStr} down payment (about ${downAmt}) builds real equity, and the monthly cost works out to about ${buyPct}% of your income.`;
+      } else if (beYear) {
+        explanation = `The numbers edge toward buying in ${mktName}. The breakeven point is around year ${beYear} — you're close to that with your ${stay}-year timeline. Monthly cost would be about ${buyPct}% of your income.`;
+      } else {
+        explanation = `Buying looks favorable in ${mktName} for your situation. Monthly cost would be about ${buyPct}% of your income with ${downPctStr} down.`;
+      }
+    } else if (v === 'lean_rent') {
+      verdictLabel = '🏠 Lean Rent';
+      verdictClass = 'rent';
+      if (buyPct > 35) {
+        explanation = `Buying in ${mktName} would cost around $${Math.round(buyMo).toLocaleString()}/month — that's ${buyPct}% of your gross income. Most financial guidelines suggest keeping housing under 30–35%. Renting keeps more cash free right now.`;
+      } else if (beYear && stay < beYear) {
+        explanation = `For a ${stay}-year stay, renting likely wins in ${mktName}. Buying there typically breaks even around year ${beYear} — if you move before then, the upfront costs mean renting would have been cheaper overall.`;
+      } else {
+        explanation = `Based on your situation, renting is the stronger financial move in ${mktName} right now. The math doesn't favor buying at your timeline and down payment amount.`;
+      }
+    } else if (v === 'needs_review') {
+      verdictLabel = '⚠️ Needs Review';
+      verdictClass = 'borderline';
+      explanation = `Both buying and renting in ${mktName} would take up a large share of your income. It might be worth exploring different areas, a lower price range, or waiting until income grows before making this decision.`;
+    } else {
+      verdictLabel = '⚖️ It\'s Close';
+      verdictClass = 'borderline';
+      if (beYear) {
+        explanation = `It's genuinely close in ${mktName}. The financial difference is small — buying and renting cost about the same around year ${beYear}. Your decision might come down to what you value more: the flexibility of renting or the stability of owning.`;
+      } else {
+        explanation = `The numbers are pretty even for ${mktName} and your situation. Neither option has a strong financial edge — it may come down to lifestyle preferences: flexibility vs. stability.`;
+      }
+    }
+
+    cards.push({ mid, marketName: mktName, verdictLabel, verdictClass, explanation });
+  });
+
+  return cards;
+}
+
+function isStepComplete(stepId) {
+  if (stepId === 'intro')       return true;
+  if (stepId === 'results')     return true;
+  if (stepId === 'market')      return quizAnswers.market != null;
+  if (stepId === 'income')      return quizAnswers.income != null;
+  if (stepId === 'downpayment') return quizAnswers.downDollars != null;
+  if (stepId === 'invested')    return quizAnswers.invested != null;
+  if (stepId === 'investtype')  return quizAnswers.investReturn != null;
+  if (stepId === 'renting')     return quizAnswers.renting != null;
+  if (stepId === 'rentamount')  return quizAnswers.rentAmount != null && quizAnswers.rentAmount > 0;
+  if (stepId === 'stayyears')   return quizAnswers.stayYears != null;
+  return true;
+}
+
+function initQuiz() {
+  const overlay   = document.getElementById('quiz-overlay');
+  const doneBadge = document.getElementById('personalize-done');
+
+  const loadSaved = () => {
+    try {
+      const raw = localStorage.getItem('skyclear_quiz_answers');
+      return raw ? JSON.parse(raw) : null;
+    } catch(e) { return null; }
+  };
+
+  const saved = loadSaved();
+
+  if (saved && localStorage.getItem('skyclear_personalized') === '1') {
+    quizAnswers = saved;
+    applyQuizToState();
+    overlay.style.display    = 'none';
+    doneBadge.style.display  = 'flex';
+  } else {
+    quizAnswers    = {};
+    quizStepIndex  = 0;
+    overlay.style.display = 'flex';
+    renderQuizStep();
+  }
+
+  document.getElementById('quiz-back').addEventListener('click', () => {
+    if (quizStepIndex > 0) {
+      quizStepIndex--;
+      renderQuizStep();
+    }
+  });
+
+  document.getElementById('quiz-next').addEventListener('click', () => {
+    const flow   = getQuizFlow();
+    const stepId = flow[quizStepIndex];
+    if (!isStepComplete(stepId)) return;
+
+    if (stepId === 'results') {
+      finishQuiz();
+      return;
+    }
+
+    quizStepIndex++;
+    // Re-derive flow (branching may have changed) and clamp
+    const newFlow = getQuizFlow();
+    if (quizStepIndex >= newFlow.length) quizStepIndex = newFlow.length - 1;
+    renderQuizStep();
+  });
+
+  document.getElementById('personalize-redo').addEventListener('click', e => {
+    e.preventDefault();
+    doneBadge.style.display = 'none';
+    const saved2 = loadSaved();
+    quizAnswers   = saved2 || {};
+    quizStepIndex = 0;
+    overlay.style.display = 'flex';
+    renderQuizStep();
+  });
+}
+
+function renderQuizStep() {
+  const flow    = getQuizFlow();
+  const stepId  = flow[quizStepIndex];
+  const qSteps  = flow.filter(s => s !== 'intro' && s !== 'results');
+  const qIdx    = qSteps.indexOf(stepId);
+  const isIntro   = stepId === 'intro';
+  const isResults = stepId === 'results';
+
+  // Progress bar
+  let pct = 0;
+  if (isResults) pct = 100;
+  else if (!isIntro) pct = ((qIdx + 1) / (qSteps.length + 1)) * 100;
+  document.getElementById('quiz-progress-fill').style.width = pct + '%';
+
+  // Step label
+  document.getElementById('quiz-step-label').textContent =
+    (!isIntro && !isResults) ? (qIdx + 1) + ' of ' + qSteps.length : '';
+
+  // Footer buttons
+  const backBtn = document.getElementById('quiz-back');
+  const nextBtn = document.getElementById('quiz-next');
+  backBtn.disabled    = isIntro;
+  backBtn.style.display = isIntro ? 'none' : '';
+  nextBtn.disabled    = !isStepComplete(stepId);
+  nextBtn.textContent = isIntro   ? "Let's get started →"
+                      : isResults ? 'Explore the full dashboard →'
+                      : flow[quizStepIndex + 1] === 'results' ? 'See my results →'
+                      : 'Continue →';
+
+  // Render body
+  const body = document.getElementById('quiz-body');
+  body.innerHTML = '';
+
+  if (isIntro)               renderQuizIntro(body);
+  else if (stepId === 'market')       renderQuizMarket(body, nextBtn);
+  else if (stepId === 'income')       renderQuizIncome(body, nextBtn);
+  else if (stepId === 'downpayment')  renderQuizDownPayment(body, nextBtn);
+  else if (stepId === 'invested')     renderQuizInvested(body, nextBtn);
+  else if (stepId === 'investtype')   renderQuizInvestType(body, nextBtn);
+  else if (stepId === 'renting')      renderQuizRenting(body, nextBtn);
+  else if (stepId === 'rentamount')   renderQuizRentAmount(body, nextBtn);
+  else if (stepId === 'stayyears')    renderQuizStayYears(body, nextBtn);
+  else if (isResults)                 renderQuizResults(body, nextBtn);
+}
+
+function renderQuizIntro(body) {
+  body.innerHTML = `
+    <div class="quiz-intro-wrap">
+      <div class="quiz-intro-icon">🏡</div>
+      <h2 class="quiz-intro-title">Should you rent or buy?</h2>
+      <p class="quiz-intro-body">
+        This tool is built to answer that question &mdash; not with a simple yes or no, but with
+        real math tailored to <em>your</em> situation.
+      </p>
+      <p class="quiz-intro-body">
+        Answer 7 quick questions and you'll see what the numbers actually say, explained in plain English.
+        Takes about 60 seconds.
+      </p>
+    </div>
+  `;
+}
+
+function renderQuizMarket(body, nextBtn) {
+  const cur = quizAnswers.market || '';
+  const options = MARKETS.map(mid => {
+    const city = (NAMES[mid] || mid).split(',')[0].trim();
+    const state = (NAMES[mid] || '').split(',')[1] ? (NAMES[mid]).split(',')[1].trim() : '';
+    const label = state ? city + ', ' + state : city;
+    return `<option value="${mid}"${mid === cur ? ' selected' : ''}>${label}</option>`;
+  }).join('');
+
+  // Pull the snap for the currently selected market (or first) to show a price hint
+  const snap = cur ? DATA.snapshot.find(s => s.market_id === cur) : DATA.snapshot[0];
+  const priceHint = snap
+    ? `Median home price: ~$${Math.round(+snap.price / 1000)}k &nbsp;·&nbsp; Median rent: ~$${Math.round(+snap.rent_mo).toLocaleString()}/mo`
+    : '';
+
+  body.innerHTML = `
+    <p class="quiz-q-eyebrow">Location</p>
+    <h2 class="quiz-q-title">Where are you thinking of buying?</h2>
+    <p class="quiz-q-hint">We'll use local market data — home prices, rent levels, and appreciation history — to make the math specific to your area.</p>
+    <div class="quiz-market-wrap">
+      <select id="quiz-market-select" class="quiz-market-select">
+        <option value="" disabled${!cur ? ' selected' : ''}>Select a market…</option>
+        ${options}
+      </select>
+      <div id="quiz-market-hint" class="quiz-market-hint">${priceHint}</div>
+    </div>
+  `;
+
+  nextBtn.disabled = !cur;
+
+  document.getElementById('quiz-market-select').addEventListener('change', ev => {
+    quizAnswers.market = ev.target.value;
+    nextBtn.disabled = false;
+    // Update the price/rent hint live
+    const s = DATA.snapshot.find(s => s.market_id === ev.target.value);
+    document.getElementById('quiz-market-hint').innerHTML = s
+      ? `Median home price: ~$${Math.round(+s.price / 1000)}k &nbsp;·&nbsp; Median rent: ~$${Math.round(+s.rent_mo).toLocaleString()}/mo`
+      : '';
+  });
+}
+
+function renderQuizIncome(body, nextBtn) {
+  const curVal = quizAnswers.income != null ? quizAnswers.income : 120000;
+  if (quizAnswers.income == null) { quizAnswers.income = curVal; }
+
+  body.innerHTML = `
+    <p class="quiz-q-eyebrow">Your situation</p>
+    <h2 class="quiz-q-title">What's your annual household income?</h2>
+    <p class="quiz-q-hint">We use this to show how much of your income housing would take up &mdash; one of the most important signals in rent-vs-buy math.</p>
+    <div class="quiz-slider-wrap">
+      <div class="quiz-slider-display" id="quiz-income-display">$${Math.round(curVal/1000)}k/yr</div>
+      <input type="range" id="quiz-income-slider" min="40000" max="500000" step="5000" value="${curVal}" />
+      <div class="quiz-slider-bounds"><span>$40k</span><span>$500k+</span></div>
+    </div>
+  `;
+  nextBtn.disabled = false;
+
+  document.getElementById('quiz-income-slider').addEventListener('input', ev => {
+    const v = +ev.target.value;
+    quizAnswers.income = v;
+    document.getElementById('quiz-income-display').textContent = '$' + Math.round(v/1000) + 'k/yr';
+  });
+}
+
+function renderQuizDownPayment(body, nextBtn) {
+  const snap      = quizMarketSnap();
+  const price     = snap ? Math.round(+snap.price) : 450000;
+  const suggested = Math.round(price * 0.20 / 10000) * 10000;
+  const curVal    = quizAnswers.downDollars;
+
+  body.innerHTML = `
+    <p class="quiz-q-eyebrow">Your savings</p>
+    <h2 class="quiz-q-title">How much could you put toward a down payment?</h2>
+    <p class="quiz-q-hint">A typical home in this market runs about $${Math.round(price/1000)}k. A 20% down payment would be about $${Math.round(suggested/1000)}k &mdash; but any amount counts.</p>
+    <div class="quiz-text-input-wrap">
+      <input type="text" id="quiz-down-input" class="quiz-text-input"
+             placeholder="e.g. $60,000"
+             value="${curVal != null ? '$' + Number(curVal).toLocaleString() : ''}"
+             inputmode="numeric" autocomplete="off" />
+      <div id="quiz-down-hint" class="quiz-rule-hint" style="display:none"></div>
+    </div>
+  `;
+
+  nextBtn.disabled = curVal == null;
+
+  const input   = document.getElementById('quiz-down-input');
+  const hintEl  = document.getElementById('quiz-down-hint');
+
+  if (curVal != null) _updateDownHint(curVal, price, hintEl);
+
+  input.addEventListener('input', ev => {
+    const raw = ev.target.value.replace(/[^0-9]/g, '');
+    if (!raw) {
+      quizAnswers.downDollars = null;
+      hintEl.style.display = 'none';
+      nextBtn.disabled = true;
+      return;
+    }
+    const v = parseInt(raw, 10);
+    quizAnswers.downDollars = v;
+    ev.target.value = '$' + v.toLocaleString();
+    _updateDownHint(v, price, hintEl);
+    nextBtn.disabled = false;
+  });
+
+  // Restore cursor at end
+  if (curVal != null) setTimeout(() => input.setSelectionRange(input.value.length, input.value.length), 0);
+}
+
+function _updateDownHint(v, price, hintEl) {
+  const pct = v / price * 100;
+  hintEl.style.display = 'block';
+  if (pct < 3.5) {
+    hintEl.className = 'quiz-rule-hint quiz-rule-warn';
+    hintEl.textContent = `That's ${pct.toFixed(1)}% of the home price. Most loans require at least 3.5% down — you'd need to save a bit more first.`;
+  } else if (pct < 20) {
+    hintEl.className = 'quiz-rule-hint quiz-rule-warn';
+    hintEl.textContent = `That's ${pct.toFixed(0)}% down. Totally workable, but you'll pay PMI (private mortgage insurance) until you reach 20% equity.`;
+  } else {
+    hintEl.className = 'quiz-rule-hint quiz-rule-ok';
+    hintEl.textContent = `That's ${pct.toFixed(0)}% down — great position. You'll skip PMI and likely get a better interest rate.`;
+  }
+}
+
+function renderQuizInvested(body, nextBtn) {
+  body.innerHTML = `
+    <p class="quiz-q-eyebrow">Your money</p>
+    <h2 class="quiz-q-title">If you rented instead of buying, would you invest the down payment?</h2>
+    <p class="quiz-q-hint">Money tied up in a home can't grow elsewhere. If you'd invest it, that's an opportunity cost that makes renting more competitive.</p>
+    <div class="quiz-tiles quiz-tiles-2col">
+      <button type="button" class="quiz-tile${quizAnswers.invested === 'yes' ? ' selected' : ''}" data-val="yes">
+        <span class="quiz-tile-label">Yes, I'd invest it</span>
+        <span class="quiz-tile-sub">stocks, index funds, etc.</span>
+      </button>
+      <button type="button" class="quiz-tile${quizAnswers.invested === 'no' ? ' selected' : ''}" data-val="no">
+        <span class="quiz-tile-label">No — savings or spend</span>
+        <span class="quiz-tile-sub">not an active investor</span>
+      </button>
+    </div>
+  `;
+  nextBtn.disabled = quizAnswers.invested == null;
+
+  body.querySelectorAll('.quiz-tile').forEach(btn => {
+    btn.addEventListener('click', () => {
+      quizAnswers.invested = btn.dataset.val;
+      body.querySelectorAll('.quiz-tile').forEach(t => t.classList.remove('selected'));
+      btn.classList.add('selected');
+      nextBtn.disabled = false;
+    });
+  });
+}
+
+function renderQuizInvestType(body, nextBtn) {
+  const opts = [
+    { label: 'Savings / CDs',          sub: '~2–3% return',   val: 0.025 },
+    { label: 'Index funds, hands-off',  sub: '~7% historically', val: 0.07  },
+    { label: 'Mix of stocks & bonds',   sub: '~5–6%',           val: 0.055 },
+    { label: 'Active / aggressive',     sub: '10%+',            val: 0.10  },
+  ];
+
+  body.innerHTML = `
+    <p class="quiz-q-eyebrow">Your investments</p>
+    <h2 class="quiz-q-title">How do you typically invest?</h2>
+    <p class="quiz-q-hint">Pick the closest match to how you'd handle the down payment money if you kept renting.</p>
+    <div class="quiz-tiles">
+      ${opts.map(o => `
+        <button type="button" class="quiz-tile${quizAnswers.investReturn === o.val ? ' selected' : ''}" data-val="${o.val}">
+          <span class="quiz-tile-label">${o.label}</span>
+          <span class="quiz-tile-sub">${o.sub}</span>
+        </button>
+      `).join('')}
+    </div>
+  `;
+  nextBtn.disabled = quizAnswers.investReturn == null;
+
+  body.querySelectorAll('.quiz-tile').forEach(btn => {
+    btn.addEventListener('click', () => {
+      quizAnswers.investReturn = +btn.dataset.val;
+      body.querySelectorAll('.quiz-tile').forEach(t => t.classList.remove('selected'));
+      btn.classList.add('selected');
+      nextBtn.disabled = false;
+    });
+  });
+}
+
+function renderQuizRenting(body, nextBtn) {
+  body.innerHTML = `
+    <p class="quiz-q-eyebrow">Right now</p>
+    <h2 class="quiz-q-title">Are you currently renting?</h2>
+    <p class="quiz-q-hint">This helps us give you a reality check on what you pay now vs. what buying would cost each month.</p>
+    <div class="quiz-tiles quiz-tiles-2col">
+      <button type="button" class="quiz-tile${quizAnswers.renting === 'yes' ? ' selected' : ''}" data-val="yes">
+        <span class="quiz-tile-label">Yes, I'm renting</span>
+      </button>
+      <button type="button" class="quiz-tile${quizAnswers.renting === 'no' ? ' selected' : ''}" data-val="no">
+        <span class="quiz-tile-label">No</span>
+        <span class="quiz-tile-sub">own, with family, etc.</span>
+      </button>
+    </div>
+  `;
+  nextBtn.disabled = quizAnswers.renting == null;
+
+  body.querySelectorAll('.quiz-tile').forEach(btn => {
+    btn.addEventListener('click', () => {
+      quizAnswers.renting = btn.dataset.val;
+      body.querySelectorAll('.quiz-tile').forEach(t => t.classList.remove('selected'));
+      btn.classList.add('selected');
+      nextBtn.disabled = false;
+    });
+  });
+}
+
+function renderQuizRentAmount(body, nextBtn) {
+  const income        = quizAnswers.income || 120000;
+  const monthlyIncome = income / 12;
+  const rule30        = Math.round(monthlyIncome * 0.30);
+  const curVal        = quizAnswers.rentAmount;
+
+  body.innerHTML = `
+    <p class="quiz-q-eyebrow">Your current housing</p>
+    <h2 class="quiz-q-title">How much do you pay in rent each month?</h2>
+    <p class="quiz-q-hint">Your income works out to about $${Math.round(monthlyIncome).toLocaleString()}/month. The common guideline is to spend no more than 30% on housing &mdash; that's $${rule30.toLocaleString()}/month for you.</p>
+    <div class="quiz-text-input-wrap">
+      <input type="text" id="quiz-rent-input" class="quiz-text-input"
+             placeholder="e.g. $1,800"
+             value="${curVal != null ? '$' + Number(curVal).toLocaleString() : ''}"
+             inputmode="numeric" autocomplete="off" />
+      <div id="quiz-rent-hint" class="quiz-rule-hint" style="display:none"></div>
+    </div>
+  `;
+  nextBtn.disabled = curVal == null || curVal <= 0;
+
+  const input  = document.getElementById('quiz-rent-input');
+  const hintEl = document.getElementById('quiz-rent-hint');
+
+  if (curVal != null && curVal > 0) _updateRentHint(curVal, monthlyIncome, hintEl);
+
+  input.addEventListener('input', ev => {
+    const raw = ev.target.value.replace(/[^0-9]/g, '');
+    if (!raw) {
+      quizAnswers.rentAmount = null;
+      hintEl.style.display = 'none';
+      nextBtn.disabled = true;
+      return;
+    }
+    const v = parseInt(raw, 10);
+    quizAnswers.rentAmount = v;
+    ev.target.value = '$' + v.toLocaleString();
+    _updateRentHint(v, monthlyIncome, hintEl);
+    nextBtn.disabled = v <= 0;
+  });
+
+  if (curVal != null) setTimeout(() => input.setSelectionRange(input.value.length, input.value.length), 0);
+}
+
+function _updateRentHint(v, monthlyIncome, hintEl) {
+  const pct = v / monthlyIncome * 100;
+  hintEl.style.display = 'block';
+  if (pct <= 30) {
+    hintEl.className = 'quiz-rule-hint quiz-rule-ok';
+    hintEl.textContent = `${pct.toFixed(0)}% of your gross income — within the 30% guideline. Solid.`;
+  } else if (pct <= 40) {
+    hintEl.className = 'quiz-rule-hint quiz-rule-warn';
+    hintEl.textContent = `${pct.toFixed(0)}% of your gross income — a bit above the 30% guideline. Manageable but leaves less room to save.`;
+  } else {
+    hintEl.className = 'quiz-rule-hint quiz-rule-over';
+    hintEl.textContent = `${pct.toFixed(0)}% of your gross income — well above the 30% guideline. Housing is stretching your budget significantly.`;
+  }
+}
+
+function renderQuizStayYears(body, nextBtn) {
+  const curVal = quizAnswers.stayYears != null ? quizAnswers.stayYears : 7;
+  if (quizAnswers.stayYears == null) quizAnswers.stayYears = curVal;
+
+  const fmt = v => v >= 20 ? '20+ years' : v === 1 ? '1 year' : v + ' years';
+
+  body.innerHTML = `
+    <p class="quiz-q-eyebrow">Your timeline</p>
+    <h2 class="quiz-q-title">How long do you plan to stay in the area?</h2>
+    <p class="quiz-q-hint">This is the single biggest factor. Buying costs a lot upfront &mdash; the longer you stay, the more time you have to recoup those costs and build equity.</p>
+    <div class="quiz-slider-wrap">
+      <div class="quiz-slider-display" id="quiz-stay-display">${fmt(curVal)}</div>
+      <input type="range" id="quiz-stay-slider" min="1" max="20" step="1" value="${curVal}" />
+      <div class="quiz-slider-bounds"><span>1 year</span><span>20+ years</span></div>
+    </div>
+  `;
+  nextBtn.disabled = false;
+
+  document.getElementById('quiz-stay-slider').addEventListener('input', ev => {
+    const v = +ev.target.value;
+    quizAnswers.stayYears = v;
+    document.getElementById('quiz-stay-display').textContent = fmt(v);
+  });
+}
+
+function renderQuizResults(body, nextBtn) {
+  applyQuizToState();
+  const cards = generateResultsSummary();
+
+  let html = `
+    <p class="quiz-q-eyebrow">Your personalized results</p>
+    <h2 class="quiz-results-title">Here's what the numbers say for your situation</h2>
+  `;
+
+  cards.forEach(c => {
+    html += `
+      <div class="quiz-verdict-card">
+        <div class="quiz-verdict-market">${c.marketName}</div>
+        <div class="quiz-verdict-badge ${c.verdictClass}">${c.verdictLabel}</div>
+        <p class="quiz-verdict-body">${c.explanation}</p>
+      </div>
+    `;
+  });
+
+  html += `
+    <p class="quiz-results-note">
+      These numbers are estimates based on current market data and your answers. The dashboard
+      lets you tweak every assumption to explore different scenarios.
+    </p>
+  `;
+
+  body.innerHTML = html;
+  nextBtn.disabled = false;
+}
+
+function finishQuiz() {
+  localStorage.setItem('skyclear_personalized', '1');
+  localStorage.setItem('skyclear_quiz_answers', JSON.stringify(quizAnswers));
+
+  document.getElementById('quiz-overlay').style.display   = 'none';
+  document.getElementById('personalize-done').style.display = 'flex';
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  setTimeout(startSpotlightTour, 600);
+}
+
+// ---------------------------------------------------------------------------
+// Spotlight Tour
+// ---------------------------------------------------------------------------
+
+const TOUR_STEPS = [
+  {
+    selector: '#snapshot',
+    title: 'Your rent-vs-buy verdict',
+    body: 'Each card is one metro area. The colored badge — Lean Buy, Lean Rent, or Borderline — is the bottom line based on your situation. Scroll each card to see the monthly cost breakdown and how many years until buying breaks even.',
+    calloutSide: 'bottom',
+  },
+  {
+    selector: 'section.controls',
+    title: 'Your most important lever',
+    body: '"How long you plan to stay" drives the math more than almost anything else. Try dragging it and watch the verdict badges change. The other sliders let you model different scenarios — mortgage rate, down payment, whatever you want to stress-test.',
+    calloutSide: 'right',
+  },
+  {
+    selector: '.chart-section',
+    title: 'When buying tips the math',
+    body: 'The solid line is the cumulative cost of buying; the dashed line is renting. Where they cross is your breakeven year. Stay longer than that and buying builds a growing advantage — shorter and renting wins.',
+    calloutSide: 'top',
+  },
+];
+
+let tourStep = 0;
+
+function startSpotlightTour() {
+  tourStep = 0;
+  document.getElementById('tour-backdrop').style.display  = 'block';
+  document.getElementById('tour-spotlight').style.display = 'block';
+  document.getElementById('tour-callout').style.display   = 'block';
+
+  document.getElementById('tour-back').addEventListener('click', () => {
+    if (tourStep > 0) { tourStep--; showTourStep(); }
+  });
+  document.getElementById('tour-next').addEventListener('click', () => {
+    if (tourStep < TOUR_STEPS.length - 1) { tourStep++; showTourStep(); }
+    else endTour();
+  });
+  // Clicking the backdrop advances the tour
+  document.getElementById('tour-backdrop').addEventListener('click', () => {
+    if (tourStep < TOUR_STEPS.length - 1) { tourStep++; showTourStep(); }
+    else endTour();
+  });
+
+  showTourStep();
+}
+
+function showTourStep() {
+  const s  = TOUR_STEPS[tourStep];
+  const el = document.querySelector(s.selector);
+  if (!el) return;
+
+  const total = TOUR_STEPS.length;
+  document.getElementById('tour-step-ind').textContent    = 'Step ' + (tourStep + 1) + ' of ' + total;
+  document.getElementById('tour-callout-title').textContent = s.title;
+  document.getElementById('tour-callout-body').textContent  = s.body;
+  document.getElementById('tour-next').textContent =
+    tourStep === total - 1 ? 'Explore on my own →' : 'Next →';
+  document.getElementById('tour-back').style.visibility =
+    tourStep === 0 ? 'hidden' : 'visible';
+
+  // Scroll element into view, then position overlay
+  el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  setTimeout(() => positionTour(el, s.calloutSide), 480);
+}
+
+function positionTour(el, side) {
+  const pad     = 10;
+  const rect    = el.getBoundingClientRect();
+  const spot    = document.getElementById('tour-spotlight');
+  const callout = document.getElementById('tour-callout');
+  const cw      = 300;
+  const gap     = 14;
+
+  // Position spotlight
+  spot.style.top    = (rect.top    - pad) + 'px';
+  spot.style.left   = (rect.left   - pad) + 'px';
+  spot.style.width  = (rect.width  + pad * 2) + 'px';
+  spot.style.height = (rect.height + pad * 2) + 'px';
+
+  // Position callout
+  let top, left;
+  const ch = callout.offsetHeight || 180;
+
+  if (side === 'bottom') {
+    top  = rect.bottom + pad + gap;
+    left = rect.left + (rect.width - cw) / 2;
+  } else if (side === 'top') {
+    top  = rect.top - ch - pad - gap;
+    left = rect.left + (rect.width - cw) / 2;
+  } else { // right
+    top  = rect.top + (rect.height - ch) / 2;
+    left = rect.right + pad + gap;
+  }
+
+  // Clamp to viewport
+  left = Math.max(12, Math.min(left, window.innerWidth  - cw - 12));
+  top  = Math.max(12, Math.min(top,  window.innerHeight - ch - 12));
+
+  callout.style.top  = top  + 'px';
+  callout.style.left = left + 'px';
+}
+
+function endTour() {
+  document.getElementById('tour-backdrop').style.display  = 'none';
+  document.getElementById('tour-spotlight').style.display = 'none';
+  document.getElementById('tour-callout').style.display   = 'none';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
 main();
 </script>
+
+<!-- ─── Full-Screen Quiz Overlay ─────────────────────────── -->
+<div id="quiz-overlay" style="display:none">
+  <div class="quiz-container">
+    <div class="quiz-topbar">
+      <div class="quiz-brand-sm">SkyClear</div>
+      <div class="quiz-progress-wrap">
+        <div class="quiz-progress-fill" id="quiz-progress-fill"></div>
+      </div>
+      <span class="quiz-step-label" id="quiz-step-label"></span>
+    </div>
+    <div class="quiz-body" id="quiz-body"></div>
+    <div class="quiz-footer">
+      <button id="quiz-back" type="button" class="quiz-back-btn">← Back</button>
+      <button id="quiz-next" type="button" class="quiz-next-btn">Let's get started →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ─── Spotlight Tour Elements ──────────────────────────── -->
+<div id="tour-backdrop"  style="display:none"></div>
+<div id="tour-spotlight" style="display:none"></div>
+<div id="tour-callout"   style="display:none">
+  <div class="tour-step-ind" id="tour-step-ind">Step 1 of 3</div>
+  <h4 id="tour-callout-title"></h4>
+  <p  id="tour-callout-body"></p>
+  <div class="tour-nav">
+    <button id="tour-back" type="button" class="tour-back-btn">← Back</button>
+    <button id="tour-next" type="button" class="tour-next-btn">Next →</button>
+  </div>
+</div>
+
 </body>
 </html>
