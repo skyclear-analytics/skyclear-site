@@ -2656,8 +2656,21 @@ function computeVerdict(d) {
     return { verdict: "needs_review", tooltip: tip };
   }
 
-  // Priority 2 — Hard gate: buying alone is too expensive.
+  // Priority 2 — Buying exceeds the user's hard gate (threshold + buffer).
+  // There are two sub-cases:
+  //   (a) buy is still under the absolute 30% "common-sense" housing-cost
+  //       ceiling AND NPV favors buying → "stretch to consider", not a hard
+  //       no. Demote to Borderline.
+  //   (b) buy is over 30%, or NPV doesn't favor buy → lean_rent stands.
   if (buyPct > hardGate) {
+    const ABSOLUTE_CEILING = 0.30;     // 30% rule of thumb — beyond this, buy really is a stretch
+    if (buyPct < ABSOLUTE_CEILING && npvVerdict === "lean_buy") {
+      const tip = `Looks like buying would be cheaper by ${gapStr} by the end of your ${stay}-year ` +
+                  `stay. However, the cost of buying will be a considerably larger portion of your ` +
+                  `income — ${pct(buyPct)} vs. ${pct(threshold)} (what you're paying now). Not a hard ` +
+                  `no, but maybe something to consider before you pull the trigger.`;
+      return { verdict: "borderline", tooltip: tip };
+    }
     const tip = `Even though buying might come out ahead long-term, the monthly cost would eat up ` +
                 `${pct(buyPct)} of your gross income — well above what most budgets can absorb ` +
                 `comfortably. For your situation right now, renting is the safer choice.`;
