@@ -657,7 +657,19 @@
   .verdict.borderline::before { background: #FB8C00; }
   .verdict.needs_review { background: #F3E5F5; color: #4A148C; border: 1px solid #E1BEE7; }
   .verdict.needs_review::before { background: #8E24AA; }
-  .verdict[data-tip]    { cursor: help; }
+
+  /* Verdict reasoning — formerly a hover tooltip, now rendered inline below
+     the badge so users on small/narrow viewports don't lose it off-screen. */
+  .verdict-reasoning {
+    font-size: 12px;
+    color: var(--text);
+    line-height: 1.5;
+    background: var(--sky-pale);
+    border-left: 3px solid var(--sky-primary);
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin: 8px 0 14px;
+  }
 
   /* ─── Chart Sections ──────────────────────────────────── */
   .chart-section {
@@ -2799,8 +2811,10 @@ function renderSnapshot(computed) {
       const winner = diff > 0 ? "Buy" : "Rent";
       stayHtml = `<strong>${winner}</strong> cheaper by $${fmt$(Math.abs(diff))}`;
     }
-    const { verdict: prVerdict, tooltip: prTip } = computeVerdict(d);
-    const tipAttr = prTip ? ` data-tip="${prTip.replace(/"/g, '&quot;')}"` : "";
+    const { verdict: prVerdict, tooltip: prReasoning } = computeVerdict(d);
+    const reasoningHtml = prReasoning
+      ? `<div class="verdict-reasoning">${prReasoning}</div>`
+      : "";
     const apprPct = (d.inputs.appreciation * 100).toFixed(2);
     const ratePct = (d.inputs.rate * 100).toFixed(2);
     const ov = STATE.overrides[d.market_id] || {};
@@ -2817,7 +2831,8 @@ function renderSnapshot(computed) {
     return `
     <div class="accent"></div>
     <h3>${NAMES[d.market_id]}</h3>
-    <span class="verdict ${prVerdict}"${tipAttr}>${prVerdict.replace("_", " ")}</span>
+    <span class="verdict ${prVerdict}">${prVerdict.replace("_", " ")}</span>
+    ${reasoningHtml}
     <div class="row"><span class="label">Home value</span><span class="value">$<input class="inline-input" type="text" inputmode="numeric" data-market="${d.market_id}" data-field="price" value="${Math.round(d.inputs.price).toLocaleString()}">${priceMarker}</span></div>
     <div class="row"><span class="label">Rent</span><span class="value">$<input class="inline-input" type="text" inputmode="numeric" data-market="${d.market_id}" data-field="rent" value="${Math.round(d.inputs.rent_mo).toLocaleString()}">/mo${rentMarker}</span></div>
     <div class="row"><span class="label">Mortgage rate</span><span class="value">${ratePct}%</span></div>
@@ -2856,10 +2871,8 @@ function renderSnapshot(computed) {
     rerender();
   });
 
-  // Verdict tooltip — shown on hover when affordability has adjusted the verdict.
-  cards.selectAll(".verdict[data-tip]")
-    .on("mouseover mousemove", function(ev) { showTip(this.dataset.tip, ev); })
-    .on("mouseleave", hideTip);
+  // Verdict reasoning used to live in a hover tooltip; it's now rendered
+  // inline as .verdict-reasoning right below the badge.
 }
 
 function renderProperties(computed) {
@@ -2898,8 +2911,10 @@ python export/build_dashboard_data.py --upload</pre>
       const winner = diff > 0 ? "Buy" : "Rent";
       stayHtml = `<strong>${winner}</strong> cheaper by $${fmt$(Math.abs(diff))}`;
     }
-    const { verdict: prVerdict, tooltip: prTip } = computeVerdict(d);
-    const tipAttr = prTip ? ` data-tip="${prTip.replace(/"/g, '&quot;')}"` : "";
+    const { verdict: prVerdict, tooltip: prReasoning } = computeVerdict(d);
+    const reasoningHtml = prReasoning
+      ? `<div class="verdict-reasoning">${prReasoning}</div>`
+      : "";
     const apprPct = (d.inputs.appreciation * 100).toFixed(2);
     const ratePct = (d.inputs.rate * 100).toFixed(2);
     const ov = STATE.overrides[prop.address] || {};
@@ -2919,7 +2934,8 @@ python export/build_dashboard_data.py --upload</pre>
     return `
     <div class="accent"></div>
     <h3>${prop.label || prop.formatted_address || prop.address}<span class="market-tag">${marketName}</span></h3>
-    <span class="verdict ${prVerdict}"${tipAttr}>${prVerdict.replace("_", " ")}</span>
+    <span class="verdict ${prVerdict}">${prVerdict.replace("_", " ")}</span>
+    ${reasoningHtml}
     <p class="property-meta">${ptype} &middot; ${beds}BR / ${baths}BA &middot; ${sqft} sqft</p>
     <div class="row"><span class="label">Home value</span><span class="value">$<input class="inline-input" type="text" inputmode="numeric" data-market="${prop.address}" data-field="price" value="${Math.round(d.inputs.price).toLocaleString()}">${priceMarker}</span></div>
     <div class="row"><span class="label">Rent</span><span class="value">$<input class="inline-input" type="text" inputmode="numeric" data-market="${prop.address}" data-field="rent" value="${Math.round(d.inputs.rent_mo).toLocaleString()}">/mo${rentMarker}</span></div>
@@ -2940,10 +2956,8 @@ python export/build_dashboard_data.py --upload</pre>
   `;
   });
 
-  // Verdict tooltip for affordability-adjusted verdicts.
-  cards.selectAll(".verdict[data-tip]")
-    .on("mouseover mousemove", function(ev) { showTip(this.dataset.tip, ev); })
-    .on("mouseleave", hideTip);
+  // Verdict reasoning is now rendered inline (.verdict-reasoning) instead of
+  // appearing in a hover tooltip — small viewports were losing it off-screen.
 
   // Reuse the same input/reset wiring as the market cards.
   cards.selectAll(".inline-input").on("change", function() {
