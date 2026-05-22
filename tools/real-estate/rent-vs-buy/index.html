@@ -356,6 +356,103 @@
     color: var(--muted);
     font-weight: 500;
   }
+  /* ─── Home value growth explanation drawer ──────────────── */
+  .growth-explain-drawer {
+    margin-top: 6px;
+    border: 1px dashed var(--border);
+    border-radius: 8px;
+    background: rgba(227,242,253,0.20);
+    padding: 0;
+  }
+  .growth-explain-drawer > summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--sky-primary);
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .growth-explain-drawer > summary::-webkit-details-marker { display: none; }
+  .growth-explain-drawer > summary::before {
+    content: "▶";
+    font-size: 9px;
+    color: var(--sky-primary);
+    transition: transform 0.15s;
+  }
+  .growth-explain-drawer[open] > summary::before { transform: rotate(90deg); }
+  .growth-explain-drawer > summary:hover { color: var(--sky-dark); }
+  .growth-explain-body {
+    padding: 4px 14px 14px;
+    border-top: 1px solid var(--border-soft);
+  }
+  .growth-explain-body p {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.55;
+    margin: 10px 0;
+  }
+  .growth-explain-body p strong { color: var(--text); }
+  .growth-explain-hint {
+    background: #FFF8E1;
+    border-left: 3px solid #F57C00;
+    padding: 8px 10px;
+    border-radius: 4px;
+    font-size: 11px !important;
+    color: var(--text) !important;
+    line-height: 1.5 !important;
+  }
+
+  /* ─── Down payment % ↔ $ toggle ───────────────────────── */
+  /* Header row layout: label / toggle pill / current value */
+  .down-payment-row { gap: 8px; }
+  .down-payment-row .control-label { flex: 1; }
+  .dp-mode-toggle {
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--sky-primary);
+    background: var(--sky-light);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 1px 10px;
+    cursor: pointer;
+    line-height: 1.4;
+    transition: background 0.15s, color 0.15s;
+  }
+  .dp-mode-toggle:hover { background: var(--sky-primary); color: #fff; }
+  .dp-mode-toggle:focus-visible { outline: 2px solid var(--sky-primary); outline-offset: 2px; }
+  /* Conditional visibility — JS flips data-mode on the wrapper */
+  #down-control[data-mode="pct"] .dp-dollars-wrap { display: none; }
+  #down-control[data-mode="dollars"] .dp-pct-input { display: none; }
+  /* $ input — looks like the editable card fields (dashed border, blue tint) */
+  .dp-dollars-wrap {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border: 1px dashed var(--border);
+    border-radius: 6px;
+    padding: 3px 8px;
+    background: rgba(227,242,253,0.28);
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .dp-dollars-wrap:hover { border-style: solid; border-color: var(--sky-primary); background: var(--sky-pale); }
+  .dp-dollars-wrap:focus-within { border-style: solid; border-color: var(--sky-primary); background: #fff; }
+  .dp-dollar-prefix { color: var(--muted); font-size: 13px; font-weight: 500; }
+  #down-dollars-input {
+    border: none;
+    background: transparent;
+    font: inherit;
+    font-variant-numeric: tabular-nums;
+    outline: none;
+    width: 100%;
+    color: var(--text);
+    padding: 0;
+  }
+
   /* Inline "i" icon with a CSS-only hover tooltip. Used next to control labels
      that benefit from a one-line explanation (e.g., Down Payment's Investment
      Return). Add via <i class="info-icon" data-tooltip="..."></i>. */
@@ -1374,13 +1471,23 @@
         <input type="range" id="income-slider" min="40000" max="500000" step="5000" />
       </div>
 
-      <!-- 2. Down payment (% ↔ $ toggle landing here in a later pass) -->
-      <div class="control">
-        <div class="control-row">
+      <!-- 2. Down payment — toggle between % slider and $ amount input.
+           data-mode controls which input is visible (CSS does the hide/show).
+           Source of truth tracks via STATE.down_anchor: whichever value the
+           user typed last gets preserved when the home value changes. -->
+      <div class="control" id="down-control" data-mode="pct">
+        <div class="control-row down-payment-row">
           <span class="control-label">Down payment</span>
+          <button type="button" class="dp-mode-toggle" id="down-mode-toggle" title="Switch input mode">$</button>
           <span class="control-value" id="down-value"></span>
         </div>
-        <input type="range" id="down-slider" min="0" max="50" step="1" />
+        <!-- % view (default) -->
+        <input type="range" id="down-slider" class="dp-pct-input" min="0" max="50" step="1" />
+        <!-- $ view -->
+        <div class="dp-dollars-wrap">
+          <span class="dp-dollar-prefix">$</span>
+          <input type="text" id="down-dollars-input" inputmode="numeric" autocomplete="off" />
+        </div>
       </div>
 
       <!-- 3. Down Payment's Investment Return (renamed from "Investment return if renting") -->
@@ -1414,15 +1521,28 @@
         <input type="range" id="stay-slider" min="1" max="30" step="1" />
       </div>
 
-      <!-- 7. Home value growth (will be wrapped in an explanation drawer in a later pass) -->
+      <!-- 7. Home value growth — most users won't intuit what this controls,
+           so the chart + explanation live behind a "Not sure what to put here?"
+           drawer. The window toggle (5y / 10y / 20y / 30y) stays visible so
+           confident users can change the appreciation default in one click. -->
       <div class="control">
         <div class="control-row">
           <span class="control-label">Home value growth</span>
           <span class="control-value" id="appr-value"></span>
         </div>
         <div class="window-toggle" id="appr-window-toggle"></div>
-        <div class="period-chart" id="appr-chart"></div>
-        <div class="control-hint" id="appr-defaults-hint"></div>
+        <details class="growth-explain-drawer" id="appr-drawer">
+          <summary>Not sure what to put here?</summary>
+          <div class="growth-explain-body">
+            <p>This is how much you expect homes in your market to <strong>appreciate (or depreciate) per year</strong>, averaged over the years you plan to stay. It's the single biggest swing in the rent-vs-buy math &mdash; a 2% difference in growth can flip the verdict.</p>
+            <p>The chart below shows the actual year-over-year change in home prices for your selected market. Drag a window on the chart to use the average from that period.</p>
+            <div class="period-chart" id="appr-chart"></div>
+            <p class="growth-explain-hint">
+              <strong>Heads up about 2020&ndash;2024:</strong> the pandemic housing boom skewed those years dramatically. Using the past 5 years as your forward estimate will overstate typical growth. For a more representative baseline, drag the window to cover <strong>1985 to 2019</strong> &mdash; that captures multiple full cycles without the COVID anomaly.
+            </p>
+            <div class="control-hint" id="appr-defaults-hint"></div>
+          </div>
+        </details>
       </div>
 
       <!-- 8. Current mortgage rate (moved to bottom — most users will accept the market default) -->
@@ -1561,6 +1681,16 @@ const STATE = {
   appreciation_window: "20",        // "5" | "10" | "20" | "30" | "custom"
   appreciation_brush: null,         // { start: "YYYY-MM-DD", end: "YYYY-MM-DD" } when user has dragged a range
   down_pct: 0.20,
+  // Down payment is editable as % OR $ via a toggle next to the label.
+  // down_pct (above) is the canonical value used by the breakeven calc.
+  // down_dollars is the $ equivalent, kept in sync against the reference
+  // home value (first visible market's price, override-aware).
+  // down_anchor records which view the user last edited — that value is
+  // preserved when the home value changes (the other recalculates).
+  // down_view_mode is which input the user currently sees in the sidebar.
+  down_dollars: 0,
+  down_anchor: 'pct',
+  down_view_mode: 'pct',
   investment_return: 0.05,
   rent_inflation: null,             // fraction; null = use windowed default
   rent_inflation_window: "20",      // "5" | "10" | "20" | "30"
@@ -1769,6 +1899,9 @@ function resetStateToDefaults() {
   STATE.rent_inflation = null;          // null = use windowed default
   STATE.rent_inflation_window = "20";
   STATE.down_pct = DEFAULTS.down_pct;
+  STATE.down_anchor = 'pct';            // Reset = back to %-anchored default
+  STATE.down_view_mode = 'pct';         // Reset = back to % view
+  STATE.down_dollars = STATE.down_pct * refHomeValue();   // initial sync
   STATE.investment_return = DEFAULTS.investment_return;
   STATE.marg_tax_rate = DEFAULTS.marg_tax_rate;
   STATE.maint_rate = DEFAULTS.maint_rate;
@@ -1788,6 +1921,67 @@ function setOverride(mid, field, value) {
   STATE.overrides[mid][field] = value;
 }
 
+// Reference home value for the % ↔ $ down-payment conversion. Uses the
+// first visible market's effective price (override > snapshot). Falls back
+// to a reasonable mid-market default if no markets/snapshot are available.
+function refHomeValue() {
+  const mid = (STATE.visible_markets && STATE.visible_markets[0]) || MARKETS[0];
+  if (!mid) return 400000;
+  const ov = STATE.overrides[mid] || {};
+  if (ov.price != null) return +ov.price;
+  const snap = DATA.snapshot.find(s => s.market_id === mid);
+  return snap && snap.price ? +snap.price : 400000;
+}
+
+// Keep STATE.down_pct and STATE.down_dollars in sync. The "anchor" is the
+// value the user explicitly entered last — that one is preserved across
+// home-value changes; the other recalculates from refHomeValue().
+function syncDownPayment() {
+  const price = refHomeValue();
+  if (STATE.down_anchor === 'dollars') {
+    STATE.down_pct = price > 0 ? Math.min(Math.max(STATE.down_dollars / price, 0), 1) : 0;
+  } else {
+    STATE.down_dollars = STATE.down_pct * price;
+  }
+}
+
+// Refresh every visual element of the down-payment control to reflect STATE.
+// Toggle label shows the OTHER mode (what clicking would switch you to).
+function refreshDownPaymentUI() {
+  const control = document.getElementById("down-control");
+  if (!control) return;
+  control.dataset.mode = STATE.down_view_mode;
+
+  const slider = document.getElementById("down-slider");
+  if (slider) slider.value = Math.round(STATE.down_pct * 100);
+
+  const dollarsInput = document.getElementById("down-dollars-input");
+  if (dollarsInput && document.activeElement !== dollarsInput) {
+    dollarsInput.value = Math.round(STATE.down_dollars).toLocaleString();
+  }
+
+  const toggle = document.getElementById("down-mode-toggle");
+  if (toggle) {
+    toggle.textContent = STATE.down_view_mode === 'pct' ? '$' : '%';
+    toggle.title = STATE.down_view_mode === 'pct'
+      ? "Show as a dollar amount"
+      : "Show as a percentage";
+  }
+
+  const valueEl = document.getElementById("down-value");
+  if (valueEl) {
+    if (STATE.down_view_mode === 'pct') {
+      valueEl.textContent = Math.round(STATE.down_pct * 100) + '%';
+    } else {
+      const d = Math.round(STATE.down_dollars);
+      // Compact format for big numbers ($125k), commas for smaller ($85,000)
+      valueEl.textContent = d >= 10000
+        ? "$" + Math.round(d / 1000) + "k"
+        : "$" + d.toLocaleString();
+    }
+  }
+}
+
 function clearOverride(mid, field) {
   if (STATE.overrides[mid]) {
     delete STATE.overrides[mid][field];
@@ -1804,7 +1998,9 @@ function refreshSlidersFromState() {
   setSlider("rate", STATE.rate * 100, fmt2, "%");
   // Appreciation has no slider — chart handles it. Just refresh the bold value.
   refreshApprValueDisplay();
-  setSlider("down", STATE.down_pct * 100, v => v.toFixed(0), "%");
+  // Down payment is split UI (pct slider + $ input + toggle); handled by its own refresh helper
+  syncDownPayment();
+  refreshDownPaymentUI();
   setSlider("inv", STATE.investment_return * 100, fmt2, "%");
   setSlider("stay", STATE.stay_years, v => v.toFixed(0), " yrs");
   setSlider("income", STATE.gross_income_annual, v => "$" + Math.round(v / 1000) + "k", "/yr");
@@ -2092,7 +2288,45 @@ function wireControls() {
     });
   };
   bind("rate", "rate-slider", fmt2, "%", 100, "rate");
-  bind("down", "down-slider", v => v.toFixed(0), "%", 100, "down_pct");
+  // Down payment uses its own (more complex) wiring because it has two inputs
+  // (% slider, $ text) plus a mode-toggle button. The "anchor" tracks which
+  // value the user typed last; the other is derived. Both are kept in sync.
+  document.getElementById("down-slider").addEventListener("input", (ev) => {
+    STATE.down_pct = (+ev.target.value) / 100;
+    STATE.down_anchor = 'pct';
+    syncDownPayment();
+    refreshDownPaymentUI();
+    rerender();
+  });
+  document.getElementById("down-dollars-input").addEventListener("input", (ev) => {
+    // Strip $/comma/whitespace so users can type "$110,000" or "110000" interchangeably
+    const v = parseFloat(String(ev.target.value).replace(/[$,\s]/g, ""));
+    if (Number.isNaN(v) || v < 0) return;
+    STATE.down_dollars = v;
+    STATE.down_anchor = 'dollars';
+    syncDownPayment();
+    // Don't fully re-paint the $ input mid-typing — refreshDownPaymentUI guards
+    // against clobbering the active text input. We still update the rest.
+    refreshDownPaymentUI();
+    rerender();
+  });
+  document.getElementById("down-mode-toggle").addEventListener("click", () => {
+    STATE.down_view_mode = STATE.down_view_mode === 'pct' ? 'dollars' : 'pct';
+    refreshDownPaymentUI();
+  });
+
+  // Home value growth drawer — D3 chart needs accurate container dimensions,
+  // and a closed <details> reports 0 width. Re-render the chart whenever the
+  // drawer opens so it sizes correctly.
+  const apprDrawer = document.getElementById("appr-drawer");
+  if (apprDrawer) {
+    apprDrawer.addEventListener("toggle", () => {
+      if (apprDrawer.open && typeof renderApprChart === "function") {
+        renderApprChart();
+      }
+    });
+  }
+
   bind("inv", "inv-slider", fmt2, "%", 100, "investment_return");
   bind("margtax", "margtax-slider", v => v.toFixed(0), "%", 100, "marg_tax_rate");
   bind("maint", "maint-slider", v => v.toFixed(1), "%", 100, "maint_rate");
@@ -2193,6 +2427,12 @@ function renderAll() {
 }
 
 function rerender() {
+  // Down payment first: if the user edited a home value in a card, the
+  // reference price changed and either pct or dollars (whichever isn't anchored)
+  // needs to recalculate before the rest of the math runs.
+  syncDownPayment();
+  refreshDownPaymentUI();
+
   const rentInfl = STATE.rent_inflation != null
     ? STATE.rent_inflation
     : (rentInflDefault() || 0.03);
@@ -3074,9 +3314,11 @@ function applyQuizToState() {
     STATE.marg_tax_rate = estimateTaxBracket(quizAnswers.income);
   }
   if (quizAnswers.downDollars != null) {
-    const snap = quizMarketSnap();
-    const price = snap ? +snap.price : 400000;
-    STATE.down_pct = Math.min(Math.max(quizAnswers.downDollars / price, 0), 0.50);
+    // Quiz captured a dollar amount → that's the user's actual commitment.
+    // Anchor on $: future home-value changes recalc %, but the dollars persist.
+    STATE.down_dollars = quizAnswers.downDollars;
+    STATE.down_anchor = 'dollars';
+    syncDownPayment();
   }
   if (quizAnswers.invested === 'no') {
     STATE.investment_return = 0.025;
