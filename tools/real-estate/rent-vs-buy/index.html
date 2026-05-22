@@ -690,10 +690,13 @@
   .afford-pct { color: var(--muted); font-size: 11px; font-weight: 500; margin-left: 4px; }
 
   /* ─── Inline Input ────────────────────────────────────── */
+  /* Dashed border + subtle blue tint signal "this is editable". Solid border
+     + brighter background appear on hover/focus. The "market median" label
+     next to each input explains what the default value represents. */
   .inline-input {
     width: 96px;
-    border: 1px solid transparent;
-    background: transparent;
+    border: 1px dashed var(--border);
+    background: rgba(227,242,253,0.28);
     font: inherit;
     font-variant-numeric: tabular-nums;
     text-align: right;
@@ -701,11 +704,13 @@
     border-radius: 4px;
     color: inherit;
     -moz-appearance: textfield;
+    cursor: text;
+    transition: background 0.15s, border-color 0.15s;
   }
   .inline-input::-webkit-outer-spin-button,
   .inline-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
-  .inline-input:hover { border-color: var(--border); background: var(--sky-pale); }
-  .inline-input:focus { border-color: var(--sky-primary); background: white; outline: none; }
+  .inline-input:hover { border-style: solid; border-color: var(--sky-primary); background: var(--sky-pale); }
+  .inline-input:focus { border-style: solid; border-color: var(--sky-primary); background: #fff; outline: none; }
   .row .hint { color: var(--muted); font-size: 10px; margin-left: 4px; font-weight: 600; letter-spacing: 0.4px; text-transform: uppercase; }
   .row .reset-override { color: var(--muted); text-decoration: none; cursor: pointer; margin-left: 4px; font-size: 13px; }
   .row .reset-override:hover { color: var(--sky-primary); }
@@ -1387,17 +1392,10 @@
         <input type="range" id="inv-slider" min="0" max="15" step="0.25" />
       </div>
 
-      <!-- 4. Monthly rent — what the user is currently paying (or would pay) for rent.
-           Default = first market's ZORI on load. Feeds Max Housing Spend default. -->
-      <div class="control">
-        <div class="control-row">
-          <span class="control-label">Monthly rent <i class="info-icon" tabindex="0" role="button" aria-label="What this means" data-tooltip="What you're paying now (or expect to pay) for rent. We use this to estimate what % of your income housing currently takes up, which seeds the Max Housing Spend slider below."></i></span>
-          <span class="control-value" id="rent-mo-value"></span>
-        </div>
-        <input type="range" id="rent-mo-slider" min="500" max="6000" step="25" />
-      </div>
-
-      <!-- 5. Max housing spend -->
+      <!-- 5. Max housing spend (no Monthly Rent slider — that data is captured
+           in the intro quiz as `quizAnswers.rentAmount` and feeds the
+           affordability_pct default. Card-level Rent value is editable per-market
+           with the metro ZORI as default.) -->
       <div class="control">
         <div class="control-row">
           <span class="control-label">Max housing spend</span>
@@ -1810,7 +1808,6 @@ function refreshSlidersFromState() {
   setSlider("inv", STATE.investment_return * 100, fmt2, "%");
   setSlider("stay", STATE.stay_years, v => v.toFixed(0), " yrs");
   setSlider("income", STATE.gross_income_annual, v => "$" + Math.round(v / 1000) + "k", "/yr");
-  setSlider("rent-mo", STATE.monthly_rent, v => "$" + Math.round(v).toLocaleString(), "/mo");
   setSlider("afford-pct", STATE.affordability_pct * 100, v => v.toFixed(0), "%");
   setSlider("afford-buf", STATE.affordability_buffer * 100, v => v.toFixed(0), "pp");
   setSlider("npv-abs", STATE.npv_strong_absolute / 1000, v => "$" + v.toFixed(0) + "k", "");
@@ -2126,17 +2123,6 @@ function wireControls() {
     const v = +ev.target.value;
     document.getElementById("income-value").textContent = "$" + Math.round(v / 1000) + "k/yr";
     STATE.gross_income_annual = v;
-    rerender();
-  });
-
-  // Monthly rent — what the user currently pays for rent. Seeds the Max Housing
-  // Spend default at load time. Changing it later just updates STATE (so future
-  // logic can read it); does NOT live-recalc Max Housing Spend, per the
-  // "initialize only" UX decision.
-  document.getElementById("rent-mo-slider").addEventListener("input", (ev) => {
-    const v = +ev.target.value;
-    document.getElementById("rent-mo-value").textContent = "$" + Math.round(v).toLocaleString() + "/mo";
-    STATE.monthly_rent = v;
     rerender();
   });
 
@@ -2578,12 +2564,16 @@ function renderSnapshot(computed) {
     const apprPct = (d.inputs.appreciation * 100).toFixed(2);
     const ratePct = (d.inputs.rate * 100).toFixed(2);
     const ov = STATE.overrides[d.market_id] || {};
+    // Labels next to the editable inputs. When unedited: "metro median" tells
+    // users the default is the area average (Zillow ZHVI for price, ZORI for
+    // rent). When edited: a reset arrow appears that restores the default.
+    // Tooltips spell out the source + how to override so it's discoverable.
     const priceMarker = ov.price != null
-      ? `<a href="#" class="reset-override" data-market="${d.market_id}" data-field="price" title="Reset to ZHVI">↺</a>`
-      : `<span class="hint">ZHVI</span>`;
+      ? `<a href="#" class="reset-override" data-market="${d.market_id}" data-field="price" title="Restore the metro median home value">↺</a>`
+      : `<span class="hint" title="Default value is the metro median home price (Zillow ZHVI). Tap the dollar amount to enter your specific home's price.">metro median</span>`;
     const rentMarker = ov.rent != null
-      ? `<a href="#" class="reset-override" data-market="${d.market_id}" data-field="rent" title="Reset to ZORI">↺</a>`
-      : `<span class="hint">ZORI</span>`;
+      ? `<a href="#" class="reset-override" data-market="${d.market_id}" data-field="rent" title="Restore the metro median rent">↺</a>`
+      : `<span class="hint" title="Default value is the metro median rent (Zillow ZORI). Tap the dollar amount to enter what you actually pay.">metro median</span>`;
     return `
     <div class="accent"></div>
     <h3>${NAMES[d.market_id]}</h3>
@@ -3095,6 +3085,22 @@ function applyQuizToState() {
   }
   if (quizAnswers.stayYears != null) {
     STATE.stay_years = quizAnswers.stayYears;
+  }
+  // Rent and Max-Housing-Spend default: if the user said they're renting and
+  // told us the amount, seed both off their actual numbers. We update
+  // STATE.monthly_rent (used internally; no longer surfaced as a sidebar slider)
+  // and re-derive affordability_pct from (rent × 12) / income. Initialize-only:
+  // the user can still drag the Max Housing Spend slider freely afterward.
+  if (quizAnswers.rentAmount != null && quizAnswers.rentAmount > 0) {
+    STATE.monthly_rent = quizAnswers.rentAmount;
+    const income = STATE.gross_income_annual || 120000;
+    STATE.affordability_pct = Math.min(Math.max((quizAnswers.rentAmount * 12) / income, 0.05), 1.0);
+  } else if (quizAnswers.income != null) {
+    // Income changed via quiz but no rent answer — recompute from the metro
+    // ZORI default in STATE.monthly_rent against the new income.
+    const rent = STATE.monthly_rent || (quizMarketSnap() && quizMarketSnap().rent_mo) || 2000;
+    STATE.monthly_rent = rent;
+    STATE.affordability_pct = Math.min(Math.max((rent * 12) / quizAnswers.income, 0.05), 1.0);
   }
   refreshSlidersFromState();
   rerender();
