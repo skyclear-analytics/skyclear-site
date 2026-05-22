@@ -793,9 +793,10 @@
     <button class="tab-button active" data-tab="markets" role="tab">
       Markets <span class="tab-count" id="tab-count-markets"></span>
     </button>
-    <button class="tab-button" data-tab="properties" role="tab">
-      My Properties <span class="tab-count" id="tab-count-properties"></span>
-    </button>
+    <!-- "My Properties" tab removed — contained personal address data and was
+         only useful to John. If we ever want to bring it back for personal use,
+         restore the tab button + the #tab-properties content section, and let
+         build_dashboard_data.py emit DATA.properties again. -->
   </nav>
 
   <div class="layout">
@@ -963,13 +964,9 @@
     </section>
   </div>
 
-  <div class="tab-content" id="tab-properties" role="tabpanel">
-    <section id="properties-section">
-      <h2 class="properties-heading">My Properties</h2>
-      <p class="properties-caption">Specific homes you&rsquo;re tracking from RentCast. Edit <code>properties.py</code> to add more.</p>
-      <div id="properties-cards" class="cards"></div>
-    </section>
-  </div>
+  <!-- The "My Properties" tab content section was removed alongside its tab
+       button — contained the user's home address and other personal data.
+       See note next to the tabs nav above for restoration steps. -->
   </main>
   </div>
 </div>
