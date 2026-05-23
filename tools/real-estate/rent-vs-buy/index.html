@@ -671,6 +671,150 @@
     margin: 8px 0 14px;
   }
 
+  /* ─── Stat tile dashboard ──────────────────────────────────
+     Headline stats that back the verdict prose. Sit directly below
+     the .verdict-reasoning block. 2x2 grid; collapses to single column
+     on very narrow viewports. */
+  .stat-tiles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 12px 0 16px;
+  }
+  @media (max-width: 480px) {
+    .stat-tiles { grid-template-columns: 1fr; }
+  }
+  .stat-tile {
+    background: var(--sky-pale);
+    border: 1px solid var(--border-soft);
+    border-radius: 6px;
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .stat-tile .stat-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+  }
+  .stat-tile .stat-value {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text);
+    font-variant-numeric: tabular-nums;
+    line-height: 1.2;
+  }
+  .stat-tile .stat-value.positive { color: var(--buy-green); }
+  .stat-tile .stat-value.negative { color: var(--rent-red); }
+  .stat-tile .stat-sub {
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  /* ─── Card "dig deeper" drawer ─────────────────────────────
+     Holds the secondary numbers (price-to-rent ratio, monthly
+     breakdown, sensitivity table, affordability box) that earlier
+     versions of the card showed always-on. Collapsed by default to
+     keep the result-tier focused on the verdict and the four tiles. */
+  .card-dig-deeper {
+    margin-top: 10px;
+    border-top: 1px solid var(--border-soft);
+    padding-top: 12px;
+  }
+  .card-dig-deeper > summary {
+    cursor: pointer;
+    list-style: none;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--sky-primary);
+    padding: 4px 0;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .card-dig-deeper > summary::-webkit-details-marker { display: none; }
+  .card-dig-deeper > summary::before {
+    content: "▸";
+    font-size: 10px;
+    color: var(--sky-primary);
+    transition: transform 0.15s ease;
+    display: inline-block;
+  }
+  .card-dig-deeper[open] > summary::before { transform: rotate(90deg); }
+  .card-dig-deeper > summary .dd-hint {
+    font-weight: 400;
+    color: var(--muted);
+    margin-left: 4px;
+  }
+  .card-dig-deeper .dd-body {
+    margin-top: 8px;
+  }
+  .card-dig-deeper .dd-explainer {
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.45;
+    margin: 0 0 8px;
+    padding: 6px 10px;
+    background: var(--sky-pale);
+    border-radius: 4px;
+  }
+  .row.dd-row { /* slightly tighter rows inside the drawer */
+    padding: 4px 0;
+  }
+
+  /* ─── Page-level "dig deeper" for charts ───────────────────
+     The three historical charts (cumulative cost, P/R ratio, monthly
+     gap) are auditing/learning tools, not part of the headline answer.
+     Wrap them in a collapsed details element so first-time visitors
+     aren't dropped into a chart wall. */
+  .page-dig-deeper {
+    margin-top: 32px;
+    background: var(--card);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    padding: 0;
+  }
+  .page-dig-deeper > summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 18px 24px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .page-dig-deeper > summary::-webkit-details-marker { display: none; }
+  .page-dig-deeper > summary::before {
+    content: "▸";
+    color: var(--sky-primary);
+    transition: transform 0.15s ease;
+    display: inline-block;
+  }
+  .page-dig-deeper[open] > summary::before { transform: rotate(90deg); }
+  .page-dig-deeper > summary .pd-hint {
+    font-weight: 400;
+    color: var(--muted);
+    font-size: 13px;
+    margin-left: 4px;
+  }
+  .page-dig-deeper .pd-body {
+    padding: 0 16px 16px;
+  }
+  .page-dig-deeper .chart-section {
+    margin-bottom: 14px;
+    box-shadow: none;
+    border: 1px solid var(--border-soft);
+  }
+  .page-dig-deeper .chart-section:last-child { margin-bottom: 0; }
+
   /* ─── Chart Sections ──────────────────────────────────── */
   .chart-section {
     background: var(--card);
@@ -1294,7 +1438,7 @@
   }
   .quiz-verdict-badge {
     display: inline-block;
-    font-size: 13px;
+    font-size: 20px;
     font-weight: 700;
     padding: 3px 10px;
     border-radius: 20px;
@@ -1625,36 +1769,48 @@
   <div class="tab-content active" id="tab-markets" role="tabpanel">
     <section id="snapshot" class="cards"></section>
 
-    <section class="chart-section">
-      <h2>Cumulative cost over time: buy vs. rent</h2>
-      <p class="caption">
-        For each market, cumulative net cost of buying (solid) vs. renting (dashed)
-        if you sold or moved at the end of year N. Buy line subtracts equity and adds sale costs.
-        Rent line subtracts the alt-investment growth on the down payment.
-        The crossover point is the breakeven year.
-      </p>
-      <div id="breakeven-charts" class="facets"></div>
-    </section>
+    <!-- Historical charts live behind a single page-level "dig deeper"
+         drawer, collapsed by default. They're auditing tools, not the
+         headline answer — first-time visitors were hitting a wall of
+         charts and bouncing. -->
+    <details class="page-dig-deeper" id="page-dig-deeper">
+      <summary>
+        Charts and historical context
+        <span class="pd-hint">— open if you want to see the math, history, and sensitivity</span>
+      </summary>
+      <div class="pd-body">
+        <section class="chart-section">
+          <h2>Cumulative cost over time: buy vs. rent</h2>
+          <p class="caption">
+            For each market, cumulative net cost of buying (solid) vs. renting (dashed)
+            if you sold or moved at the end of year N. Buy line subtracts equity and adds sale costs.
+            Rent line subtracts the alt-investment growth on the down payment.
+            The crossover point is the breakeven year.
+          </p>
+          <div id="breakeven-charts" class="facets"></div>
+        </section>
 
-    <section class="chart-section">
-      <h2>Price-to-rent ratio over time</h2>
-      <p class="caption">
-        Above 20 historically favors renting; below 15 historically favors buying.
-        Each market&rsquo;s full available history.
-      </p>
-      <div class="legend" id="pr-legend"></div>
-      <div id="pr-chart"></div>
-    </section>
+        <section class="chart-section">
+          <h2>Price-to-rent ratio over time</h2>
+          <p class="caption">
+            Above 20 historically favors renting; below 15 historically favors buying.
+            Each market&rsquo;s full available history.
+          </p>
+          <div class="legend" id="pr-legend"></div>
+          <div id="pr-chart"></div>
+        </section>
 
-    <section class="chart-section">
-      <h2>Monthly cost gap (buy &minus; rent)</h2>
-      <p class="caption">
-        Positive = buying costs more per month than renting at the prevailing 30-yr rate.
-        Includes P&amp;I, property tax, maintenance, and insurance.
-      </p>
-      <div class="legend" id="gap-legend"></div>
-      <div id="gap-chart"></div>
-    </section>
+        <section class="chart-section">
+          <h2>Monthly cost gap (buy &minus; rent)</h2>
+          <p class="caption">
+            Positive = buying costs more per month than renting at the prevailing 30-yr rate.
+            Includes P&amp;I, property tax, maintenance, and insurance.
+          </p>
+          <div class="legend" id="gap-legend"></div>
+          <div id="gap-chart"></div>
+        </section>
+      </div>
+    </details>
   </div>
 
   <!-- The "My Properties" tab content section was removed alongside its tab
@@ -2339,6 +2495,17 @@ function wireControls() {
     });
   }
 
+  // Page-level "dig deeper" drawer — same problem as appr-drawer: the three
+  // historical charts inside it (cumulative cost, P/R ratio, monthly gap)
+  // render at 0 width if the drawer is collapsed on first render. Trigger
+  // a full rerender() the first time the user opens it.
+  const pageDD = document.getElementById("page-dig-deeper");
+  if (pageDD) {
+    pageDD.addEventListener("toggle", () => {
+      if (pageDD.open) rerender();
+    });
+  }
+
   bind("inv", "inv-slider", fmt2, "%", 100, "investment_return");
   bind("margtax", "margtax-slider", v => v.toFixed(0), "%", 100, "marg_tax_rate");
   bind("maint", "maint-slider", v => v.toFixed(1), "%", 100, "maint_rate");
@@ -2462,7 +2629,15 @@ function rerender() {
     const pm = PER_MARKET[mid] || {};
     const ov = STATE.overrides[mid] || {};
     const price = ov.price != null ? ov.price : +snap.price;
-    const rent_mo = ov.rent != null ? ov.rent : +snap.rent_mo;
+    // Rent default: prefer the user's own rent (from the quiz) over the metro
+    // median. Keeps the card's Rent value, the Monthly Housing tile, and the
+    // % of income tile all telling one consistent story — what the user is
+    // actually paying today. Metro median is exposed as a secondary hint
+    // (rendered next to the input) so users in a market they don't live in
+    // can see the local average and override if they want.
+    const userRent = STATE.monthly_rent;
+    const defaultRent = (userRent && userRent > 0) ? userRent : +snap.rent_mo;
+    const rent_mo = ov.rent != null ? ov.rent : defaultRent;
     const inputs = {
       price: price,
       rent_mo: rent_mo,
@@ -2852,30 +3027,105 @@ function renderSnapshot(computed) {
     const priceMarker = ov.price != null
       ? `<a href="#" class="reset-override" data-market="${d.market_id}" data-field="price" title="Restore the metro median home value">↺</a>`
       : `<span class="hint" title="Default value is the metro median home price (Zillow ZHVI). Tap the dollar amount to enter your specific home's price.">metro median</span>`;
-    const rentMarker = ov.rent != null
-      ? `<a href="#" class="reset-override" data-market="${d.market_id}" data-field="rent" title="Restore the metro median rent">↺</a>`
-      : `<span class="hint" title="Default value is the metro median rent (Zillow ZORI). Tap the dollar amount to enter what you actually pay.">metro median</span>`;
+    // Rent marker: differs based on what's driving the default.
+    //   - User entered their rent in the quiz → "your rent" (with metro median
+    //     as a contextual tooltip).
+    //   - User didn't fill in the quiz → "metro median" (Zillow ZORI).
+    //   - User overrode in this card → reset arrow to restore the default.
+    const userRentT = STATE.monthly_rent;
+    const hasUserRent = userRentT && userRentT > 0;
+    const metroMedRent = +d.snap.rent_mo;
+    const metroNote = `Metro median (Zillow ZORI) here is about $${Math.round(metroMedRent).toLocaleString()}/mo. Tap the dollar amount to override.`;
+    let rentMarker;
+    if (ov.rent != null) {
+      const defaultLabel = hasUserRent ? "your rent" : "metro median";
+      rentMarker = `<a href="#" class="reset-override" data-market="${d.market_id}" data-field="rent" title="Restore the default (${defaultLabel})">↺</a>`;
+    } else if (hasUserRent) {
+      rentMarker = `<span class="hint" title="Default value is the rent you entered in the quiz. ${metroNote}">your rent</span>`;
+    } else {
+      rentMarker = `<span class="hint" title="Default value is the metro median rent (Zillow ZORI). Tap the dollar amount to enter what you actually pay.">metro median</span>`;
+    }
+
+    // ── Stat tiles (headline numbers that back the verdict prose) ──
+    // Each tile cites a number the verdict references. Skipping any of
+    // them would leave a claim in the verdict prose unsupported. Tile 4
+    // is conditional on income being set, since "% of income" is
+    // meaningless without it.
+    const tilesArr = [];
+    const stayLabel = STATE.stay_years === 1 ? "year" : "years";
+    tilesArr.push(`
+      <div class="stat-tile">
+        <div class="stat-label">Your stay</div>
+        <div class="stat-value">${STATE.stay_years} ${stayLabel}</div>
+      </div>
+    `);
+    if (stayRow) {
+      const diff = stayRow.rent_cum_net - stayRow.buy_cum_net;
+      const winner = diff > 0 ? "Buying" : "Renting";
+      const cls = diff > 0 ? "positive" : "negative";
+      tilesArr.push(`
+        <div class="stat-tile">
+          <div class="stat-label">Net at year ${STATE.stay_years}</div>
+          <div class="stat-value ${cls}">${winner} wins by $${fmt$(Math.abs(diff))}</div>
+        </div>
+      `);
+    } else {
+      tilesArr.push(`
+        <div class="stat-tile">
+          <div class="stat-label">Net at year ${STATE.stay_years}</div>
+          <div class="stat-value">&mdash;</div>
+        </div>
+      `);
+    }
+    tilesArr.push(`
+      <div class="stat-tile">
+        <div class="stat-label">Monthly housing</div>
+        <div class="stat-value">$${fmt$(m.total_rent_mo)} → $${fmt$(m.total_buy_mo)}</div>
+        <div class="stat-sub">rent → buy</div>
+      </div>
+    `);
+    const incomeT = STATE.gross_income_annual;
+    if (incomeT && incomeT > 0) {
+      const grossMo = incomeT / 12;
+      const curPct = Math.round(STATE.affordability_pct * 100);
+      const buyPctT = Math.round((m.total_buy_mo / grossMo) * 100);
+      tilesArr.push(`
+        <div class="stat-tile">
+          <div class="stat-label">% of income</div>
+          <div class="stat-value">${curPct}% → ${buyPctT}%</div>
+          <div class="stat-sub">today → after buying</div>
+        </div>
+      `);
+    }
+    const tilesHtml = `<div class="stat-tiles">${tilesArr.join("")}</div>`;
+
     return `
     <div class="accent"></div>
     <h3>${NAMES[d.market_id]}</h3>
     <span class="verdict ${prVerdict}">${prVerdict.replace("_", " ")}</span>
     ${reasoningHtml}
+    ${tilesHtml}
     <div class="row"><span class="label">Home value</span><span class="value">$<input class="inline-input" type="text" inputmode="numeric" data-market="${d.market_id}" data-field="price" value="${Math.round(d.inputs.price).toLocaleString()}">${priceMarker}</span></div>
     <div class="row"><span class="label">Rent</span><span class="value">$<input class="inline-input" type="text" inputmode="numeric" data-market="${d.market_id}" data-field="rent" value="${Math.round(d.inputs.rent_mo).toLocaleString()}">/mo${rentMarker}</span></div>
-    <div class="row"><span class="label">Mortgage rate</span><span class="value">${ratePct}%</span></div>
-    <div class="row"><span class="label">Price-to-rent ratio</span><span class="value">${fmt1(m.pr_ratio)}</span></div>
-    <div class="row"><span class="label">Insurance (default)</span><span class="value">$${fmt$(d.inputs.insurance_mo)}/mo</span></div>
-    <div class="row"><span class="label">Total monthly cost (buy)</span><span class="value">$${fmt$(m.total_buy_mo)}</span></div>
-    <div class="row"><span class="label">Total monthly cost (rent)</span><span class="value">$${fmt$(m.total_rent_mo)}</span></div>
-    <div class="row"><span class="label">Monthly gap (buy − rent)</span><span class="value">${m.gap_mo > 0 ? "+" : ""}$${fmt$(m.gap_mo)}</span></div>
-    <div class="row"><span class="label">Appreciation used${STATE.appreciation == null ? ` (${STATE.appreciation_window}y)` : " (override)"}</span><span class="value">${apprPct}%/yr</span></div>
-    <div class="row"><span class="label">NPV breakeven</span><span class="value">${beStr}</span></div>
-    ${buildSensitivityHTML(d.inputs, d.breakeven_year)}
-    ${buildAffordabilityHTML(m)}
-    <div class="row headline">
-      <span class="label">At year ${STATE.stay_years}</span>
-      <span class="value">${stayHtml}</span>
-    </div>
+    <div class="row"><span class="label">Mortgage rate</span><span class="value" title="Set in the sidebar under 'Current mortgage rate'. Applies to all markets.">${ratePct}%</span></div>
+    <details class="card-dig-deeper">
+      <summary>Dig into the math<span class="dd-hint">— full breakdown, sensitivity, and affordability check</span></summary>
+      <div class="dd-body">
+        <p class="dd-explainer">
+          These are the numbers behind the verdict above. Useful if you want to audit the math
+          or stress-test what happens when rates or appreciation move.
+        </p>
+        <div class="row dd-row"><span class="label" title="Home price divided by annual rent. Under 15 historically favors buying; over 20 historically favors renting.">Price-to-rent ratio</span><span class="value">${fmt1(m.pr_ratio)}</span></div>
+        <div class="row dd-row"><span class="label" title="Per-market default. Override in the sidebar if your real quote differs.">Insurance (default)</span><span class="value">$${fmt$(d.inputs.insurance_mo)}/mo</span></div>
+        <div class="row dd-row"><span class="label" title="Principal + interest + property tax + maintenance + insurance.">Total monthly cost (buy)</span><span class="value">$${fmt$(m.total_buy_mo)}</span></div>
+        <div class="row dd-row"><span class="label" title="Rent plus renter's insurance.">Total monthly cost (rent)</span><span class="value">$${fmt$(m.total_rent_mo)}</span></div>
+        <div class="row dd-row"><span class="label">Monthly gap (buy − rent)</span><span class="value">${m.gap_mo > 0 ? "+" : ""}$${fmt$(m.gap_mo)}</span></div>
+        <div class="row dd-row"><span class="label" title="Annual home-value growth applied in the projection. Set via the Home value growth control in the sidebar.">Appreciation used${STATE.appreciation == null ? ` (${STATE.appreciation_window}y)` : " (override)"}</span><span class="value">${apprPct}%/yr</span></div>
+        <div class="row dd-row"><span class="label" title="Year when cumulative buy cost (net of equity, minus sale costs) drops below cumulative rent cost (net of alt-investment return on the down payment).">NPV breakeven</span><span class="value">${beStr}</span></div>
+        ${buildSensitivityHTML(d.inputs, d.breakeven_year)}
+        ${buildAffordabilityHTML(m)}
+      </div>
+    </details>
   `;
   });
 
@@ -3887,7 +4137,7 @@ function renderQuizStayYears(body, nextBtn) {
 
   body.innerHTML = `
     <p class="quiz-q-eyebrow">Your timeline</p>
-    <h2 class="quiz-q-title">How long do you plan to stay in the area?</h2>
+    <h2 class="quiz-q-title">How long do you plan to stay in the house?</h2>
     <p class="quiz-q-hint">This is the single biggest factor. Buying costs a lot upfront &mdash; the longer you stay, the more time you have to recoup those costs and build equity.</p>
     <div class="quiz-slider-wrap">
       <div class="quiz-slider-display" id="quiz-stay-display">${fmt(curVal)}</div>
@@ -3953,21 +4203,21 @@ const TOUR_STEPS = [
   {
     selector: '#snapshot',
     title: 'Your rent-vs-buy verdict',
-    body: 'Each card is one metro area. The colored badge — Lean Buy, Lean Rent, or Borderline — is the bottom line based on your situation. Scroll each card to see the monthly cost breakdown and how many years until buying breaks even.',
+    body: 'Each card is one metro area. The colored badge — Lean Buy, Lean Rent, or Borderline — is the bottom line based on your situation. The home price defaults to the average for that market, but you can change it to see how the verdict changes.',
     calloutSide: 'bottom',
   },
   {
     selector: 'section.controls',
-    title: 'Your most important lever',
-    body: '"How long you plan to stay" drives the math more than almost anything else. Try dragging it and watch the verdict badges change. The other sliders let you model different scenarios — mortgage rate, down payment, whatever you want to stress-test.',
+    title: 'Mess with the numbers',
+    body: 'This is where you can change your situation on the fly — interest rate, down payment, and more — to see how the verdict changes. You can also explore different markets to compare.',
     calloutSide: 'right',
   },
-  {
-    selector: '.chart-section',
-    title: 'When buying tips the math',
-    body: 'The solid line is the cumulative cost of buying; the dashed line is renting. Where they cross is your breakeven year. Stay longer than that and buying builds a growing advantage — shorter and renting wins.',
-    calloutSide: 'top',
-  },
+  // {
+  //   selector: '.chart-section',
+  //   title: 'When buying tips the math',
+  //   body: 'The solid line is the cumulative cost of buying; the dashed line is renting. Where they cross is your breakeven year. Stay longer than that and buying builds a growing advantage — shorter and renting wins.',
+  //   calloutSide: 'top',
+  // },
 ];
 
 let tourStep = 0;
