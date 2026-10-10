@@ -1,12 +1,16 @@
 # Cloudflare Workers configuration for the SkyClear site.
-# This is a static-asset-only deployment — no server code, no Worker handler.
-# Cloudflare serves the files in this directory directly via its CDN.
+# Static files in this directory are served directly from Cloudflare's CDN.
+# worker/index.js only runs for requests that don't match a static file —
+# currently just /data/rent-vs-buy.json, which proxies the calculator's live
+# data from GCS so the site picks up each monthly refresh automatically.
 
 name = "skyclear-site"
 compatibility_date = "2026-05-15"
+main = "worker/index.js"
 
 [assets]
 directory = "."
+binding = "ASSETS"
 
 [observability]
 enabled = true

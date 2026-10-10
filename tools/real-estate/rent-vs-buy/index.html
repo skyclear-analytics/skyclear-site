@@ -1895,7 +1895,15 @@ function hideTip() { tooltip.classed("show", false); }
 async function main() {
   let data;
   try {
-    data = await d3.json("dashboard_data.json");
+    // On skyclear.info, /data/rent-vs-buy.json is served by the site's Worker,
+    // which pulls the latest export from the GCS bucket the monthly Cloud Run
+    // job writes to. Anywhere else (GCS-hosted copy, local preview) that path
+    // doesn't exist, so fall back to the dashboard_data.json next to this page.
+    try {
+      data = await d3.json("/data/rent-vs-buy.json", { cache: "no-cache" });
+    } catch (e1) {
+      data = await d3.json("dashboard_data.json");
+    }
   } catch (e) {
     d3.select(".wrap").append("p").attr("class", "empty")
       .text("Could not load dashboard_data.json. Run `python export/build_dashboard_data.py` first.");

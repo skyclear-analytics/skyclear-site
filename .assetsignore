@@ -20,3 +20,6 @@ wrangler.toml
 # Project docs that don't belong on the public site
 README.md
 .assetsignore
+
+# Worker source (deployed as code, not as a public file)
+worker/
